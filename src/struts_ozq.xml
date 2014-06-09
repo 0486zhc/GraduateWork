@@ -3,8 +3,5 @@
 <struts>
 <constant name="struts.objectFactory" value="spring"></constant>
 
-<include file="struts_lhb.xml"></include>
-<include file="struts_zjc.xml"></include>
-<include file="struts_ozq.xml"></include>
 
 </struts>    
