@@ -3,8 +3,12 @@
 <struts>
 <constant name="struts.objectFactory" value="spring"></constant>
 
-<include file="struts_lhb.xml"></include>
-<include file="struts_zjc.xml"></include>
-<include file="struts_ozq.xml"></include>
+	<package name="CheckOnDuty" namespace="/" extends="struts-default">
+		<!-- 查排班 -->
+		<action name="CheckOnDuty" class="CheckOnDutyAction" method="CheckOnDuty">
+			<result>/index.jsp</result>
+			<result name="fail">/index.jsp</result>
+		</action>
+	</package>
 
 </struts>    
