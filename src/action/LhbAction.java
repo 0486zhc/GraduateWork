@@ -20,11 +20,6 @@ public class LhbAction extends ActionSupport
       this.lhbBo = lhbBo;
    }
 
-   public String loginQuery()
-   {
-      return lhbBo.loginQuery(user.getUser(), user.getPwd());
-   }
-
    public User getUser()
    {
       return user;
@@ -34,4 +29,10 @@ public class LhbAction extends ActionSupport
    {
       this.user = user;
    }
+
+   public String loginQuery()
+   {
+      return lhbBo.loginQuery(user.getUser(), user.getPwd());
+   }
+
 }
