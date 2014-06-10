@@ -3,8 +3,10 @@
 <struts>
 
 <package name="lhb" namespace="/" extends="struts-default">
-	<action name="login" class="action.LhbAction">
+	<action name="login" class="action.LhbAction" method="loginQuery">
 		<result name="success">/jsp/success.jsp</result>
+		<result name="fail">/jsp/fail.jsp</result>
+		
 	</action>
 </package>
 
