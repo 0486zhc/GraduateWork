@@ -5,7 +5,7 @@
 
 	<package name="CheckOnDuty" namespace="/" extends="struts-default">
 		<!-- 查排班 -->
-		<action name="CheckOnDuty" class="OzqAction" method="CheckOnDuty">
+		<action name="OzqAction" class="OzqAction" method="CheckOnDuty">
 			<result>/index.jsp</result>
 			<result name="fail">/index.jsp</result>
 		</action>
