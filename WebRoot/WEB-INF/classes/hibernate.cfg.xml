@@ -21,6 +21,10 @@
 	<property name="myeclipse.connection.profile">Gdmc</property>
 	<property name="connection.autocommit">true</property>
 
+	<mapping resource="model/Ozq/DeptDict.hbm.xml"></mapping>
+	<mapping resource="model/Ozq/OutpDoctorRegist.hbm.xml"></mapping>
+	<mapping resource="model/Ozq/StaffDict.hbm.xml"></mapping>
+
 </session-factory>
 
 </hibernate-configuration>
