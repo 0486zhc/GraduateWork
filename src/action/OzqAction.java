@@ -1,5 +1,6 @@
 package action;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -60,17 +61,23 @@ public class OzqAction{
 	//≤È≈≈∞‡
 	public String CheckOnDuty(){
 		System.out.println("action1...");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		String str1 = "2014/01/23";
 		String str2 = "2014/01/25";
+		Date date1 = sdf.(str1,"YYYY/MM/DD");
 		OutpDoctorRegist = OzqBo.CheckOnDuty(str1, str2, "0101", "1106");
 		System.out.println("action2...");
 		
 		//OutpDoctorRegist = OzqBo.CheckOnDuty(start_time, end_time, clinic_dept, doctor_no);
 		return "success";
 	}
+	//≤È≈≈∞‡
+//		public String execute(){
+//			return "success";
+//		}
 	
-	public static void main(String[] args) {
-		OzqAction test = new OzqAction();
-		test.CheckOnDuty();
-	}
+//	public static void main(String[] args) {
+//		OzqAction test = new OzqAction();
+//		test.CheckOnDuty();
+//	}
 }

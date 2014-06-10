@@ -53,12 +53,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </tr>
   
   </s:iterator>
-  
-  
-  
-
 </table>
-
+<input type="submit" value="点击">
 </form>
   </body>
 </html>
