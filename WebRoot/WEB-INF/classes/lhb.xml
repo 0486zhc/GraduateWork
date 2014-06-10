@@ -11,4 +11,53 @@
 		<property name="configLocation"
 			value="classpath:hibernate.cfg.xml">
 		</property>
-	</bean></beans>
+	</bean>
+	<bean id="LhbAction" class="action.LhbAction" scope="prototype">
+		<property name="lhbBo" ref="lhbBo"></property>
+	</bean>
+	
+	<bean id="user" class="model.lhb.User" scope="prototype">
+	</bean>
+	
+	
+	<bean id="lhbBo" class="bo.LhbBo">
+		<property name="lhbDao" ref="lhbDao"></property>
+	</bean>
+	
+	<bean id="lhbDao" class="dao.LhbDao">
+		<property name="template">
+			<ref bean="l_hibernateTemplate" />
+		</property>
+	</bean>
+
+	<!-- 配置hibernateTemplate -->
+	<bean id="l_hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- 配置了事务代理才能执行对数据库的操作 -->
+	<!--将事务管理交给spring，注册一个bean -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 事务处理的一个代理 -->
+	<bean id="baseTxProxy" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="adddeathcertificate">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	</beans>
