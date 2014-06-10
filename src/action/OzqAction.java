@@ -64,7 +64,6 @@ public class OzqAction{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		String str1 = "2014/01/23";
 		String str2 = "2014/01/25";
-		Date date1 = sdf.(str1,"YYYY/MM/DD");
 		OutpDoctorRegist = OzqBo.CheckOnDuty(str1, str2, "0101", "1106");
 		System.out.println("action2...");
 		
