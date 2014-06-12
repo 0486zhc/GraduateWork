@@ -35,7 +35,7 @@ public class OzqDao{
                  " and CLINIC_APPOINTS.VISIT_TIME_APPTED   = A.clinic_duration "+
                  " and CLINIC_APPOINTS.PRE_REGIST_DOCTOR   =  A.DOCTOR_NO "+
                  " and CLINIC_APPOINTS.REGIST_STATUS IN('0') ) ,0)app_unregisted_num "+
-        " FROM OUTP_DOCTOR_REGIST A " +
+        " FROM OutpDoctorRegist A " +
         " WHERE   to_date(A.COUNSEL_DATE) >= to_date( '" + start_time + "','yyyy-mm-dd') " +
         " and to_date(A.COUNSEL_DATE) <= to_date( '" + end_time + "','yyyy-mm-dd') and (A.CLINIC_DEPT = '" + clinic_dept + "' or nvl('" + clinic_dept + "','null')='null') " +
         " and (A.DOCTOR_NO = '" + doctor_no + "' or nvl('" + doctor_no + "','null')='null' )");
