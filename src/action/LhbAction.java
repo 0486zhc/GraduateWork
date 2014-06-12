@@ -1,6 +1,6 @@
 package action;
 
-import model.lhb.User;
+import model.lhb.PatMasterIndex;
 import bo.LhbBo;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -8,7 +8,10 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LhbAction extends ActionSupport
 {
    private LhbBo lhbBo;
-   private User  user;
+   private String pat_id;
+   private String pwd;
+   
+   // private PatMasterIndex user;
 
    public LhbBo getLhbBo()
    {
@@ -20,19 +23,30 @@ public class LhbAction extends ActionSupport
       this.lhbBo = lhbBo;
    }
 
-   public User getUser()
+   public String getPat_id()
    {
-      return user;
+      return pat_id;
    }
-
-   public void setUser(User user)
+   
+   public void setPat_id(String pat_id)
    {
-      this.user = user;
+      this.pat_id = pat_id;
    }
-
+   
+   public String getPwd()
+   {
+      return pwd;
+   }
+   
+   public void setPwd(String pwd)
+   {
+      this.pwd = pwd;
+   }
    public String loginQuery()
    {
-      return lhbBo.loginQuery(user.getUser(), user.getPwd());
+      lhbBo.loginQuery(pat_id, pwd);
+      return "success";
    }
+
 
 }
