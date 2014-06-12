@@ -7,10 +7,10 @@
 
 	
 	<bean id="OzqAction" class="action.OzqAction" scope="prototype">
-		<property name="OzqBo" ref="OzqBo"></property>
+		<property name="ozqBo" ref="ozqBo"></property>
 	</bean>
 	
-	<bean id="OzqBo" class="bo.OzqBo">
+	<bean id="ozqBo" class="bo.OzqBo">
 		<property name="OzqDao" ref="OzqDao"></property>
 	</bean>
 	

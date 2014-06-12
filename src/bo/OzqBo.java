@@ -22,5 +22,4 @@ private OzqDao OzqDao;
 		return OzqDao.CheckOnDuty(start_time, end_time, clinic_dept, doctor_no);
 	}
 
-
 }

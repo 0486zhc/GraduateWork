@@ -1,6 +1,5 @@
 package action;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -9,20 +8,21 @@ import bo.OzqBo;
 
 public class OzqAction{
 
-	private OzqBo OzqBo;
+	private OzqBo ozqBo;
 	private List<OutpDoctorRegist> OutpDoctorRegist;
 	private Date start_time;
 	private Date end_time;
 	private String clinic_dept;
 	private String doctor_no;
 
-	public OzqBo getOzqBo() {
-		return OzqBo;
-	}
-	public void setOzqBo(OzqBo OzqBo) {
-		this.OzqBo = OzqBo;
-	}
 	
+	
+	public OzqBo getOzqBo() {
+		return ozqBo;
+	}
+	public void setOzqBo(OzqBo ozqBo) {
+		this.ozqBo = ozqBo;
+	}
 	public List<OutpDoctorRegist> getOutpDoctorRegist() {
 		return OutpDoctorRegist;
 	}
@@ -61,10 +61,9 @@ public class OzqAction{
 	//≤È≈≈∞‡
 	public String CheckOnDuty(){
 		System.out.println("action1...");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		String str1 = "2014/01/23";
 		String str2 = "2014/01/25";
-		OutpDoctorRegist = OzqBo.CheckOnDuty(str1, str2, "0101", "1106");
+		OutpDoctorRegist = ozqBo.CheckOnDuty(str1, str2, "0101", "1106");
 		System.out.println("action2...");
 		
 		//OutpDoctorRegist = OzqBo.CheckOnDuty(start_time, end_time, clinic_dept, doctor_no);
