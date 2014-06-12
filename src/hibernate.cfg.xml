@@ -24,6 +24,7 @@
 	<mapping resource="model/Ozq/DeptDict.hbm.xml"></mapping>
 	<mapping resource="model/Ozq/OutpDoctorRegist.hbm.xml"></mapping>
 	<mapping resource="model/Ozq/StaffDict.hbm.xml"></mapping>
+	<mapping resource="model/lhb/PatMasterIndex.hbm.xml"></mapping>
 
 </session-factory>
 

@@ -8,18 +8,13 @@
 
 	<bean id="LhbAction" class="action.LhbAction" scope="prototype">
 		<property name="lhbBo" ref="lhbBo"></property>
-		<property name="user" ref="user"></property>
+		
 	</bean>
-	
-	<bean id="user" class="model.lhb.User" scope="prototype">
-	</bean>
-	
-	
 	<bean id="lhbBo" class="bo.LhbBo">
-		<property name="lhbDao" ref="lhbDao"></property>
+		<property name="pmiDao" ref="pmiDao"></property>
 	</bean>
 	
-	<bean id="lhbDao" class="dao.LhbDao">
+	<bean id="pmiDao" class="dao.PatMasterIndexDAO">
 		<property name="template">
 			<ref bean="l_hibernateTemplate" />
 		</property>

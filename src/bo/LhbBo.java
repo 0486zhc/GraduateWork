@@ -1,28 +1,31 @@
 package bo;
 
-import dao.LhbDao;
+import model.lhb.PatMasterIndex;
+import dao.PatMasterIndexDAO;
 
 public class LhbBo
 {
-   private LhbDao lhbDao;
+   private PatMasterIndexDAO pmiDao;
 
-   public LhbDao getLhbDao()
+   public PatMasterIndexDAO getPmiDao()
    {
-      return lhbDao;
+      return pmiDao;
    }
 
-   public void setLhbDao(LhbDao lhbDao)
+   public void setPmiDao(PatMasterIndexDAO pmiDao)
    {
-      this.lhbDao = lhbDao;
+      this.pmiDao = pmiDao;
    }
+
 
    public String loginQuery(String user, String pwd)
    {
-      return lhbDao.loginQuery(user, pwd);
+      PatMasterIndex pat = pmiDao.find(user, pwd);
+      if(pat == null)
+      {
+         return "fail";
+      }
+      return "success";
    }
-   
-   public void helo()
-   {
-      System.out.println("hello");
-   }
+
 }
