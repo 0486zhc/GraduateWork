@@ -3,6 +3,7 @@ package action;
 import java.util.Map;
 
 import util.HibernateUtil;
+import util.MD5;
 
 import model.lhb.PatMasterIndex;
 import bo.LhbBo;
@@ -14,11 +15,14 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LhbAction extends ActionSupport
 {
    private LhbBo lhbBo;
-   private String pat_id;
    private String pwd;
    private String phoneNum;
    private String user_id;
    private String user_name;
+   private Map<String, Object> request;
+   private Map<String, Object> session;
+   private Map<String, Object> application;
+   private PatMasterIndex      pmi;
 
    public String getPhoneNum()
    {
@@ -50,11 +54,6 @@ public class LhbAction extends ActionSupport
       this.user_name = user_name;
    }
 
-   private Map<String,Object> request;
-   private Map<String, Object> session;
-   private Map<String, Object> application;
-   PatMasterIndex pmi;
-   
    @SuppressWarnings("unchecked")
    public LhbAction()
    {
@@ -62,6 +61,7 @@ public class LhbAction extends ActionSupport
       session = ActionContext.getContext().getSession();
       application = ActionContext.getContext().getApplication();
    }
+
    // private PatMasterIndex user;
 
    public LhbBo getLhbBo()
@@ -74,36 +74,29 @@ public class LhbAction extends ActionSupport
       this.lhbBo = lhbBo;
    }
 
-   public String getPat_id()
-   {
-      return pat_id;
-   }
-   
-   public void setPat_id(String pat_id)
-   {
-      this.pat_id = pat_id;
-   }
-   
    public String getPwd()
    {
       return pwd;
    }
-   
+
    public void setPwd(String pwd)
    {
       this.pwd = pwd;
    }
+
    public String loginQuery()
    {
-      pmi = lhbBo.loginQuery(pat_id, pwd);
-      session.put("user", pmi); 
+      pwd = MD5.afterMd5(pwd);
+      pmi = lhbBo.loginQuery(user_id, pwd);
+      session.put("user", pmi);
       return "success";
    }
-   
+
    public String regist()
    {
+      
       pmi = new PatMasterIndex();
-      pmi.setIdentity(pwd);
+      pmi.setPassword(MD5.afterMd5(pwd));
       pmi.setIdNo(user_id);
       pmi.setName(user_name);
       pmi.setPhoneNumberBusiness(phoneNum);
@@ -115,5 +108,4 @@ public class LhbAction extends ActionSupport
       return state;
    }
 
-   
 }

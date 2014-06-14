@@ -17,29 +17,27 @@ public class LhbBo
       this.pmiDao = pmiDao;
    }
 
-
    public PatMasterIndex loginQuery(String user, String pwd)
    {
       PatMasterIndex pat = pmiDao.find(user, pwd);
-     
+
       return pat;
    }
-   
+
    public String regist(PatMasterIndex pmi)
    {
       String state;
-      
+
       try
       {
          pmiDao.regist(pmi);
          state = "success";
-      }
-      catch(Exception ex)
+      } catch (Exception ex)
       {
          ex.printStackTrace();
          state = "error";
       }
-      
+
       return state;
    }
 
