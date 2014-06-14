@@ -73,12 +73,13 @@ public class PatMasterIndexDAO
       }
    }
 
-   public List findByExample(PatMasterIndex instance)
+   @SuppressWarnings("unchecked")
+   public List<PatMasterIndex> findByExample(PatMasterIndex instance)
    {
       log.debug("finding PatMasterIndex instance by example");
       try
       {
-         List results = getTemplate().findByExample(instance);
+         List<PatMasterIndex> results = getTemplate().findByExample(instance);
          log.debug("find by example successful, result size: " + results.size());
          return results;
       } catch (RuntimeException re)
@@ -88,23 +89,10 @@ public class PatMasterIndexDAO
       }
    }
 
-   public List findByProperty(String propertyName, Object value)
-   {
-      log.debug("finding PatMasterIndex instance with property: "
-            + propertyName + ", value: " + value);
-      try
-      {
-         String queryString = "from PatMasterIndex as model where model."
-               + propertyName + "= ?";
-         return getTemplate().find(queryString, value);
-      } catch (RuntimeException re)
-      {
-         log.error("find by property name failed", re);
-         throw re;
-      }
-   }
+   
 
-   public List findAll()
+   @SuppressWarnings("unchecked")
+   public List<PatMasterIndex> findAll()
    {
       log.debug("finding all PatMasterIndex instances");
       try
@@ -169,6 +157,7 @@ public class PatMasterIndexDAO
  
    }
    
+   @SuppressWarnings("unchecked")
    public PatMasterIndex find(String pat_id,String pwd)
    {
       Session session = HibernateUtil.getSession();
@@ -176,7 +165,6 @@ public class PatMasterIndexDAO
       List<PatMasterIndex> pmi = null;
       
       String queryStr = "from PatMasterIndex where patient_id = ? and password = ?";
-      //String queryStr = "from PatMasterIndex where patient_id = 0000006451 and password = ?";
       Query query = session.createQuery(queryStr);
       
       query.setString(0, pat_id);

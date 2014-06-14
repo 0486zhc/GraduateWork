@@ -4,7 +4,7 @@
 
 <package name="lhb" namespace="/jsp/page" extends="struts-default">
 	<action name="login" class="action.LhbAction" method="loginQuery">
-		<result name="success">/jsp/success.jsp</result>
+		<result name="success">/jsp/page/login.jsp</result>
 		<result name="fail">/jsp/fail.jsp</result>
 		
 	</action>

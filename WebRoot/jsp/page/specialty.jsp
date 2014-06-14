@@ -1,4 +1,12 @@
-<!doctype html>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <meta charset="utf-8">
@@ -9,7 +17,7 @@
 <meta name="Description" content="" />
 <link href="css/global.css" rel="stylesheet" type="text/css">
 <link href="css/specialty.css" rel="stylesheet" type="text/css">
-<script language="javascript" type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.lazyload.1.8.4.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" charset="utf-8">
@@ -86,7 +94,7 @@ $(document).ready(function () {
         <div class="fr">
             <ul>
                 <li class="login"><a href="javascript:void(0);">登录</a><span class="fr">|</span></li>
-                <li><a href="regist.html">注册</a></li>
+                <li><a href="regist.jsp">注册</a></li>
             </ul>
         </div>
     </div>

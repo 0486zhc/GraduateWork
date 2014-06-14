@@ -1,4 +1,12 @@
-<!doctype html>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <meta charset="utf-8">
@@ -9,7 +17,7 @@
 <meta name="Description" content="" />
 <link href="css/global.css" rel="stylesheet" type="text/css">
 <link href="css/specialty.css" rel="stylesheet" type="text/css">
-<script language="javascript" type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.lazyload.1.8.4.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" charset="utf-8">
@@ -86,7 +94,7 @@ $(document).ready(function () {
         <div class="fr">
             <ul>
                 <li class="login"><a href="javascript:void(0);">登录</a><span class="fr">|</span></li>
-                <li><a href="regist.html">注册</a></li>
+                <li><a href="regist.jsp">注册</a></li>
             </ul>
         </div>
     </div>
@@ -96,7 +104,7 @@ $(document).ready(function () {
         <dt><img src="images/logo.jpg" width="50" height="50" alt=""></dt>
         <dd>
             <span class="fs12 block">广东医学院</span>
-            <p class="fs18 block">某群坑货的预约挂号平台</p>
+            <p class="fs18 block">广东医学院xx医院网上预约挂号平台</p>
         </dd>
     </dl>
     <div class="search fr">
@@ -280,7 +288,7 @@ $(document).ready(function () {
 </div>
 <div class="footer center t_c">
     <p>客服电话 110&nbsp;&nbsp;&nbsp;&nbsp;报警电话 110</p>
-    <p>版权所有 Copyright©2014-9999 我什么都不知道 All rights reserved</p>
+    <p>版权所有 Copyright©2014-9999 广东医学院10级信管15班 All rights reserved</p>
 </div>
 </div>
 <div class="login_bg absolute center"><div class="lg_bg fixed center"></div></div>

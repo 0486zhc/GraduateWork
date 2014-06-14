@@ -3,7 +3,7 @@
 body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,tr,dd,dl{ margin:0; padding:0;}
 body{font:14px/28px "Microsoft YaHei", helvetica, arial, verdana, tahoma, sans-serif; color:#222222; background:#FFF;}
 a{text-decoration:none;outline:none;}
-input,select{vertical-align:middle;outline:none;}
+input,select{vertical-align:middle;outline:none;border:none;}
 textarea,input{word-wrap:break-word;word-break:break-all;padding:0px;outline:none;}
 ul, li{list-style:none;}
 img{border:none;display:block;}
@@ -17,9 +17,9 @@ height: 1%;
 /* End hide from IE-mac */
 }
 /* ie7 hack*/
-*+html .clearfix {min-height: 1% ;}
+*+html .clearfix {min-height: 1%;}
 
-.clear{clear:both; height:0px; width:100%; font-size:1px; line-height:0px; visibility:hidden; overflow:hidden;height:2000px;}
+.clear{clear:both; height:0px; width:100%; font-size:1px; line-height:0px; visibility:hidden; overflow:hidden;}
 .center{margin:0 auto;}
 
 .t_l{text-align:left;}
@@ -56,8 +56,7 @@ height: 1%;
 
 .wrap{width:100%;}
 
-
-.sp_icon, .login, .dc_icon i{background: url(../images/icon.png) no-repeat top left;}
+.sp_icon, .login, .dc_icon i, .rg_sd, .od_tt_btn, .dc_od_tt_btn{background: url(../images/icon.png) no-repeat top left;}
 
 .w960{width:960px;}
 

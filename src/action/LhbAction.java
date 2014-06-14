@@ -1,16 +1,30 @@
 package action;
 
+import java.util.Map;
+
 import model.lhb.PatMasterIndex;
 import bo.LhbBo;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+@SuppressWarnings("serial")
 public class LhbAction extends ActionSupport
 {
    private LhbBo lhbBo;
    private String pat_id;
    private String pwd;
+   private Map<String,Object> request;
+   private Map<String, Object> session;
+   private Map<String, Object> application;
    
+   @SuppressWarnings("unchecked")
+   public LhbAction()
+   {
+      request = (Map<String, Object>) ActionContext.getContext().get("request");
+      session = ActionContext.getContext().getSession();
+      application = ActionContext.getContext().getApplication();
+   }
    // private PatMasterIndex user;
 
    public LhbBo getLhbBo()
@@ -44,7 +58,8 @@ public class LhbAction extends ActionSupport
    }
    public String loginQuery()
    {
-      lhbBo.loginQuery(pat_id, pwd);
+      PatMasterIndex pmi = lhbBo.loginQuery(pat_id, pwd);
+      session.put("user", pmi); 
       return "success";
    }
 

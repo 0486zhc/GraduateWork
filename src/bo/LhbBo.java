@@ -18,14 +18,11 @@ public class LhbBo
    }
 
 
-   public String loginQuery(String user, String pwd)
+   public PatMasterIndex loginQuery(String user, String pwd)
    {
       PatMasterIndex pat = pmiDao.find(user, pwd);
-      if(pat == null)
-      {
-         return "fail";
-      }
-      return "success";
+     
+      return pat;
    }
 
 }
