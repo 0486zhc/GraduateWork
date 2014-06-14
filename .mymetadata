@@ -3,7 +3,7 @@
   type="WEB"
   name="graduateWork"
   id="myeclipse.1401336252383"
-  context-root="/graduateWork"
+  context-root="/GraduateWork"
   j2ee-spec="6.0"
   archive="graduateWork.war">
   <attributes>

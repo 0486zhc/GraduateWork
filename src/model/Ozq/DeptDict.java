@@ -7,7 +7,6 @@ package model.Ozq;
 public class DeptDict implements java.io.Serializable {
 
 	// Fields
-
 	private int id;
 	private Short serialNo;
 	private String deptCode;
@@ -38,6 +37,7 @@ public class DeptDict implements java.io.Serializable {
 
 	// Property accessors
 	
+
 	public int getId() {
 		return id;
 	}
@@ -45,7 +45,7 @@ public class DeptDict implements java.io.Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
 	public Short getSerialNo() {
 		return this.serialNo;
 	}

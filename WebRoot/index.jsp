@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -21,9 +21,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <form action="" method="post" name="login"><br>
-    	<input type="text" name="账号:" id="user"><br>
-    	<input type="password" name="密码:" id="pwd"><br>
+    <form action="login.action" method="post" name="login"><br>
+    	账号:<input type="text" name="user.patient_id"><br>
+    	密码:<input type="password" name="user.pwd"><br>
     	<input type="submit" value="登陆">
     	<input type="reset" value="重设">
     	
