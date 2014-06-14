@@ -139,7 +139,7 @@ event.returnvalue=false;
 				</li>
 				<li>
 					<span>真实姓名</span>
-					<input type="text" value="" placeholder="为了成功就诊，请正确填写" name="real_name">
+					<input type="text" value="" placeholder="为了成功就诊，请正确填写" name="user_name">
 					<label for="">姓名不能为空</label>
 				</li>
 				<li>

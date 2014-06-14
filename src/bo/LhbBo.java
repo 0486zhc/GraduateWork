@@ -24,5 +24,23 @@ public class LhbBo
      
       return pat;
    }
+   
+   public String regist(PatMasterIndex pmi)
+   {
+      String state;
+      
+      try
+      {
+         pmiDao.regist(pmi);
+         state = "success";
+      }
+      catch(Exception ex)
+      {
+         ex.printStackTrace();
+         state = "error";
+      }
+      
+      return state;
+   }
 
 }
