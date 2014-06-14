@@ -139,7 +139,7 @@ $(document).ready(function () {
             <div class="s_l_bd">
                 <label class="s_wrong clearfix"><b>×</b><span></span></label>
                 <ul class="center clearfix">
-                    <li class="login-li center"><span>用户名</span><input id="s_uid" type="text" autocomplete="off" placeholder="手机/邮箱/身份证" name="pat_id"></li>
+                    <li class="login-li center"><span>用户名</span><input id="s_uid" type="text" autocomplete="off" placeholder="手机/邮箱/身份证" name="user_id"></li>
                     <li class="login-li center"><span>密&nbsp;&nbsp;码</span><input id="s_pwd" type="password" maxlength="20" autocomplete="off" placeholder="请输入您的密码" name="pwd"></li>
                 </ul>
                 <input type="submit" class="s_login_btn center t_c fs20" value="登录">

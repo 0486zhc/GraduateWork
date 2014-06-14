@@ -2,6 +2,9 @@ package action;
 
 import java.util.Map;
 
+import util.HibernateUtil;
+import util.MD5;
+
 import model.lhb.PatMasterIndex;
 import bo.LhbBo;
 
@@ -12,12 +15,45 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LhbAction extends ActionSupport
 {
    private LhbBo lhbBo;
-   private String pat_id;
    private String pwd;
-   private Map<String,Object> request;
+   private String phoneNum;
+   private String user_id;
+   private String user_name;
+   private Map<String, Object> request;
    private Map<String, Object> session;
    private Map<String, Object> application;
-   
+   private PatMasterIndex      pmi;
+
+   public String getPhoneNum()
+   {
+      return phoneNum;
+   }
+
+   public void setPhoneNum(String phoneNum)
+   {
+      this.phoneNum = phoneNum;
+   }
+
+   public String getUser_id()
+   {
+      return user_id;
+   }
+
+   public void setUser_id(String user_id)
+   {
+      this.user_id = user_id;
+   }
+
+   public String getUser_name()
+   {
+      return user_name;
+   }
+
+   public void setUser_name(String user_name)
+   {
+      this.user_name = user_name;
+   }
+
    @SuppressWarnings("unchecked")
    public LhbAction()
    {
@@ -25,6 +61,7 @@ public class LhbAction extends ActionSupport
       session = ActionContext.getContext().getSession();
       application = ActionContext.getContext().getApplication();
    }
+
    // private PatMasterIndex user;
 
    public LhbBo getLhbBo()
@@ -37,31 +74,38 @@ public class LhbAction extends ActionSupport
       this.lhbBo = lhbBo;
    }
 
-   public String getPat_id()
-   {
-      return pat_id;
-   }
-   
-   public void setPat_id(String pat_id)
-   {
-      this.pat_id = pat_id;
-   }
-   
    public String getPwd()
    {
       return pwd;
    }
-   
+
    public void setPwd(String pwd)
    {
       this.pwd = pwd;
    }
+
    public String loginQuery()
    {
-      PatMasterIndex pmi = lhbBo.loginQuery(pat_id, pwd);
-      session.put("user", pmi); 
+      pwd = MD5.afterMd5(pwd);
+      pmi = lhbBo.loginQuery(user_id, pwd);
+      session.put("user", pmi);
       return "success";
    }
 
+   public String regist()
+   {
+      
+      pmi = new PatMasterIndex();
+      pmi.setPassword(MD5.afterMd5(pwd));
+      pmi.setIdNo(user_id);
+      pmi.setName(user_name);
+      pmi.setPhoneNumberBusiness(phoneNum);
+      String state = lhbBo.regist(pmi);
+      if("success".equals(state))
+      {
+         session.put("user", pmi);
+      }
+      return state;
+   }
 
 }
