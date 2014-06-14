@@ -1,6 +1,6 @@
 package action;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import model.Ozq.OutpDoctorRegist;
@@ -61,9 +61,17 @@ public class OzqAction{
 	//≤È≈≈∞‡
 	public String CheckOnDuty(){
 		System.out.println("action1...");
-		String str1 = "2014/01/23";
-		String str2 = "2014/01/25";
+		String str1 = "2014-01-23";
+		String str2 = "2014-01-25";
 		OutpDoctorRegist = ozqBo.CheckOnDuty(str1, str2, "0101", "1106");
+		
+//		Date ts1 = new Date(System.currentTimeMillis());
+//		ts1 = Date.valueOf(str1);
+//		System.out.println("================");
+//		System.out.println(ts1);
+//		Date ts2 = new Date(System.currentTimeMillis());
+//		ts2 = Date.valueOf(str2);
+//		OutpDoctorRegist = ozqBo.CheckOnDuty(ts1, ts2, "0101", "1106");
 		System.out.println("action2...");
 		
 		//OutpDoctorRegist = OzqBo.CheckOnDuty(start_time, end_time, clinic_dept, doctor_no);

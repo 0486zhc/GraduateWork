@@ -1,15 +1,15 @@
 #MyEclipse Hibernate Properties
 #Wed Jun 11 13:48:10 CST 2014
 sessionFactoryName=
-genBasicCompId=false
+genBasicCompId=true
 profile=
-daoSFId=sessionFactory
+daoSFId=
 version=3.3
 jndiPath=
 detectM2M=false
 reStrategyClass=
 detectO2O=false
-springDaoFile=src/applicationContext.xml
+springDaoFile=
 useJavaTypes=true
 keyGenerator=
 libInstallFolder=WebRoot/WEB-INF/lib
@@ -18,7 +18,7 @@ genVersionTag=false
 sessionFactoryId=
 basePersistenceClass=
 genAnnotations=false
-reSettingsFile=/GraduateWork/hibernate.reveng.xml
+reSettingsFile=
 configFile=/graduateWork/src/hibernate.cfg.xml
 createConfigFile=false
 addLibs2Classpath=true
