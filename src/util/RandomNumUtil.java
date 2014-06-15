@@ -15,6 +15,9 @@ public class RandomNumUtil
 {
    private ByteArrayInputStream image;//图像
    private String str;//验证码
+   private char[] codeSequence = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',  
+         'K', 'L', 'M', 'N',  'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',  
+         'X', 'Y', 'Z',  '1', '2', '3', '4', '5', '6', '7', '8', '9' };  
    
    //初始化属性
    private RandomNumUtil()
@@ -44,7 +47,7 @@ public class RandomNumUtil
    {
       //在内存中创建图像
       int width = 85;
-      int height = 20;
+      int height = 35;
       BufferedImage image = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
       //获取图形上下文
       Graphics g = image.getGraphics();
@@ -54,7 +57,7 @@ public class RandomNumUtil
       g.setColor(getRandColor(200,500));
       g.fillRect(0,0,width,height);
       //设定字体
-      g.setFont(new Font("Times New Roman",Font.PLAIN,18));
+      g.setFont(new Font("Times New Roman",Font.PLAIN,20));
       //随机生成155条干扰线,使图像中的验证码不易被其他程序探测到
       g.setColor(getRandColor(160,200));
       for (int i = 0; i < 155; i++)
@@ -66,19 +69,19 @@ public class RandomNumUtil
          g.drawLine(x, y, x+xl, y+yl);
       }
       //取随机产生的验证码(6位数字)
-      String sRand = "";
+      StringBuilder sRand = new StringBuilder();
       for (int i = 0; i < 6; i++)
       {
-         String rand = String.valueOf(random.nextInt(10));
-         sRand += rand;
+         String rand = String.valueOf(codeSequence[random.nextInt(codeSequence.length)]);  
+         sRand.append(rand);
          //将验证码显示到图像中
          g.setColor(new Color(20+random.nextInt(110),20+random.nextInt(110)
                ,20+random.nextInt(110)));
-         //调用函数出来的颜色相同,所以只能直接生成
-         g.drawString(rand, 13*i+6, 16);
+         //调用函数出来的颜色相同,所以只能直接生成 下面一行是为了设置字体在图片中位置
+         g.drawString(rand, 13*i+6, 25);
       }
       //赋值验证码
-      this.str = sRand;
+      this.str = sRand.toString();
       //图像生效
       g.dispose();
       ByteArrayInputStream input = null;

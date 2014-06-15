@@ -62,7 +62,7 @@ $(function(){
 		}
 	});
 });
-
+ 
 /*side_login*/
 $(function(){
 	$(".s_l_bd li").children("input").each(function(){
@@ -167,6 +167,8 @@ $(function(){
 		});
 	});
 });
+
+
 
 /*specialty*/
 $(function(){
