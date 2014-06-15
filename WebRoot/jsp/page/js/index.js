@@ -44,15 +44,15 @@ $(function(){
 
 	$(".lg_cnt li").find("input").blur(function(){
 		if($("#uid").val() == ""){
-			$(".wrong span").text("璇疯緭鍏ユ墜鏈哄彿鐮佹垨鐢靛瓙閭!");
+			$(".wrong span").text("请输入手机号码或电子邮箱!");
 			$(".wrong").fadeIn();
 		}else{
 			if($("#pwd").val() == ""){
-				$(".wrong span").text("璇疯緭鍏ョ櫥褰曞瘑鐮�");
+				$(".wrong span").text("请输入登录密码!");
 				$(".wrong").fadeIn();
 			}else{
 				if($("#vcc").val() == ""){
-					$(".wrong span").text("璇疯緭鍏ユ湁鏁堢殑鏍￠獙鐮侊紝濉叆鍙宠竟鍥剧墖涓殑鏂囧瓧!");
+					$(".wrong span").text("请输入有效的校验码，填入右边图片中的文字!");
 					$(".wrong").fadeIn();
 				}
 				else{

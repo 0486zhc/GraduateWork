@@ -1,4 +1,4 @@
-/*=========================== 鍏ㄥ眬*star ===========================*/
+/*=========================== 全局*star ===========================*/
 *html{background-image:url(about:blank);background-attachment:fixed;}
 body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,tr,dd,dl{ margin:0; padding:0;}
 body{font:14px/28px "Microsoft YaHei", helvetica, arial, verdana, tahoma, sans-serif; color:#222222; background:#FFF;}
@@ -52,7 +52,7 @@ height: 1%;
 .fs16{font-size:16px;}
 .fs18{font-size:18px;}
 .fs20{font-size:20px;}
-/*=========================== 鍏ㄥ眬*end ===========================*/
+/*=========================== 全局*end ===========================*/
 
 .wrap{width:100%;}
 
@@ -93,7 +93,8 @@ li.login a{padding-left:20px;}
 .lg_form ul{width:384px;padding-top: 43px;}
 .lg_form li{height:40px;line-height:40px;margin-bottom:10px;}
 .lg_form li span{display:block;width:55px;text-align:right;float:left;font-size:12px;}
-.lg_form li input{height:14px;line-height:14px;border:1px solid #D3DDE6;padding:10px 6px;margin-left:10px;font-size:14px;float:left;}
+.lg_form li input{height:35px;line-height:14px;border:1px solid #D3DDE6;padding:10px 6px;margin-left:10px;font-size:14px;float:left;}
+
 .lg_form li img{margin:0 5px;}
 .login_btn{width:255px;height: 45px;line-height:45px;background-color:#1abc9c;border-radius:4px;font-size:24px;color:#fff;border:none;display:block;font-weight:bold;}
 
@@ -103,8 +104,8 @@ li.login a{padding-left:20px;}
 .logo dd span{height:18px;line-height:18px;width:100%;}
 .logo dd p{height:30px;line-height:28px;width:100%;}
 .search{border:4px solid #68B9F8;border-radius:4px;width:418px;height:32px;margin-top:5px;}
-.search input[type="text"]{color:#666;width:335px;height:24px;line-height:24px;border:none;padding:4px 0 4px 5px;}
-.search input[type="submit"]{color:#fff;width:78px;height:32px;line-height:32px;border:none;font-weight:bold;background:#2996d0 url(../images/search.png) no-repeat 10px center;padding-left:19px;cursor:pointer;}
+.search input[type="text"]{color:#666;width:335px;height:31px;line-height:24px;border:none;padding:4px 0 4px 5px;}
+.search input[type="submit"]{color:#fff;width:83px;height:32px;line-height:32px;border:none;font-weight:bold;background:#2996d0 url(../images/search.png) no-repeat 10px center;padding-left:19px;cursor:pointer;}
 
 .footer{margin-top:40px;margin-bottom:30px;}
 .footer p{color:#666;font-size:12px;line-height:20px;}
