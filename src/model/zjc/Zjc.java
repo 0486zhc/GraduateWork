@@ -1,4 +1,4 @@
-package model;
+package model.zjc;
 
 public class Zjc
 {
