@@ -108,7 +108,7 @@ $(document).ready(function () {
         </dd>
     </dl>
     <div class="search fr">
-        <input type="text" id="search_key" class="fl fs16" autocomplete="off" placeholder="请输入您想搜索的基佬或炮友名称">
+        <input type="text" id="search_key" class="fl fs16" autocomplete="off" placeholder="请输入您想搜索的内容 ">
         <input type="submit" value="搜索" id="search_btn" class="fl fs18 t_c">
     </div>
 </div>
@@ -150,41 +150,41 @@ $(document).ready(function () {
                     <div class="od_next fr dc_od_tt_btn t_c"></div>
                     <div class="timetable fl">
                         <ul>
-                            <li class="fl">
-                                06-11<br>周三
+                            <li class="fl" id='date1'>
+                            	<script>today();</script>
                             </li>
-                            <li class="fl">
-                                06-12<br>周四
+                            <li class="fl" id='date2'>
+                            	<script>twoday();</script>
                             </li>
-                            <li class="fl">
-                                06-13<br>周五
+                            <li class="fl" id='date3'>
+                                <script>threeday();</script>
                             </li>
-                            <li class="fl holiday">
-                                06-14<br>周六
+                            <li class="fl" id='date4'>
+                            	<script>fourday();</script>
                             </li>
-                            <li class="fl holiday">
-                                06-15<br>周日
+                            <li class="fl" id='date5'>
+                            	<script>fiveday();</script>
                             </li>
-                            <li class="fl">
-                                06-16<br>周一
+                            <li class="fl" id='date6'>
+                            	<script>sixday();</script>
                             </li>
-                            <li class="fl">
-                                06-17<br>周二
+                            <li class="fl" id='date7'>
+                            	<script>sevenday();</script>
                             </li>
-                            <li class="fl">
-                                06-18<br>周三
+                            <li class="fl" id='date8'>
+                            	<script>eightday();</script>
                             </li>
-                            <li class="fl">
-                                06-19<br>周四
+                            <li class="fl" id='date9'>
+                            	<script>nineday();</script>
                             </li>
-                            <li class="fl">
-                                06-20<br>周五
+                            <li class="fl" id='date10'>
+                            	<script>tenday();</script>
                             </li>
-                            <li class="fl holiday">
-                                06-21<br>周六
+                            <li class="fl" id='date11'>
+                            	<script>elevenday();</script>
                             </li>
-                            <li class="fl holiday">
-                                06-22<br>周日
+                            <li class="fl" id='date12'>
+                            	<script>twelveday();</script>
                             </li>
                         </ul>
                     </div>
@@ -311,6 +311,346 @@ $(document).ready(function () {
         <input type="submit" class="login_btn center t_c" value="登录">
     </form>
 </div>
+
+
+<script language="javascript">
+function today()
+{
+var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+var d=new Date();
+var month=d.getMonth()+1;
+var day=d.getDate();
+var week=d.getDay();
+
+if(month<10) month="0" + month;
+if(day<10) day="0" + day;
+var s1 = month + "-" + day;
+var s2 = "<br>" + w_array[week];
+var shows=s1+s2;
+document.getElementById("date1").innerHTML=shows;
+setTimeout("today()",1000);
+}
+today();
+</script>
+
+<script language="javascript">
+function twoday()
+{
+var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+var d=new Date();
+var year=d.getFullYear();
+var month=d.getMonth()+1;
+var day=d.getDate()+1;
+var week=d.getDay()+1;
+
+if((month==1||month==3||month==5||month==7||month==8||month==10) && day>31) {day=day-31;month=month+1;}
+else if(month==12 && day>31) {day=day-31;month=month+1;year=year+1;}
+else if((month==4||month==6||month==9||month==11) && day>30) {day=day-30;month=month+1;}
+else if(month==2) {
+	if((year % 4 == 0 && year % 100 != 0 || year % 400 == 0) && day>29) {day=day-29;month=month+1;}
+	else if(day>28) {day=day-28;month=month+1;}
+}
+if(week>6) {week = week-7*parseInt(week/7);}
+if(month>12) {month=month-12;}
+if(month<10) month="0" + month;
+if(day<10) day="0" + day;
+
+var shows=month + "-" + day + "<br>" + w_array[week];
+document.getElementById("date2").innerHTML=shows;
+setTimeout("twoday()",1000);
+}
+twoday();
+</script>
+
+<script language="javascript">
+function threeday()
+{
+var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+var d=new Date();
+var year=d.getFullYear();
+var month=d.getMonth()+1;
+var day=d.getDate()+2;
+var week=d.getDay()+2;
+
+if((month==1||month==3||month==5||month==7||month==8||month==10) && day>31) {day=day-31;month=month+1;}
+else if(month==12 && day>31) {day=day-31;month=month+1;year=year+1;}
+else if((month==4||month==6||month==9||month==11) && day>30) {day=day-30;month=month+1;}
+else if(month==2) {
+	if((year % 4 == 0 && year % 100 != 0 || year % 400 == 0) && day>29) {day=day-29;month=month+1;}
+	else if(day>28) {day=day-28;month=month+1;}
+}
+if(week>6) {week = week-7*parseInt(week/7);}
+if(month>12) {month=month-12;}
+if(month<10) month="0" + month;
+if(day<10) day="0" + day;
+
+var shows=month + "-" + day + "<br>" + w_array[week];
+document.getElementById("date3").innerHTML=shows;
+setTimeout("threeday()",1000);
+}
+threeday();
+</script>
+
+<script language="javascript">
+function fourday()
+{
+var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+var d=new Date();
+var year=d.getFullYear();
+var month=d.getMonth()+1;
+var day=d.getDate()+3;
+var week=d.getDay()+3;
+
+if((month==1||month==3||month==5||month==7||month==8||month==10) && day>31) {day=day-31;month=month+1;}
+else if(month==12 && day>31) {day=day-31;month=month+1;year=year+1;}
+else if((month==4||month==6||month==9||month==11) && day>30) {day=day-30;month=month+1;}
+else if(month==2) {
+	if((year % 4 == 0 && year % 100 != 0 || year % 400 == 0) && day>29) {day=day-29;month=month+1;}
+	else if(day>28) {day=day-28;month=month+1;}
+}
+if(week>6) {week = week-7*parseInt(week/7);}
+if(month>12) {month=month-12;}
+if(month<10) month="0" + month;
+if(day<10) day="0" + day;
+
+var shows=month + "-" + day + "<br>" + w_array[week];
+document.getElementById("date4").innerHTML=shows;
+setTimeout("fourday()",1000);
+}
+fourday();
+</script>
+
+<script language="javascript">
+function fiveday()
+{
+var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+var d=new Date();
+var year=d.getFullYear();
+var month=d.getMonth()+1;
+var day=d.getDate()+4;
+var week=d.getDay()+4;
+
+if((month==1||month==3||month==5||month==7||month==8||month==10) && day>31) {day=day-31;month=month+1;}
+else if(month==12 && day>31) {day=day-31;month=month+1;year=year+1;}
+else if((month==4||month==6||month==9||month==11) && day>30) {day=day-30;month=month+1;}
+else if(month==2) {
+	if((year % 4 == 0 && year % 100 != 0 || year % 400 == 0) && day>29) {day=day-29;month=month+1;}
+	else if(day>28) {day=day-28;month=month+1;}
+}
+if(week>6) {week = week-7*parseInt(week/7);}
+if(month>12) {month=month-12;}
+if(month<10) month="0" + month;
+if(day<10) day="0" + day;
+
+var shows=month + "-" + day + "<br>" + w_array[week];
+document.getElementById("date5").innerHTML=shows;
+setTimeout("fiveday()",1000);
+}
+fiveday();
+</script>
+
+<script language="javascript">
+function sixday()
+{
+var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+var d=new Date();
+var year=d.getFullYear();
+var month=d.getMonth()+1;
+var day=d.getDate()+5;
+var week=d.getDay()+5;
+
+if((month==1||month==3||month==5||month==7||month==8||month==10) && day>31) {day=day-31;month=month+1;}
+else if(month==12 && day>31) {day=day-31;month=month+1;year=year+1;}
+else if((month==4||month==6||month==9||month==11) && day>30) {day=day-30;month=month+1;}
+else if(month==2) {
+	if((year % 4 == 0 && year % 100 != 0 || year % 400 == 0) && day>29) {day=day-29;month=month+1;}
+	else if(day>28) {day=day-28;month=month+1;}
+}
+if(week>6) {week = week-7*parseInt(week/7);}
+if(month>12) {month=month-12;}
+if(month<10) month="0" + month;
+if(day<10) day="0" + day;
+
+var shows=month + "-" + day + "<br>" + w_array[week];
+document.getElementById("date6").innerHTML=shows;
+setTimeout("sixday()",1000);
+}
+sixday();
+</script>
+
+<script language="javascript">
+function sevenday()
+{
+var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+var d=new Date();
+var year=d.getFullYear();
+var month=d.getMonth()+1;
+var day=d.getDate()+6;
+var week=d.getDay()+6;
+
+if((month==1||month==3||month==5||month==7||month==8||month==10) && day>31) {day=day-31;month=month+1;}
+else if(month==12 && day>31) {day=day-31;month=month+1;year=year+1;}
+else if((month==4||month==6||month==9||month==11) && day>30) {day=day-30;month=month+1;}
+else if(month==2) {
+	if((year % 4 == 0 && year % 100 != 0 || year % 400 == 0) && day>29) {day=day-29;month=month+1;}
+	else if(day>28) {day=day-28;month=month+1;}
+}
+if(week>6) {week = week-7*parseInt(week/7);}
+if(month>12) {month=month-12;}
+if(month<10) month="0" + month;
+if(day<10) day="0" + day;
+
+var shows=month + "-" + day + "<br>" + w_array[week];
+document.getElementById("date7").innerHTML=shows;
+setTimeout("sevenday()",1000);
+}
+sevenday();
+</script>
+
+<script language="javascript">
+function eightday()
+{
+var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+var d=new Date();
+var year=d.getFullYear();
+var month=d.getMonth()+1;
+var day=d.getDate()+7;
+var week=d.getDay()+7;
+
+if((month==1||month==3||month==5||month==7||month==8||month==10) && day>31) {day=day-31;month=month+1;}
+else if(month==12 && day>31) {day=day-31;month=month+1;year=year+1;}
+else if((month==4||month==6||month==9||month==11) && day>30) {day=day-30;month=month+1;}
+else if(month==2) {
+	if((year % 4 == 0 && year % 100 != 0 || year % 400 == 0) && day>29) {day=day-29;month=month+1;}
+	else if(day>28) {day=day-28;month=month+1;}
+}
+if(week>6) {week = week-7*parseInt(week/7);}
+if(month>12) {month=month-12;}
+if(month<10) month="0" + month;
+if(day<10) day="0" + day;
+
+var shows=month + "-" + day + "<br>" + w_array[week];
+document.getElementById("date8").innerHTML=shows;
+setTimeout("eightday()",1000);
+}
+eightday();
+</script>
+
+<script language="javascript">
+function nineday()
+{
+var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+var d=new Date();
+var year=d.getFullYear();
+var month=d.getMonth()+1;
+var day=d.getDate()+8;
+var week=d.getDay()+8;
+
+if((month==1||month==3||month==5||month==7||month==8||month==10) && day>31) {day=day-31;month=month+1;}
+else if(month==12 && day>31) {day=day-31;month=month+1;year=year+1;}
+else if((month==4||month==6||month==9||month==11) && day>30) {day=day-30;month=month+1;}
+else if(month==2) {
+	if((year % 4 == 0 && year % 100 != 0 || year % 400 == 0) && day>29) {day=day-29;month=month+1;}
+	else if(day>28) {day=day-28;month=month+1;}
+}
+if(week>6) {week = week-7*parseInt(week/7);}
+if(month>12) {month=month-12;}
+if(month<10) month="0" + month;
+if(day<10) day="0" + day;
+
+var shows=month + "-" + day + "<br>" + w_array[week];
+document.getElementById("date9").innerHTML=shows;
+setTimeout("nineday()",1000);
+}
+nineday();
+</script>
+
+<script language="javascript">
+function tenday()
+{
+var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+var d=new Date();
+var year=d.getFullYear();
+var month=d.getMonth()+1;
+var day=d.getDate()+9;
+var week=d.getDay()+9;
+
+if((month==1||month==3||month==5||month==7||month==8||month==10) && day>31) {day=day-31;month=month+1;}
+else if(month==12 && day>31) {day=day-31;month=month+1;year=year+1;}
+else if((month==4||month==6||month==9||month==11) && day>30) {day=day-30;month=month+1;}
+else if(month==2) {
+	if((year % 4 == 0 && year % 100 != 0 || year % 400 == 0) && day>29) {day=day-29;month=month+1;}
+	else if(day>28) {day=day-28;month=month+1;}
+}
+if(week>6) {week = week-7*parseInt(week/7);}
+if(month>12) {month=month-12;}
+if(month<10) month="0" + month;
+if(day<10) day="0" + day;
+
+var shows=month + "-" + day + "<br>" + w_array[week];
+document.getElementById("date10").innerHTML=shows;
+setTimeout("tenday()",1000);
+}
+tenday();
+</script>
+
+<script language="javascript">
+function elevenday()
+{
+var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+var d=new Date();
+var year=d.getFullYear();
+var month=d.getMonth()+1;
+var day=d.getDate()+10;
+var week=d.getDay()+10;
+
+if((month==1||month==3||month==5||month==7||month==8||month==10) && day>31) {day=day-31;month=month+1;}
+else if(month==12 && day>31) {day=day-31;month=month+1;year=year+1;}
+else if((month==4||month==6||month==9||month==11) && day>30) {day=day-30;month=month+1;}
+else if(month==2) {
+	if((year % 4 == 0 && year % 100 != 0 || year % 400 == 0) && day>29) {day=day-29;month=month+1;}
+	else if(day>28) {day=day-28;month=month+1;}
+}
+if(week>6) {week = week-7*parseInt(week/7);}
+if(month>12) {month=month-12;}
+if(month<10) month="0" + month;
+if(day<10) day="0" + day;
+
+var shows=month + "-" + day + "<br>" + w_array[week];
+document.getElementById("date11").innerHTML=shows;
+setTimeout("elevenday()",1000);
+}
+elevenday();
+</script>
+
+<script language="javascript">
+function twelveday()
+{
+var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+var d=new Date();
+var year=d.getFullYear();
+var month=d.getMonth()+1;
+var day=d.getDate()+11;
+var week=d.getDay()+11;
+
+if((month==1||month==3||month==5||month==7||month==8||month==10) && day>31) {day=day-31;month=month+1;}
+else if(month==12 && day>31) {day=day-31;month=month+1;year=year+1;}
+else if((month==4||month==6||month==9||month==11) && day>30) {day=day-30;month=month+1;}
+else if(month==2) {
+	if((year % 4 == 0 && year % 100 != 0 || year % 400 == 0) && day>29) {day=day-29;month=month+1;}
+	else if(day>28) {day=day-28;month=month+1;}
+}
+if(week>6) {week = week-7*parseInt(week/7);}
+if(month>12) {month=month-12;}
+if(month<10) month="0" + month;
+if(day<10) day="0" + day;
+
+var shows=month + "-" + day + "<br>" + w_array[week];
+document.getElementById("date12").innerHTML=shows;
+setTimeout("twelveday()",1000);
+}
+twelveday();
+</script>
 
 </body>
 </html>
