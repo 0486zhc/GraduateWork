@@ -173,18 +173,18 @@ event.returnvalue=false;
         <span>登录</span>
         <a href="javascript:void(0);" class="t_c block fr loginclose">×</a>
     </div>
-    <form class="lg_form relative">
+    <form class="lg_form relative" action="login.action" method="post" name="login">
         <label class="wrong clearfix"><b>×</b><span></span></label>
         <ul class="center clearfix">
-            <li><span>用户名</span><input id="uid" type="text" autocomplete="off" size="35" placeholder="手机/邮箱/身份证"></li>
-            <li><span>密码</span><input id="pwd" type="password" maxlength="20" autocomplete="off" size="35"></li>
+            <li><span>用户名</span><input id="uid" type="text" autocomplete="off" size="35" placeholder="手机/邮箱/身份证" name="user_id"></li>
+            <li><span>密码</span><input id="pwd" type="password" maxlength="20" autocomplete="off" size="35" name="pwd"></li>
             <li>
                 <span>验证码</span><input id="vcc" type="text" maxlength="4" size="9">
                 <img alt="验证码" class="vccode fl" src="images/code1.png" width="70" height="36" style="cursor:pointer;">
                 <a href="javascript:void(0);" class="changecode">看不清换一张</a>
             </li>
         </ul>
-        <input type="button" class="login_btn center t_c" value="登录">
+        <input type="submit" class="login_btn center t_c" value="登录">
     </form>
 </div>
 
