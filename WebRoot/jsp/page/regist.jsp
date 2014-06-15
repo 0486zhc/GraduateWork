@@ -27,12 +27,13 @@ $(document).ready(function () {
     });
 });
 
-function onlyNum()
-{
-if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)))
-//考虑小键盘上的数字键
-event.returnvalue=false;
-}
+function changeValidateCode(obj) { 
+<%-- 获取当前的时间作为参数，无具体意义 --%>
+var timenow = new Date().getTime(); 
+<%--每次请求需要一个不同的参数，否则可能会返回同样的验证码 --%>
+<%--这和浏览器的缓存机制有关系，也可以把页面设置为不缓存，这样就不用这个参数了。 --%>
+obj.src="rand.action?d="+timenow; 
+} 
 
 </script>
 </script>
@@ -129,7 +130,7 @@ event.returnvalue=false;
 			<ul>
 				<li>
 					<span>手机号</span>
-					<input type="text" value="" placeholder="请输入您的手机号码" maxlength="11" onkeydown="onlyNum();" name="phoneNum">
+					<input type="text" value="" placeholder="请输入您的手机号码" maxlength="11" name="phoneNum">
 					<label for="">手机号码不能为空</label>
 				</li>
 				<li>
@@ -139,7 +140,7 @@ event.returnvalue=false;
 				</li>
 				<li>
 					<span>真实姓名</span>
-					<input type="text" value="" placeholder="为了成功就诊，请正确填写" name="real_name">
+					<input type="text" value="" placeholder="为了成功就诊，请正确填写" name="user_name">
 					<label for="">姓名不能为空</label>
 				</li>
 				<li>
@@ -173,18 +174,17 @@ event.returnvalue=false;
         <span>登录</span>
         <a href="javascript:void(0);" class="t_c block fr loginclose">×</a>
     </div>
-    <form class="lg_form relative">
+    <form class="lg_form relative" action="login.action" method="post" name="login">
         <label class="wrong clearfix"><b>×</b><span></span></label>
         <ul class="center clearfix">
-            <li><span>用户名</span><input id="uid" type="text" autocomplete="off" size="35" placeholder="手机/邮箱/身份证"></li>
-            <li><span>密码</span><input id="pwd" type="password" maxlength="20" autocomplete="off" size="35"></li>
+            <li><span>用户名</span><input id="uid" type="text" autocomplete="off" size="35" placeholder="手机/邮箱/身份证" name="user_id"></li>
+            <li><span>密码</span><input id="pwd" type="password" maxlength="20" autocomplete="off" size="35" name="pwd"></li>
             <li>
-                <span>验证码</span><input id="vcc" type="text" maxlength="4" size="9">
-                <img alt="验证码" class="vccode fl" src="images/code1.png" width="70" height="36" style="cursor:pointer;">
-                <a href="javascript:void(0);" class="changecode">看不清换一张</a>
+                <span>验证码</span>
+               <input id="vcc" type="text" maxlength="6" size="9" name="rand"><img alt="验证码"src="rand.action"  class="vccode fl"  style="cursor:pointer;" onclick="changeValidateCode(this)" title="点击图片刷新验证码"/> 
             </li>
         </ul>
-        <input type="button" class="login_btn center t_c" value="登录">
+        <input type="submit" class="login_btn center t_c" value="登录">
     </form>
 </div>
 
