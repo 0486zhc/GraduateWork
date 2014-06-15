@@ -342,26 +342,26 @@ $(document).ready(function () {
         <div class="sp_tt cnt_tt">找专科</div>
         <div class="sp_cnt">
             <ul>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon1"></i>内科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon2"></i>外科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon3"></i>妇产科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon4"></i>五官科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon5"></i>中医科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon6"></i>中西医结合科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon7"></i>皮肤性病科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon8"></i>儿科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon9"></i>肿瘤科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon10"></i>男科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon11"></i>传染病科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon12"></i>精神心理科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon13"></i>生殖健康科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon14"></i>康复医学科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon15"></i>整形美容科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon16"></i>介入医学科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon17"></i>麻醉医学科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon18"></i>职业病科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon19"></i>医学影像科</a></li>
-                <li><a href="specialty.html" target="_blank"><i class="sp_icon fl block sp_icon20"></i>病理科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon1"></i>内科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon2"></i>外科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon3"></i>妇产科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon4"></i>五官科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon5"></i>中医科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon6"></i>中西医结合科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon7"></i>皮肤性病科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon8"></i>儿科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon9"></i>肿瘤科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon10"></i>男科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon11"></i>传染病科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon12"></i>精神心理科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon13"></i>生殖健康科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon14"></i>康复医学科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon15"></i>整形美容科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon16"></i>介入医学科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon17"></i>麻醉医学科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon18"></i>职业病科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon19"></i>医学影像科</a></li>
+                <li><a href="specialty.jsp" target="_blank"><i class="sp_icon fl block sp_icon20"></i>病理科</a></li>
             </ul>
         </div>
     </div>
@@ -388,84 +388,84 @@ $(document).ready(function () {
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li class="no_mr">
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                 </ul>
@@ -476,84 +476,84 @@ $(document).ready(function () {
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li class="no_mr">
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                 </ul>
@@ -564,84 +564,84 @@ $(document).ready(function () {
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li class="no_mr">
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                 </ul>
@@ -651,84 +651,84 @@ $(document).ready(function () {
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li class="no_mr">
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                 </ul>
@@ -739,84 +739,84 @@ $(document).ready(function () {
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li class="no_mr">
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                 </ul>
@@ -827,84 +827,84 @@ $(document).ready(function () {
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li class="no_mr">
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                 </ul>
@@ -915,84 +915,84 @@ $(document).ready(function () {
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li class="no_mr">
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                 </ul>
@@ -1003,84 +1003,84 @@ $(document).ready(function () {
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li class="no_mr">
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.html" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.html" class="dc_info_name fl fs18">刘浩斌8</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌8</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.html" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.html"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                 </ul>
@@ -1099,18 +1099,18 @@ $(document).ready(function () {
         <span>登录</span>
         <a href="javascript:void(0);" class="t_c block fr loginclose">×</a>
     </div>
-    <form class="lg_form relative">
+    <form class="lg_form relative" action="login.action" method="post" name="login">
         <label class="wrong clearfix"><b>×</b><span></span></label>
         <ul class="center clearfix">
-            <li><span>用户名</span><input id="uid" type="text" autocomplete="off" size="35" placeholder="手机/邮箱/身份证"></li>
-            <li><span>密码</span><input id="pwd" type="password" 	maxlength="20" autocomplete="off" size="35"></li>
+            <li><span>用户名</span><input id="uid" type="text" autocomplete="off" size="35" placeholder="手机/邮箱/身份证" name="user_id"></li>
+            <li><span>密码</span><input id="pwd" type="password" 	maxlength="20" autocomplete="off" size="35" name="pwd"></li>
             <li>
                 <span>验证码</span><input id="vcc" type="text" maxlength="4" size="9">
                 <img alt="验证码" class="vccode fl" src="images/code1.png" width="70" height="36" style="cursor:pointer;">
                 <a href="javascript:void(0);" class="changecode">看不清换一张</a>
             </li>
         </ul>	
-        <input type="button" class="login_btn center t_c" value="登录">
+        <input type="submit" class="login_btn center t_c" value="登录">
     </form>
 </div>
 
