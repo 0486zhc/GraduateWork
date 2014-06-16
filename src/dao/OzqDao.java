@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import model.Ozq.DeptDict;
 import model.Ozq.OutpDoctorRegist;
 
 import org.hibernate.Query;
@@ -22,8 +23,7 @@ public class OzqDao{
 		this.template = hibernateTemplate;
 	}
 	
-	//���Ű�
-	@SuppressWarnings("unchecked")
+	//查排班
 	public List<OutpDoctorRegist> CheckOnDuty(String start_time,String end_time,String clinic_dept,String doctor_no) {
 		System.out.println("dao...");
 		
@@ -48,20 +48,6 @@ public class OzqDao{
         "WHERE to_date(A.COUNSEL_DATE) >= to_date( ?,'yyyy-mm-dd') and to_date(A.COUNSEL_DATE) <= to_date( ?,'yyyy-mm-dd') " +
         "and (A.CLINIC_DEPT = ? or nvl(?,'null')='null') " +
         "and (A.DOCTOR_NO = ? or nvl(?,'null')='null')")
-//        .setParameter(0, "2014-01-23")
-//        .setParameter(1, "2014-01-25")
-//        .setString(2, "0101")
-//        .setString(3, "0101")
-//        .setString(4, "1106")
-//        .setString(5, "1106");
-        
-//        .setString(0, start_time)
-//        .setString(1, end_time)
-//        .setString(2, clinic_dept)
-//        .setString(3, clinic_dept)
-//        .setString(4, doctor_no)
-//        .setString(5, doctor_no);       
-        
         .setParameter(0, start_time)
         .setParameter(1, end_time)
         .setParameter(2, clinic_dept)
@@ -73,4 +59,45 @@ public class OzqDao{
 	    System.out.println("dao end2...");
 	    return odr;
 	}
+	
+	
+	//查诊室代号 & 医生工号
+		public List<OutpDoctorRegist> CheckClinicDeptDoctorNo(String doctor_name) {
+			System.out.println("dao...");
+			
+			Session session = HibernateUtil.getSession();
+			List<OutpDoctorRegist> odr = null;
+			
+			Query query = session.createSQLQuery(
+					"select CLINIC_DEPT,DOCTOR_NO " + 
+					"from OUTP_DOCTOR_REGIST " + 
+					"where DOCTOR like ?" + 
+					"group by CLINIC_DEPT,DOCTOR_NO;")
+	        .setParameter(0, doctor_name); 
+		    System.out.println("dao end1...");
+		    odr = query.list();
+		    System.out.println("dao end2...");
+		    return odr;
+		}
+	
+	//查医生名字
+		public List<DeptDict> CheckDoctorName(String dept_name) {
+			System.out.println("dao...");
+			
+			Session session = HibernateUtil.getSession();
+			List<DeptDict> odr = null;
+			
+			Query query = session.createSQLQuery(
+					"select DOCTOR " + 
+					"from OUTP_DOCTOR_REGIST " + 
+					"where CLINIC_DEPT = (select DEPT_CODE " + 
+					"from DEPT_DICT where DEPT_NAME " + 
+					"like ?)" + 
+					"group by DOCTOR;")
+			.setParameter(0, dept_name); 
+		    System.out.println("dao end1...");
+		    odr = query.list();
+		    System.out.println("dao end2...");
+		    return odr;
+		}
 }

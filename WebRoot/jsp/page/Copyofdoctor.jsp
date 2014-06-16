@@ -108,12 +108,12 @@ $(document).ready(function () {
         </dd>
     </dl>
     <div class="search fr">
-        <input type="text" id="search_key" class="fl fs16" autocomplete="off" placeholder="请输入您想搜索的内容 ">
+        <input type="text" id="search_key" class="fl fs16" autocomplete="off" placeholder="请输入您想搜索的内容">
         <input type="submit" value="搜索" id="search_btn" class="fl fs18 t_c">
     </div>
 </div>
 <div class="content w960 center clearfix">
-    <div class="pst fl fs12"><a href="index.html">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="">东莞市妇幼保健院</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="specialty.jsp">产科</a>&nbsp;&nbsp;>&nbsp;&nbsp;刘浩斌（专病门诊）</div>
+    <div class="pst fl fs12"><a href="login.jsp">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="">东莞市妇幼保健院</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="specialty.jsp">产科</a>&nbsp;&nbsp;>&nbsp;&nbsp;刘浩斌（专病门诊）</div>
     <div class="clear"></div>
 	<div class="sp_cnt clearfix">
         <div class="aside fl fs12">
@@ -297,18 +297,18 @@ $(document).ready(function () {
         <span>登录</span>
         <a href="javascript:void(0);" class="t_c block fr loginclose">×</a>
     </div>
-    <form class="lg_form relative"  action="login.action" method="post" name="login">
+    <form class="lg_form relative">
         <label class="wrong clearfix"><b>×</b><span></span></label>
         <ul class="center clearfix">
-            <li><span>用户名</span><input id="uid" type="text" autocomplete="off" size="35" placeholder="手机/邮箱/身份证" name="user_id"></li>
-            <li><span>密码</span><input id="pwd" type="password" maxlength="20" autocomplete="off" size="35" name="pwd"></li>
+            <li><span>用户名</span><input id="uid" type="text" autocomplete="off" size="35" placeholder="手机/邮箱/身份证"></li>
+            <li><span>密码</span><input id="pwd" type="password" maxlength="20" autocomplete="off" size="35"></li>
             <li>
                 <span>验证码</span><input id="vcc" type="text" maxlength="4" size="9">
                 <img alt="验证码" class="vccode fl" src="images/code1.png" width="70" height="36" style="cursor:pointer;">
                 <a href="javascript:void(0);" class="changecode">看不清换一张</a>
             </li>
         </ul>
-        <input type="submit" class="login_btn center t_c" value="登录">
+        <input type="button" class="login_btn center t_c" value="登录">
     </form>
 </div>
 

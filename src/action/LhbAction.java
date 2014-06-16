@@ -1,13 +1,9 @@
 package action;
 
 import java.util.Map;
-
-import util.HibernateUtil;
 import util.MD5;
-
 import model.lhb.PatMasterIndex;
 import bo.LhbBo;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -22,7 +18,18 @@ public class LhbAction extends ActionSupport
    private Map<String, Object> request;
    private Map<String, Object> session;
    private Map<String, Object> application;
-   private PatMasterIndex      pmi;
+   private PatMasterIndex pmi;
+   private String rand;// 表单中的rand
+
+   public String getRand()
+   {
+      return rand;
+   }
+
+   public void setRand(String rand)
+   {
+      this.rand = rand;
+   }
 
    public String getPhoneNum()
    {
@@ -62,7 +69,6 @@ public class LhbAction extends ActionSupport
       application = ActionContext.getContext().getApplication();
    }
 
-   // private PatMasterIndex user;
 
    public LhbBo getLhbBo()
    {
@@ -87,14 +93,30 @@ public class LhbAction extends ActionSupport
    public String loginQuery()
    {
       pwd = MD5.afterMd5(pwd);
-      pmi = lhbBo.loginQuery(user_id, pwd);
-      session.put("user", pmi);
+      String arandom = (String) session.get("random");
+      try
+      {
+         pmi = lhbBo.loginQuery(user_id, pwd);
+         if(arandom.equals(this.getRand()))
+         {
+            session.put("user", pmi);
+         }
+         else
+         {
+            throw new Exception();
+         }
+      }
+      catch(Exception ex)
+      {
+         ex.printStackTrace();
+         return "error";
+      }
       return "success";
    }
 
    public String regist()
    {
-      
+
       pmi = new PatMasterIndex();
       pmi.setPassword(MD5.afterMd5(pwd));
       pmi.setIdNo(user_id);
@@ -107,5 +129,6 @@ public class LhbAction extends ActionSupport
       }
       return state;
    }
-
+   
+   
 }

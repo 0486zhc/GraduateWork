@@ -26,14 +26,6 @@ $(document).ready(function () {
         effect: "fadeIn"
     });
 });
-
-function changeValidateCode(obj) { 
-<%-- 获取当前的时间作为参数，无具体意义 --%>
-var timenow = new Date().getTime(); 
-<%--每次请求需要一个不同的参数，否则可能会返回同样的验证码 --%>
-<%--这和浏览器的缓存机制有关系，也可以把页面设置为不缓存，这样就不用这个参数了。 --%>
-obj.src="rand.action?d="+timenow; 
-} 
 </script>
 </head>
 
@@ -101,8 +93,7 @@ obj.src="rand.action?d="+timenow;
         </ul>
         <div class="fr">
             <ul>
-               <li><a href="baidu.jsp" target="_black">百度地图</a>
-               <li class="login"><a href="">你好,<s:property value="#session.user.name" default="游客"/></a><span class="fr">|</span></li>
+               <li class="login"><a href="javascript:void(0);">你好,<s:property value="#session.user.name" default="游客    登录"/></a><span class="fr">|</span></li>
                 <li><a href="regist.jsp">注册</a></li>
             </ul>
         </div>
@@ -150,7 +141,6 @@ obj.src="rand.action?d="+timenow;
                 <ul class="center clearfix">
                     <li class="login-li center"><span>用户名</span><input id="s_uid" type="text" autocomplete="off" placeholder="手机/邮箱/身份证" name="user_id"></li>
                     <li class="login-li center"><span>密&nbsp;&nbsp;码</span><input id="s_pwd" type="password" maxlength="20" autocomplete="off" placeholder="请输入您的密码" name="pwd"></li>
-                    <li class="login-li center"><span>验证码</span><input class="fl" style="margin-top:6px;" id="text" type="text" maxlength="6" size="9" name="rand"><img alt="验证码"src="rand.action"  class="vccode fl"  style="cursor:pointer;" onclick="changeValidateCode(this)" title="点击图片刷新验证码"/> 
                 </ul>
                 <input type="submit" class="s_login_btn center t_c fs20" value="登录">
             </div>
@@ -380,7 +370,7 @@ obj.src="rand.action?d="+timenow;
             <span>找医生</span>
             <div class="dc_tab">
                 <ul>
-                    <li class="fl" tab="tab1"><a href="javascript:void(0);">内科</a></li>
+                    <li class="fl" tab="tab1"><a href="javascript:void(0);">门诊内科</a></li>
                     <li class="fl" tab="tab2"><a href="javascript:void(0);">外科</a></li>
                     <li class="fl" tab="tab3"><a href="javascript:void(0);">儿科</a></li>
                     <li class="fl" tab="tab4"><a href="javascript:void(0);">男科</a></li>

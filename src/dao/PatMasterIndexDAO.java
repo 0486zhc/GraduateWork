@@ -3,8 +3,6 @@ package dao;
 import java.util.List;
 
 import model.lhb.PatMasterIndex;
-
-import org.hibernate.FlushMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -55,7 +53,6 @@ public class PatMasterIndexDAO
       return pmi.get(0);
    }
 
-   @SuppressWarnings("rawtypes")
    public void regist(PatMasterIndex pmi)
    {
 //      Session session = HibernateUtil.getSession();
@@ -74,21 +71,23 @@ public class PatMasterIndexDAO
       
       Session session = HibernateUtil.getSession();
       Transaction ts = session.beginTransaction();
-      //µÃµ½Êý¾Ý¿âÖÐpat_id×î´óÖµ
+      
       String str = "insert into pat_master_index (patient_id,name,phone_number_business,id_no,password) values (?,?,?,?,?)";
+      //å¾—åˆ°è¡¨ä¸­patient_idæœ€å¤§å€¼
       String pat_id = getMaxId(session);
-      //²åÈëÊý¾Ý
       query = session.createSQLQuery(str);
       query.setString(0, pat_id);
       query.setString(1, pmi.getName());
       query.setString(2, pmi.getPhoneNumberBusiness());
       query.setString(3, pmi.getIdNo());
       query.setString(4, pmi.getPassword());
-      int i = query.executeUpdate();
+      query.executeUpdate();
       ts.commit();
       session.flush();
       session.close();
    }
+  
+   @SuppressWarnings("rawtypes")
    private String getMaxId(Session session)
    {
       String queryStr = "select max(patient_id) from pat_master_index";

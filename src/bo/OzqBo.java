@@ -16,7 +16,7 @@ private OzqDao OzqDao;
 		this.OzqDao = OzqDao;
 	}
 
-	//²éÅÅ°à
+	//æŸ¥æ’ç­
 	public List<OutpDoctorRegist> CheckOnDuty(String start_time,String end_time, String clinic_dept, String doctor_no) {
 		System.out.println("bo...");
 		return OzqDao.CheckOnDuty(start_time, end_time, clinic_dept, doctor_no);
