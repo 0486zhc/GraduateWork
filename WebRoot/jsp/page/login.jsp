@@ -389,7 +389,7 @@ $(document).ready(function () {
                             <dl>
                                 <dt>
                                     <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌1</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
@@ -477,7 +477,7 @@ $(document).ready(function () {
                             <dl>
                                 <dt>
                                     <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌2</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
@@ -565,7 +565,7 @@ $(document).ready(function () {
                             <dl>
                                 <dt>
                                     <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌3</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
@@ -652,7 +652,7 @@ $(document).ready(function () {
                             <dl>
                                 <dt>
                                     <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌4</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
@@ -740,7 +740,7 @@ $(document).ready(function () {
                             <dl>
                                 <dt>
                                     <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌5</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
@@ -828,7 +828,7 @@ $(document).ready(function () {
                             <dl>
                                 <dt>
                                     <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌6</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
@@ -916,7 +916,7 @@ $(document).ready(function () {
                             <dl>
                                 <dt>
                                     <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌7</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>

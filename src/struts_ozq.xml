@@ -3,11 +3,20 @@
 <struts>
 <constant name="struts.objectFactory" value="spring"></constant>
 
-	<package name="CheckOnDuty" namespace="/" extends="struts-default">
+	<package name="CheckOnDuty" namespace="/jsp/page" extends="struts-default">
 		<!-- 查排班 -->
-		<action name="OzqAction" class="action.OzqAction" method="CheckOnDuty">
-			<result>/index.jsp</result>
-			<result name="fail">/index.jsp</result>
+		<action name="OzqAction12" class="action.OzqAction" method="CheckOnDuty12">
+			<result>/jsp/page/Copyofdoctor.jsp</result>
+			<result name="fail">/jsp/page/Copyoflogin.jsp</result>
+		</action>
+		<action name="OzqAction7" class="action.OzqAction" method="CheckOnDuty7">
+			<result>/jsp/page/Copyofdoctor.jsp</result>
+			<result name="fail">/jsp/page/Copyoflogin.jsp</result>
+		</action>
+		<!-- 查医生 -->
+		<action name="OzqActionDept_name" class="action.OzqAction" method="CheckDoctor">
+			<result>/jsp/page/Copyoflogin.jsp</result>
+			<result name="fail">/jsp/page/Copyofdoctor.jsp</result>
 		</action>
 	</package>
 
