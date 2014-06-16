@@ -25,7 +25,8 @@ public class PatMasterIndexDAO
 {
    private HibernateTemplate template = null;
 
-   Query                     query;
+   Query  query;
+   Session session;
 
    public HibernateTemplate getTemplate()
    {
@@ -40,7 +41,7 @@ public class PatMasterIndexDAO
    @SuppressWarnings("unchecked")
    public PatMasterIndex find(String user_id, String pwd)
    {
-      Session session = HibernateUtil.getSession();
+      session = HibernateUtil.getSession();
 
       List<PatMasterIndex> pmi = null;
 
@@ -69,7 +70,7 @@ public class PatMasterIndexDAO
 //      session.flush();
 //      session.close();
       
-      Session session = HibernateUtil.getSession();
+      session = HibernateUtil.getSession();
       Transaction ts = session.beginTransaction();
       
       String str = "insert into pat_master_index (patient_id,name,phone_number_business,id_no,password) values (?,?,?,?,?)";
@@ -107,5 +108,21 @@ public class PatMasterIndexDAO
          strb.append(0);
       }
       return strb.append(i.toString()).toString();
+   }
+
+   @SuppressWarnings("unchecked")
+   public PatMasterIndex checkForUserId(String user)
+   {
+      session = HibernateUtil.getSession();
+
+      List<PatMasterIndex> pmi = null;
+
+      String queryStr = "from PatMasterIndex where id_no = ?";
+      query = session.createQuery(queryStr);
+
+      query.setString(0, user);
+      
+      pmi = query.list();
+      return pmi.get(0);
    }
 }

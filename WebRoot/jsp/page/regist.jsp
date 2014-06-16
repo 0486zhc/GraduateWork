@@ -35,6 +35,7 @@ var timenow = new Date().getTime();
 obj.src="rand.action?d="+timenow; 
 } 
 
+
 </script>
 </script>
 </head>
@@ -145,8 +146,9 @@ obj.src="rand.action?d="+timenow;
 				</li>
 				<li>
 					<span>身份证</span>
-					<input id="uid"type="text" value="" placeholder="为了成功就诊，请正确填写" maxlength="18" name="user_id">
+					<input id="uid"type="text" value="" placeholder="为了成功就诊，请正确填写" maxlength="18" name="user_id" onblur="checkUserName()">
 					<label for="">请填写正确的身份证号码!</label>
+					<label for="">该用户已经注册!</label>
 				</li>
 			</ul>
 			<input id="commit" type="submit" value="同意协议并注册">
@@ -184,7 +186,7 @@ obj.src="rand.action?d="+timenow;
                <input id="vcc" type="text" maxlength="6" size="9" name="rand"><img alt="验证码"src="rand.action"  class="vccode fl"  style="cursor:pointer;" onclick="changeValidateCode(this)" title="点击图片刷新验证码"/> 
             </li>
         </ul>
-        <input type="submit" class="login_btn center t_c" value="登录">
+        <input type="submit" class="login_btn center t_c" value="登录" >
     </form>
 </div>
 
