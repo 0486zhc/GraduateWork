@@ -146,11 +146,10 @@ obj.src="rand.action?d="+timenow;
 				<li>
 					<span>身份证</span>
 					<input id="uid"type="text" value="" placeholder="为了成功就诊，请正确填写" maxlength="18" name="user_id">
-					<label for="">身份证不能为空</label>
-					
+					<label for="">请填写正确的身份证号码!</label>
 				</li>
 			</ul>
-			<input type="submit" value="同意协议并注册">
+			<input id="commit" type="submit" value="同意协议并注册">
 		</form>
 		<div class="rg_side fr">
 			<div class="qst rg_sd">
