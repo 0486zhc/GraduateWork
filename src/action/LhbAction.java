@@ -1,16 +1,9 @@
 package action;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Map;
-
-import org.apache.struts2.ServletActionContext;
-
-import util.HibernateUtil;
 import util.MD5;
-
 import model.lhb.PatMasterIndex;
 import bo.LhbBo;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -26,7 +19,7 @@ public class LhbAction extends ActionSupport
    private Map<String, Object> session;
    private Map<String, Object> application;
    private PatMasterIndex pmi;
-   private String rand;       // 表单中的rand
+   private String rand;// 表单中的rand
 
    public String getRand()
    {
@@ -76,7 +69,6 @@ public class LhbAction extends ActionSupport
       application = ActionContext.getContext().getApplication();
    }
 
-   // private PatMasterIndex user;
 
    public LhbBo getLhbBo()
    {

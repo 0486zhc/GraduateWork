@@ -7,6 +7,7 @@ import util.RandomNumUtil;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+@SuppressWarnings("serial")
 public class RandomAction extends ActionSupport
 {
    private ByteArrayInputStream inputStream;

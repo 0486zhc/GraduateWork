@@ -6,6 +6,7 @@ import java.sql.Timestamp;
  * PatMasterIndex entity. @author MyEclipse Persistence Tools
  */
 
+@SuppressWarnings("serial")
 public class PatMasterIndex implements java.io.Serializable
 {
 
