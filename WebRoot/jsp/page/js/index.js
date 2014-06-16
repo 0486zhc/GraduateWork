@@ -294,3 +294,14 @@ $(function(){
 		}
 	}
 });
+
+$(function(){
+	$(".dc_tab").find("li").each(function(){
+		$(this).click(function(){
+			var txt = $(this).children("a").text();
+			window.location.href="deptName.action?dept_name="+txt;
+		});
+	});
+});
+
+
