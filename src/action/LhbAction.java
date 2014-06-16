@@ -1,6 +1,9 @@
 package action;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
+
+import org.apache.struts2.ServletActionContext;
 
 import util.HibernateUtil;
 import util.MD5;
@@ -14,16 +17,16 @@ import com.opensymphony.xwork2.ActionSupport;
 @SuppressWarnings("serial")
 public class LhbAction extends ActionSupport
 {
-   private LhbBo               lhbBo;
-   private String              pwd;
-   private String              phoneNum;
-   private String              user_id;
-   private String              user_name;
+   private LhbBo lhbBo;
+   private String pwd;
+   private String phoneNum;
+   private String user_id;
+   private String user_name;
    private Map<String, Object> request;
    private Map<String, Object> session;
    private Map<String, Object> application;
-   private PatMasterIndex      pmi;
-   private String              rand;       // 表单中的rand
+   private PatMasterIndex pmi;
+   private String rand;       // 表单中的rand
 
    public String getRand()
    {
@@ -134,5 +137,6 @@ public class LhbAction extends ActionSupport
       }
       return state;
    }
-
+   
+   
 }

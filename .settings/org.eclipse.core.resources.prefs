@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 #Mon Jun 16 17:08:23 CST 2014
+=======
+#Mon Jun 16 03:23:46 CST 2014
+>>>>>>> branch 'master' of https://github.com/gdmc-louis/GraduateWork
 eclipse.preferences.version=1
 encoding//WebRoot/PhoneWeb=UTF-8
 encoding//WebRoot/PhoneWeb/login.jsp=UTF-8
 encoding//WebRoot/index.jsp=UTF-8
+encoding//WebRoot/jsp/page/baidu.jsp=UTF-8
 encoding//WebRoot/jsp/page/js/index.js=UTF-8
 encoding/<project>=UTF-8
