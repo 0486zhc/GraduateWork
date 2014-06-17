@@ -143,5 +143,6 @@ public class LhbAction extends ActionSupport
       user_id = requestForAjax.getParameter("user_id");
       String state = lhbBo.checkForUserId(user_id);
       response.getWriter().write(state);
+       
    }
 }
