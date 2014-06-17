@@ -23,10 +23,17 @@ private OzqDao OzqDao;
 	}
 	
 	//查医生姓名
-	public List<String> CheckDoctorName(String dept_name) {
+	public List<String> CheckDoctorName(String deptname) {
 		System.out.println("bo...");
-		List<String> odr = OzqDao.CheckDoctorName(dept_name);
+		List<String> odr = OzqDao.CheckDoctorName(deptname);
 		return odr;
 	}
+	
+	//查科室
+		public List<String> CheckDeptName() {
+			System.out.println("bo...");
+			List<String> odr = OzqDao.CheckDeptName();
+			return odr;
+		}
 
 }
