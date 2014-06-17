@@ -41,4 +41,13 @@ public class LhbBo
       return state;
    }
 
+   public String checkForUserId(String user)
+   {
+      PatMasterIndex pat = pmiDao.checkForUserId(user);
+      if(pat == null)
+      {
+         return "success";
+      }
+      return "fail";
+   }
 }
