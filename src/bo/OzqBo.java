@@ -21,5 +21,12 @@ private OzqDao OzqDao;
 		System.out.println("bo...");
 		return OzqDao.CheckOnDuty(start_time, end_time, clinic_dept, doctor_no);
 	}
+	
+	//查医生姓名
+	public List<String> CheckDoctorName(String dept_name) {
+		System.out.println("bo...");
+		List<String> odr = OzqDao.CheckDoctorName(dept_name);
+		return odr;
+	}
 
 }

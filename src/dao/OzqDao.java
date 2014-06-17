@@ -72,7 +72,7 @@ public class OzqDao{
 					"select CLINIC_DEPT,DOCTOR_NO " + 
 					"from OUTP_DOCTOR_REGIST " + 
 					"where DOCTOR like ?" + 
-					"group by CLINIC_DEPT,DOCTOR_NO;")
+					"group by CLINIC_DEPT,DOCTOR_NO")
 	        .setParameter(0, doctor_name); 
 		    System.out.println("dao end1...");
 		    odr = query.list();
@@ -81,11 +81,11 @@ public class OzqDao{
 		}
 	
 	//查医生名字
-		public List<DeptDict> CheckDoctorName(String dept_name) {
+		public List<String> CheckDoctorName(String dept_name) {
 			System.out.println("dao...");
 			
 			Session session = HibernateUtil.getSession();
-			List<DeptDict> odr = null;
+			//List<OutpDoctorRegist> odr = null;
 			
 			Query query = session.createSQLQuery(
 					"select DOCTOR " + 
@@ -93,11 +93,12 @@ public class OzqDao{
 					"where CLINIC_DEPT = (select DEPT_CODE " + 
 					"from DEPT_DICT where DEPT_NAME " + 
 					"like ?)" + 
-					"group by DOCTOR;")
+					"group by DOCTOR")
 			.setParameter(0, dept_name); 
 		    System.out.println("dao end1...");
-		    odr = query.list();
+		    List<String> odr1 = query.list();
+		    System.out.println(odr1.get(0));
 		    System.out.println("dao end2...");
-		    return odr;
+		    return odr1;
 		}
 }

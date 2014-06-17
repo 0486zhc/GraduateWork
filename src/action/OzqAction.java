@@ -1,5 +1,6 @@
 package action;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -7,6 +8,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import model.Ozq.OutpDoctorRegist;
 
@@ -21,6 +25,8 @@ public class OzqAction{
 	private OzqBo ozqBo;
 	private List<OutpDoctorRegist> OutpDoctorRegist12;
 	private List<OutpDoctorRegist> OutpDoctorRegist7;
+	private List<String> OutpDoctorRegistDoctorName;
+
 	private Date start_time;
 	private Date end_time;
 	private String clinic_dept;
@@ -29,6 +35,8 @@ public class OzqAction{
 	private Map<String, Object> request;
 	private Map<String, Object> session;
 	private Map<String, Object> application;
+	HttpServletRequest req;
+	HttpServletResponse resp;
 
 	
 	
@@ -52,6 +60,13 @@ public class OzqAction{
 		OutpDoctorRegist7 = outpDoctorRegist7;
 	}
 	
+	public List<String> getOutpDoctorRegistDoctorName() {
+		return OutpDoctorRegistDoctorName;
+	}
+	public void setOutpDoctorRegistDoctorName(
+			List<String> outpDoctorRegistDoctorName) {
+		OutpDoctorRegistDoctorName = outpDoctorRegistDoctorName;
+	}
 	public Date getStart_time() {
 		return start_time;
 	}
@@ -85,6 +100,8 @@ public class OzqAction{
 	      request = (Map<String, Object>) ActionContext.getContext().get("request");
 	      session = ActionContext.getContext().getSession();
 	      application = ActionContext.getContext().getApplication();
+	      req = ServletActionContext.getRequest();
+	      resp = ServletActionContext.getResponse();
 	   }
 	
 	//查12天排班
@@ -139,14 +156,22 @@ public class OzqAction{
 			return "success";
 		}
 		
-		public String CheckDoctor() throws UnsupportedEncodingException{
+		public void CheckDoctorName() throws IOException{
 			System.out.println("action1...");
 			
-			String deptname = ServletActionContext.getRequest().getParameter("dept_name");
+			String deptname = req.getParameter("dept_name");
 			deptname = new String(deptname.getBytes("ISO-8859-1"),"UTF-8");
 		    System.out.println(deptname);
-			
-			return "success";
+		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName(deptname);
+		    session.put("DoctorName", OutpDoctorRegistDoctorName);
+		    System.out.println(OutpDoctorRegistDoctorName.get(1));
+		    String state = "";
+		    if(OutpDoctorRegistDoctorName != null){
+		    	state = "success";
+			}else{
+				state = "fail";
+			}
+		    resp.getWriter().write(state);
 		}
 
 }
