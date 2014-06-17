@@ -104,6 +104,10 @@ $(function(){
 	$(".dc_tab li:first").addClass("dc_act");
 	$(".dc_tab a").each(function(){
 		$(this).click(function(){
+			
+			var t = $(this).text();
+			CheckDoctorName(t);
+			
 			$(".dc_tab li").removeClass("dc_act");
 			$(this).parent("li").addClass("dc_act");
 			var activetab = "#" + $(this).parent("li").attr("tab");
@@ -367,11 +371,76 @@ $(function(){
 });
 
 
-$(function(){
-	$(".dc_tab").find("li").each(function(){
-		$(this).click(function(){
-			var txt = $(this).children("a").text();
-			window.location.href="OzqActionDept_name.action?dept_name="+txt;
-		});
-	});
-});
+function CheckDoctorName(dept_name) {
+	//1.创建xmlHttpRequest对象.
+	var xmlHttp;
+	try {// Firefox, Opera 8.0+, Safari
+		xmlHttp = new XMLHttpRequest();
+	} catch (e) {// Internet Explorer 
+		try {
+			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e) {
+				return false;
+			}
+		}
+	}
+	//2.这是回调函数
+	xmlHttp.onreadystatechange = function() {			
+		if (xmlHttp.readyState == 4) { //服务器响应完毕		
+			if(xmlHttp.status==200){ //是否正常响应
+				var mess = xmlHttp.responseText; //获得服务器响应的文本
+				if(mess == "success")
+				{
+//					document.getElementById(".dc_tabbox").innerHTML="<div class=\"dc_tabcnt\" id=\"tab1\" style=\"display:block;\">" + 
+//                "<ul>" + 
+//                "<s:iterator value=\"#request.DoctorName\">" + 
+//                    "<li>" + 
+//                        "<div class=\"dc_info\">" + 
+//                            "<dl>" + 
+//                                "<dt>" + 
+//                                    "<a href=\"doctor.jsp\" class=\"dc_info_pic fl block o-hidden\"><img src=\"images/doctor.jpg\" width=\"72\" height=\"auto\"  alt=\"\"></a>" + 
+//                                   	"<div class=\"dc_info_name fl fs18\"><s:property /></div>" + 
+//                                    "<span class=\"dc_info_pst fl fs12\">副主任医师</span>" + 
+//                                "</dt>" + 
+//                                "<dd>" + 
+//                                    "<div class=\"dc_info_hs\">" + 
+//                                        "<a href=\"\">东莞市人民医院</a><br>" + 
+//                                        "<a href=\"specialty.jsp\" class=\"fs12\">内科</a>" + 
+//                                    "</div>" + 
+//                                    "<p class=\"dc_info_pd fs12\">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>" + 
+//                                "</dd>" + 
+//                            "</dl>" + 
+//                        "</div>" + 
+//                        "<div class=\"dc_icon\">" + 
+//                            "<a href=\"doctor.jsp\"><i></i>预约挂号</a>" + 
+//                        "</div>" + 
+//                    "</li>" + 
+//                    "</s:iterator>" + 
+//                "</ul>" + 
+//            "</div>";
+
+				}
+				else
+				{
+				   
+				}
+			}
+		}
+	}
+	if(!(dept_name == ""))
+	{
+	 	 //3. 拼装URL
+		 var url = "OzqActionDoctorName.action";
+		
+		 url = url + "?dept_name=" + dept_name;
+	
+		//4. 打开连接
+		xmlHttp.open("POST",url,true);
+		//5. 发送请求
+		xmlHttp.send();
+	}
+	
+}

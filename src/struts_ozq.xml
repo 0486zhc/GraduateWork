@@ -14,9 +14,7 @@
 			<result name="fail">/jsp/page/Copyoflogin.jsp</result>
 		</action>
 		<!-- 查医生 -->
-		<action name="OzqActionDept_name" class="action.OzqAction" method="CheckDoctor">
-			<result>/jsp/page/Copyoflogin.jsp</result>
-			<result name="fail">/jsp/page/Copyofdoctor.jsp</result>
+		<action name="OzqActionDoctorName" class="action.OzqAction" method="CheckDoctorName">
 		</action>
 	</package>
 
