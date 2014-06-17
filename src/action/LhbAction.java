@@ -1,16 +1,14 @@
 package action;
 
-import java.io.UnsupportedEncodingException;
+import java.io.IOException;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
-
-import util.HibernateUtil;
 import util.MD5;
-
 import model.lhb.PatMasterIndex;
 import bo.LhbBo;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -26,8 +24,9 @@ public class LhbAction extends ActionSupport
    private Map<String, Object> session;
    private Map<String, Object> application;
    private PatMasterIndex pmi;
-   private String rand;       // 表单中的rand
-
+   private String rand;// 表单中的rand
+   HttpServletResponse response;
+   HttpServletRequest requestForAjax;
    public String getRand()
    {
       return rand;
@@ -72,11 +71,12 @@ public class LhbAction extends ActionSupport
    public LhbAction()
    {
       request = (Map<String, Object>) ActionContext.getContext().get("request");
+      requestForAjax = ServletActionContext.getRequest();
       session = ActionContext.getContext().getSession();
       application = ActionContext.getContext().getApplication();
+      response = ServletActionContext.getResponse();
    }
 
-   // private PatMasterIndex user;
 
    public LhbBo getLhbBo()
    {
@@ -122,9 +122,9 @@ public class LhbAction extends ActionSupport
       return "success";
    }
 
-   public String regist()
+   public String regist() throws IOException
    {
-
+     
       pmi = new PatMasterIndex();
       pmi.setPassword(MD5.afterMd5(pwd));
       pmi.setIdNo(user_id);
@@ -135,8 +135,13 @@ public class LhbAction extends ActionSupport
       {
          session.put("user", pmi);
       }
-      return state;
+     return "success";
+   }    
+   
+   public void checkUserId() throws IOException
+   {
+      user_id = requestForAjax.getParameter("user_id");
+      String state = lhbBo.checkForUserId(user_id);
+      response.getWriter().write(state);
    }
-   
-   
 }

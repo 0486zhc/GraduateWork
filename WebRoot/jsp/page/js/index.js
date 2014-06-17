@@ -166,16 +166,76 @@ $(function(){
 			if($(this).val() == ""){
 				$(this).siblings("label").fadeIn();
 				document.getElementById("commit").disabled=true;
-			}else if(!IdCardValidate($("#uid").val())){
-				$(this).siblings("label").fadeIn();
-				document.getElementById("commit").disabled=true;
 			}else{
 				$(this).siblings("label").hide();
+				document.getElementById("commit").disabled=false;
 			}
 		});
 	});
 });
 
+$(function(){
+	$(".rg_cnt li").find("input").each(function(){
+		$("#uid").blur(function(){
+			if(!IdCardValidate($("#uid").val())){
+				$(this).siblings("label").fadeIn();
+				document.getElementById("commit").disabled=true;
+			}else{
+				if(!checkUserName($("#uid").val())){
+					$(this).siblings("label").fadeIn();
+					document.getElementById("commit").disabled=true;
+				}else{
+					$(this).siblings("label").hide();
+					document.getElementById("commit").disabled=false;
+				}
+				
+			}
+		});
+	});
+});
+
+function checkUserName(userId) {
+	//1.创建xmlHttpRequest对象.
+	var xmlHttp;
+	try {// Firefox, Opera 8.0+, Safari
+		xmlHttp = new XMLHttpRequest();
+	} catch (e) {// Internet Explorer 
+		try {
+			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e) {
+				return false;
+			}
+		}
+	}
+	//2.这是回调函数
+	xmlHttp.onreadystatechange = function() {			
+		if (xmlHttp.readyState == 4) { //服务器响应完毕		
+			if(xmlHttp.status==200){ //是否正常响应
+				var mess = xmlHttp.responseText; //获得服务器响应的文本
+				if(mess == "success")
+				{
+				    return false;
+				}
+				else
+				{
+				   return true;
+				}
+			}
+		}
+	}
+	 	 //3. 拼装URL
+		 var url = "checkId.action";
+		
+		 url = url + "?user_id=" + userId;
+	
+		//4. 打开连接
+		xmlHttp.open("POST",url,true);
+		//5. 发送请求
+		xmlHttp.send();
+}
 
 /*IdCardValidate 身份证校验*/
 var Wi = [ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1 ];    // 加权因子   

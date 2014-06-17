@@ -21,6 +21,7 @@
 		<property name="myeclipse.connection.profile">gdmc</property>
 		<property name="connection.autocommit">true</property>
 		<property name="hibernate.show_sql">true</property>
+		<property name="format_sql">true</property><!-- 让输出的sql语句格式化 -->
 
 		<mapping resource="model/Ozq/DeptDict.hbm.xml"></mapping>
 		<mapping resource="model/Ozq/OutpDoctorRegist.hbm.xml"></mapping>

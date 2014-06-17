@@ -3,8 +3,6 @@ package dao;
 import java.util.List;
 
 import model.lhb.PatMasterIndex;
-
-import org.hibernate.FlushMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -27,7 +25,8 @@ public class PatMasterIndexDAO
 {
    private HibernateTemplate template = null;
 
-   Query                     query;
+   Query  query;
+   Session session;
 
    public HibernateTemplate getTemplate()
    {
@@ -42,7 +41,7 @@ public class PatMasterIndexDAO
    @SuppressWarnings("unchecked")
    public PatMasterIndex find(String user_id, String pwd)
    {
-      Session session = HibernateUtil.getSession();
+      session = HibernateUtil.getSession();
 
       List<PatMasterIndex> pmi = null;
 
@@ -55,7 +54,6 @@ public class PatMasterIndexDAO
       return pmi.get(0);
    }
 
-   @SuppressWarnings("rawtypes")
    public void regist(PatMasterIndex pmi)
    {
 //      Session session = HibernateUtil.getSession();
@@ -72,23 +70,25 @@ public class PatMasterIndexDAO
 //      session.flush();
 //      session.close();
       
-      Session session = HibernateUtil.getSession();
+      session = HibernateUtil.getSession();
       Transaction ts = session.beginTransaction();
-      //µÃµ½Êý¾Ý¿âÖÐpat_id×î´óÖµ
+      
       String str = "insert into pat_master_index (patient_id,name,phone_number_business,id_no,password) values (?,?,?,?,?)";
+      //å¾—åˆ°è¡¨ä¸­patient_idæœ€å¤§å€¼
       String pat_id = getMaxId(session);
-      //²åÈëÊý¾Ý
       query = session.createSQLQuery(str);
       query.setString(0, pat_id);
       query.setString(1, pmi.getName());
       query.setString(2, pmi.getPhoneNumberBusiness());
       query.setString(3, pmi.getIdNo());
       query.setString(4, pmi.getPassword());
-      int i = query.executeUpdate();
+      query.executeUpdate();
       ts.commit();
       session.flush();
       session.close();
    }
+  
+   @SuppressWarnings("rawtypes")
    private String getMaxId(Session session)
    {
       String queryStr = "select max(patient_id) from pat_master_index";
@@ -108,5 +108,21 @@ public class PatMasterIndexDAO
          strb.append(0);
       }
       return strb.append(i.toString()).toString();
+   }
+
+   @SuppressWarnings("unchecked")
+   public PatMasterIndex checkForUserId(String user)
+   {
+      session = HibernateUtil.getSession();
+
+      List<PatMasterIndex> pmi = null;
+
+      String queryStr = "from PatMasterIndex where id_no = ?";
+      query = session.createQuery(queryStr);
+
+      query.setString(0, user);
+      
+      pmi = query.list();
+      return pmi.get(0);
    }
 }
