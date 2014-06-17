@@ -14,9 +14,9 @@ import util.HibernateUtil;
 import model.lhb.PatMasterIndex;
 import dao.IDao_zjc;
 
-public class ImplDao_zjc implements IDao_zjc{
-	private HibernateTemplate template = null ;
-	
+public class ImplDao_zjc implements IDao_zjc {
+	private HibernateTemplate template = null;
+
 	public HibernateTemplate getTemplate() {
 		return template;
 	}
@@ -25,20 +25,21 @@ public class ImplDao_zjc implements IDao_zjc{
 		this.template = template;
 	}
 
-	
 	@Override
 	@SuppressWarnings("unchecked")
 	public PatMasterIndex verify(String userName, String passWord) {
 		System.out.println("dao...");
-		final String hql ="from PatMasterIndex where id_no = '"+userName+"'" + "and password = '"+passWord+"'";
-	    List<PatMasterIndex> list = template.executeFind( new HibernateCallback() {
-		     	 public Object doInHibernate(Session session) throws HibernateException, SQLException {  
-		     		 Query query = session.createQuery(hql); 
-				     List<PatMasterIndex> list = query.list();  
-				     return list;  
-		     	 }  
-		   }
-	     ); 
+		final String hql = "from PatMasterIndex where id_no = '" + userName
+				+ "'" + "and password = '" + passWord + "'";
+		List<PatMasterIndex> list = template
+				.executeFind(new HibernateCallback() {
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+						Query query = session.createQuery(hql);
+						List<PatMasterIndex> list = query.list();
+						return list;
+					}
+				});
 		return list.get(0);
 	}
 
