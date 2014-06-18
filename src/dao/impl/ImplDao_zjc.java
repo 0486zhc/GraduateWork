@@ -26,10 +26,16 @@ public class ImplDao_zjc implements IDao_zjc {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public PatMasterIndex verify(String userName, String passWord) {
-		final String hql = "from PatMasterIndex where id_no = '" + userName
-				+ "'" + "and password = '" + passWord + "'";
-		return (PatMasterIndex) excuteHibernate(hql).get(0);
+	public String verify(String userName, String passWord) {
+		try {
+			final String hql = "from PatMasterIndex where id_no = '" + userName
+					+ "'" + "and password = '" + passWord + "'";
+			PatMasterIndex pat = (PatMasterIndex) excuteHibernate(hql).get(0);
+			return pat.getName();
+		} catch (Exception e) {
+			System.out.println("Dao-login():账号密码错误");
+			return "";
+		}
 	}
 
 	@Override

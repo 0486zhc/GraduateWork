@@ -19,12 +19,8 @@ public class ImplBo_zjc implements IBo_zjc{
 
 	@Override
 	public String verify(String userName, String passWord) {
-		PatMasterIndex pat = dao.verify(userName, passWord);
-		if(pat.getName() == null)
-			return "密码错误";
-		else{
-			return pat.getName();
-		}
+		String patName = dao.verify(userName, passWord);
+		return patName;
 	}
 
 	@Override

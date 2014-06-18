@@ -4,6 +4,7 @@
 	<package name="struts2" extends="struts-default">
 	    <action name="user_login" class="PhoneWeb" method="Login">
              <result name="success">/PhoneWeb/index.jsp</result>
+             <result name="false">/PhoneWeb/jsp/false.jsp</result>
         </action>
         
         <action name="user_register" class="PhoneWeb" method="register">
