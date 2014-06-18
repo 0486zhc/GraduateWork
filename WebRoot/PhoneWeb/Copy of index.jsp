@@ -8,27 +8,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html>
 <html>
 <head>
-<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>东莞市人民医院</title>
 <meta name="viewport"
 	content="width=device-width,user-scalable=no, initial-scale=1">
 <link type="text/css" rel="stylesheet"
-	href="<%=basePath %>PhoneWeb/wiying/Tpl/Wap/wiying/Index/E-xinan/default/index.css" />
+	href="wiying/Tpl/Wap/wiying/Index/E-xinan/default/index.css" />
 <script type="text/javascript"
-	src="<%=basePath %>PhoneWeb/wiying/Tpl/Wap/wiying/common/jquery.js"></script>
+	src="wiying/Tpl/Wap/wiying/common/jquery.js"></script>
 <script type="text/javascript"
-	src="<%=basePath %>PhoneWeb/wiying/Tpl/Wap/wiying/common/jquery-1.2.6.pack.js"></script>
+	src="wiying/Tpl/Wap/wiying/common/jquery-1.2.6.pack.js"></script>
 <script type="text/javascript"
-	src="<%=basePath %>PhoneWeb/wiying/Tpl/Wap/wiying/common/g.base.js"></script>
+	src="wiying/Tpl/Wap/wiying/common/g.base.js"></script>
 <script type="text/javascript"
-	src="<%=basePath %>PhoneWeb/wiying/Tpl/Wap/wiying/common/iscroll.js"></script>
+	src="wiying/Tpl/Wap/wiying/common/iscroll.js"></script>
 <script type="text/javascript"
-	src="<%=basePath %>PhoneWeb/wiying/Tpl/Wap/wiying/common/alert.js"></script>
+	src="wiying/Tpl/Wap/wiying/common/alert.js"></script>
 <script type="text/javascript"
-	src="<%=basePath %>PhoneWeb/wiying/Tpl/Wap/wiying/common/common.js"></script>
+	src="wiying/Tpl/Wap/wiying/common/common.js"></script>
 <script type="text/javascript">
-// 	alert("<%=basePath %>PhoneWeb/upload/img/xctxwlb/20131029/1.jpg");
 	var myScroll;
 	function loaded() {
 		myScroll = new iScroll(
@@ -56,12 +54,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<ul id="thelist">
 						<li><p></p>
 							<a href="#"><img
-								src="<%=basePath %>PhoneWeb/upload/img/xctxwlb/20131029/1.jpg" />
+								src="upload/img/xctxwlb/20131029/1.jpg" />
 						</a>
 						</li>
 						<li><p></p>
 							<a href="#"><img
-								src="<%=basePath %>PhoneWeb/upload/img/xctxwlb/20131029/2.jpg" />
+								src="upload/img/xctxwlb/20131029/2.jpg" />
 						</a>
 						</li>
 					</ul>
@@ -107,42 +105,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<a
 				href=" ">
 				<p class="img"
-					style="background:url('<%=basePath +"PhoneWeb/upload/img/icon/yuyue.png"%>') no-repeat; background-size:contain;"></p>
+					style="background:url(./upload/img/icon/yuyue.png) no-repeat; background-size:contain;"></p>
 				<p class="text">预约挂号</p> </a>
 		</div>
 		<div>
 			<a
 				href=" ">
 				<p class="img"
-					style="background:url('<%=basePath +"PhoneWeb/upload/img/icon/1383014031703.png"%>') center no-repeat; background-size:contain;"></p>
+					style="background:url(./upload/img/icon/1383014031703.png) center no-repeat; background-size:contain;"></p>
 				<p class="text">科室专家</p> </a>
 			 <a
 				href="">
 				<p class="img"
-					style="background:url('<%=basePath +"PhoneWeb/upload/img/icon/13830140513607.png"%>') center no-repeat; background-size:contain;"></p>
+					style="background:url(./upload/img/icon/13830140513607.png) center no-repeat; background-size:contain;"></p>
 				<p class="text">查询挂号</p> </a>
 		</div>
 		<div>
 			<a
-				href="<%=basePath%>PhoneWeb/jsp/HospitalIntroduction.jsp">
+				href="../PhoneWeb/jsp/HospitalIntroduction.jsp">
 				<p class="img"
-					style="background:url('<%=basePath +"PhoneWeb/upload/img/icon/13830140766638.png"%>') center no-repeat; background-size:contain;"></p>
+					style="background:url(./upload/img/icon/13830140766638.png) center no-repeat; background-size:contain;"></p>
 				<p class="text">医院简介</p> </a>
 			 <a
-				href="<%=basePath%>PhoneWeb/jsp/traffic.jsp">
+				href="../PhoneWeb/jsp/traffic.jsp">
 				<p class="img"
-					style="background:url('<%=basePath +"PhoneWeb/upload/img/icon/13830141096885.png"%>') center no-repeat; background-size:contain;"></p>
+					style="background:url(./upload/img/icon/13830141096885.png) center no-repeat; background-size:contain;"></p>
 				<p class="text">交通指南</p> </a>
 		</div>
 		<div>
 			<a
-				href="<%=basePath%>PhoneWeb/jsp/advice.jsp">
+				href="../PhoneWeb/jsp/advice.jsp">
 				<p class="img"
 					style="background:url(./upload/img/icon/13830141383823.png) center no-repeat; background-size:contain;"></p>
 				<p class="text">服务建议</p> </a> <a
-				href="<%=basePath%>PhoneWeb/WebTwo/login.jsp">
+				href="./WebTwo/login.jsp">
 				<p class="img"
-					style="background:url('<%=basePath +"PhoneWeb/upload/img/icon/13830141579551.png"%>') center no-repeat; background-size:contain;"></p>
+					style="background:url(./upload/img/icon/13830141579551.png) center no-repeat; background-size:contain;"></p>
 				<p class="text">我的信息</p> </a>
 		</div>
 	</div>

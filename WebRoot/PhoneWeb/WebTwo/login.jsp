@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>东莞市第二人民医院</title>
+<title>东莞市人民医院</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
 <meta content="yes" name="apple-mobile-web-app-capable" />
@@ -109,7 +109,7 @@
 			<a href="../www.gridinn.com/@display=pc" class="ui-link">电脑版</a>
 		</div>
 		<div class="gezifooter">
-			<p style="color:#bbb;">格子微酒店连锁 &copy; 版权所有 2012-2014</p>
+			<p style="color:#bbb;"> &copy; 版权所有 2012-2014</p>
 		</div>
 	</div>
 
