@@ -95,20 +95,34 @@ $(function(){
 
 /*dc_info*/
 $(function(){
+	
+	$(".dc_tab li:first").addClass("dc_act");
+	$(".dc_tabbox").show();
+	
 	$(".dc_info_pd").each(function(){
 		if($(this).text().length > 26){
 			var txt = $(this).text().substring(0,26) + "...";
 			$(this).text(txt);
 		}
 	});
+	
 	$(".dc_tab li:first").addClass("dc_act");
+	$(".doc_view").hide();
 	$(".dc_tab a").each(function(){
 		$(this).click(function(){
+			$(".doc_view").hide();
+			var t = $(this).text();
+			CheckDoctorName(t);
+//			$(".doc_view").open(document.all.ifrmname.src,'doctorframe','/GraduateWork/jsp/page/doctorview.jsp');
+//			setInterval('startrefresh()',500);
+			
 			$(".dc_tab li").removeClass("dc_act");
 			$(this).parent("li").addClass("dc_act");
 			var activetab = "#" + $(this).parent("li").attr("tab");
 			$(".dc_tabcnt").hide();
 			$(activetab).show();
+			$(".doc_view_login").hide();
+			$(".doc_view").show();
 		});
 	});
 });
@@ -137,7 +151,7 @@ $(function(){
 			tab();
 		});
 		$(this).mouseout(function() {
-			focustime()
+			focustime();
 		});
 	});
 
@@ -171,67 +185,78 @@ $(function(){
 });
 
 $(function(){
-	$(".rg_cnt li").find("input").each(function(){
+	
+		$("#commit").click(function(){
+			$(".rg_cnt li").find("input").each(function(){
+				if($(this).val() == ""){
+				$(this).siblings("label").fadeIn();
+				return false;
+			}else{
+				$("#regist").submit();
+				$(this).siblings("label").hide();
+				document.getElementById("commit").disabled=false;
+			}});
+			
+		});
+});
+
+$(function(){
+	var mess;
 		$("#uid").blur(function(){
 			if(!IdCardValidate($("#uid").val())){
 				$(this).siblings("label").fadeIn();
+				$(this).siblings("b").hide();
 				document.getElementById("commit").disabled=true;
 			}else{
-				if(!checkUserName($("#uid").val())){
-					$(this).siblings("label").fadeIn();
-					document.getElementById("commit").disabled=true;
-				}else{
+				checkUserName($("#uid").val());
+				if(mess == "fail"){
+					$(this).siblings("b").fadeIn();
 					$(this).siblings("label").hide();
-					document.getElementById("commit").disabled=false;
-				}
-				
+					document.getElementById("commit").disabled=true;
+					}else{
+						$(this).siblings("label").hide();
+						$(this).siblings("b").hide();
+						document.getElementById("commit").disabled=false;
+					}
 			}
-		});
-	});
+				
+			});
+		function checkUserName(userId) {
+			//1.创建xmlHttpRequest对象.
+			var xmlHttp;
+			try {// Firefox, Opera 8.0+, Safari
+				xmlHttp = new XMLHttpRequest();
+			} catch (e) {// Internet Explorer 
+				try {
+					xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+				} catch (e) {
+					try {
+						xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+					} catch (e) {
+						return false;
+					}
+				}
+			}
+			//2.这是回调函数
+			xmlHttp.onreadystatechange = function() {			
+				if (xmlHttp.readyState == 4) { //服务器响应完毕		
+					if(xmlHttp.status==200){ //是否正常响应
+						mess = xmlHttp.responseText; //获得服务器响应的文本
+						return mess;
+					}
+				}
+			}
+			 	 //3. 拼装URL
+				 var url = "checkId.action";
+				 url = url + "?user_id=" + userId;
+				//4. 打开连接
+				xmlHttp.open("POST",url,false);
+				//5. 发送请求
+				xmlHttp.send();
+		}
 });
 
-function checkUserName(userId) {
-	//1.创建xmlHttpRequest对象.
-	var xmlHttp;
-	try {// Firefox, Opera 8.0+, Safari
-		xmlHttp = new XMLHttpRequest();
-	} catch (e) {// Internet Explorer 
-		try {
-			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
-		} catch (e) {
-			try {
-				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-			} catch (e) {
-				return false;
-			}
-		}
-	}
-	//2.这是回调函数
-	xmlHttp.onreadystatechange = function() {			
-		if (xmlHttp.readyState == 4) { //服务器响应完毕		
-			if(xmlHttp.status==200){ //是否正常响应
-				var mess = xmlHttp.responseText; //获得服务器响应的文本
-				if(mess == "success")
-				{
-				    return false;
-				}
-				else
-				{
-				   return true;
-				}
-			}
-		}
-	}
-	 	 //3. 拼装URL
-		 var url = "checkId.action";
-		
-		 url = url + "?user_id=" + userId;
-	
-		//4. 打开连接
-		xmlHttp.open("POST",url,true);
-		//5. 发送请求
-		xmlHttp.send();
-}
+
 
 /*IdCardValidate 身份证校验*/
 var Wi = [ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1 ];    // 加权因子   
@@ -356,11 +381,82 @@ $(function(){
 });
 
 
-$(function(){
-	$(".dc_tab").find("li").each(function(){
-		$(this).click(function(){
-			var txt = $(this).children("a").text();
-			window.location.href="OzqActionDept_name.action?dept_name="+txt;
-		});
-	});
-});
+function CheckDoctorName(dept_name) {
+	//1.创建xmlHttpRequest对象.
+	var xmlHttp;
+	try {// Firefox, Opera 8.0+, Safari
+		xmlHttp = new XMLHttpRequest();
+	} catch (e) {// Internet Explorer 
+		try {
+			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e) {
+				return false;
+			}
+		}
+	}
+	//2.这是回调函数
+	xmlHttp.onreadystatechange = function() {			
+		if (xmlHttp.readyState == 4) { //服务器响应完毕		
+			if(xmlHttp.status==200){ //是否正常响应
+				var mess = xmlHttp.responseText; //获得服务器响应的文本
+				if(mess == "success")
+				{
+					$(".doc_view_login").hide();
+					$(".doc_view").show();
+					
+//					document.getElementById("doctor_tab_view").innerHTML=
+//						"<div class=\"dc_tabcnt\" id=\"tab1\" style=\"display:block;\">" + 
+//                "<ul>" + 
+//                "<s:iterator value=\"#session.DoctorName\">" + 
+//                    "<li>" + 
+//                        "<div class=\"dc_info\">" + 
+//                            "<dl>" + 
+//                                "<dt>" + 
+//                                    "<a href=\"doctor.jsp\" class=\"dc_info_pic fl block o-hidden\"><img src=\"images/doctor.jpg\" width=\"72\" height=\"auto\"  alt=\"\"></a>" + 
+//                                   	"<div class=\"dc_info_name fl fs18\"><s:property /></div>" + 
+//                                    "<span class=\"dc_info_pst fl fs12\">副主任医师</span>" + 
+//                                "</dt>" + 
+//                                "<dd>" + 
+//                                    "<div class=\"dc_info_hs\">" + 
+//                                        "<a href=\"\">东莞市人民医院</a><br>" + 
+//                                        "<a href=\"specialty.jsp\" class=\"fs12\">内科</a>" + 
+//                                    "</div>" + 
+//                                    "<p class=\"dc_info_pd fs12\">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>" + 
+//                                "</dd>" + 
+//                            "</dl>" + 
+//                        "</div>" + 
+//                        "<div class=\"dc_icon\">" + 
+//                            "<a href=\"doctor.jsp\"><i></i>预约挂号</a>" + 
+//                        "</div>" + 
+//                    "</li>" + 
+//                    "</s:iterator>" + 
+//                "</ul>" + 
+//            "</div>";
+					
+//					$(this).show();
+
+				}
+				else
+				{
+				   
+				}
+			}
+		}
+	}
+	if(!(dept_name == ""))
+	{
+	 	 //3. 拼装URL
+		 var url = "OzqActionDoctorName.action";
+		
+		 url = url + "?dept_name=" + dept_name;
+	
+		//4. 打开连接
+		xmlHttp.open("POST",url,true);
+		//5. 发送请求
+		xmlHttp.send();
+	}
+	
+}

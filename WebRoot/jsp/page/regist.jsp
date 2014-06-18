@@ -126,7 +126,7 @@ obj.src="rand.action?d="+timenow;
 <div class="content">
 	<div class="cnt w960 center clearfix" style="height:500px;background:#FFF;">
 		<div class="rg_tt"><span>注册新帐号</span></div>
-		<form class="rg_cnt fl" action="regist.action" method="post" name="regist">
+		<form class="rg_cnt fl" action="regist.action" method="post" id="regist"name="regist">
 			<p>请填写以下账号信息</p>
 			<ul>
 				<li>
@@ -148,10 +148,10 @@ obj.src="rand.action?d="+timenow;
 					<span>身份证</span>
 					<input id="uid"type="text" value="" placeholder="为了成功就诊，请正确填写" maxlength="18" name="user_id" onblur="checkUserName()">
 					<label for="">请填写正确的身份证号码!</label>
-					<label for="">该用户已经注册!</label>
+					<b>该用户已经注册!</b>
 				</li>
 			</ul>
-			<input id="commit" type="submit" value="同意协议并注册">
+			<input id="commit" type="button" value="同意协议并注册">
 		</form>
 		<div class="rg_side fr">
 			<div class="qst rg_sd">

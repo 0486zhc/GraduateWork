@@ -1,5 +1,6 @@
 package action;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -7,6 +8,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import model.Ozq.OutpDoctorRegist;
 
@@ -21,6 +25,9 @@ public class OzqAction{
 	private OzqBo ozqBo;
 	private List<OutpDoctorRegist> OutpDoctorRegist12;
 	private List<OutpDoctorRegist> OutpDoctorRegist7;
+	private List<String> OutpDoctorRegistDoctorName;
+	private List<String> OutpDoctorRegistDeptName;
+
 	private Date start_time;
 	private Date end_time;
 	private String clinic_dept;
@@ -29,6 +36,8 @@ public class OzqAction{
 	private Map<String, Object> request;
 	private Map<String, Object> session;
 	private Map<String, Object> application;
+	HttpServletRequest req;
+	HttpServletResponse resp;
 
 	
 	
@@ -50,6 +59,21 @@ public class OzqAction{
 	}
 	public void setOutpDoctorRegist7(List<OutpDoctorRegist> outpDoctorRegist7) {
 		OutpDoctorRegist7 = outpDoctorRegist7;
+	}
+	
+	public List<String> getOutpDoctorRegistDoctorName() {
+		return OutpDoctorRegistDoctorName;
+	}
+	public void setOutpDoctorRegistDoctorName(
+			List<String> outpDoctorRegistDoctorName) {
+		OutpDoctorRegistDoctorName = outpDoctorRegistDoctorName;
+	}
+	
+	public List<String> getOutpDoctorRegistDeptName() {
+		return OutpDoctorRegistDeptName;
+	}
+	public void setOutpDoctorRegistDeptName(List<String> outpDoctorRegistDeptName) {
+		OutpDoctorRegistDeptName = outpDoctorRegistDeptName;
 	}
 	
 	public Date getStart_time() {
@@ -85,6 +109,8 @@ public class OzqAction{
 	      request = (Map<String, Object>) ActionContext.getContext().get("request");
 	      session = ActionContext.getContext().getSession();
 	      application = ActionContext.getContext().getApplication();
+	      req = ServletActionContext.getRequest();
+	      resp = ServletActionContext.getResponse();
 	   }
 	
 	//查12天排班
@@ -139,14 +165,52 @@ public class OzqAction{
 			return "success";
 		}
 		
-		public String CheckDoctor() throws UnsupportedEncodingException{
+		//查医生
+		public String CheckDoctorName() throws IOException{
 			System.out.println("action1...");
 			
-			String deptname = ServletActionContext.getRequest().getParameter("dept_name");
+			String deptname = req.getParameter("dept_name");
 			deptname = new String(deptname.getBytes("ISO-8859-1"),"UTF-8");
 		    System.out.println(deptname);
-			
-			return "success";
+		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName(deptname);
+		    request.put("DoctorName", OutpDoctorRegistDoctorName);
+		    System.out.println(OutpDoctorRegistDoctorName.get(1));
+		    String state = "";
+		    System.out.println(OutpDoctorRegistDoctorName!=null);
+		    if(OutpDoctorRegistDoctorName != null){
+		    	state = "success";
+			}else{
+				state = "fail";
+			}
+		    resp.getWriter().write(state);
+		    System.out.println("==========================");
+		    return "success"; 
 		}
 
+		//查一进入首页时显示的医生
+		public String CheckDoctorNamelogin() throws IOException{
+			System.out.println("action1...");
+			
+		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊内科");
+		    request.put("DoctorName", OutpDoctorRegistDoctorName);
+		    System.out.println(OutpDoctorRegistDoctorName.get(1));
+		    System.out.println("login.............");
+		    return "success";
+		}
+		
+		//查一进入首页时显示的科室
+		public void CheckDeptName() throws IOException{
+			System.out.println("action1...");
+			
+			OutpDoctorRegistDeptName = ozqBo.CheckDeptName();
+			request.put("DeptName", OutpDoctorRegistDeptName);
+		    System.out.println(OutpDoctorRegistDeptName.get(1));
+		    String state = "";
+		    if(OutpDoctorRegistDeptName != null){
+		    	state = "success";
+			}else{
+				state = "fail";
+			}
+		    resp.getWriter().write(state);
+		}
 }

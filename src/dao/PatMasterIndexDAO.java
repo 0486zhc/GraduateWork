@@ -123,6 +123,10 @@ public class PatMasterIndexDAO
       query.setString(0, user);
       
       pmi = query.list();
+      if(pmi.isEmpty())
+      {
+         return null;
+      }
       return pmi.get(0);
    }
 }
