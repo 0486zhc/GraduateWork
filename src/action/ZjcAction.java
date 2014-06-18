@@ -19,7 +19,12 @@ public class ZjcAction
 		return "success";
 	}
 	
-	
+	public String register(){
+		System.out.println("register");
+		mess = bo.addRegister(patMasterIndex);
+		System.out.println(mess);
+		return "success";
+	}
 	public String getMess() {
 		return mess;
 	}

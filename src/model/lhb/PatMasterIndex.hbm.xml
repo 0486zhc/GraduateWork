@@ -8,7 +8,7 @@
     <class name="model.lhb.PatMasterIndex" table="PAT_MASTER_INDEX" schema="MEDREC">
         <id name="patientId" type="java.lang.String">
             <column name="PATIENT_ID" length="20" />
-            <generator class="native"></generator>
+            <generator class="assigned"></generator>
         </id>
         
         <property name="inpNo" type="java.lang.String">

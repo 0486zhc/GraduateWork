@@ -27,6 +27,14 @@ public class ImplBo_zjc implements IBo_zjc{
 		}
 	}
 
-	
-
+	@Override
+	public String addRegister(PatMasterIndex patMasterIndex) {
+		System.out.println("maxPatientId : "+dao.getMaxPatientId());
+		patMasterIndex.setPatientId(dao.getMaxPatientId());
+		if(dao.savePatientInfo(patMasterIndex)){
+			return "注册成功！";
+		}else{
+			return "注册失败！";
+		}
+	}
 }

@@ -21,6 +21,31 @@
 		</property>
 	</bean>
 	
+	<!--将事务管理交给spring，注册一个bean -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+
+	<!-- 事务处理的一个代理  -->
+    <!-- 	在bo接口中，以get、add、delete方法开头是的事务处理 -->
+	<bean id="baseTxProxy" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop> 
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean> 
+	
 	<import resource="lhb.xml"/>
 	<import resource="zjc.xml"/>
 	<import resource="ozq.xml"/>

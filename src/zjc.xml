@@ -6,10 +6,22 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<bean id="PhoneWeb" class="action.ZjcAction" scope="prototype">
-		<property name="Bo" ref="Bo"></property>
+		<property name="Bo" ref="BoProxy"></property>
 	</bean>
 	
-	<bean id="Bo" class="bo.impl.ImplBo_zjc">
+	<!--Bo 代理  -->
+   <bean id="BoProxy" parent="baseTxProxy">
+		<property name="proxyInterfaces">
+			<list>
+				<value>bo.IBo_zjc</value>
+			</list>
+		</property>
+		<property name="target">
+			<ref bean="BoTarget"/>
+		</property>
+	</bean>
+	
+	<bean id="BoTarget" class="bo.impl.ImplBo_zjc">
 		<property name="Dao" ref="Dao"></property>
 	</bean>
 	

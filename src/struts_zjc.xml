@@ -3,8 +3,13 @@
 <struts>
 	<package name="struts2" extends="struts-default">
 	    <action name="user_login" class="PhoneWeb" method="Login">
-             <result name="success">/PhoneWeb/success.jsp</result>
+             <result name="success">/PhoneWeb/index.jsp</result>
         </action>
+        
+        <action name="user_register" class="PhoneWeb" method="register">
+             <result name="success">/PhoneWeb/index.jsp</result>
+        </action>
+        
      </package>
 
 	
