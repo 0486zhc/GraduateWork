@@ -371,20 +371,24 @@ $(document).ready(function () {
         <div class="dc_tt cnt_tt fl">
             <span>找医生</span>
             <div class="dc_tab">
-                <ul>
-                    <li class="fl" tab="tab1"><a href="javascript:void(0);">门诊内科</a></li>
-                    <li class="fl" tab="tab2"><a href="javascript:void(0);">门诊外科</a></li>
-                    <li class="fl" tab="tab3"><a href="javascript:void(0);">门诊儿科</a></li>
-                    <li class="fl" tab="tab4"><a href="javascript:void(0);">门诊康复科</a></li>
-                    <li class="fl" tab="tab5"><a href="javascript:void(0);">门诊妇科</a></li>
-                    <li class="fl" tab="tab6"><a href="javascript:void(0);">门诊五官科</a></li>
-                    <li class="fl" tab="tab7"><a href="javascript:void(0);">门诊皮肤科</a></li>
-                    <li class="fl" tab="tab8"><a href="javascript:void(0);">门诊中医科</a></li>
+                <ul >
+                    <li class="fl" tab="tab1"><a href="OzqActionDoctorNametab1.action?dept_name=门诊内科" target="doctorframe_tab1">门诊内科</a></li>
+                    <li class="fl" tab="tab2"><a href="OzqActionDoctorNametab2.action?dept_name=门诊妇科" target="doctorframe_tab2">门诊妇科</a></li>
+                    <li class="fl" tab="tab3"><a href="OzqActionDoctorNametab3.action?dept_name=门诊急诊科" target="doctorframe_tab3">门诊急诊科</a></li>
+                    <li class="fl" tab="tab4"><a href="OzqActionDoctorNametab4.action?dept_name=门诊口腔科" target="doctorframe_tab4">门诊口腔科</a></li>
+                    <li class="fl" tab="tab5"><a href="OzqActionDoctorNametab5.action?dept_name=门诊中医科" target="doctorframe_tab5">门诊中医科</a></li>
+                    <li class="fl" tab="tab6"><a href="OzqActionDoctorNametab6.action?dept_name=门诊外科" target="doctorframe_tab6">门诊外科</a></li>
+                    <li class="fl" tab="tab7"><a href="OzqActionDoctorNametab7.action?dept_name=体检科" target="doctorframe_tab7">体检科</a></li>
                 </ul>
             </div>
         </div>
-        <iframe id="doc_login" class="doc_view_login" name="doctorframe_login" height="100%" width="100%" frameborder="0" src="OzqActionDoctorNamelogin.action"></iframe>
-        <iframe id="doc" class="doc_view" name="doctorframe" height="100%" width="100%" frameborder="0" src="doctorview.jsp"></iframe>
+        <iframe id="tab1" class="doc_view_tab1" name="doctorframe_tab1" height="250px" width="100%" frameborder="0" scrolling="auto" style="display:block;" src="OzqActionDoctorNametab1.action?dept_name=门诊内科"></iframe>
+        <iframe id="tab2" class="doc_view_tab2" name="doctorframe_tab2" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab2.action?dept_name=门诊妇科"></iframe>
+        <iframe id="tab3" class="doc_view_tab3" name="doctorframe_tab3" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab3.action?dept_name=门诊急诊科"></iframe>
+        <iframe id="tab4" class="doc_view_tab4" name="doctorframe_tab4" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab4.action?dept_name=门诊口腔科"></iframe>
+        <iframe id="tab5" class="doc_view_tab5" name="doctorframe_tab5" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab5.action?dept_name=门诊中医科"></iframe>
+        <iframe id="tab6" class="doc_view_tab6" name="doctorframe_tab6" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab6.action?dept_name=门诊外科"></iframe>
+        <iframe id="tab7" class="doc_view_tab7" name="doctorframe_tab7" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab7.action?dept_name=体检科"></iframe>
     </div>
 </div>
 <div class="footer center t_c">

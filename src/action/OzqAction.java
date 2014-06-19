@@ -170,47 +170,101 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 			String deptname = req.getParameter("dept_name");
-			deptname = new String(deptname.getBytes("ISO-8859-1"),"UTF-8");
-		    System.out.println(deptname);
+			System.out.println(deptname);
+			deptname=new String(deptname.getBytes("ISO-8859-1"), "UTF-8");
+			System.out.println(deptname);
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName(deptname);
-		    request.put("DoctorName", OutpDoctorRegistDoctorName);
+		    session.put("DoctorName", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
-		    String state = "";
-		    System.out.println(OutpDoctorRegistDoctorName!=null);
-		    if(OutpDoctorRegistDoctorName != null){
-		    	state = "success";
-			}else{
-				state = "fail";
-			}
-		    resp.getWriter().write(state);
-		    System.out.println("==========================");
-		    return "success"; 
+		    System.out.println("click doctor.............");
+		    return "success";
 		}
 
 		//查一进入首页时显示的医生
-		public String CheckDoctorNamelogin() throws IOException{
+		public String CheckDoctorNametab1() throws IOException{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊内科");
-		    request.put("DoctorName", OutpDoctorRegistDoctorName);
+		    request.put("DoctorNametab1", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
-		    System.out.println("login.............");
+		    System.out.println("login doctor.............");
+		    return "success";
+		}
+		
+		//查tab2的医生
+		public String CheckDoctorNametab2() throws IOException{
+			System.out.println("action1...");
+			
+		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊妇科");
+		    request.put("DoctorNametab2", OutpDoctorRegistDoctorName);
+		    System.out.println(OutpDoctorRegistDoctorName.get(1));
+		    System.out.println("login doctor.............");
+		    return "success";
+		}
+		
+		//查tab3的医生
+		public String CheckDoctorNametab3() throws IOException{
+			System.out.println("action1...");
+			
+		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊急诊科");
+		    request.put("DoctorNametab3", OutpDoctorRegistDoctorName);
+		    System.out.println(OutpDoctorRegistDoctorName.get(1));
+		    System.out.println("login doctor.............");
+		    return "success";
+		}
+		
+		//查tab4的医生
+		public String CheckDoctorNametab4() throws IOException{
+			System.out.println("action1...");
+			
+		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊口腔科");
+		    request.put("DoctorNametab4", OutpDoctorRegistDoctorName);
+		    System.out.println(OutpDoctorRegistDoctorName.get(1));
+		    System.out.println("login doctor.............");
+		    return "success";
+		}
+		
+		//查tab5的医生
+		public String CheckDoctorNametab5() throws IOException{
+			System.out.println("action1...");
+			
+		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊中医科");
+		    request.put("DoctorNametab5", OutpDoctorRegistDoctorName);
+		    System.out.println(OutpDoctorRegistDoctorName.get(1));
+		    System.out.println("login doctor.............");
+		    return "success";
+		}
+		
+		//查tab6的医生
+		public String CheckDoctorNametab6() throws IOException{
+			System.out.println("action1...");
+			
+		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊外科");
+		    request.put("DoctorNametab6", OutpDoctorRegistDoctorName);
+		    System.out.println(OutpDoctorRegistDoctorName.get(1));
+		    System.out.println("login doctor.............");
+		    return "success";
+		}
+		
+		//查tab7的医生
+		public String CheckDoctorNametab7() throws IOException{
+			System.out.println("action1...");
+			
+		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("体检科");
+		    request.put("DoctorNametab7", OutpDoctorRegistDoctorName);
+		    System.out.println(OutpDoctorRegistDoctorName.get(1));
+		    System.out.println("login doctor.............");
 		    return "success";
 		}
 		
 		//查一进入首页时显示的科室
-		public void CheckDeptName() throws IOException{
+		public String CheckDeptName() throws IOException{
 			System.out.println("action1...");
 			
-			OutpDoctorRegistDeptName = ozqBo.CheckDeptName();
-			request.put("DeptName", OutpDoctorRegistDeptName);
+		    OutpDoctorRegistDeptName = ozqBo.CheckDeptName();
+		    request.put("DeptName", OutpDoctorRegistDeptName);
 		    System.out.println(OutpDoctorRegistDeptName.get(1));
-		    String state = "";
-		    if(OutpDoctorRegistDeptName != null){
-		    	state = "success";
-			}else{
-				state = "fail";
-			}
-		    resp.getWriter().write(state);
+		    System.out.println("login doctor.............");
+		    return "success";
 		}
 }

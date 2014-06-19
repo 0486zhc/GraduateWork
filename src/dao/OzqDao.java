@@ -56,7 +56,7 @@ public class OzqDao{
         .setParameter(5, doctor_no); 
 	    System.out.println("dao end1...");
 	    odr = query.list();
-	    System.out.println("dao end2...");
+	    System.out.println("dao CheckOnDuty end2...");
 	    return odr;
 	}
 	
@@ -76,7 +76,7 @@ public class OzqDao{
 	        .setParameter(0, doctor_name); 
 		    System.out.println("dao end1...");
 		    odr = query.list();
-		    System.out.println("dao end2...");
+		    System.out.println("dao CheckClinicDeptDoctorNo end2...");
 		    return odr;
 		}
 	
@@ -85,7 +85,6 @@ public class OzqDao{
 			System.out.println("dao...");
 			
 			Session session = HibernateUtil.getSession();
-			
 			Query query = session.createSQLQuery(
 					"select DOCTOR " + 
 					"from OUTP_DOCTOR_REGIST " + 
@@ -97,7 +96,7 @@ public class OzqDao{
 		    System.out.println("dao end1...");
 		    List<String> odr = query.list();
 		    System.out.println(odr.get(0));
-		    System.out.println("dao end2...");
+		    System.out.println("dao CheckDoctorName end2...");
 		    return odr;
 		}
 		
@@ -106,15 +105,13 @@ public class OzqDao{
 				System.out.println("dao...");
 				
 				Session session = HibernateUtil.getSession();
-				//List<OutpDoctorRegist> odr = null;
-				
 				Query query = session.createSQLQuery(
-						"select DEPT_NAME from DEPT_DICT where DEPT_NAME like '门诊%' group by DEPT_NAME"
+						"select DEPT_NAME from DEPT_DICT where  DEPT_NAME in ('门诊中医科','门诊外科','门诊内科','门诊口腔科','门诊急诊科','门诊妇科') group by DEPT_NAME"
 						);
 				System.out.println("dao end1...");
 			    List<String> odr = query.list();
 				System.out.println(odr.get(0));
-				System.out.println("dao end2...");
+				System.out.println("dao CheckDeptName end2...");
 				return odr;
 			}
 }

@@ -18,7 +18,7 @@ private OzqDao OzqDao;
 
 	//查排班
 	public List<OutpDoctorRegist> CheckOnDuty(String start_time,String end_time, String clinic_dept, String doctor_no) {
-		System.out.println("bo...");
+		System.out.println("bo CheckOnDuty begin...");
 		return OzqDao.CheckOnDuty(start_time, end_time, clinic_dept, doctor_no);
 	}
 	
@@ -26,6 +26,7 @@ private OzqDao OzqDao;
 	public List<String> CheckDoctorName(String deptname) {
 		System.out.println("bo...");
 		List<String> odr = OzqDao.CheckDoctorName(deptname);
+		System.out.println("bo CheckDoctorName end...");
 		return odr;
 	}
 	
@@ -33,6 +34,7 @@ private OzqDao OzqDao;
 		public List<String> CheckDeptName() {
 			System.out.println("bo...");
 			List<String> odr = OzqDao.CheckDeptName();
+			System.out.println("bo CheckDeptName end...");
 			return odr;
 		}
 
