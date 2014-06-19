@@ -888,11 +888,12 @@ public class PatMasterIndex implements java.io.Serializable
       this.password = password;
    }
 
-@Override
-public String toString() {
-	return "PatMasterIndex [patientId=" + patientId + ", name=" + name
-			+ ", sex=" + sex + ", idNo=" + idNo + ", password=" + password + ", phoneNumberHome="
-			+ phoneNumberHome + "]";
-}
+   @Override
+   public String toString()
+   {
+      return "PatMasterIndex [patientId=" + patientId + ", name=" + name
+            + ", sex=" + sex + ", idNo=" + idNo + ", password=" + password
+            + ", phoneNumberHome=" + phoneNumberHome + "]";
+   }
 
 }

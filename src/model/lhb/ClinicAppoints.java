@@ -12,7 +12,6 @@ public class ClinicAppoints implements java.io.Serializable
 
    // Fields
 
-   
    private Date   visitDateAppted;
    private String clinicLabel;
    private String visitTimeAppted;
@@ -20,31 +19,31 @@ public class ClinicAppoints implements java.io.Serializable
    private String regTimePoint;
    private String preRegistDoctor;
    private String registStatus;
-   private String           patientId;
-   private Date             apptMadeDate;
-   private String           modeCode;
-   private String           cardName;
-   private String           cardNo;
-   private String           name;
-   private String           sex;
-   private long             age;
-   private String           identity;
-   private String           chargeType;
-   private String           insuranceNo;
-   private String           insuranceType;
-   private String           unitInContract;
-   private String           namePhonetic;
-   private String           operator;
-   private String           cancelResean;
-   private String           phoneNo;
-   private Date             cancelDate;
-   private String           cancelOperator;
-   private short            appointNo;
-   private String           registFlag;
-   private Date             dateOfBirth;
-   private String           mailingAddrAreaCode;
-   private String           mailingAddrStreetNo;
-   private Date             phoneNumberHome;
+   private String patientId;
+   private Date   apptMadeDate;
+   private String modeCode;
+   private String cardName;
+   private String cardNo;
+   private String name;
+   private String sex;
+   private long   age;
+   private String identity;
+   private String chargeType;
+   private String insuranceNo;
+   private String insuranceType;
+   private String unitInContract;
+   private String namePhonetic;
+   private String operator;
+   private String cancelResean;
+   private String phoneNo;
+   private Date   cancelDate;
+   private String cancelOperator;
+   private short  appointNo;
+   private String registFlag;
+   private Date   dateOfBirth;
+   private String mailingAddrAreaCode;
+   private String mailingAddrStreetNo;
+   private Date   phoneNumberHome;
 
    // Constructors
 
@@ -55,12 +54,7 @@ public class ClinicAppoints implements java.io.Serializable
 
    /** minimal constructor */
 
-
-
-
    // Property accessors
-
-   
 
    public String getPatientId()
    {

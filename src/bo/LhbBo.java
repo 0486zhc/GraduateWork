@@ -6,7 +6,9 @@ import dao.PatMasterIndexDAO;
 
 public class LhbBo
 {
-   private PatMasterIndexDAO pmiDao;
+   private PatMasterIndexDAO   pmiDao;
+   private static final String SUCCESS = "success";
+   private static final String ERROR   = "error";
 
    public PatMasterIndexDAO getPmiDao()
    {
@@ -21,25 +23,13 @@ public class LhbBo
    public PatMasterIndex loginQuery(String user, String pwd)
    {
       PatMasterIndex pat = pmiDao.find(user, pwd);
-
       return pat;
    }
 
    public String regist(PatMasterIndex pmi)
    {
-      String state;
-
-      try
-      {
-         pmiDao.regist(pmi);
-         state = "success";
-      } catch (Exception ex)
-      {
-         ex.printStackTrace();
-         state = "error";
-      }
-
-      return state;
+      pmiDao.regist(pmi);
+      return SUCCESS;
    }
 
    public String checkForUserId(String user)
@@ -47,9 +37,9 @@ public class LhbBo
       PatMasterIndex pat = pmiDao.checkForUserId(user);
       if(pat == null)
       {
-         return "success";
+         return SUCCESS;
       }
-      return "fail";
+      return ERROR;
    }
 
    public String makeAppoints(ClinicAppoints appoints)
