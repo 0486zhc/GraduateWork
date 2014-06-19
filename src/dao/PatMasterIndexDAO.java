@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import model.lhb.ClinicAppoints;
 import model.lhb.PatMasterIndex;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -128,5 +129,18 @@ public class PatMasterIndexDAO
          return null;
       }
       return pmi.get(0);
+   }
+
+   public void makeAppoints(ClinicAppoints appoints)
+   {
+      Session session = HibernateUtil.getSession();
+      Transaction ts = session.beginTransaction();
+      ts.begin();
+     
+      session.saveOrUpdate(appoints);
+      ts.commit();
+      session.flush();
+      session.close();
+      
    }
 }

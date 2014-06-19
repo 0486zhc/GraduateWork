@@ -1,5 +1,6 @@
 package bo;
 
+import model.lhb.ClinicAppoints;
 import model.lhb.PatMasterIndex;
 import dao.PatMasterIndexDAO;
 
@@ -49,5 +50,11 @@ public class LhbBo
          return "success";
       }
       return "fail";
+   }
+
+   public String makeAppoints(ClinicAppoints appoints)
+   {
+      pmiDao.makeAppoints(appoints);
+      return null;
    }
 }

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 import util.MD5;
+import model.lhb.ClinicAppoints;
 import model.lhb.PatMasterIndex;
 import bo.LhbBo;
 import com.opensymphony.xwork2.ActionContext;
@@ -24,6 +25,7 @@ public class LhbAction extends ActionSupport
    private Map<String, Object> session;
    private Map<String, Object> application;
    private PatMasterIndex pmi;
+   private ClinicAppoints appoints;
    private String rand;// 表单中的rand
    HttpServletResponse response;
    HttpServletRequest requestForAjax;
@@ -144,5 +146,13 @@ public class LhbAction extends ActionSupport
       String state = lhbBo.checkForUserId(user_id);
       response.getWriter().write(state);
        
+   }
+   
+   public String makeAppoints()
+   {
+      //appoints
+      String state = lhbBo.makeAppoints(appoints);
+      return state;
+      
    }
 }
