@@ -1,9 +1,9 @@
-package action;
+package action.zjc;
 
 import bo.IBo_zjc;
 import model.lhb.PatMasterIndex;
 
-public class ZjcAction
+public class UserAction
 {
 	private PatMasterIndex patMasterIndex; 
 	private IBo_zjc bo ;
@@ -15,11 +15,18 @@ public class ZjcAction
 	public String Login(){
 		System.out.println("action");
 		mess = bo.verify(userName,passWord);
+		if(mess == "" )
+			return "false";
+		else
+			return "success";
+	}
+	
+	public String register(){
+		System.out.println("register");
+		mess = bo.addRegister(patMasterIndex);
 		System.out.println(mess);
 		return "success";
 	}
-	
-	
 	public String getMess() {
 		return mess;
 	}
