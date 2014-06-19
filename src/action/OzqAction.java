@@ -185,7 +185,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊内科");
-		    request.put("DoctorNametab1", OutpDoctorRegistDoctorName);
+		    session.put("DoctorNametab1", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
@@ -196,7 +196,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊妇科");
-		    request.put("DoctorNametab2", OutpDoctorRegistDoctorName);
+		    session.put("DoctorNametab2", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
@@ -207,7 +207,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊急诊科");
-		    request.put("DoctorNametab3", OutpDoctorRegistDoctorName);
+		    session.put("DoctorNametab3", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
@@ -218,7 +218,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊口腔科");
-		    request.put("DoctorNametab4", OutpDoctorRegistDoctorName);
+		    session.put("DoctorNametab4", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
@@ -229,7 +229,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊中医科");
-		    request.put("DoctorNametab5", OutpDoctorRegistDoctorName);
+		    session.put("DoctorNametab5", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
@@ -240,7 +240,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊外科");
-		    request.put("DoctorNametab6", OutpDoctorRegistDoctorName);
+		    session.put("DoctorNametab6", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
@@ -251,7 +251,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("体检科");
-		    request.put("DoctorNametab7", OutpDoctorRegistDoctorName);
+		    session.put("DoctorNametab7", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
