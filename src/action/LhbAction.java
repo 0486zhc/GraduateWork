@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 import util.MD5;
-import model.lhb.ClinicAppoints;
+import model.Ozq.ClinicAppoints;
 import model.lhb.PatMasterIndex;
 import bo.LhbBo;
 import com.opensymphony.xwork2.ActionContext;

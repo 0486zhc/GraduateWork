@@ -1,6 +1,6 @@
 package bo;
 
-import model.lhb.ClinicAppoints;
+import model.Ozq.ClinicAppoints;
 import model.lhb.PatMasterIndex;
 import dao.PatMasterIndexDAO;
 

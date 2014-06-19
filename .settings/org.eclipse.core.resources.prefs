@@ -1,4 +1,4 @@
-#Wed Jun 18 12:54:24 CST 2014
+#Thu Jun 19 08:05:50 CST 2014
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=branch 'master' of https\://github.com/gdmc-louis/GraduateWork
@@ -6,6 +6,7 @@ eclipse.preferences.version=1
 encoding//WebRoot/PhoneWeb=UTF-8
 encoding//WebRoot/PhoneWeb/WebTwo/login.jsp=UTF-8
 encoding//WebRoot/PhoneWeb/index.jsp=UTF-8
+encoding//WebRoot/PhoneWeb/jsp/department.jsp=UTF-8
 encoding//WebRoot/PhoneWeb/liebiao.jsp=UTF-8
 encoding//WebRoot/PhoneWeb/wiying/Tpl/Wap/wiying/common/public.css=UTF-8
 encoding//WebRoot/PhoneWeb/zhengwen.jsp=UTF-8
