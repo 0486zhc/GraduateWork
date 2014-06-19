@@ -16,6 +16,10 @@
 		<!-- 查医生 -->
 		<action name="OzqActionDoctorName" class="action.OzqAction" method="CheckDoctorName">
 		</action>
+		<!-- 查首页医生 -->
+		<action name="OzqActionDoctorNamelogin" class="action.OzqAction" method="CheckDoctorNamelogin">
+			<result>/jsp/page/doctorview.jsp</result>
+		</action>
 	</package>
 
 </struts>    

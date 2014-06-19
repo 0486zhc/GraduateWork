@@ -81,24 +81,40 @@ public class OzqDao{
 		}
 	
 	//查医生名字
-		public List<String> CheckDoctorName(String dept_name) {
+		public List<String> CheckDoctorName(String deptname) {
 			System.out.println("dao...");
 			
 			Session session = HibernateUtil.getSession();
-			//List<OutpDoctorRegist> odr = null;
 			
 			Query query = session.createSQLQuery(
 					"select DOCTOR " + 
 					"from OUTP_DOCTOR_REGIST " + 
-					"where CLINIC_DEPT = (select DEPT_CODE " + 
+					"where CLINIC_DEPT in (select DEPT_CODE " + 
 					"from DEPT_DICT where DEPT_NAME " + 
 					"like ?)" + 
 					"group by DOCTOR")
-			.setParameter(0, dept_name); 
+					.setParameter(0, deptname);
 		    System.out.println("dao end1...");
-		    List<String> odr1 = query.list();
-		    System.out.println(odr1.get(0));
+		    List<String> odr = query.list();
+		    System.out.println(odr.get(0));
 		    System.out.println("dao end2...");
-		    return odr1;
+		    return odr;
 		}
+		
+	//查科室
+			public List<String> CheckDeptName() {
+				System.out.println("dao...");
+				
+				Session session = HibernateUtil.getSession();
+				//List<OutpDoctorRegist> odr = null;
+				
+				Query query = session.createSQLQuery(
+						"select DEPT_NAME from DEPT_DICT where DEPT_NAME like '门诊%' group by DEPT_NAME"
+						);
+				System.out.println("dao end1...");
+			    List<String> odr = query.list();
+				System.out.println(odr.get(0));
+				System.out.println("dao end2...");
+				return odr;
+			}
 }

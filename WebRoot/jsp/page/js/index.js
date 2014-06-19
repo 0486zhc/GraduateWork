@@ -95,24 +95,34 @@ $(function(){
 
 /*dc_info*/
 $(function(){
+	
+	$(".dc_tab li:first").addClass("dc_act");
+	$(".dc_tabbox").show();
+	
 	$(".dc_info_pd").each(function(){
 		if($(this).text().length > 26){
 			var txt = $(this).text().substring(0,26) + "...";
 			$(this).text(txt);
 		}
 	});
+	
 	$(".dc_tab li:first").addClass("dc_act");
+	$(".doc_view").hide();
 	$(".dc_tab a").each(function(){
 		$(this).click(function(){
-			
+			$(".doc_view").hide();
 			var t = $(this).text();
 			CheckDoctorName(t);
+//			$(".doc_view").open(document.all.ifrmname.src,'doctorframe','/GraduateWork/jsp/page/doctorview.jsp');
+//			setInterval('startrefresh()',500);
 			
 			$(".dc_tab li").removeClass("dc_act");
 			$(this).parent("li").addClass("dc_act");
 			var activetab = "#" + $(this).parent("li").attr("tab");
 			$(".dc_tabcnt").hide();
 			$(activetab).show();
+			$(".doc_view_login").hide();
+			$(".doc_view").show();
 		});
 	});
 });
@@ -141,7 +151,7 @@ $(function(){
 			tab();
 		});
 		$(this).mouseout(function() {
-			focustime()
+			focustime();
 		});
 	});
 
@@ -394,9 +404,13 @@ function CheckDoctorName(dept_name) {
 				var mess = xmlHttp.responseText; //获得服务器响应的文本
 				if(mess == "success")
 				{
-//					document.getElementById(".dc_tabbox").innerHTML="<div class=\"dc_tabcnt\" id=\"tab1\" style=\"display:block;\">" + 
+					$(".doc_view_login").hide();
+					$(".doc_view").show();
+					
+//					document.getElementById("doctor_tab_view").innerHTML=
+//						"<div class=\"dc_tabcnt\" id=\"tab1\" style=\"display:block;\">" + 
 //                "<ul>" + 
-//                "<s:iterator value=\"#request.DoctorName\">" + 
+//                "<s:iterator value=\"#session.DoctorName\">" + 
 //                    "<li>" + 
 //                        "<div class=\"dc_info\">" + 
 //                            "<dl>" + 
@@ -421,6 +435,8 @@ function CheckDoctorName(dept_name) {
 //                    "</s:iterator>" + 
 //                "</ul>" + 
 //            "</div>";
+					
+//					$(this).show();
 
 				}
 				else

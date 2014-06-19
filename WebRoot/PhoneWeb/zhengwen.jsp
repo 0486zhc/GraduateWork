@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>仿西财同学外联部微官网手机wap微信网站模板正文页-3v3手机WAP模板微信模板资源【3v3.cc】</title>
+<title>东莞市第二人民医院</title>
 <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
 <link type="text/css" rel="stylesheet" href="wiying/Tpl/Wap/wiying/common/public.css" />
 <link type="text/css" rel="stylesheet" href="wiying/Tpl/Wap/wiying/Index/E-xinan/default/style.css" />
