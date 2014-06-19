@@ -28,7 +28,6 @@
 		<mapping resource="model/Ozq/StaffDict.hbm.xml"></mapping>
 		<mapping resource="model/lhb/PatMasterIndex.hbm.xml"></mapping>
 		<mapping resource="model/Ozq/ClinicAppoints.hbm.xml"></mapping>
-		<mapping resource="model/lhb/ClinicAppoints.hbm.xml"></mapping>
 
 
 	</session-factory>

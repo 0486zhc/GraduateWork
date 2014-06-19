@@ -2,7 +2,7 @@ package dao;
 
 import java.util.List;
 
-import model.lhb.ClinicAppoints;
+import model.Ozq.ClinicAppoints;
 import model.lhb.PatMasterIndex;
 import org.hibernate.Query;
 import org.hibernate.Session;
