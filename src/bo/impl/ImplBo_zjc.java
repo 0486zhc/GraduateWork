@@ -3,7 +3,7 @@ package bo.impl;
 import java.util.List;
 
 import dao.IDao_zjc;
-import model.Ozq.DeptDict2;
+import model.Ozq.DeptDict;
 import model.Ozq.OutpDoctorRegist;
 import model.lhb.PatMasterIndex;
 import bo.IBo_zjc;
@@ -39,7 +39,7 @@ public class ImplBo_zjc implements IBo_zjc{
 	}
 
 	@Override
-	public List<DeptDict2> getDept() {
+	public List<DeptDict> getDept() {
 		System.out.println("getDept");
 		return dao.getDept();
 	}

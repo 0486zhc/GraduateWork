@@ -32,9 +32,9 @@ $(document).ready(function () {
   
   <body>
     <div id="doctor_tab_view" class="dc_tabbox">
-            <div class="dc_tabcnt" id="tab1" style="display:block;">
+            <div class="dc_tabcnt" id="tab5">
                 <ul>
-                  <s:iterator value="#request.DoctorNametab1">
+                  <s:iterator value="#request.DoctorNametab5">
                     <li>
                         <div class="dc_info">
                             <dl>

@@ -4,10 +4,10 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 
-import model.Ozq.DeptDict2;
+import model.Ozq.DeptDict;
 import model.Ozq.OutpDoctorRegist;
 import model.lhb.PatMasterIndex;
-import model.zjc.DeptDict;
+
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -67,13 +67,13 @@ public class ImplDao_zjc implements IDao_zjc {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<DeptDict2> getDept() {
+	public List<DeptDict> getDept() {
 //		String hql = "from DeptDict  where DEPT_CODE in (select CLINIC_DEPT from OutpDoctorRegist )";
 //		String hql = "from DeptDict as d where d.dept_code in (select o.clinicDept from OutpDoctorRegist as o)";
 		final String hql = "from DeptDict";
 		DeptDict pat = (DeptDict) excuteHibernate(hql).get(0);
 		System.out.println("pat:"+pat);
-			System.out.println("maxNum" + pat.G);
+//			System.out.println("maxNum" + pat.G);
 			return null;
 		
 //		String sql = "select * from dept_dict where dept_code in (select clinic_dept from outp_doctor_regist)";
