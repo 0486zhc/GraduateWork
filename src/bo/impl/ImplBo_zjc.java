@@ -1,6 +1,10 @@
 package bo.impl;
 
+import java.util.List;
+
 import dao.IDao_zjc;
+import model.Ozq.DeptDict2;
+import model.Ozq.OutpDoctorRegist;
 import model.lhb.PatMasterIndex;
 import bo.IBo_zjc;
 
@@ -32,5 +36,16 @@ public class ImplBo_zjc implements IBo_zjc{
 		}else{
 			return "注册失败！";
 		}
+	}
+
+	@Override
+	public List<DeptDict2> getDept() {
+		System.out.println("getDept");
+		return dao.getDept();
+	}
+
+	@Override
+	public List<OutpDoctorRegist> getDoctor() {
+		return dao.getDoctor();
 	}
 }

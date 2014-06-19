@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="main">
 		<div>
 			<a
-				href=" ">
+				href="<%=basePath%>PhoneWeb/jsp/department.jsp ">
 				<p class="img"
 					style="background:url('<%=basePath +"PhoneWeb/upload/img/icon/yuyue.png"%>') no-repeat; background-size:contain;"></p>
 				<p class="text">预约挂号</p> </a>
@@ -138,7 +138,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<a
 				href="<%=basePath%>PhoneWeb/jsp/advice.jsp">
 				<p class="img"
-					style="background:url(./upload/img/icon/13830141383823.png) center no-repeat; background-size:contain;"></p>
+					style="background:url('<%=basePath +"PhoneWeb/upload/img/icon/13830141383823.png"%>') center no-repeat; background-size:contain;"></p>
 				<p class="text">服务建议</p> </a> <a
 				href="<%=basePath%>PhoneWeb/WebTwo/login.jsp">
 				<p class="img"

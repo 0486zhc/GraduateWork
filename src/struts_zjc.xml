@@ -2,13 +2,17 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="struts2" extends="struts-default">
-	    <action name="user_login" class="PhoneWeb" method="Login">
+	    <action name="user_login" class="user" method="Login">
              <result name="success">/PhoneWeb/index.jsp</result>
              <result name="false">/PhoneWeb/jsp/false.jsp</result>
         </action>
         
-        <action name="user_register" class="PhoneWeb" method="register">
+        <action name="user_register" class="user" method="register">
              <result name="success">/PhoneWeb/index.jsp</result>
+        </action>
+        
+        <action name="appoint_findDept" class="appointment" method="findDept">
+             <result name="success">/PhoneWeb/jsp/department.jsp</result>
         </action>
         
      </package>

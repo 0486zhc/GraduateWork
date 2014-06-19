@@ -2,7 +2,7 @@ package dao;
 
 import java.util.List;
 
-import model.Ozq.DeptDict;
+import model.Ozq.DeptDict2;
 import model.Ozq.OutpDoctorRegist;
 
 import org.hibernate.Query;
