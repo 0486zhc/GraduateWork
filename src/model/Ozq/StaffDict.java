@@ -39,7 +39,14 @@ public class StaffDict implements java.io.Serializable {
 	private Timestamp xbprzwDate;
 	private String zgzt;
 
+	@Override
+	public String toString() {
+		return "StaffDict [empNo=" + empNo + ", deptCode=" + deptCode
+				+ ", name=" + name + "]";
+	}
+	
 	// Property accessors
+
 
 	public String getId() {
 		return this.id;

@@ -31,42 +31,34 @@
 		<a href="<%=basePath %>PhoneWeb/index.jsp" class="home"> <span
 			class="header-icon header-icon-home"></span> <span
 			class="header-name">主页</span> </a>
-		<div class="title" id="titleString">科室列表</div>
+		<div class="title" id="titleString"><s:property value="dept.deptName"/></div>
 		<a href="javascript:history.go(-1);" class="back"> <span
 			class="header-icon header-icon-return"></span> <span
 			class="header-name">返回</span> </a>
 	</div>
 
-
 	<div class="container hotellistbg">
 		<ul class="unstyled hotellist">
-			
-<!-- 			<li><a href="Hotel.aspxcheckInDate.html"> <img -->
-<!-- 					class="hotelimg fl" src="http://www.gridinn.com/images/hotel/5.jpg" /> -->
-<!-- 					<div class="inline"> -->
-<!-- 						<h3>南宁秀灵店</h3> -->
-<!-- 						<p>地址：秀灵路55号（出入境管理局旁）</p> -->
-<!-- 						<p>评分：4.6 （1200人已评）</p> -->
-<!-- 					</div> -->
-<!-- 					<div class="clear"></div> </a> -->
-<!-- 				<ul class="unstyled"> -->
-<!-- 					<li><a href="Hotel.aspx@id=5" class="order">预订</a> -->
-<!-- 					</li> -->
-<!-- 					<li><a href="Hotelmap.aspx@id=5" class="gps">导航</a> -->
-<!-- 					</li> -->
-<!-- 					<li><a href="Hotelinfo.aspx@id=5" class="reality">实景</a> -->
-<!-- 					</li> -->
-<!-- 				</ul></li> -->
 
-		<s:iterator value="%{depts}">
-			<li><a href="appointment_findDoctors?deptCode=<s:property value="%{deptCode}" />" ><img
+<s:debug></s:debug>
+		<s:iterator value="%{doctorsInfo}">
+			<li><a href="appointment_findDoctorTime?doctorNo=<s:property value="%{empNo}" />" ><img
 					class="hotelimg fl"
 					src="http://www.gridinn.com/images/hotel/14.jpg" />
 					<div class="inline">
-						<h3><s:property value="%{deptName}" /></h3>
-						<p>科室代码：<s:property value="%{deptCode}" /></p>
-						<p>大科室名称：<s:property value="%{bigDeptCode}" /></p>
-					</div>
+						<h3><s:property value="%{name}" /></h3>
+						<p>医生编号：<s:property value="%{empNo}" /></p>
+						<p>医生职称：<s:property value="%{title}" /></p>
+					</div></a>
+					<ul class="unstyled">
+					<li><a href="Hotel.aspx@id=5" class="order">预订</a>
+					</li>
+					<li><a href="Hotelmap.aspx@id=5" class="gps">导航</a>
+					</li>
+					<li><a href="Hotelinfo.aspx@id=5" class="reality">实景</a>
+					</li>
+				</ul>
+			</li>
 		</s:iterator>
 		</ul>
 	</div>
