@@ -1,5 +1,9 @@
 package dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import model.Ozq.DeptDict;
@@ -23,41 +27,428 @@ public class OzqDao{
 		this.template = hibernateTemplate;
 	}
 	
-	//查排班
-	public List<OutpDoctorRegist> CheckOnDuty(String start_time,String end_time,String clinic_dept,String doctor_no) {
+	//查12天排班
+	public List<OutpDoctorRegist> CheckOnDutyMany(String clinic_dept,String doctor_no) {
 		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+		//开始日期
+		Date today = new Date();
+		String start_time = df.format(today);
+		//结束日期(12天)
+		Date Twelveday = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(Twelveday);
+		calendar.add(calendar.DATE,11);//把日期往后增加.整数往后推,负数往前移动
+		Twelveday=calendar.getTime(); //这个时间就是日期往后推的结果 
+		String end_time = df.format(Twelveday);
 		
 		Session session = HibernateUtil.getSession();
 		List<OutpDoctorRegist> odr = null;
 		
-		Query query = session.createSQLQuery("SELECT A.COUNSEL_NO,A.CLINIC_DEPT,A.DOCTOR_NO,A.DOCTOR, A.COUNSEL_DATE, A.CLINIC_DURATION, A.QUEUE_NAME, A.AUTO_ASSIGN_PATIENT, A.SIGN_INDICATOR,A.SIGN_TIME, " +
-                "A.COUNSELED_NUM, A.ADDRESS,A.COLUMN_NUM,A.LIMIT_NUM,A.LIMIT_NUM_APP, A.REGIST_NOWED, A.REGIST_APPED,A.TIME_POINT,A.STOP_TIME,A.STOP_INDICATOR,A.REGISTER_APPOINT, " +
-                "A.TIME_POINT_FLAG,A.REG_BEGIN_TIME,A.REG_END_TIME,A.MODIFIER,A.LAST_MODIFY_TIME, " +
-                "(CASE WHEN TO_DATE(TO_CHAR((CASE WHEN (A.REG_BEGIN_TIME > A.REG_END_TIME) " +
-                "THEN A.COUNSEL_DATE + 1 ELSE A.COUNSEL_DATE END),'YYYY-MM-DD')||' '|| " +
-                "A.REG_END_TIME||':00','YYYY-MM-DD HH24:MI:SS') < SYSDATE " +
-                "THEN 1 ELSE 0 END) bb, " +
-                "nvl((SELECT SUM(1)  as "+
-                "FROM CLINIC_APPOINTS B "+
-                "where B.VISIT_DATE_APPTED = A.COUNSEL_DATE "+
-                 "and B.CLINIC_LABEL = A.QUEUE_NAME "+
-                 "and B.VISIT_TIME_APPTED = A.CLINIC_DURATION "+
-                 "and B.PRE_REGIST_DOCTOR =  A.DOCTOR_NO "+
-                 "and B.REGIST_STATUS IN('0') ) ,0)app_unregisted_num "+
-        "FROM outp_doctor_regist A " +
-        "WHERE to_date(A.COUNSEL_DATE) >= to_date( ?,'yyyy-mm-dd') and to_date(A.COUNSEL_DATE) <= to_date( ?,'yyyy-mm-dd') " +
-        "and (A.CLINIC_DEPT = ? or nvl(?,'null')='null') " +
-        "and (A.DOCTOR_NO = ? or nvl(?,'null')='null')")
-        .setParameter(0, start_time)
-        .setParameter(1, end_time)
-        .setParameter(2, clinic_dept)
-        .setParameter(3, clinic_dept)
-        .setParameter(4, doctor_no)
-        .setParameter(5, doctor_no); 
+		Query query = session.createQuery("FROM outp_doctor_regist WHERE to_date(COUNSEL_DATE) >= to_date( ?,'yyyy-mm-dd')and to_date(COUNSEL_DATE) <= to_date( ?,'yyyy-mm-dd') and (CLINIC_DEPT = ?) and (DOCTOR_NO = ?)")
+				.setParameter(0, start_time)
+				.setParameter(1, end_time)
+				.setParameter(2, clinic_dept)
+				.setParameter(3, doctor_no);
 	    System.out.println("dao end1...");
 	    odr = query.list();
 	    System.out.println("dao CheckOnDuty end2...");
 	    return odr;
+	}
+	
+	//查today排班
+	public OutpDoctorRegist CheckOnDutyToday(String clinic_dept,String doctor_no) {
+		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+		//日期
+		Date today = new Date();
+		String start_time = df.format(today);
+		
+		Session session = HibernateUtil.getSession();
+		List<OutpDoctorRegist> odr = null;
+		
+		Query query = session.createQuery("FROM outp_doctor_regist A " +
+        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+        "and (A.CLINIC_DEPT = ?) " +
+        "and (A.DOCTOR_NO = ?)")
+        .setParameter(0, start_time)
+        .setParameter(1, clinic_dept)
+        .setParameter(2, doctor_no);
+	    System.out.println("dao end1...");
+	    odr = query.list();
+	    System.out.println("dao CheckOnDuty end2...");
+	    return odr.get(0);
+	}
+	
+//	//查today排班
+//	public List<Object[]> CheckOnDutyToday(String clinic_dept,String doctor_no) {
+//		System.out.println("dao...");
+//		
+//		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+//		//日期
+//		Date today = new Date();
+//		String start_time = df.format(today);
+//		
+//		Session session = HibernateUtil.getSession();
+//		List<Object[]> odr = null;
+//		
+//		Query query = session.createSQLQuery("SELECT A.COUNSEL_NO,A.CLINIC_DEPT,A.DOCTOR_NO,A.DOCTOR, A.COUNSEL_DATE, A.CLINIC_DURATION, A.QUEUE_NAME, A.AUTO_ASSIGN_PATIENT, A.SIGN_INDICATOR,A.SIGN_TIME, " +
+//                "A.COUNSELED_NUM, A.ADDRESS,A.COLUMN_NUM,A.LIMIT_NUM,A.LIMIT_NUM_APP, A.REGIST_NOWED, A.REGIST_APPED,A.TIME_POINT,A.STOP_TIME,A.STOP_INDICATOR,A.REGISTER_APPOINT, " +
+//                "A.TIME_POINT_FLAG,A.REG_BEGIN_TIME,A.REG_END_TIME,A.MODIFIER,A.LAST_MODIFY_TIME, " +
+//                "(CASE WHEN TO_DATE(TO_CHAR((CASE WHEN (A.REG_BEGIN_TIME > A.REG_END_TIME) " +
+//                "THEN A.COUNSEL_DATE + 1 ELSE A.COUNSEL_DATE END),'YYYY-MM-DD')||' '|| " +
+//                "A.REG_END_TIME||':00','YYYY-MM-DD HH24:MI:SS') < SYSDATE " +
+//                "THEN 1 ELSE 0 END) bb, " +
+//                "nvl((SELECT SUM(1)  as "+
+//                "FROM CLINIC_APPOINTS B "+
+//                "where B.VISIT_DATE_APPTED = A.COUNSEL_DATE "+
+//                 "and B.CLINIC_LABEL = A.QUEUE_NAME "+
+//                 "and B.VISIT_TIME_APPTED = A.CLINIC_DURATION "+
+//                 "and B.PRE_REGIST_DOCTOR =  A.DOCTOR_NO "+
+//                 "and B.REGIST_STATUS IN('0') ) ,0)app_unregisted_num "+
+//        "FROM outp_doctor_regist A " +
+//        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+//        "and (A.CLINIC_DEPT = ?) " +
+//        "and (A.DOCTOR_NO = ?)")
+//        .setParameter(0, start_time)
+//        .setParameter(1, clinic_dept)
+//        .setParameter(2, doctor_no);
+//	    System.out.println("dao end1...");
+//	    odr = query.list();
+//	    System.out.println("dao CheckOnDuty end2...");
+//	    return odr;
+//	}
+	
+	//查Twoday排班
+	public OutpDoctorRegist CheckOnDutyTwoday(String clinic_dept,String doctor_no) {
+		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+
+		//日期
+		Date twoday = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(twoday);
+		calendar.add(calendar.DATE,1);//把日期往后增加.整数往后推,负数往前移动
+		twoday=calendar.getTime(); //这个时间就是日期往后推的结果 
+		String start_time = df.format(twoday);
+		
+		Session session = HibernateUtil.getSession();
+		List<OutpDoctorRegist> odr = null;
+		
+		Query query = session.createQuery("FROM outp_doctor_regist A " +
+		        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+		        "and (A.CLINIC_DEPT = ?) " +
+		        "and (A.DOCTOR_NO = ?)")
+		        .setParameter(0, start_time)
+		        .setParameter(1, clinic_dept)
+		        .setParameter(2, doctor_no);
+	    System.out.println("dao end1...");
+	    odr = query.list();
+	    System.out.println("dao CheckOnDuty end2...");
+	    return odr.get(0);
+	}
+	
+	//查Threeday排班
+	public OutpDoctorRegist CheckOnDutyThreeday(String clinic_dept,String doctor_no) {
+		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+
+		//日期
+		Date Threeday = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(Threeday);
+		calendar.add(calendar.DATE,2);//把日期往后增加.整数往后推,负数往前移动
+		Threeday=calendar.getTime(); //这个时间就是日期往后推的结果 
+		String start_time = df.format(Threeday);
+		
+		Session session = HibernateUtil.getSession();
+		List<OutpDoctorRegist> odr = null;
+		
+		Query query = session.createQuery("FROM outp_doctor_regist A " +
+		        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+		        "and (A.CLINIC_DEPT = ?) " +
+		        "and (A.DOCTOR_NO = ?)")
+		        .setParameter(0, start_time)
+		        .setParameter(1, clinic_dept)
+		        .setParameter(2, doctor_no);
+	    System.out.println("dao end1...");
+	    odr = query.list();
+	    System.out.println("dao CheckOnDuty end2...");
+	    return odr.get(0);
+	}
+	
+	//查Fourday排班
+	public OutpDoctorRegist CheckOnDutyFourday(String clinic_dept,String doctor_no) {
+		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+
+		//日期
+		Date Fourday = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(Fourday);
+		calendar.add(calendar.DATE,3);//把日期往后增加.整数往后推,负数往前移动
+		Fourday=calendar.getTime(); //这个时间就是日期往后推的结果 
+		String start_time = df.format(Fourday);
+		
+		Session session = HibernateUtil.getSession();
+		List<OutpDoctorRegist> odr = null;
+		
+		Query query = session.createQuery("FROM outp_doctor_regist A " +
+		        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+		        "and (A.CLINIC_DEPT = ?) " +
+		        "and (A.DOCTOR_NO = ?)")
+		        .setParameter(0, start_time)
+		        .setParameter(1, clinic_dept)
+		        .setParameter(2, doctor_no);
+	    System.out.println("dao end1...");
+	    odr = query.list();
+	    System.out.println("dao CheckOnDuty end2...");
+	    return odr.get(0);
+	}
+	
+	//查Fiveday排班
+	public OutpDoctorRegist CheckOnDutyFiveday(String clinic_dept,String doctor_no) {
+		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+
+		//日期
+		Date Fiveday = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(Fiveday);
+		calendar.add(calendar.DATE,4);//把日期往后增加.整数往后推,负数往前移动
+		Fiveday=calendar.getTime(); //这个时间就是日期往后推的结果 
+		String start_time = df.format(Fiveday);
+		
+		Session session = HibernateUtil.getSession();
+		List<OutpDoctorRegist> odr = null;
+		
+		Query query = session.createQuery("FROM outp_doctor_regist A " +
+		        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+		        "and (A.CLINIC_DEPT = ?) " +
+		        "and (A.DOCTOR_NO = ?)")
+		        .setParameter(0, start_time)
+		        .setParameter(1, clinic_dept)
+		        .setParameter(2, doctor_no);
+	    System.out.println("dao end1...");
+	    odr = query.list();
+	    System.out.println("dao CheckOnDuty end2...");
+	    return odr.get(0);
+	}
+	
+	//查Sixday排班
+	public OutpDoctorRegist CheckOnDutySixday(String clinic_dept,String doctor_no) {
+		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+
+		//日期
+		Date Sixday = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(Sixday);
+		calendar.add(calendar.DATE,5);//把日期往后增加.整数往后推,负数往前移动
+		Sixday=calendar.getTime(); //这个时间就是日期往后推的结果 
+		String start_time = df.format(Sixday);
+		
+		Session session = HibernateUtil.getSession();
+		List<OutpDoctorRegist> odr = null;
+		
+		Query query = session.createQuery("FROM outp_doctor_regist A " +
+		        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+		        "and (A.CLINIC_DEPT = ?) " +
+		        "and (A.DOCTOR_NO = ?)")
+		        .setParameter(0, start_time)
+		        .setParameter(1, clinic_dept)
+		        .setParameter(2, doctor_no);
+	    System.out.println("dao end1...");
+	    odr = query.list();
+	    System.out.println("dao CheckOnDuty end2...");
+	    return odr.get(0);
+	}
+	
+	//查Sevenday排班
+	public OutpDoctorRegist CheckOnDutySevenday(String clinic_dept,String doctor_no) {
+		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+
+		//日期
+		Date Sevenday = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(Sevenday);
+		calendar.add(calendar.DATE,6);//把日期往后增加.整数往后推,负数往前移动
+		Sevenday=calendar.getTime(); //这个时间就是日期往后推的结果 
+		String start_time = df.format(Sevenday);
+		
+		Session session = HibernateUtil.getSession();
+		List<OutpDoctorRegist> odr = null;
+		
+		Query query = session.createQuery("FROM outp_doctor_regist A " +
+		        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+		        "and (A.CLINIC_DEPT = ?) " +
+		        "and (A.DOCTOR_NO = ?)")
+		        .setParameter(0, start_time)
+		        .setParameter(1, clinic_dept)
+		        .setParameter(2, doctor_no);
+	    System.out.println("dao end1...");
+	    odr = query.list();
+	    System.out.println("dao CheckOnDuty end2...");
+	    return odr.get(0);
+	}
+	
+	//查Eightday排班
+	public OutpDoctorRegist CheckOnDutyEightday(String clinic_dept,String doctor_no) {
+		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+
+		//日期
+		Date Eightday = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(Eightday);
+		calendar.add(calendar.DATE,7);//把日期往后增加.整数往后推,负数往前移动
+		Eightday=calendar.getTime(); //这个时间就是日期往后推的结果 
+		String start_time = df.format(Eightday);
+		
+		Session session = HibernateUtil.getSession();
+		List<OutpDoctorRegist> odr = null;
+		
+		Query query = session.createQuery("FROM outp_doctor_regist A " +
+		        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+		        "and (A.CLINIC_DEPT = ?) " +
+		        "and (A.DOCTOR_NO = ?)")
+		        .setParameter(0, start_time)
+		        .setParameter(1, clinic_dept)
+		        .setParameter(2, doctor_no);
+	    System.out.println("dao end1...");
+	    odr = query.list();
+	    System.out.println("dao CheckOnDuty end2...");
+	    return odr.get(0);
+	}
+	
+	//查Nineday排班
+	public OutpDoctorRegist CheckOnDutyNineday(String clinic_dept,String doctor_no) {
+		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+
+		//日期
+		Date Nineday = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(Nineday);
+		calendar.add(calendar.DATE,8);//把日期往后增加.整数往后推,负数往前移动
+		Nineday=calendar.getTime(); //这个时间就是日期往后推的结果 
+		String start_time = df.format(Nineday);
+		
+		Session session = HibernateUtil.getSession();
+		List<OutpDoctorRegist> odr = null;
+		
+		Query query = session.createQuery("FROM outp_doctor_regist A " +
+		        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+		        "and (A.CLINIC_DEPT = ?) " +
+		        "and (A.DOCTOR_NO = ?)")
+		        .setParameter(0, start_time)
+		        .setParameter(1, clinic_dept)
+		        .setParameter(2, doctor_no);
+	    System.out.println("dao end1...");
+	    odr = query.list();
+	    System.out.println("dao CheckOnDuty end2...");
+	    return odr.get(0);
+	}
+	
+	//查Tenday排班
+	public OutpDoctorRegist CheckOnDutyTenday(String clinic_dept,String doctor_no) {
+		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+
+		//日期
+		Date Tenday = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(Tenday);
+		calendar.add(calendar.DATE,9);//把日期往后增加.整数往后推,负数往前移动
+		Tenday=calendar.getTime(); //这个时间就是日期往后推的结果 
+		String start_time = df.format(Tenday);
+		
+		Session session = HibernateUtil.getSession();
+		List<OutpDoctorRegist> odr = null;
+		
+		Query query = session.createQuery("FROM outp_doctor_regist A " +
+		        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+		        "and (A.CLINIC_DEPT = ?) " +
+		        "and (A.DOCTOR_NO = ?)")
+		        .setParameter(0, start_time)
+		        .setParameter(1, clinic_dept)
+		        .setParameter(2, doctor_no);
+	    System.out.println("dao end1...");
+	    odr = query.list();
+	    System.out.println("dao CheckOnDuty end2...");
+	    return odr.get(0);
+	}
+	
+	//查Elevenday排班
+	public OutpDoctorRegist CheckOnDutyElevenday(String clinic_dept,String doctor_no) {
+		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+
+		//日期
+		Date Elevenday = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(Elevenday);
+		calendar.add(calendar.DATE,10);//把日期往后增加.整数往后推,负数往前移动
+		Elevenday=calendar.getTime(); //这个时间就是日期往后推的结果 
+		String start_time = df.format(Elevenday);
+		
+		Session session = HibernateUtil.getSession();
+		List<OutpDoctorRegist> odr = null;
+		
+		Query query = session.createQuery("FROM outp_doctor_regist A " +
+		        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+		        "and (A.CLINIC_DEPT = ?) " +
+		        "and (A.DOCTOR_NO = ?)")
+		        .setParameter(0, start_time)
+		        .setParameter(1, clinic_dept)
+		        .setParameter(2, doctor_no);
+	    System.out.println("dao end1...");
+	    odr = query.list();
+	    System.out.println("dao CheckOnDuty end2...");
+	    return odr.get(0);
+	}
+	
+	//查Twelveday排班
+	public OutpDoctorRegist CheckOnDutyTwelveday(String clinic_dept,String doctor_no) {
+		System.out.println("dao...");
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+
+		//日期
+		Date Twelveday = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(Twelveday);
+		calendar.add(calendar.DATE,11);//把日期往后增加.整数往后推,负数往前移动
+		Twelveday=calendar.getTime(); //这个时间就是日期往后推的结果 
+		String start_time = df.format(Twelveday);
+		
+		Session session = HibernateUtil.getSession();
+		List<OutpDoctorRegist> odr = null;
+		
+		Query query = session.createQuery("FROM outp_doctor_regist A " +
+		        "WHERE to_date(A.COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd') " +
+		        "and (A.CLINIC_DEPT = ?) " +
+		        "and (A.DOCTOR_NO = ?)")
+		        .setParameter(0, start_time)
+		        .setParameter(1, clinic_dept)
+		        .setParameter(2, doctor_no);
+	    System.out.println("dao end1...");
+	    odr = query.list();
+	    System.out.println("dao CheckOnDuty end2...");
+	    return odr.get(0);
 	}
 	
 	
@@ -100,18 +491,18 @@ public class OzqDao{
 		    return odr;
 		}
 		
-	//查科室
-			public List<String> CheckDeptName() {
-				System.out.println("dao...");
-				
-				Session session = HibernateUtil.getSession();
-				Query query = session.createSQLQuery(
+	//首页的科室
+		public List<String> CheckDeptName() {
+			System.out.println("dao...");
+			
+			Session session = HibernateUtil.getSession();
+			Query query = session.createSQLQuery(
 						"select DEPT_NAME from DEPT_DICT where  DEPT_NAME in ('门诊中医科','门诊外科','门诊内科','门诊口腔科','门诊急诊科','门诊妇科') group by DEPT_NAME"
 						);
-				System.out.println("dao end1...");
-			    List<String> odr = query.list();
-				System.out.println(odr.get(0));
-				System.out.println("dao CheckDeptName end2...");
-				return odr;
-			}
+			System.out.println("dao end1...");
+			List<String> odr = query.list();
+			System.out.println(odr.get(0));
+			System.out.println("dao CheckDeptName end2...");
+			return odr;
+		}
 }

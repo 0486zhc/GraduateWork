@@ -33,7 +33,7 @@ $(document).ready(function () {
   <body>
             <div class="dc_tabcnt" id="tab1" style="display:block;">
                 <ul>
-                  <s:iterator value="#session.DoctorNametab1">
+                  <s:iterator value="#request.DoctorNametab1">
                     <li>
                         <div class="dc_info">
                             <dl>

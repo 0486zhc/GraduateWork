@@ -372,37 +372,37 @@ $(document).ready(function () {
             <span>找医生</span>
             <div class="dc_tab">
                 <ul >
-                    <li class="fl" tab="tab1"><a href="javascript:void(0);">门诊内科</a></li>
-                    <li class="fl" tab="tab2"><a href="javascript:void(0);">门诊妇科</a></li>
-                    <li class="fl" tab="tab3"><a href="javascript:void(0);">门诊急诊科</a></li>
-                    <li class="fl" tab="tab4"><a href="javascript:void(0);">门诊口腔科</a></li>
-                    <li class="fl" tab="tab5"><a href="javascript:void(0);">门诊中医科</a></li>
-                    <li class="fl" tab="tab6"><a href="javascript:void(0);">门诊外科</a></li>
-                    <li class="fl" tab="tab7"><a href="javascript:void(0);">体检科</a></li>
+                    <li class="fl" tab="tab1"><a href="OzqActionDoctorNametab1.action" target="doctorframe_tab1">门诊内科</a></li>
+                    <li class="fl" tab="tab2"><a href="OzqActionDoctorNametab2.action" target="doctorframe_tab2">门诊妇科</a></li>
+                    <li class="fl" tab="tab3"><a href="OzqActionDoctorNametab3.action" target="doctorframe_tab3">门诊急诊科</a></li>
+                    <li class="fl" tab="tab4"><a href="OzqActionDoctorNametab4.action" target="doctorframe_tab4">门诊口腔科</a></li>
+                    <li class="fl" tab="tab5"><a href="OzqActionDoctorNametab5.action" target="doctorframe_tab5">门诊中医科</a></li>
+                    <li class="fl" tab="tab6"><a href="OzqActionDoctorNametab6.action" target="doctorframe_tab6">门诊外科</a></li>
+                    <li class="fl" tab="tab7"><a href="OzqActionDoctorNametab7.action" target="doctorframe_tab7">体检科</a></li>
                 </ul>
             </div>
         </div>
         <div class="dc_tabbox">
             <div class="dc_tabcnt" id="tab1" style="display:block;">
-        		<iframe class="doc_view_tab1" name="doctorframe_tab1" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab1.action?dept_name=门诊内科"></iframe>
+        		<iframe class="doc_view_tab1" name="doctorframe_tab1" height="250px" width="100%" frameborder="0" scrolling="auto" src="doctorview.jsp"></iframe>
         	</div>
         	<div class="dc_tabcnt" id="tab2">
-        		<iframe class="doc_view_tab2" name="doctorframe_tab2" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab2.action?dept_name=门诊妇科"></iframe>
+        		<iframe class="doc_view_tab2" name="doctorframe_tab2" height="250px" width="100%" frameborder="0" scrolling="auto" src="doctortab2.jsp"></iframe>
         	</div>
         	<div class="dc_tabcnt" id="tab3">
-        		<iframe class="doc_view_tab3" name="doctorframe_tab3" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab3.action?dept_name=门诊急诊科"></iframe>
+        		<iframe class="doc_view_tab3" name="doctorframe_tab3" height="250px" width="100%" frameborder="0" scrolling="auto" src="doctortab3.jsp"></iframe>
         	</div>
         	<div class="dc_tabcnt" id="tab4">	
-        		<iframe class="doc_view_tab4" name="doctorframe_tab4" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab4.action?dept_name=门诊口腔科"></iframe>
+        		<iframe class="doc_view_tab4" name="doctorframe_tab4" height="250px" width="100%" frameborder="0" scrolling="auto" src="doctortab4.jsp"></iframe>
         	</div>
         	<div class="dc_tabcnt" id="tab5">	
-        		<iframe class="doc_view_tab5" name="doctorframe_tab5" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab5.action?dept_name=门诊中医科"></iframe>
+        		<iframe class="doc_view_tab5" name="doctorframe_tab5" height="250px" width="100%" frameborder="0" scrolling="auto" src="doctortab5.jsp"></iframe>
         	</div>
         	<div class="dc_tabcnt" id="tab6">	
-        		<iframe class="doc_view_tab6" name="doctorframe_tab6" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab6.action?dept_name=门诊外科"></iframe>
+        		<iframe class="doc_view_tab6" name="doctorframe_tab6" height="250px" width="100%" frameborder="0" scrolling="auto" src="doctortab6.jsp"></iframe>
         	</div>
         	<div class="dc_tabcnt" id="tab7">	
-        		<iframe class="doc_view_tab7" name="doctorframe_tab7" height="250px" width="100%" frameborder="0" scrolling="auto" src="OzqActionDoctorNametab7.action?dept_name=体检科"></iframe>
+        		<iframe class="doc_view_tab7" name="doctorframe_tab7" height="250px" width="100%" frameborder="0" scrolling="auto" src="doctortab7.jsp"></iframe>
         	</div>	
     </div>
 </div>
