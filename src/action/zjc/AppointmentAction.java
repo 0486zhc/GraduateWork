@@ -15,6 +15,26 @@ public class AppointmentAction {
 	private List<StaffDict> doctorsInfo ;
 	private List<OutpDoctorRegist> outDoctor ; 
 	
+	private String mess ;
+	private Integer deptCode ;
+	private Integer doctorNo;
+	
+	public String findDoctors(){
+		System.out.println("findDoctors");
+		doctorsInfo = bo.getDoctorsInfo(deptCode);
+		dept = bo.getDept(deptCode);
+		System.out.println("doctors"+doctorsInfo);
+		return "doctors";
+	}
+	
+	public String findDoctorTime(){
+		System.out.println("doctorNo:"+doctorNo);
+		outDoctor = bo.getOutpDoctor(doctorNo);
+		System.out.println("length = " + outDoctor.size());
+		return "doctorTime";
+	}
+	
+	
 	public List<OutpDoctorRegist> getOutDoctor() {
 		return outDoctor;
 	}
@@ -22,10 +42,6 @@ public class AppointmentAction {
 	public void setOutDoctor(List<OutpDoctorRegist> outDoctor) {
 		this.outDoctor = outDoctor;
 	}
-
-	private String mess ;
-	private Integer deptCode ;
-	private Integer doctorNo;
 	
 	public Integer getDoctorNo() {
 		return doctorNo;
@@ -91,17 +107,5 @@ public class AppointmentAction {
 		return "depts";
 	}
 	
-	public String findDoctors(){
-		System.out.println("findDoctors");
-		doctorsInfo = bo.getDoctorsInfo(deptCode);
-		dept = bo.getDept(deptCode);
-		System.out.println("doctors"+doctorsInfo);
-		return "doctors";
-	}
 	
-	public String findDoctorTime(){
-		System.out.println("doctorNo"+doctorNo);
-		outDoctor = bo.getOutpDoctor(doctorNo);
-		return "doctorTime";
-	}
 }

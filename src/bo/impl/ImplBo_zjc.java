@@ -57,6 +57,10 @@ public class ImplBo_zjc implements IBo_zjc{
 
 	@Override
 	public List<OutpDoctorRegist> getOutpDoctor(Integer doctorNo) {
-		return dao.getOutpDoctor(doctorNo);
+		 StaffDict doctor = dao.getDoctor(doctorNo);
+		 System.out.println("doctor=" + doctor);
+		 List<OutpDoctorRegist> registDoctors= dao.CheckOnDuty(6, doctor.getDeptCode(), String.valueOf(doctorNo));
+		 System.out.println("registDoctors="+registDoctors);
+		 return null ;
 	}
 }

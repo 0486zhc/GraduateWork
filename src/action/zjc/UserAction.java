@@ -1,5 +1,7 @@
 package action.zjc;
 
+import com.opensymphony.xwork2.ActionContext;
+
 import bo.IBo_zjc;
 import model.lhb.PatMasterIndex;
 
@@ -15,6 +17,7 @@ public class UserAction
 	public String Login(){
 		System.out.println("action");
 		mess = bo.verify(userName,passWord);
+		ActionContext.getContext().getSession().put("userName",mess);  // 放session
 		if(mess == "" )
 			return "false";
 		else

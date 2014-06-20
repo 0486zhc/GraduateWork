@@ -145,11 +145,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 	<div class="footer">
-		<p class="footer-top">&COPY;<s:property value="mess" />：您好！</p>
+<!-- 		<p class="footer-top">&COPY;<b><s:property value="mess" /> </b>：您好！</p> -->
+		<p class="footer-top">&COPY;<b><s:property value="%{#session.userName}" /> </b>：您好！</p>
 		<p class="footer-bottom" data-role="none">
-			 <a href="index.html">首页</a> <a
+			 <a href="<%=basePath %>PhoneWeb/index.jsp">首页</a> <a
 				href="zhengwen.jsp">正文页</a> <a href="liebiao.jsp">列表页</a>
 		</p>
+		<s:debug></s:debug>
 	</div>
 </body>
 </html>

@@ -62,13 +62,13 @@
 				<input name="userName" type="text"
 					id="ctl00_ContentPlaceHolder1_txtUserName" class="input width100 "
 					style="background: none repeat scroll 0 0 #F9F9F9;padding: 8px 0px 8px 4px"
-					placeholder="请输入身份证" />
+					placeholder="请输入  身份证 / 诊疗卡号" />
 			</div>
 			<div class="control-group">
 				<input name="passWord" type="password"
 					id="ctl00_ContentPlaceHolder1_txtPassword" class="width100 input"
 					style="background: none repeat scroll 0 0 #F9F9F9;padding: 8px 0px 8px 4px"
-					placeholder="请输入密码" />
+					placeholder="请输入  密码" />
 			</div>
 			<div class="control-group">
 
