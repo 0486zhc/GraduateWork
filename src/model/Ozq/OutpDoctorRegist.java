@@ -11,6 +11,7 @@ public class OutpDoctorRegist implements java.io.Serializable {
 	// Fields
 
 	private String doctorNo;
+
 	private Timestamp counselDate;
 	private String clinicDuration;
 	private String queueName;
@@ -44,40 +45,49 @@ public class OutpDoctorRegist implements java.io.Serializable {
 	private String regEndTime;
 	private String appType;
 
+	@Override
+	public String toString() {
+		return "OutpDoctorRegist [doctorNo=" + doctorNo + ", doctor=" + doctor
+				+ ", queueName=" + queueName + ", clinicDept=" + clinicDept
+				+ ", limitNumApp=" + limitNumApp + ", registApped="
+				+ registApped + ", regBeginTime=" + regBeginTime
+				+ ", regEndTime=" + regEndTime + "]";
+	}
+
 	// Property accessors
 
 	public String getDoctorNo() {
 		return doctorNo;
 	}
-	
+
 	public void setDoctorNo(String doctorNo) {
 		this.doctorNo = doctorNo;
 	}
-	
+
 	public Timestamp getCounselDate() {
 		return counselDate;
 	}
-	
+
 	public void setCounselDate(Timestamp counselDate) {
 		this.counselDate = counselDate;
 	}
-	
+
 	public String getClinicDuration() {
 		return clinicDuration;
 	}
-	
+
 	public void setClinicDuration(String clinicDuration) {
 		this.clinicDuration = clinicDuration;
 	}
-	
+
 	public String getQueueName() {
 		return queueName;
 	}
-	
+
 	public void setQueueName(String queueName) {
 		this.queueName = queueName;
 	}
-	
+
 	public String getCounselNo() {
 		return this.counselNo;
 	}

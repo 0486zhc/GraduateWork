@@ -31,7 +31,7 @@
 		<a href="<%=basePath %>PhoneWeb/index.jsp" class="home"> <span
 			class="header-icon header-icon-home"></span> <span
 			class="header-name">主页</span> </a>
-		<div class="title" id="titleString">科室列表</div>
+		<div class="title" id="titleString">医生时间</div>
 		<a href="javascript:history.go(-1);" class="back"> <span
 			class="header-icon header-icon-return"></span> <span
 			class="header-name">返回</span> </a>
@@ -57,16 +57,25 @@
 <!-- 					<li><a href="Hotelinfo.aspx@id=5" class="reality">实景</a> -->
 <!-- 					</li> -->
 <!-- 				</ul></li> -->
-
-		<s:iterator value="%{depts}">
+<s:debug></s:debug>
+		<s:iterator value="%{outDoctor}">
 			<li><a href="appointment_findDoctors?deptCode=<s:property value="%{deptCode}" />" ><img
 					class="hotelimg fl"
 					src="http://www.gridinn.com/images/hotel/14.jpg" />
 					<div class="inline">
-						<h3><s:property value="%{deptName}" /></h3>
-						<p>科室代码：<s:property value="%{deptCode}" /></p>
-						<p>大科室名称：<s:property value="%{bigDeptCode}" /></p>
-					</div>
+						<h3><s:property value="%{doctor}" /></h3>
+						<p>医生编号：<s:property value="%{empNo}" /></p>
+						<p>预约时间：<s:property value="%{regBeginTime}" /> - <s:property value="%{regEndTime}" /></p>
+					</div></a>
+					<ul class="unstyled">
+					<li><a href="Hotel.aspx@id=5" class="order">预订</a>
+					</li>
+					<li><a href="Hotelmap.aspx@id=5" class="gps">导航</a>
+					</li>
+					<li><a href="Hotelinfo.aspx@id=5" class="reality">实景</a>
+					</li>
+				</ul>
+			</li>
 		</s:iterator>
 		</ul>
 	</div>

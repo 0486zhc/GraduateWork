@@ -1,17 +1,22 @@
 package dao.impl;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import model.Ozq.DeptDict;
 import model.Ozq.OutpDoctorRegist;
+import model.Ozq.StaffDict;
 import model.lhb.PatMasterIndex;
 
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.dialect.IngresDialect;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -67,39 +72,41 @@ public class ImplDao_zjc implements IDao_zjc {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<DeptDict> getDept() {
-//		String hql = "from DeptDict  where DEPT_CODE in (select CLINIC_DEPT from OutpDoctorRegist )";
-//		String hql = "from DeptDict as d where d.dept_code in (select o.clinicDept from OutpDoctorRegist as o)";
-		final String hql = "from DeptDict";
-		DeptDict pat = (DeptDict) excuteHibernate(hql).get(0);
-		System.out.println("pat:"+pat);
-//			System.out.println("maxNum" + pat.G);
-			return null;
-		
-//		String sql = "select * from dept_dict where dept_code in (select clinic_dept from outp_doctor_regist)";
-//		Session session = HibernateUtil.getSession();
-//		Query query = session.createSQLQuery(sql);
-//	    List<Object> list = query.list();
-////	    System.out.println("list"+list.get(0).getDeptName());
-////	    System.out.println("=====");
-////	    Iterator<DeptDict> i = list.iterator();
-////	    while(i.hasNext()){
-////	    	System.out.println(i.next());
-////	    }
-////	    System.out.println("=====");
-//	    Object[] obj=(Object[])list.get(0);
-//	    System.out.println((String)obj[0]);
+	public List<DeptDict> getDepts() {
+		System.out.println("dao getDepts" );
+		String hql = "from DeptDict as d where dept_code in (select clinicDept from OutpDoctorRegist) ";
+		List<DeptDict> deptDicts = excuteHibernate(hql);
+//		list.get(0);
+//		System.out.println(list);
+		return deptDicts ;
 	}
 
 	@Override
-	public List<OutpDoctorRegist> getDoctor() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<StaffDict> getDoctorsInfo(Integer deptCode) {
+//		String hql = "from OutpDoctorRegist where clinicDept = " + deptCode ;
+		String hql = "from StaffDict where emp_no in (select distinct doctorNo from OutpDoctorRegist ) and dept_code = " + deptCode;
+//		String hql = "select *,count(distinct doctor) from OutpDoctorRegist where clinicDept = " + deptCode + " group by doctor";
+		System.out.println(hql);
+		List<StaffDict> doctorsInfo = excuteHibernate(hql);
+//		List<OutpDoctorRegist> doctorBak = new ArrayList<OutpDoctorRegist>() ;
+//		
+//		List<OutpDoctorRegist> doctorNew = new ArrayList<OutpDoctorRegist>() ;
+//		doctorBak.addAll(doctorsAll);
+//		
+//		for(OutpDoctorRegist o : doctorsAll){
+//			for(OutpDoctorRegist d : doctorBak){
+//				if(!o.getDoctor().equals(d.getDoctor())){
+//					doctorNew.add(o);
+//				}
+//			}
+//		}
+	
+		return doctorsInfo;
 	}
 
 	// 执行自定义hibernate 语句
 	@SuppressWarnings("unchecked")
-	public List<?> excuteHibernate(final String hql) {
+	public List excuteHibernate(final String hql) {
 		List<PatMasterIndex> list = template
 				.executeFind(new HibernateCallback() {
 					public Object doInHibernate(Session session)
@@ -124,7 +131,26 @@ public class ImplDao_zjc implements IDao_zjc {
 
 	public static void main(String[] args) {
 		ImplDao_zjc dao = new ImplDao_zjc();
-		dao.getDept();
+		dao.getDepts();
 	}
 
+
+	@Override
+	public DeptDict getDept(Integer deptCode) {
+//		String dept_code = String.valueOf(deptCode);
+//		System.out.println(dept_code);
+//		DeptDict d = template.get(DeptDict.class, dept_code);
+//		System.out.println("单个部门："+d);
+		String hql = "from DeptDict where dept_code = " + deptCode;
+		return (DeptDict) excuteHibernate(hql).get(0); 
+	}
+
+	@Override
+	public List<OutpDoctorRegist> getOutpDoctor(Integer doctorNo) {
+		String hql = "from OutpDoctorRegist where doctor_no= " + doctorNo;
+		List<OutpDoctorRegist> outDoctor =  excuteHibernate(hql);
+		System.out.println("outDoctor"+ outDoctor);
+		return outDoctor;
+	}
+	
 }

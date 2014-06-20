@@ -11,8 +11,14 @@
              <result name="success">/PhoneWeb/index.jsp</result>
         </action>
         
-        <action name="appoint_findDept" class="appointment" method="findDept">
-             <result name="success">/PhoneWeb/jsp/department.jsp</result>
+<!--         <action name="appointment_findDepts" class="appointment" method="findDepts"> -->
+<!--              <result name="success">/PhoneWeb/jsp/department.jsp</result> -->
+<!--         </action> -->
+        <action name="*_*" class="{1}" method="{2}">
+             <result name="depts">/PhoneWeb/jsp/department.jsp</result>
+             <result name="doctors">/PhoneWeb/jsp/doctors.jsp</result>
+             <result name="doctorTime">/PhoneWeb/jsp/doctorTime.jsp</result>
+             
         </action>
         
      </package>

@@ -2,11 +2,12 @@ package bo.impl;
 
 import java.util.List;
 
-import dao.IDao_zjc;
 import model.Ozq.DeptDict;
 import model.Ozq.OutpDoctorRegist;
+import model.Ozq.StaffDict;
 import model.lhb.PatMasterIndex;
 import bo.IBo_zjc;
+import dao.IDao_zjc;
 
 public class ImplBo_zjc implements IBo_zjc{
 
@@ -39,13 +40,23 @@ public class ImplBo_zjc implements IBo_zjc{
 	}
 
 	@Override
-	public List<DeptDict> getDept() {
+	public List<DeptDict> getDepts() {
 		System.out.println("getDept");
-		return dao.getDept();
+		return dao.getDepts();
 	}
 
 	@Override
-	public List<OutpDoctorRegist> getDoctor() {
-		return dao.getDoctor();
+	public List<StaffDict> getDoctorsInfo(Integer deptCode) {
+		return dao.getDoctorsInfo(deptCode);
+	}
+
+	@Override
+	public DeptDict getDept(Integer deptCode) {
+		return dao.getDept(deptCode);
+	}
+
+	@Override
+	public List<OutpDoctorRegist> getOutpDoctor(Integer doctorNo) {
+		return dao.getOutpDoctor(doctorNo);
 	}
 }
