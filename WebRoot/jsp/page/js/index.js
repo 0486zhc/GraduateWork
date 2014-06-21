@@ -200,7 +200,7 @@ $(function(){
 				document.getElementById("commit").disabled=true;
 			}else{
 				checkUserName($("#uid").val());
-				if(mess == "fail"){
+				if(mess == "error"){
 					$(this).siblings("b").fadeIn();
 					$(this).siblings("label").hide();
 					document.getElementById("commit").disabled=true;
