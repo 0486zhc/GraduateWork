@@ -148,7 +148,7 @@ obj.src="rand.action?d="+timenow;
             <div class="s_l_bd">
                 <label class="s_wrong clearfix"><b>×</b><span></span></label>
                 <ul class="center clearfix">
-                    <li class="login-li center"><span>用户名</span><input id="s_uid" type="text" autocomplete="off" placeholder="手机/邮箱/身份证" name="user_id"></li>
+                    <li class="login-li center"><span>用户名</span><input id="s_uid" type="text" autocomplete="off" placeholder="手机/邮箱/身份证" maxlength="18" name="user_id"></li>
                     <li class="login-li center"><span>密&nbsp;&nbsp;码</span><input id="s_pwd" type="password" maxlength="20" autocomplete="off" placeholder="请输入您的密码" name="pwd"></li>
                     <li class="login-li center"><span>验证码</span><input class="fl" style="margin-top:6px;" id="text" type="text" maxlength="6" size="9" name="rand"><img alt="验证码"src="rand.action"  class="vccode fl"  style="cursor:pointer;" onclick="changeValidateCode(this)" title="点击图片刷新验证码"/> 
                 </ul>

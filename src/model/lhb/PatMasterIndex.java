@@ -82,6 +82,7 @@ public class PatMasterIndex implements java.io.Serializable
    private String    unitAddrStreetNo;
    private String    unitAddrZipCode;
    private String    password;
+   private Integer    flag;
 
    // Constructors
 
@@ -91,18 +92,18 @@ public class PatMasterIndex implements java.io.Serializable
    }
 
    /** full constructor */
-   public PatMasterIndex(String inpNo, String name, String namePhonetic,
-         String sex, Timestamp dateOfBirth, String birthPlace,
-         String citizenship, String nation, String idNo, String identity,
-         String chargeType, String unitInContract, String mailingAddress,
-         String zipCode, String phoneNumberHome, String phoneNumberBusiness,
-         String nextOfKin, String relationship, String nextOfKinAddr,
-         String nextOfKinZipCode, String nextOfKinPhone,
+   public PatMasterIndex(String patientId, String inpNo, String name,
+         String namePhonetic, String sex, Timestamp dateOfBirth,
+         String birthPlace, String citizenship, String nation, String idNo,
+         String identity, String chargeType, String unitInContract,
+         String mailingAddress, String zipCode, String phoneNumberHome,
+         String phoneNumberBusiness, String nextOfKin, String relationship,
+         String nextOfKinAddr, String nextOfKinZipCode, String nextOfKinPhone,
          Timestamp lastVisitDate, Boolean vipIndicator, Timestamp createDate,
          String operator, String serviceAgency, String businessZipCode,
          String photo, String patientClass, String degree, String race,
          String religion, String motherLanguage, String foreignLanguage,
-         String idType, String vipNo, String EName, String occupation,
+         String idType, String vipNo, String eName, String occupation,
          String nextOfSex, Timestamp nextOfBath, String nextOfId,
          String nativePlace, String mailingAddressCode, String healthyCardNo,
          String gfFlag, String gfGyzh, String ybYbzh, String nowAddr,
@@ -113,8 +114,10 @@ public class PatMasterIndex implements java.io.Serializable
          String regResidence, String regResidenceStreetNo,
          String regResidenceZipCode, String unitName, String unitAddrAreaCode,
          String unitAddress, String unitAddrStreetNo, String unitAddrZipCode,
-         String password)
+         String password, Integer flag)
    {
+      super();
+      this.patientId = patientId;
       this.inpNo = inpNo;
       this.name = name;
       this.namePhonetic = namePhonetic;
@@ -151,7 +154,7 @@ public class PatMasterIndex implements java.io.Serializable
       this.foreignLanguage = foreignLanguage;
       this.idType = idType;
       this.vipNo = vipNo;
-      this.EName = EName;
+      EName = eName;
       this.occupation = occupation;
       this.nextOfSex = nextOfSex;
       this.nextOfBath = nextOfBath;
@@ -184,14 +187,27 @@ public class PatMasterIndex implements java.io.Serializable
       this.unitAddrStreetNo = unitAddrStreetNo;
       this.unitAddrZipCode = unitAddrZipCode;
       this.password = password;
+      this.flag = flag;
    }
 
    // Property accessors
+
+   public Integer getFlag()
+   {
+      return flag;
+   }
+
+   public void setFlag(Integer flag)
+   {
+      this.flag = flag;
+   }
 
    public String getPatientId()
    {
       return this.patientId;
    }
+
+  
 
    public void setPatientId(String patientId)
    {

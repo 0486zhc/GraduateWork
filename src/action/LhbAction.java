@@ -1,15 +1,20 @@
 package action;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts2.ServletActionContext;
-import util.MD5;
+
 import model.Ozq.ClinicAppoints;
 import model.lhb.PatMasterIndex;
+
+import org.apache.struts2.ServletActionContext;
+
+import util.MD5;
 import bo.LhbBo;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -153,14 +158,34 @@ public class LhbAction extends ActionSupport
       user_id = requestForAjax.getParameter("user_id");
       String state = lhbBo.checkForUserId(user_id);
       response.getWriter().write(state);
-
    }
 
-   public String makeAppoints()
+   public void makeAppoints()
    {
       // appoints
-      String state = lhbBo.makeAppoints(appoints);
-      return state;
-
+      appoints = new ClinicAppoints();
+      appoints.setName("刘浩斌");
+      Date date = Date.valueOf("2014-10-10");
+      appoints.setVisitDateAppted(date);
+      appoints.setClinicLabel("内科副主任号");
+      appoints.setVisitTimeAppted("15:20");
+      appoints.setSerialNo((short) 1);
+      appoints.setRegTimePoint(String.valueOf(date) + "15:20");
+      appoints.setPreRegistDoctor("钟灵");
+      appoints.setRegistStatus("1");
+      appoints.setRegistFlag("1");
+      user_id = "441900199201157075";
+      String state = lhbBo.makeAppoints(appoints,user_id);
+      //return state;
+      System.out.println("state is :" + state + "!!!!!");
    }
+   
+   public void checkFlag() throws IOException
+   {
+      String user_id = "441900199201157075";//requestForAjax.getParameter("user_id");
+      String state = lhbBo.checkForFlag(user_id);
+      System.out.println(state);
+      //response.getWriter().write(state);
+   }
+   
 }
