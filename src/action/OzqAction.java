@@ -1,8 +1,10 @@
 package action;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -23,10 +25,53 @@ import com.opensymphony.xwork2.ActionContext;
 public class OzqAction{
 
 	private OzqBo ozqBo;
-	private List<OutpDoctorRegist> OutpDoctorRegist12;
-	private List<OutpDoctorRegist> OutpDoctorRegist7;
+	private List<Object[]> OutpDoctorRegist12;
+	
+	private List<Object[]> today;
+	private List<Object[]> todaymoring;
+	private List<Object[]> todaynoon;
+	private List<Object[]> todayafternoon;
+	private List<Object[]> todaynight;
+	
+	private List<Object[]> twoday;
+	private List<Object[]> twodaymoring;
+	private List<Object[]> twodaynoon;
+	private List<Object[]> twodayafternoon;
+	private List<Object[]> twodaynight;
+	
+	private List<Object[]> threeday;
+	private List<Object[]> threedaymoring;
+	private List<Object[]> threedaynoon;
+	private List<Object[]> threedayafternoon;
+	private List<Object[]> threedaynight;
+	
+	private List<Object[]> fourday;
+	private List<Object[]> fourdaymoring;
+	private List<Object[]> fourdaynoon;
+	private List<Object[]> fourdayafternoon;
+	private List<Object[]> fourdaynight;
+	
+	private List<Object[]> fiveday;
+	private List<Object[]> fivedaymoring;
+	private List<Object[]> fivedaynoon;
+	private List<Object[]> fivedayafternoon;
+	private List<Object[]> fivedaynight;
+	
+	private List<Object[]> sixday;
+	private List<Object[]> sixdaymoring;
+	private List<Object[]> sixdaynoon;
+	private List<Object[]> sixdayafternoon;
+	private List<Object[]> sixdaynight;
+	
+	private List<Object[]> sevenday;
+	private List<Object[]> sevendaymoring;
+	private List<Object[]> sevendaynoon;
+	private List<Object[]> sevendayafternoon;
+	private List<Object[]> sevendaynight;
+	
 	private List<String> OutpDoctorRegistDoctorName;
 	private List<String> OutpDoctorRegistDeptName;
+	private List<Timestamp> thedate;
 
 	private Date start_time;
 	private Date end_time;
@@ -38,8 +83,22 @@ public class OzqAction{
 	private Map<String, Object> application;
 	HttpServletRequest req;
 	HttpServletResponse resp;
-
 	
+	private String date1;
+	private String date2;
+	private String date3;
+	private String date4;
+	private String date5;
+	private String date6;
+	private String date7;
+	private String day1;
+	private String day2;
+	private String day3;
+	private String day4;
+	private String day5;
+	private String day6;
+	private String day7;
+
 	
 	public OzqBo getOzqBo() {
 		return ozqBo;
@@ -48,17 +107,222 @@ public class OzqAction{
 		this.ozqBo = ozqBo;
 	}
 
-	public List<OutpDoctorRegist> getOutpDoctorRegist12() {
+	public List<Object[]> getOutpDoctorRegist12() {
 		return OutpDoctorRegist12;
 	}
-	public void setOutpDoctorRegist12(List<OutpDoctorRegist> outpDoctorRegist12) {
+	public void setOutpDoctorRegist12(List<Object[]> outpDoctorRegist12) {
 		OutpDoctorRegist12 = outpDoctorRegist12;
 	}
-	public List<OutpDoctorRegist> getOutpDoctorRegist7() {
-		return OutpDoctorRegist7;
+
+	public List<Object[]> getToday() {
+		return today;
 	}
-	public void setOutpDoctorRegist7(List<OutpDoctorRegist> outpDoctorRegist7) {
-		OutpDoctorRegist7 = outpDoctorRegist7;
+	public void setToday(List<Object[]> today) {
+		this.today = today;
+	}
+	public List<Object[]> getTodaymoring() {
+		return todaymoring;
+	}
+	public void setTodaymoring(List<Object[]> todaymoring) {
+		this.todaymoring = todaymoring;
+	}
+	public List<Object[]> getTodaynoon() {
+		return todaynoon;
+	}
+	public void setTodaynoon(List<Object[]> todaynoon) {
+		this.todaynoon = todaynoon;
+	}
+	public List<Object[]> getTodayafternoon() {
+		return todayafternoon;
+	}
+	public void setTodayafternoon(List<Object[]> todayafternoon) {
+		this.todayafternoon = todayafternoon;
+	}
+	public List<Object[]> getTodaynight() {
+		return todaynight;
+	}
+	public void setTodaynight(List<Object[]> todaynight) {
+		this.todaynight = todaynight;
+	}
+	public List<Object[]> getTwoday() {
+		return twoday;
+	}
+	public void setTwoday(List<Object[]> twoday) {
+		this.twoday = twoday;
+	}
+	public List<Object[]> getTwodaymoring() {
+		return twodaymoring;
+	}
+	public void setTwodaymoring(List<Object[]> twodaymoring) {
+		this.twodaymoring = twodaymoring;
+	}
+	public List<Object[]> getTwodaynoon() {
+		return twodaynoon;
+	}
+	public void setTwodaynoon(List<Object[]> twodaynoon) {
+		this.twodaynoon = twodaynoon;
+	}
+	public List<Object[]> getTwodayafternoon() {
+		return twodayafternoon;
+	}
+	public void setTwodayafternoon(List<Object[]> twodayafternoon) {
+		this.twodayafternoon = twodayafternoon;
+	}
+	public List<Object[]> getTwodaynight() {
+		return twodaynight;
+	}
+	public void setTwodaynight(List<Object[]> twodaynight) {
+		this.twodaynight = twodaynight;
+	}
+	public List<Object[]> getThreeday() {
+		return threeday;
+	}
+	public void setThreeday(List<Object[]> threeday) {
+		this.threeday = threeday;
+	}
+	public List<Object[]> getThreedaymoring() {
+		return threedaymoring;
+	}
+	public void setThreedaymoring(List<Object[]> threedaymoring) {
+		this.threedaymoring = threedaymoring;
+	}
+	public List<Object[]> getThreedaynoon() {
+		return threedaynoon;
+	}
+	public void setThreedaynoon(List<Object[]> threedaynoon) {
+		this.threedaynoon = threedaynoon;
+	}
+	public List<Object[]> getThreedayafternoon() {
+		return threedayafternoon;
+	}
+	public void setThreedayafternoon(List<Object[]> threedayafternoon) {
+		this.threedayafternoon = threedayafternoon;
+	}
+	public List<Object[]> getThreedaynight() {
+		return threedaynight;
+	}
+	public void setThreedaynight(List<Object[]> threedaynight) {
+		this.threedaynight = threedaynight;
+	}
+	public List<Object[]> getFourday() {
+		return fourday;
+	}
+	public void setFourday(List<Object[]> fourday) {
+		this.fourday = fourday;
+	}
+	public List<Object[]> getFourdaymoring() {
+		return fourdaymoring;
+	}
+	public void setFourdaymoring(List<Object[]> fourdaymoring) {
+		this.fourdaymoring = fourdaymoring;
+	}
+	public List<Object[]> getFourdaynoon() {
+		return fourdaynoon;
+	}
+	public void setFourdaynoon(List<Object[]> fourdaynoon) {
+		this.fourdaynoon = fourdaynoon;
+	}
+	public List<Object[]> getFourdayafternoon() {
+		return fourdayafternoon;
+	}
+	public void setFourdayafternoon(List<Object[]> fourdayafternoon) {
+		this.fourdayafternoon = fourdayafternoon;
+	}
+	public List<Object[]> getFourdaynight() {
+		return fourdaynight;
+	}
+	public void setFourdaynight(List<Object[]> fourdaynight) {
+		this.fourdaynight = fourdaynight;
+	}
+	public List<Object[]> getFiveday() {
+		return fiveday;
+	}
+	public void setFiveday(List<Object[]> fiveday) {
+		this.fiveday = fiveday;
+	}
+	public List<Object[]> getFivedaymoring() {
+		return fivedaymoring;
+	}
+	public void setFivedaymoring(List<Object[]> fivedaymoring) {
+		this.fivedaymoring = fivedaymoring;
+	}
+	public List<Object[]> getFivedaynoon() {
+		return fivedaynoon;
+	}
+	public void setFivedaynoon(List<Object[]> fivedaynoon) {
+		this.fivedaynoon = fivedaynoon;
+	}
+	public List<Object[]> getFivedayafternoon() {
+		return fivedayafternoon;
+	}
+	public void setFivedayafternoon(List<Object[]> fivedayafternoon) {
+		this.fivedayafternoon = fivedayafternoon;
+	}
+	public List<Object[]> getFivedaynight() {
+		return fivedaynight;
+	}
+	public void setFivedaynight(List<Object[]> fivedaynight) {
+		this.fivedaynight = fivedaynight;
+	}
+	public List<Object[]> getSixday() {
+		return sixday;
+	}
+	public void setSixday(List<Object[]> sixday) {
+		this.sixday = sixday;
+	}
+	public List<Object[]> getSixdaymoring() {
+		return sixdaymoring;
+	}
+	public void setSixdaymoring(List<Object[]> sixdaymoring) {
+		this.sixdaymoring = sixdaymoring;
+	}
+	public List<Object[]> getSixdaynoon() {
+		return sixdaynoon;
+	}
+	public void setSixdaynoon(List<Object[]> sixdaynoon) {
+		this.sixdaynoon = sixdaynoon;
+	}
+	public List<Object[]> getSixdayafternoon() {
+		return sixdayafternoon;
+	}
+	public void setSixdayafternoon(List<Object[]> sixdayafternoon) {
+		this.sixdayafternoon = sixdayafternoon;
+	}
+	public List<Object[]> getSixdaynight() {
+		return sixdaynight;
+	}
+	public void setSixdaynight(List<Object[]> sixdaynight) {
+		this.sixdaynight = sixdaynight;
+	}
+	public List<Object[]> getSevenday() {
+		return sevenday;
+	}
+	public void setSevenday(List<Object[]> sevenday) {
+		this.sevenday = sevenday;
+	}
+	public List<Object[]> getSevendaymoring() {
+		return sevendaymoring;
+	}
+	public void setSevendaymoring(List<Object[]> sevendaymoring) {
+		this.sevendaymoring = sevendaymoring;
+	}
+	public List<Object[]> getSevendaynoon() {
+		return sevendaynoon;
+	}
+	public void setSevendaynoon(List<Object[]> sevendaynoon) {
+		this.sevendaynoon = sevendaynoon;
+	}
+	public List<Object[]> getSevendayafternoon() {
+		return sevendayafternoon;
+	}
+	public void setSevendayafternoon(List<Object[]> sevendayafternoon) {
+		this.sevendayafternoon = sevendayafternoon;
+	}
+	public List<Object[]> getSevendaynight() {
+		return sevendaynight;
+	}
+	public void setSevendaynight(List<Object[]> sevendaynight) {
+		this.sevendaynight = sevendaynight;
 	}
 	
 	public List<String> getOutpDoctorRegistDoctorName() {
@@ -74,6 +338,13 @@ public class OzqAction{
 	}
 	public void setOutpDoctorRegistDeptName(List<String> outpDoctorRegistDeptName) {
 		OutpDoctorRegistDeptName = outpDoctorRegistDeptName;
+	}
+	
+	public List<Timestamp> getThedate() {
+		return thedate;
+	}
+	public void setThedate(List<Timestamp> thedate) {
+		this.thedate = thedate;
 	}
 	
 	public Date getStart_time() {
@@ -104,6 +375,93 @@ public class OzqAction{
 		this.doctor_no = doctor_no;
 	}
 	
+	public String getDate1() {
+		return date1;
+	}
+	public void setDate1(String date1) {
+		this.date1 = date1;
+	}
+	public String getDate2() {
+		return date2;
+	}
+	public void setDate2(String date2) {
+		this.date2 = date2;
+	}
+	public String getDate3() {
+		return date3;
+	}
+	public void setDate3(String date3) {
+		this.date3 = date3;
+	}
+	public String getDate4() {
+		return date4;
+	}
+	public void setDate4(String date4) {
+		this.date4 = date4;
+	}
+	public String getDate5() {
+		return date5;
+	}
+	public void setDate5(String date5) {
+		this.date5 = date5;
+	}
+	public String getDate6() {
+		return date6;
+	}
+	public void setDate6(String date6) {
+		this.date6 = date6;
+	}
+	public String getDate7() {
+		return date7;
+	}
+	public void setDate7(String date7) {
+		this.date7 = date7;
+	}
+	
+	public String getDay1() {
+		return day1;
+	}
+	public void setDay1(String day1) {
+		this.day1 = day1;
+	}
+	public String getDay2() {
+		return day2;
+	}
+	public void setDay2(String day2) {
+		this.day2 = day2;
+	}
+	public String getDay3() {
+		return day3;
+	}
+	public void setDay3(String day3) {
+		this.day3 = day3;
+	}
+	public String getDay4() {
+		return day4;
+	}
+	public void setDay4(String day4) {
+		this.day4 = day4;
+	}
+	public String getDay5() {
+		return day5;
+	}
+	public void setDay5(String day5) {
+		this.day5 = day5;
+	}
+	public String getDay6() {
+		return day6;
+	}
+	public void setDay6(String day6) {
+		this.day6 = day6;
+	}
+	public String getDay7() {
+		return day7;
+	}
+	public void setDay7(String day7) {
+		this.day7 = day7;
+	}
+	
+	
 	public OzqAction()
 	   {
 	      request = (Map<String, Object>) ActionContext.getContext().get("request");
@@ -113,58 +471,925 @@ public class OzqAction{
 	      resp = ServletActionContext.getResponse();
 	   }
 	
+	//设置日期格式
+	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	
 	//查12天排班
+	public String CheckOnDutyMany(){
+		OutpDoctorRegist12 = ozqBo.CheckOnDutyMany("0103", "0301");
+		System.out.println(OutpDoctorRegist12+"==================");
+		request.put("doctorregist", OutpDoctorRegist12);
+		return "success";
+	}
+	
+	
+	//查排班
 	public String CheckOnDuty12(){
 		System.out.println("action1...");
 		
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
-		//开始日期
-		Date today = new Date();
-		String str1 = df.format(today);
-		//结束日期
-		Date twelveday = new Date();
-		Calendar calendar = new GregorianCalendar();
-		calendar.setTime(twelveday);
-		calendar.add(calendar.DATE,11);//把日期往后增加一天.整数往后推,负数往前移动
-		twelveday=calendar.getTime(); //这个时间就是日期往后推的结果 
-		String str2 = df.format(twelveday);
-		
-		System.out.println(str1);
-		System.out.println(str2);
-		
-		OutpDoctorRegist12 = ozqBo.CheckOnDuty(str1, str2, "0101", "1106");
-		//OutpDoctorRegist = OzqBo.CheckOnDuty(start_time, end_time, clinic_dept, doctor_no);
-		System.out.println("action2...");
+		CheckOnDutyToday();
+		CheckOnDutyTwoday();
+		CheckOnDutyThreeday();
+		CheckOnDutyFourday();
+		CheckOnDutyFiveday();
+		CheckOnDutySixday();
+		CheckOnDutySevenday();
 		
 		return "success";
 	}
 	
-	//查7天排班
-		public String CheckOnDuty7(){
-			System.out.println("action1...");
-			
-			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
-			//开始日期
-			Date today = new Date();
-			String str1 = df.format(today);
-			//结束日期
-			Date twelveday = new Date();
-			Calendar calendar = new GregorianCalendar();
-			calendar.setTime(twelveday);
-			calendar.add(calendar.DATE,6);//把日期往后增加一天.整数往后推,负数往前移动
-			twelveday=calendar.getTime(); //这个时间就是日期往后推的结果 
-			String str2 = df.format(twelveday);
-			
-			System.out.println(str1);
-			System.out.println(str2);
-			
-			OutpDoctorRegist7 = ozqBo.CheckOnDuty(str1, str2, "0101", "1106");
-			//OutpDoctorRegist = OzqBo.CheckOnDuty(start_time, end_time, clinic_dept, doctor_no);
-			System.out.println("action2...");
-			
-			return "success";
-		}
+	//查Today排班
+	public void CheckOnDutyToday(){
+		System.out.println("action1...");
 		
+		today = ozqBo.CheckOnDutyToday("0103", "0301");
+		OutpDoctorRegist ob = new OutpDoctorRegist();
+		//判断当天是否有排班
+		if(today.size() != 0){
+			//得到当天时间和星期几
+			Object[] obj1 = today.get(0);
+			ob.setDoctor(obj1[3]);
+			ob.setCounselDate(obj1[4]);
+			date1 = df.format(obj1[4]);
+			try {
+				if(df.parse(df.format(obj1[4])).getDay() == 0){
+					day1 = "星期天";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 1){
+					day1 = "星期一";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 2){
+					day1 = "星期二";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 3){
+					day1 = "星期三";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 4){
+					day1 = "星期四";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 5){
+					day1 = "星期五";
+				}else{
+					day1 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			request.put("today", ob);
+			
+			//当天排了多少班
+			for(int i = 0; i<today.size(); i++){
+				Object[] obj = today.get(i);
+				//排了什么时候的班
+				if("上午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("todaymoring", ob1);
+				}else if("急诊中午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("todaynoon", ob1);
+				}else if("下午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("todayafternoon", ob1);
+				}else{
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("todaynight", ob1);
+				}
+			}
+		
+			System.out.println("1");
+		}else{
+			
+			ob.setDoctor("钟灵");
+			
+			//日期
+			Date today = new Date();
+			String d = df.format(today);
+			thedate = ozqBo.CheckDate(d);
+			Timestamp t = thedate.get(0);
+			ob.setCounselDate(t);
+			date1 = df.format(t);
+			try {
+				if(df.parse(df.format(t)).getDay() == 0){
+					day1 = "星期天";
+				}else if(df.parse(df.format(t)).getDay() == 1){
+					day1 = "星期一";
+				}else if(df.parse(df.format(t)).getDay() == 2){
+					day1 = "星期二";
+				}else if(df.parse(df.format(t)).getDay() == 3){
+					day1 = "星期三";
+				}else if(df.parse(df.format(t)).getDay() == 4){
+					day1 = "星期四";
+				}else if(df.parse(df.format(t)).getDay() == 5){
+					day1 = "星期五";
+				}else{
+					day1 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			request.put("today", ob);
+			System.out.println("2");
+		}
+		System.out.println(ob);
+		
+		System.out.println("today action end...");
+		
+	}
+	
+	//查Twoday排班
+	public void CheckOnDutyTwoday(){
+		System.out.println("action1...");
+		
+		twoday = ozqBo.CheckOnDutyTwoday("0103", "0301");
+		OutpDoctorRegist ob = new OutpDoctorRegist();
+		//判断当天是否有排班
+		if(twoday.size() != 0){
+			//得到当天时间和星期几
+			Object[] obj1 = twoday.get(0);
+			ob.setDoctor(obj1[3]);
+			ob.setCounselDate(obj1[4]);
+			date2 = df.format(obj1[4]);
+			try {
+				if(df.parse(df.format(obj1[4])).getDay() == 0){
+					day2 = "星期天";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 1){
+					day2 = "星期一";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 2){
+					day2 = "星期二";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 3){
+					day2 = "星期三";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 4){
+					day2 = "星期四";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 5){
+					day2 = "星期五";
+				}else{
+					day2 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			request.put("twoday", ob);
+			
+			//当天排了多少班
+			for(int i = 0; i<twoday.size(); i++){
+				Object[] obj = twoday.get(i);
+				//排了什么时候的班
+				if("上午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("twodaymoring", ob1);
+				}else if("急诊中午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("twodaynoon", ob1);
+				}else if("下午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("twodayafternoon", ob1);
+				}else{
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("twodaynight", ob1);
+				}
+			}
+		
+			System.out.println("1");
+		}else{
+			
+			ob.setDoctor("钟灵");
+			
+			//日期
+			Date Twoday = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(Twoday);
+			calendar.add(calendar.DATE,1);//把日期往后增加.整数往后推,负数往前移动
+			Twoday=calendar.getTime(); //这个时间就是日期往后推的结果 
+			String d = df.format(Twoday);
+			thedate = ozqBo.CheckDate(d);
+			Timestamp t = thedate.get(0);
+			ob.setCounselDate(t);
+			date2 = df.format(t);
+			try {
+				if(df.parse(df.format(t)).getDay() == 0){
+					day2 = "星期天";
+				}else if(df.parse(df.format(t)).getDay() == 1){
+					day2 = "星期一";
+				}else if(df.parse(df.format(t)).getDay() == 2){
+					day2 = "星期二";
+				}else if(df.parse(df.format(t)).getDay() == 3){
+					day2 = "星期三";
+				}else if(df.parse(df.format(t)).getDay() == 4){
+					day2 = "星期四";
+				}else if(df.parse(df.format(t)).getDay() == 5){
+					day2 = "星期五";
+				}else{
+					day2 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			request.put("twoday", ob);
+			System.out.println("2");
+		}
+		System.out.println(ob);
+		
+		System.out.println("twoday action end...");
+		
+	}
+	
+	//查Threeday排班
+	public void CheckOnDutyThreeday(){
+		System.out.println("action1...");
+		
+		threeday = ozqBo.CheckOnDutyThreeday("0103", "0301");
+		OutpDoctorRegist ob = new OutpDoctorRegist();
+		//判断当天是否有排班
+		if(threeday.size() != 0){
+			//得到当天时间和星期几
+			Object[] obj1 = threeday.get(0);
+			ob.setDoctor(obj1[3]);
+			ob.setCounselDate(obj1[4]);
+			date3 = df.format(obj1[4]);
+			try {
+				if(df.parse(df.format(obj1[4])).getDay() == 0){
+					day3 = "星期天";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 1){
+					day3 = "星期一";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 2){
+					day3 = "星期二";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 3){
+					day3 = "星期三";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 4){
+					day3 = "星期四";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 5){
+					day3 = "星期五";
+				}else{
+					day3 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			request.put("threeday", ob);
+			
+			//当天排了多少班
+			for(int i = 0; i<threeday.size(); i++){
+				Object[] obj = threeday.get(i);
+				//排了什么时候的班
+				if("上午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("threedaymoring", ob1);
+				}else if("急诊中午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("threedaynoon", ob1);
+				}else if("下午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("threedayafternoon", ob1);
+				}else{
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("threedaynight", ob1);
+				}
+			}
+		
+			System.out.println("1");
+		}else{
+			
+			ob.setDoctor("钟灵");
+			
+			//日期
+			Date Threeday = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(Threeday);
+			calendar.add(calendar.DATE,2);//把日期往后增加.整数往后推,负数往前移动
+			Threeday=calendar.getTime(); //这个时间就是日期往后推的结果 
+			String d = df.format(Threeday);
+			thedate = ozqBo.CheckDate(d);
+			Timestamp t = thedate.get(0);
+			ob.setCounselDate(t);
+			date3 = df.format(t);
+			try {
+				if(df.parse(df.format(t)).getDay() == 0){
+					day3 = "星期天";
+				}else if(df.parse(df.format(t)).getDay() == 1){
+					day3 = "星期一";
+				}else if(df.parse(df.format(t)).getDay() == 2){
+					day3 = "星期二";
+				}else if(df.parse(df.format(t)).getDay() == 3){
+					day3 = "星期三";
+				}else if(df.parse(df.format(t)).getDay() == 4){
+					day3 = "星期四";
+				}else if(df.parse(df.format(t)).getDay() == 5){
+					day3 = "星期五";
+				}else{
+					day3 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			request.put("threeday", ob);
+			System.out.println("2");
+		}
+		System.out.println(ob);
+		
+		System.out.println("threeday action end...");
+		
+	}
+	
+	//查Fourday排班
+	public void CheckOnDutyFourday(){
+		System.out.println("action1...");
+		
+		fourday = ozqBo.CheckOnDutyFourday("0103", "0301");
+		OutpDoctorRegist ob = new OutpDoctorRegist();
+		//判断当天是否有排班
+		if(fourday.size() != 0){
+			//得到当天时间和星期几
+			Object[] obj1 = fourday.get(0);
+			ob.setDoctor(obj1[3]);
+			ob.setCounselDate(obj1[4]);
+			date4 = df.format(obj1[4]);
+			try {
+				if(df.parse(df.format(obj1[4])).getDay() == 0){
+					day4 = "星期天";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 1){
+					day4 = "星期一";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 2){
+					day4 = "星期二";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 3){
+					day4 = "星期三";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 4){
+					day4 = "星期四";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 5){
+					day4 = "星期五";
+				}else{
+					day4 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			request.put("fourday", ob);
+			
+			//当天排了多少班
+			for(int i = 0; i<fourday.size(); i++){
+				Object[] obj = fourday.get(i);
+				//排了什么时候的班
+				if("上午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("fourdaymoring", ob1);
+				}else if("急诊中午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("fourdaynoon", ob1);
+				}else if("下午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("fourdayafternoon", ob1);
+				}else{
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("fourdaynight", ob1);
+				}
+			}
+		
+			System.out.println("1");
+		}else{
+			
+			ob.setDoctor("钟灵");
+			
+			//日期
+			Date Fourday = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(Fourday);
+			calendar.add(calendar.DATE,3);//把日期往后增加.整数往后推,负数往前移动
+			Fourday=calendar.getTime(); //这个时间就是日期往后推的结果 
+			String d = df.format(Fourday);
+			thedate = ozqBo.CheckDate(d);
+			Timestamp t = thedate.get(0);
+			ob.setCounselDate(t);
+			date4 = df.format(t);
+			try {
+				if(df.parse(df.format(t)).getDay() == 0){
+					day4 = "星期天";
+				}else if(df.parse(df.format(t)).getDay() == 1){
+					day4 = "星期一";
+				}else if(df.parse(df.format(t)).getDay() == 2){
+					day4 = "星期二";
+				}else if(df.parse(df.format(t)).getDay() == 3){
+					day4 = "星期三";
+				}else if(df.parse(df.format(t)).getDay() == 4){
+					day4 = "星期四";
+				}else if(df.parse(df.format(t)).getDay() == 5){
+					day4 = "星期五";
+				}else{
+					day4 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			request.put("fourday", ob);
+			System.out.println("2");
+		}
+		System.out.println(ob);
+		
+		System.out.println("fourday action end...");
+		
+	}
+	
+	//查Fiveday排班
+	public void CheckOnDutyFiveday(){
+		System.out.println("action1...");
+		
+		fiveday = ozqBo.CheckOnDutyFiveday("0103", "0301");
+		OutpDoctorRegist ob = new OutpDoctorRegist();
+		//判断当天是否有排班
+		if(fiveday.size() != 0){
+			//得到当天时间和星期几
+			Object[] obj1 = fiveday.get(0);
+			ob.setDoctor(obj1[3]);
+			ob.setCounselDate(obj1[4]);
+			date5 = df.format(obj1[4]);
+			try {
+				if(df.parse(df.format(obj1[4])).getDay() == 0){
+					day5 = "星期天";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 1){
+					day5 = "星期一";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 2){
+					day5 = "星期二";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 3){
+					day5 = "星期三";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 4){
+					day5 = "星期四";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 5){
+					day5 = "星期五";
+				}else{
+					day5 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			request.put("fiveday", ob);
+			
+			//当天排了多少班
+			for(int i = 0; i<fiveday.size(); i++){
+				Object[] obj = fiveday.get(i);
+				//排了什么时候的班
+				if("上午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("fivedaymoring", ob1);
+				}else if("急诊中午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("fivedaynoon", ob1);
+				}else if("下午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("fivedayafternoon", ob1);
+				}else{
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("fivedaynight", ob1);
+				}
+			}
+		
+			System.out.println("1");
+		}else{
+			
+			ob.setDoctor("钟灵");
+			
+			//日期
+			Date Fiveday = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(Fiveday);
+			calendar.add(calendar.DATE,4);//把日期往后增加.整数往后推,负数往前移动
+			Fiveday=calendar.getTime(); //这个时间就是日期往后推的结果 
+			String d = df.format(Fiveday);
+			thedate = ozqBo.CheckDate(d);
+			Timestamp t = thedate.get(0);
+			ob.setCounselDate(t);
+			date5 = df.format(t);
+			try {
+				if(df.parse(df.format(t)).getDay() == 0){
+					day5 = "星期天";
+				}else if(df.parse(df.format(t)).getDay() == 1){
+					day5 = "星期一";
+				}else if(df.parse(df.format(t)).getDay() == 2){
+					day5 = "星期二";
+				}else if(df.parse(df.format(t)).getDay() == 3){
+					day5 = "星期三";
+				}else if(df.parse(df.format(t)).getDay() == 4){
+					day5 = "星期四";
+				}else if(df.parse(df.format(t)).getDay() == 5){
+					day5 = "星期五";
+				}else{
+					day5 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			request.put("fiveday", ob);
+			System.out.println("2");
+		}
+		System.out.println(ob);
+		
+		System.out.println("fiveday action end...");
+		
+	}
+	
+	//查Sixday排班
+	public void CheckOnDutySixday(){
+		System.out.println("action1...");
+		
+		sixday = ozqBo.CheckOnDutySixday("0103", "0301");
+		OutpDoctorRegist ob = new OutpDoctorRegist();
+		//判断当天是否有排班
+		if(sixday.size() != 0){
+			//得到当天时间和星期几
+			Object[] obj1 = sixday.get(0);
+			ob.setDoctor(obj1[3]);
+			ob.setCounselDate(obj1[4]);
+			date6 = df.format(obj1[4]);
+			try {
+				if(df.parse(df.format(obj1[4])).getDay() == 0){
+					day6 = "星期天";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 1){
+					day6 = "星期一";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 2){
+					day6 = "星期二";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 3){
+					day6 = "星期三";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 4){
+					day6 = "星期四";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 5){
+					day6 = "星期五";
+				}else{
+					day6 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			request.put("sixday", ob);
+			
+			//当天排了多少班
+			for(int i = 0; i<sixday.size(); i++){
+				Object[] obj = sixday.get(i);
+				//排了什么时候的班
+				if("上午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("sixdaymoring", ob1);
+				}else if("急诊中午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("sixdaynoon", ob1);
+				}else if("下午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("sixdayafternoon", ob1);
+				}else{
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("sixdaynight", ob1);
+				}
+			}
+		
+			System.out.println("1");
+		}else{
+			
+			ob.setDoctor("钟灵");
+			
+			//日期
+			Date Sixday = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(Sixday);
+			calendar.add(calendar.DATE,5);//把日期往后增加.整数往后推,负数往前移动
+			Sixday=calendar.getTime(); //这个时间就是日期往后推的结果 
+			String d = df.format(Sixday);
+			thedate = ozqBo.CheckDate(d);
+			Timestamp t = thedate.get(0);
+			ob.setCounselDate(t);
+			date6 = df.format(t);
+			try {
+				if(df.parse(df.format(t)).getDay() == 0){
+					day6 = "星期天";
+				}else if(df.parse(df.format(t)).getDay() == 1){
+					day6 = "星期一";
+				}else if(df.parse(df.format(t)).getDay() == 2){
+					day6 = "星期二";
+				}else if(df.parse(df.format(t)).getDay() == 3){
+					day6 = "星期三";
+				}else if(df.parse(df.format(t)).getDay() == 4){
+					day6 = "星期四";
+				}else if(df.parse(df.format(t)).getDay() == 5){
+					day6 = "星期五";
+				}else{
+					day6 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			request.put("sixday", ob);
+			System.out.println("2");
+		}
+		System.out.println(ob);
+		
+		System.out.println("sixday action end...");
+		
+	}
+	
+	//查Sevenday排班
+	public void CheckOnDutySevenday(){
+		System.out.println("action1...");
+		
+		sevenday = ozqBo.CheckOnDutySevenday("0103", "0301");
+		OutpDoctorRegist ob = new OutpDoctorRegist();
+		//判断当天是否有排班
+		if(sevenday.size() != 0){
+			//得到当天时间和星期几
+			Object[] obj1 = sevenday.get(0);
+			ob.setDoctor(obj1[3]);
+			ob.setCounselDate(obj1[4]);
+			date7 = df.format(obj1[4]);
+			try {
+				if(df.parse(df.format(obj1[4])).getDay() == 0){
+					day7 = "星期天";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 1){
+					day7 = "星期一";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 2){
+					day7 = "星期二";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 3){
+					day7 = "星期三";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 4){
+					day7 = "星期四";
+				}else if(df.parse(df.format(obj1[4])).getDay() == 5){
+					day7 = "星期五";
+				}else{
+					day7 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			request.put("sevenday", ob);
+			
+			//当天排了多少班
+			for(int i = 0; i<sevenday.size(); i++){
+				Object[] obj = sevenday.get(i);
+				//排了什么时候的班
+				if("上午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("sevendaymoring", ob1);
+				}else if("急诊中午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("sevendaynoon", ob1);
+				}else if("下午".equals(obj[5])){
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("sevendayafternoon", ob1);
+				}else{
+					OutpDoctorRegist ob1 = new OutpDoctorRegist();
+					System.out.println(ob1.toString());
+					ob1.setCounselDate(obj[4]);
+					ob1.setClinicDuration(obj[5]);
+					ob1.setQueueName(obj[6]);
+					ob1.setLimitNumApp(obj[14]);
+					ob1.setRegistApped(obj[16]);
+				
+					request.put("sevendaynight", ob1);
+				}
+			}
+		
+			System.out.println("1");
+		}else{
+			
+			ob.setDoctor("钟灵");
+			
+			//日期
+			Date Sevenday = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(Sevenday);
+			calendar.add(calendar.DATE,6);//把日期往后增加.整数往后推,负数往前移动
+			Sevenday=calendar.getTime(); //这个时间就是日期往后推的结果 
+			String d = df.format(Sevenday);
+			thedate = ozqBo.CheckDate(d);
+			Timestamp t = thedate.get(0);
+			ob.setCounselDate(t);
+			date7 = df.format(t);
+			try {
+				if(df.parse(df.format(t)).getDay() == 0){
+					day7 = "星期天";
+				}else if(df.parse(df.format(t)).getDay() == 1){
+					day7 = "星期一";
+				}else if(df.parse(df.format(t)).getDay() == 2){
+					day7 = "星期二";
+				}else if(df.parse(df.format(t)).getDay() == 3){
+					day7 = "星期三";
+				}else if(df.parse(df.format(t)).getDay() == 4){
+					day7 = "星期四";
+				}else if(df.parse(df.format(t)).getDay() == 5){
+					day7 = "星期五";
+				}else{
+					day7 = "星期六";
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			request.put("sevenday", ob);
+			System.out.println("2");
+		}
+		System.out.println(ob);
+		
+		System.out.println("sevenday action end...");
+		
+	}
+	
 		//查医生
 		public String CheckDoctorName() throws IOException{
 			System.out.println("action1...");
@@ -174,18 +1399,18 @@ public class OzqAction{
 			deptname=new String(deptname.getBytes("ISO-8859-1"), "UTF-8");
 			System.out.println(deptname);
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName(deptname);
-		    session.put("DoctorName", OutpDoctorRegistDoctorName);
+		    request.put("DoctorName", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("click doctor.............");
 		    return "success";
 		}
 
-		//查一进入首页时显示的医生
+		//查tab1的医生
 		public String CheckDoctorNametab1() throws IOException{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊内科");
-		    session.put("DoctorNametab1", OutpDoctorRegistDoctorName);
+		    request.put("DoctorNametab1", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
@@ -196,7 +1421,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊妇科");
-		    session.put("DoctorNametab2", OutpDoctorRegistDoctorName);
+		    request.put("DoctorNametab2", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
@@ -207,7 +1432,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊急诊科");
-		    session.put("DoctorNametab3", OutpDoctorRegistDoctorName);
+		    request.put("DoctorNametab3", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
@@ -218,7 +1443,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊口腔科");
-		    session.put("DoctorNametab4", OutpDoctorRegistDoctorName);
+		    request.put("DoctorNametab4", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
@@ -229,7 +1454,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊中医科");
-		    session.put("DoctorNametab5", OutpDoctorRegistDoctorName);
+		    request.put("DoctorNametab5", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
@@ -240,7 +1465,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊外科");
-		    session.put("DoctorNametab6", OutpDoctorRegistDoctorName);
+		    request.put("DoctorNametab6", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
@@ -251,7 +1476,7 @@ public class OzqAction{
 			System.out.println("action1...");
 			
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("体检科");
-		    session.put("DoctorNametab7", OutpDoctorRegistDoctorName);
+		    request.put("DoctorNametab7", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";

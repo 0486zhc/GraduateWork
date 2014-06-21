@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   	
-    <form name="form1" action="OzqAction">
+    <form name="form1" action="jsp/page/OzqAction12">
 	<table width="517"  border="1"  cellpadding="1" cellspacing="0" bordercolor="#00AAD5" bgcolor="#EFEFEF">
  	 <tr>
   	  <td height="30"><div align="center" class="STYLE1">1</div></td>

@@ -218,5 +218,8 @@
         <property name="password" type="java.lang.String">
             <column name="PASSWORD" length="16" />
         </property>
+         <property name="flag" type="java.lang.Integer">
+            <column name="FLAG" length="1" />
+        </property>
     </class>
 </hibernate-mapping>

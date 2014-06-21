@@ -21,7 +21,7 @@ import util.HibernateUtil;
  * @see model.lhb.PatMasterIndex
  * @author MyEclipse Persistence Tools
  */
-
+@SuppressWarnings("unchecked")
 public class PatMasterIndexDAO
 {
    private HibernateTemplate   template     = null;
@@ -42,10 +42,9 @@ public class PatMasterIndexDAO
       this.template = hibernateTemplate;
    }
 
-   @SuppressWarnings("unchecked")
    public PatMasterIndex find(String user_id, String pwd)
    {
-      session = HibernateUtil.getSession();
+      session = HibernateUtil.getSession();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
       List<PatMasterIndex> pmi = null;
       query = session.createQuery(strForLogin);
       query.setString(0, user_id);
@@ -106,7 +105,6 @@ public class PatMasterIndexDAO
       return strb.append(i.toString()).toString();
    }
 
-   @SuppressWarnings("unchecked")
    public PatMasterIndex checkForUserId(String user)
    {
       session = HibernateUtil.getSession();
@@ -121,15 +119,40 @@ public class PatMasterIndexDAO
       return pmi.get(0);
    }
 
-   public void makeAppoints(ClinicAppoints appoints)
+   public void makeAppoints(ClinicAppoints appoints,String user_id)
    {
       Session session = HibernateUtil.getSession();
       Transaction ts = session.beginTransaction();
       ts.begin();
       session.saveOrUpdate(appoints);
+      addOne(user_id);
       ts.commit();
       session.flush();
       session.close();
-
    }
+
+   public void addOne(String user_id)
+   {
+      session = HibernateUtil.getSession();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+      PatMasterIndex pmi = null;
+      query = session.createQuery(strByUserId);
+      query.setString(0, user_id);
+      pmi = (PatMasterIndex) query.list().get(0);
+      pmi.setFlag(pmi.getFlag()+1);
+      
+       Transaction ta = session.beginTransaction();
+       session.update(pmi); 
+       ta.commit();
+       session.close();
+   }
+  
+   public PatMasterIndex checkForFlag(String user_id)
+   {
+      session = HibernateUtil.getSession();
+      List<PatMasterIndex> pmi = null;
+      query = session.createQuery(strByUserId);
+      query.setString(0, user_id);
+      pmi = query.list();
+      return pmi.get(0);  
+    }
 }
