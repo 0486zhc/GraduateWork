@@ -90,4 +90,13 @@ public class ImplBo_zjc implements IBo_zjc{
 		}
 		
 	}
+
+	@Override
+	public String modifyAppoint(ClinicAppoints appoint) {
+		if(dao.cancleAppoint(appoint)){
+			return "取消预约【成功】！";
+		}else{
+			return "取消预约【失败】！";
+		}
+	}
 }

@@ -149,7 +149,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<p class="footer-top">&COPY;<b><s:property value="%{#session.pat.name}" /> </b>：您好！</p>
 		<p class="footer-bottom" data-role="none">
 			 <a href="<%=basePath %>PhoneWeb/index.jsp">首页</a> <a
-				href="zhengwen.jsp">正文页</a> <a href="liebiao.jsp">列表页</a>
+				href="<%=basePath%>PhoneWeb/WebTwo/login.jsp">登录</a> <a href="user_exit">退出</a>
 		</p>
 		<s:debug></s:debug>
 	</div>

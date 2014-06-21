@@ -76,18 +76,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="control-group">
 				<span class="red"></span>
 			</div>
+			<div align="center" >
+				<p style="colorred"><s:property value="mess"/></p>
+			</div>
 			<div class="control-group">
 				<button onclick="__doPostBack('ctl00$ContentPlaceHolder1$btnOK','')"
 					id="ctl00_ContentPlaceHolder1_btnOK"
 					class="btn-large green button width100">立即提交</button>
 			</div>
-			<div class="control-group">
-				还没账号？<a href="register.jsp"
-					id="ctl00_ContentPlaceHolder1_RegBtn">立即免费注册</a>
-			</div>
-			<div align="center">
-				<p><s:property value="mess"/></p>
-			</div>
+<!-- 			<div class="control-group"> -->
+<!-- 				还没账号？<a href="register.jsp" -->
+<!-- 					id="ctl00_ContentPlaceHolder1_RegBtn">立即免费注册</a> -->
+<!-- 			</div> -->
+<!-- 			<div align="center" > -->
+<!-- 				<p style="colorred"><s:property value="mess"/></p> -->
+<!-- 			</div> -->
 <!-- 			<div class="control-group"> -->
 <!-- 				或者使用合作账号一键登录：<br /> <a class="servIco ico_qq" href="qlogin.aspx"></a> -->
 <!-- 				<a class="servIco ico_sina" href="default.htm"></a> -->
@@ -99,11 +102,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="footer">
 		<div class="gezifooter">
 
-			<a href="login.aspx" class="ui-link">立即登陆</a> <font color="#878787">|</font>
-			<a href="reg.aspx" class="ui-link">免费注册</a> <font color="#878787">|</font>
+			<a href="<%=basePath%>PhoneWeb/WebTwo/login.jsp" class="ui-link">立即登陆</a> <font color="#878787">|</font>
+			<a href="<%=basePath%>PhoneWeb/WebTwo/register.jsp" class="ui-link">免费注册</a> <font color="#878787">|</font>
 
 
-			<a href="../www.gridinn.com/@display=pc" class="ui-link">电脑版</a>
+			<a href="<%=basePath %>jsp/page/login.jsp" class="ui-link">电脑版</a>
 		</div>
 		<div class="gezifooter">
 			<p style="color:#bbb;"> &copy; 版权所有 2012-2014</p>

@@ -29,5 +29,7 @@ public interface IBo_zjc
 
 	List<ClinicAppoints> getAppoints(PatMasterIndex pat);
 
-	String addAdvice(MessageBox advice); 
+	String addAdvice(MessageBox advice);
+
+	String modifyAppoint(ClinicAppoints appoint); 
 }

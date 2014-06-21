@@ -49,8 +49,8 @@ public class ClinicAppoints implements java.io.Serializable {
 	public String toString() {
 		return "ClinicAppoints [patientId=" + patientId + ", name=" + name
 				+ ",sex=" + sex + ",regTimePoint=" + regTimePoint
-				+ " ,preRegistDoctor=" + preRegistDoctor + ", phoneNo="
-				+ phoneNo + "]";
+				+ " ,preRegistDoctor=" + preRegistDoctor + ",registStatus="
+				+ registStatus + ", phoneNo=" + phoneNo + "]";
 	}
 
 	public Date getVisitDateAppted() {

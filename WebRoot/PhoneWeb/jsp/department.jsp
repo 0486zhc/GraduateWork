@@ -61,11 +61,11 @@
 		<s:iterator value="%{depts}">
 			<li><a href="appointment_findDoctors?deptCode=<s:property value="%{deptCode}" />" ><img
 					class="hotelimg fl"
-					src="http://www.gridinn.com/images/hotel/14.jpg" />
+					src="<%=basePath %>PhoneWeb/upload/img/xctxwlb/20131029/aixin.jpg" />
 					<div class="inline">
 						<h3><s:property value="%{deptName}" /></h3>
 						<p>科室代码：<s:property value="%{deptCode}" /></p>
-						<p>大科室名称：<s:property value="%{bigDeptCode}" /></p>
+						<p>大科室名称：<s:property value="%{bigDeptCode}" /></p><br/>
 					</div>
 		</s:iterator>
 		</ul>
@@ -75,11 +75,11 @@
 	<div class="footer">
 		<div class="gezifooter">
 
-			<a href="login.aspx" class="ui-link">立即登陆</a> <font color="#878787">|</font>
-			<a href="reg.aspx" class="ui-link">免费注册</a> <font color="#878787">|</font>
+			<a href="<%=basePath%>PhoneWeb/WebTwo/login.jsp" class="ui-link">立即登陆</a> <font color="#878787">|</font>
+			<a href="<%=basePath%>PhoneWeb/WebTwo/register.jsp" class="ui-link">免费注册</a> <font color="#878787">|</font>
 
 
-			<a href="http://www.gridinn.com/@display=pc" class="ui-link">电脑版</a>
+			<a href="<%=basePath %>jsp/page/login.jsp" class="ui-link">电脑版</a>
 		</div>
 		<div class="gezifooter">
 			<p style="color:#bbb;"> &copy; 版权所有 2012-2014</p>

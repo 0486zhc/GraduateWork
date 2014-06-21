@@ -44,10 +44,7 @@ public class AppointmentAction extends ActionSupport{
 		 pat = (PatMasterIndex) ActionContext.getContext().getSession().get("pat");
 		if(pat != null){
 			appointsList = bo.getAppoints(pat);
-			
-			HttpServletRequest request = ServletActionContext.getRequest();
-			request.setAttribute("appointsList", "appointsList");
-			
+			ActionContext.getContext().getSession().put("appointsList",appointsList);  // 放session
 			// 医生名称
 			System.out.println("appointsList"+appointsList);
 			return "appoints";
@@ -67,14 +64,18 @@ public class AppointmentAction extends ActionSupport{
 	// 取消预约
 	public String cancle(){
 		System.out.println("cancle");
-//		?appoint=<s:property value="#str"/>
-		
-		HttpServletRequest request = ServletActionContext.getRequest();
-		appointsList = (List<ClinicAppoints>) request.getAttribute("appointsList");
-		
-		System.out.println(appoint);
-		System.out.println(appointsList);
-		return "success";
+		String regTime = mess.substring(0, 16);
+		String regDoctorNo = mess.substring(26);
+		appointsList = (List<ClinicAppoints>) ActionContext.getContext().getSession().get("appointsList");
+		for(ClinicAppoints c : appointsList){
+			if(c.getRegTimePoint().equals(regTime) && c.getPreRegistDoctor().equals(regDoctorNo)){
+				appoint = c;
+				System.out.println("appoint="+ appoint);
+			}
+		}
+		mess = bo.modifyAppoint(appoint);
+		System.out.println(mess);
+		return "appointsInfo";
 	}
 	
 /*  ==================== get/set 方法=======================================	*/

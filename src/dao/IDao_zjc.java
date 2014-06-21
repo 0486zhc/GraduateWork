@@ -38,4 +38,6 @@ public interface IDao_zjc
 	List<ClinicAppoints> getAppoints(PatMasterIndex pat);
 
 	boolean saveAdvice(MessageBox advice);
+
+	public boolean cancleAppoint(ClinicAppoints appoint);
 }

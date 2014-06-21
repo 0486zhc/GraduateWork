@@ -32,11 +32,6 @@ public class ImplDao_zjc implements IDao_zjc {
 		this.template = template;
 	}
 
-//	@OVERRIDE
-//	PUBLIC PATMASTERINDEX VERIFY(STRING USERNAME, STRING PASSWORD) {
-//		// TODO AUTO-GENERATED METHOD STUB
-//		RETURN NULL;
-//	}
 	@Override
 	@SuppressWarnings("unchecked")
 	public PatMasterIndex verify(String userName, String passWord) {
@@ -62,7 +57,7 @@ public class ImplDao_zjc implements IDao_zjc {
 		String hql = "from PatMasterIndex where rownum=1 order by patient_id Desc ";
 		PatMasterIndex pat = (PatMasterIndex) excuteHibernate(hql).get(0);
 		Long maxNum = Long.valueOf(pat.getPatientId().toString()) + 1;
-		System.out.println("maxNum" + maxNum);
+//		System.out.println("maxNum" + maxNum);
 		return switchStringAndLeftFilling(maxNum);
 	}
 
@@ -84,35 +79,15 @@ public class ImplDao_zjc implements IDao_zjc {
 		System.out.println("dao getDepts");
 		String hql = "from DeptDict as d where dept_code in (select clinicDept from OutpDoctorRegist) ";
 		List<DeptDict> deptDicts = excuteHibernate(hql);
-		// list.get(0);
-		// System.out.println(list);
 		return deptDicts;
 	}
 
 	@Override
 	public List<StaffDict> getDoctorsInfo(Integer deptCode) {
-		// String hql = "from OutpDoctorRegist where clinicDept = " + deptCode ;
 		String hql = "from StaffDict where emp_no in (select distinct doctorNo from OutpDoctorRegist ) and dept_code = "
 				+ deptCode;
-		// String hql =
-		// "select *,count(distinct doctor) from OutpDoctorRegist where clinicDept = "
-		// + deptCode + " group by doctor";
 		System.out.println(hql);
 		List<StaffDict> doctorsInfo = excuteHibernate(hql);
-		// List<OutpDoctorRegist> doctorBak = new ArrayList<OutpDoctorRegist>()
-		// ;
-		//
-		// List<OutpDoctorRegist> doctorNew = new ArrayList<OutpDoctorRegist>()
-		// ;
-		// doctorBak.addAll(doctorsAll);
-		//
-		// for(OutpDoctorRegist o : doctorsAll){
-		// for(OutpDoctorRegist d : doctorBak){
-		// if(!o.getDoctor().equals(d.getDoctor())){
-		// doctorNew.add(o);
-		// }
-		// }
-		// }
 
 		return doctorsInfo;
 	}
@@ -257,20 +232,10 @@ public class ImplDao_zjc implements IDao_zjc {
 		return (StaffDict) excuteHibernate(hql).get(0);
 	}
 
-	public static void main(String[] args) {
-		// ImplDao_zjc dao = new ImplDao_zjc();
-		//
-		// dao.getDepts();
-
-		// ImplDao_zjc dao = new ImplDao_zjc();
-		// StaffDict s = dao.getDoctor(1104);
-		// System.out.println("StaffDict="+s);
-	}
-
 	@Override
 	public List<ClinicAppoints> getAppoints(PatMasterIndex pat) {
 		System.out.println("pat"+pat);
-		String hql = "from ClinicAppoints where patient_id = " + pat.getPatientId();
+		String hql = "from ClinicAppoints where patient_id = '" + pat.getPatientId() + "' and regist_status =0 and to_date(sysdate) >= VISIT_DATE_APPTED";
 		System.out.println("hql"+hql);
 		List<ClinicAppoints> appoints = excuteHibernate(hql);
 		System.out.println("appoints" +appoints);
@@ -281,11 +246,7 @@ public class ImplDao_zjc implements IDao_zjc {
 	public boolean saveAdvice(MessageBox advice) {
 		try {
 			System.out.println("advice dao = "+advice);
-			// TODO:未完成
-
-//			Transaction tx = HibernateUtil.getSession().beginTransaction();
 			template.save(advice);
-//			tx.commit();
 			System.out.println("===");
 			return true;
 		} catch (Exception e) {
@@ -294,5 +255,38 @@ public class ImplDao_zjc implements IDao_zjc {
 		}
 	}
 
-	
+	@Override
+	public boolean cancleAppoint(ClinicAppoints appoint) {
+		try {
+			String cancleStatus = String.valueOf(2);
+//			appoint.setRegistStatus(cancleStatus);
+//			template.save(appoint);
+//			template.saveOrUpdate(appoint);
+//			template.update(appoint);
+			String updateSql = "update clinic_appoints set REGIST_STATUS=? where PRE_REGIST_DOCTOR =? and REG_TIME_POINT =? ";	 
+			 Session session = HibernateUtil.getSession();
+		      Transaction ts = session.beginTransaction();
+		      Query query = session.createSQLQuery(updateSql);
+		      query.setString(0, cancleStatus);
+		      query.setString(1, appoint.getPreRegistDoctor());
+		      query.setString(2, appoint.getRegTimePoint());
+		      query.executeUpdate();
+		      ts.commit();
+		      session.flush();
+		      session.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.toString());
+			return false;
+		}
+	}
+
+	public static void main(String[] args) {
+		ImplDao_zjc dao = new ImplDao_zjc();
+		String s = "2014-06-20 08:00?doctorNo=9999";
+		String s1 = s.substring(0, 16);
+		String s2 = s.substring(26);
+		System.out.println(s1);
+		System.out.println(s2);
+	}
 }

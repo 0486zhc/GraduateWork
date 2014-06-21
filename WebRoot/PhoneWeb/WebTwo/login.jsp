@@ -93,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					class="btn-large green button width100">立即登陆</button>
 			</div>
 			<div class="control-group">
-				还没账号？<a href="register.jsp"
+				还没账号？<a href="<%=basePath%>PhoneWeb/WebTwo/register.jsp"
 					id="ctl00_ContentPlaceHolder1_RegBtn">立即免费注册</a>
 			</div>
 <!-- 			<div class="control-group"> -->
@@ -107,11 +107,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="footer">
 		<div class="gezifooter">
 
-			<a href="login.aspx" class="ui-link">立即登陆</a> <font color="#878787">|</font>
-			<a href="reg.aspx" class="ui-link">免费注册</a> <font color="#878787">|</font>
+			<a href="<%=basePath%>PhoneWeb/WebTwo/login.jsp" class="ui-link">立即登陆</a> <font color="#878787">|</font>
+			<a href="<%=basePath%>PhoneWeb/WebTwo/register.jsp" class="ui-link">免费注册</a> <font color="#878787">|</font>
 
 
-			<a href="../www.gridinn.com/@display=pc" class="ui-link">电脑版</a>
+			<a href="<%=basePath %>jsp/page/login.jsp" class="ui-link">电脑版</a>
 		</div>
 		<div class="gezifooter">
 			<p style="color:#bbb;"> &copy; 版权所有 2012-2014</p>

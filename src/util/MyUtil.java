@@ -38,9 +38,18 @@ public class MyUtil {
 		return strb.append(i.toString()).toString();
 	}
 	
+	public static String getNowTime(){
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置日期格式
+		// 开始日期
+		Date today = new Date();
+		String nowTime = df.format(today);
+		 return nowTime;
+	}
+	
+	
 	public static void main(String[] args) {
-		System.out.println(getToday());
-		System.out.println(getOtherDay(7));
+		
+		System.out.println( MyUtil.getNowTime() );
 	}
 	
 }

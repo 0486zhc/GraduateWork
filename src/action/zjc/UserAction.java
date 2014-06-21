@@ -47,6 +47,10 @@ public class UserAction
 		return "advice";
 	}
 	
+	public String exit(){
+		ActionContext.getContext().getSession().clear(); 
+		return "success";
+	}
 	
 	
 /* =============================================================== */
