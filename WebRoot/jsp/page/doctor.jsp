@@ -113,7 +113,7 @@ $(document).ready(function () {
     </div>
 </div>
 <div class="content w960 center clearfix">
-    <div class="pst fl fs12"><a href="index.html">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="">东莞市妇幼保健院</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="specialty.jsp">产科</a>&nbsp;&nbsp;>&nbsp;&nbsp;刘浩斌（专病门诊）</div>
+    <div class="pst fl fs12"><a href="index.html">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="">东莞市妇幼保健院</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="specialty.jsp">产科</a>&nbsp;&nbsp;>&nbsp;&nbsp;钟灵（专病门诊）</div>
     <div class="clear"></div>
 	<div class="sp_cnt clearfix">
         <div class="aside fl fs12">
@@ -124,9 +124,9 @@ $(document).ready(function () {
                         <img src="images/doctor.jpg" alt="刘浩斌" title="刘浩斌" width="150" height="200">
                     </div>
                     <dl class="dpt_info">
-                        <dt>刘浩斌</dt>
+                        <dt>钟灵</dt>
                         <dd>
-                            <b>主任医师</b>
+                            <b>副主任医师</b>
                             <p>科室：<a href="specialty.jsp">产科</a></p>
                             <p>医院：<a href="">东莞市妇幼保健院</a></p>
                             <p>挂号级别：<strong> 9 元</strong></p>
@@ -135,11 +135,11 @@ $(document).ready(function () {
                 </div>
                 <div class="dc_pd card">
                     <span>擅长</span>
-                    <p>从事妇产科临床工作二十余年，对妇产科常见病及疑难杂症临床处理具有丰富的临床经验。尤其对产科高危妊娠、难产处理、产前诊断、优生优育咨询积累了丰富的临床经验。逢周二、周四上午出专家门诊。</p>
+                    <p>从事门诊内科临床工作二十余年，对门诊内科常见病及疑难杂症临床处理具有丰富的临床经验。</p>
                 </div>
                 <div class="dc_pd card">
                     <span>医生介绍</span>
-                    <p>从事妇产科临床工作二十余年，对妇产科常见病及疑难杂症临床处理具有丰富的临床经验。尤其对产科高危妊娠、难产处理、产前诊断、优生优育咨询积累了丰富的临床经验。逢周二、周四上午出专家门诊。</p>
+                    <p>从事门诊内科临床工作二十余年，对门诊内科常见病及疑难杂症临床处理具有丰富的临床经验。</p>
                 </div>
             </div>
         </div>
@@ -151,40 +151,25 @@ $(document).ready(function () {
                     <div class="timetable fl">
                         <ul>
                             <li class="fl" id='date1'>
-                            	<script>today();</script>
+                             	${date1 }<br>${day1 }
                             </li>
                             <li class="fl" id='date2'>
-                            	<script>twoday();</script>
+                             	${date2 }<br>${day2 }
                             </li>
                             <li class="fl" id='date3'>
-                                <script>threeday();</script>
+                             	${date3 }<br>${day3 }
                             </li>
                             <li class="fl" id='date4'>
-                            	<script>fourday();</script>
+                            	${date4 }<br>${day4 }
                             </li>
                             <li class="fl" id='date5'>
-                            	<script>fiveday();</script>
+                            	${date5 }<br>${day5 }
                             </li>
                             <li class="fl" id='date6'>
-                            	<script>sixday();</script>
+                            	${date6 }<br>${day6 }
                             </li>
                             <li class="fl" id='date7'>
-                            	<script>sevenday();</script>
-                            </li>
-                            <li class="fl" id='date8'>
-                            	<script>eightday();</script>
-                            </li>
-                            <li class="fl" id='date9'>
-                            	<script>nineday();</script>
-                            </li>
-                            <li class="fl" id='date10'>
-                            	<script>tenday();</script>
-                            </li>
-                            <li class="fl" id='date11'>
-                            	<script>elevenday();</script>
-                            </li>
-                            <li class="fl" id='date12'>
-                            	<script>twelveday();</script>
+                            	${date7 }<br>${day7 }
                             </li>
                         </ul>
                     </div>
@@ -194,39 +179,527 @@ $(document).ready(function () {
                         <li class="beforenoon dc_od_cnt_li od_cnt_time clearfix">
                             <div class="fl">上<br>午</div>
                             <div class="fr">上<br>午</div>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(16/21)</a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_man_out">出诊</a>
+                            <s:if test="#request.todaymoring.clinicDuration == '上午'">
+                            	<s:if test="#request.todaymoring.limitNumApp != 0">
+                            		<s:if test="#request.todaymoring.registApped != #request.todaymoring.limitNumApp">
+                            			<s:iterator value="#request.todaymoring">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.twodaymoring.clinicDuration == '上午'">
+                            	<s:if test="#request.twodaymoring.limitNumApp != 0">
+                            		<s:if test="#request.twodaymoring.registApped != #request.twodaymoring.limitNumApp">
+                            			<s:iterator value="#request.twodaymoring">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.threedaymoring.clinicDuration == '上午'">
+                            	<s:if test="#request.threedaymoring.limitNumApp != 0">
+                            		<s:if test="#request.threedaymoring.registApped != #request.threedaymoring.limitNumApp">
+                            			<s:iterator value="#request.threedaymoring">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.fourdaymoring.clinicDuration == '上午'">
+                            	<s:if test="#request.fourdaymoring.limitNumApp != 0">
+                            		<s:if test="#request.fourdaymoring.registApped != #request.fourdaymoring.limitNumApp">
+                            			<s:iterator value="#request.fourdaymoring">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.fivedaymoring.clinicDuration == '上午'">
+                            	<s:if test="#request.fivedaymoring.limitNumApp != 0">
+                            		<s:if test="#request.fivedaymoring.registApped != #request.fivedaymoring.limitNumApp">
+                            			<s:iterator value="#request.fivedaymoring">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.sixdaymoring.clinicDuration == '上午'">
+                            	<s:if test="#request.sixdaymoring.limitNumApp != 0">
+                            		<s:if test="#request.sixdaymoring.registApped != #request.sixdaymoring.limitNumApp">
+                            			<s:iterator value="#request.sixdaymoring">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.sevendaymoring.clinicDuration == '上午'">
+                            	<s:if test="#request.sevendaymoring.limitNumApp != 0">
+                            		<s:if test="#request.sevendaymoring.registApped != #request.sevendaymoring.limitNumApp">
+                            			<s:iterator value="#request.sevendaymoring">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                        </li>
+                        <li class="beforenoon dc_od_cnt_li od_cnt_time clearfix">
+                            <div class="fl">中<br>午</div>
+                            <div class="fr">中<br>午</div>
+                            <s:if test="#request.todaynoon.clinicDuration == '急诊中午'">
+                            	<s:if test="#request.todaynoon.limitNumApp != 0">
+                            		<s:if test="#request.todaynoon.registApped != #request.todaynoon.limitNumApp">
+                            			<s:iterator value="#request.todaynoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.twodaynoon.clinicDuration == '急诊中午'">
+                            	<s:if test="#request.twodaynoon.limitNumApp != 0">
+                            		<s:if test="#request.twodaynoon.registApped != #request.twodaynoon.limitNumApp">
+                            			<s:iterator value="#request.twodaynoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.threedaynoon.clinicDuration == '急诊中午'">
+                            	<s:if test="#request.threedaynoon.limitNumApp != 0">
+                            		<s:if test="#request.threedaynoon.registApped != #request.threedaynoon.limitNumApp">
+                            			<s:iterator value="#request.threedaynoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.fourdaynoon.clinicDuration == '急诊中午'">
+                            	<s:if test="#request.fourdaynoon.limitNumApp != 0">
+                            		<s:if test="#request.fourdaynoon.registApped != #request.fourdaynoon.limitNumApp">
+                            			<s:iterator value="#request.fourdaynoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.fivedaynoon.clinicDuration == '急诊中午'">
+                            	<s:if test="#request.fivedaynoon.limitNumApp != 0">
+                            		<s:if test="#request.fivedaynoon.registApped != #request.fivedaynoon.limitNumApp">
+                            			<s:iterator value="#request.fivedaynoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.sixdaynoon.clinicDuration == '急诊中午'">
+                            	<s:if test="#request.sixdaynoon.limitNumApp != 0">
+                            		<s:if test="#request.sixdaynoon.registApped != #request.sixdaynoon.limitNumApp">
+                            			<s:iterator value="#request.sixdaynoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.sevendaynoon.clinicDuration == '急诊中午'">
+                            	<s:if test="#request.sevendaynoon.limitNumApp != 0">
+                            		<s:if test="#request.sevendaynoon.registApped != #request.sevendaynoon.limitNumApp">
+                            			<s:iterator value="#request.sevendaynoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
                         </li>
                         <li class="afternoon dc_od_cnt_li od_cnt_time clearfix">
                             <div class="fl">下<br>午</div>
                             <div class="fr">下<br>午</div>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_out">已过期</a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(16/21)</a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <s:if test="#request.todayafternoon.clinicDuration == '下午'">
+                            	<s:if test="#request.todayafternoon.limitNumApp != 0">
+                            		<s:if test="#request.todayafternoon.registApped != #request.todayafternoon.limitNumApp">
+                            			<s:iterator value="#request.todayafternoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.twodayafternoon.clinicDuration == '下午'">
+                            	<s:if test="#request.twodayafternoon.limitNumApp != 0">
+                            		<s:if test="#request.twodayafternoon.registApped != #request.twodayafternoon.limitNumApp">
+                            			<s:iterator value="#request.twodayafternoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.threedayafternoon.clinicDuration == '下午'">
+                            	<s:if test="#request.threedayafternoon.limitNumApp != 0">
+                            		<s:if test="#request.threedayafternoon.registApped != #request.threedayafternoon.limitNumApp">
+                            			<s:iterator value="#request.threedayafternoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.fourdayafternoon.clinicDuration == '下午'">
+                            	<s:if test="#request.fourdayafternoon.limitNumApp != 0">
+                            		<s:if test="#request.fourdayafternoon.registApped != #request.fourdayafternoon.limitNumApp">
+                            			<s:iterator value="#request.fourdayafternoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.fivedayafternoon.clinicDuration == '下午'">
+                            	<s:if test="#request.fivedayafternoon.limitNumApp != 0">
+                            		<s:if test="#request.fivedayafternoon.registApped != #request.fivedayafternoon.limitNumApp">
+                            			<s:iterator value="#request.fivedayafternoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.sixdayafternoon.clinicDuration == '下午'">
+                            	<s:if test="#request.sixdayafternoon.limitNumApp != 0">
+                            		<s:if test="#request.sixdayafternoon.registApped != #request.sixdayafternoon.limitNumApp">
+                            			<s:iterator value="#request.sixdayafternoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.sevendayafternoon.clinicDuration == '下午'">
+                            	<s:if test="#request.sevendayafternoon.limitNumApp != 0">
+                            		<s:if test="#request.sevendayafternoon.registApped != #request.sevendayafternoon.limitNumApp">
+                            			<s:iterator value="#request.sevendayafternoon">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                        </li>
+                        <li class="beforenoon dc_od_cnt_li od_cnt_time clearfix">
+                            <div class="fl">晚<br>上</div>
+                            <div class="fr">晚<br>上</div>
+                            <s:if test="#request.todaynight.clinicDuration == '急诊晚上'">
+                            	<s:if test="#request.todaynight.limitNumApp != 0">
+                            		<s:if test="#request.todaynight.registApped != #request.todaynight.limitNumApp">
+                            			<s:iterator value="#request.todaynight">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.twodaynight.clinicDuration == '急诊晚上'">
+                            	<s:if test="#request.twodaynight.limitNumApp != 0">
+                            		<s:if test="#request.twodaynight.registApped != #request.twodaynight.limitNumApp">
+                            			<s:iterator value="#request.twodaynight">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.threedaynight.clinicDuration == '急诊晚上'">
+                            	<s:if test="#request.threedaynight.limitNumApp != 0">
+                            		<s:if test="#request.threedaynight.registApped != #request.threedaynight.limitNumApp">
+                            			<s:iterator value="#request.threedaynight">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.fourdaynight.clinicDuration == '急诊晚上'">
+                            	<s:if test="#request.fourdaynight.limitNumApp != 0">
+                            		<s:if test="#request.fourdaynight.registApped != #request.fourdaynight.limitNumApp">
+                            			<s:iterator value="#request.fourdaynight">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.fivedaynight.clinicDuration == '急诊晚上'">
+                            	<s:if test="#request.fivedaynight.limitNumApp != 0">
+                            		<s:if test="#request.fivedaynight.registApped != #request.fivedaynight.limitNumApp">
+                            			<s:iterator value="#request.fivedaynight">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.sixdaynight.clinicDuration == '急诊晚上'">
+                            	<s:if test="#request.sixdaynight.limitNumApp != 0">
+                            		<s:if test="#request.sixdaynight.registApped != #request.sixdaynight.limitNumApp">
+                            			<s:iterator value="#request.sixdaynight">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
+                            <s:if test="#request.sevendaynight.clinicDuration == '急诊晚上'">
+                            	<s:if test="#request.sevendaynight.limitNumApp != 0">
+                            		<s:if test="#request.sevendaynight.registApped != #request.sevendaynight.limitNumApp">
+                            			<s:iterator value="#request.sevendaynight">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="bar_middle fl">（ 今日 <strong>18:00</strong> 开始可预约至<strong> 06 月 19 日</strong>号源，<strong>16:00</strong> 截止<strong> 06 月 12 日</strong>号源的预约 ）</div>
+            <div class="bar_middle fl">（ 今日 <strong>18:00</strong> 开始可预约至<strong> ${date7 } </strong>号源，<strong>16:00</strong> 截止<strong> ${date1 } </strong>号源的预约 ）</div>
             <div class="dc_page fl t_c">
             </div>
         </div>
@@ -241,45 +714,23 @@ $(document).ready(function () {
                         <dl class="clearfix">
                             <dt class="fl"><a href="doctor.jsp"><img src="images/doctor.jpg" width="48" height="58" alt="刘浩斌（专病门诊）"></a></dt>
                             <dd class="fl">
-                                <a href="doctor.jsp">刘浩斌</a><br>
-                                <span class="fs12">主任医师</span>
+                                <a href="doctor1105.jsp">廖志坚</a><br>
+                                <span class="fs12">副主任医师</span>
                             </dd>
                         </dl>
                         <i class="fl fs12">擅长：</i>
-                        <p class="fs12 o-hidden">从事妇产科临床工作二十余年，对妇产科常见病及疑难杂症临床处理具有丰富的临床经验。尤其对产科高危妊娠、难产处理、产前诊断、优生优育咨询积累了丰富的临床经验。逢周二、周四上午出专家门诊。</p>
+                        <p class="fs12 o-hidden">从事门诊内科临床工作二十余年，对门诊内科常见病及疑难杂症临床处理具有丰富的临床经验。</p>
                     </li>
                     <li class="fl">
                         <dl class="clearfix">
                             <dt class="fl"><a href="doctor.jsp"><img src="images/doctor.jpg" width="48" height="58" alt="刘浩斌（专病门诊）"></a></dt>
                             <dd class="fl">
-                                <a href="doctor.jsp">刘浩斌</a><br>
-                                <span class="fs12">主任医师</span>
+                                <a href="doctor.jsp">陈维东</a><br>
+                                <span class="fs12">副主任医师</span>
                             </dd>
                         </dl>
                         <i class="fl fs12">擅长：</i>
-                        <p class="fs12 o-hidden">从事妇产科临床工作二十余年，对妇产科常见病及疑难杂症临床处理具有丰富的临床经验。尤其对产科高危妊娠、难产处理、产前诊断、优生优育咨询积累了丰富的临床经验。逢周二、周四上午出专家门诊。</p>
-                    </li>
-                    <li class="fl">
-                        <dl class="clearfix">
-                            <dt class="fl"><a href="doctor.jsp"><img src="images/doctor.jpg" width="48" height="58" alt="刘浩斌（专病门诊）"></a></dt>
-                            <dd class="fl">
-                                <a href="doctor.jsp">刘浩斌</a><br>
-                                <span class="fs12">主任医师</span>
-                            </dd>
-                        </dl>
-                        <i class="fl fs12">擅长：</i>
-                        <p class="fs12 o-hidden">从事妇产科临床工作二十余年，对妇产科常见病及疑难杂症临床处理具有丰富的临床经验。尤其对产科高危妊娠、难产处理、产前诊断、优生优育咨询积累了丰富的临床经验。逢周二、周四上午出专家门诊。</p>
-                    </li>
-                    <li class="fl">
-                        <dl class="clearfix">
-                            <dt class="fl"><a href="doctor.jsp"><img src="images/doctor.jpg" width="48" height="58" alt="刘浩斌（专病门诊）"></a></dt>
-                            <dd class="fl">
-                                <a href="doctor.jsp">刘浩斌</a><br>
-                                <span class="fs12">主任医师</span>
-                            </dd>
-                        </dl>
-                        <i class="fl fs12">擅长：</i>
-                        <p class="fs12 o-hidden">从事妇产科临床工作二十余年，对妇产科常见病及疑难杂症临床处理具有丰富的临床经验。尤其对产科高危妊娠、难产处理、产前诊断、优生优育咨询积累了丰富的临床经验。逢周二、周四上午出专家门诊。</p>
+                        <p class="fs12 o-hidden">从事门诊内科临床工作二十余年，对门诊内科常见病及疑难杂症临床处理具有丰富的临床经验。</p>
                     </li>
                 </ul>
             </div>
@@ -287,8 +738,9 @@ $(document).ready(function () {
     </div>
 </div>
 <div class="footer center t_c">
-    <p>客服电话 110&nbsp;&nbsp;&nbsp;&nbsp;报警电话 110</p>
-    <p>版权所有 Copyright©2014-9999 广东医学院10级信管15班 All rights reserved</p>
+    <p>客服电话 00000000&nbsp;&nbsp;&nbsp;&nbsp;报警电话 110</p>
+    <p>版权所有 Copyright©2014-9999 广东医学院10级信管15班 </p>
+    <s:property value="#request.todaymoring.clinicDuration"/>
 </div>
 </div>
 <div class="login_bg absolute center"><div class="lg_bg fixed center"></div></div>
