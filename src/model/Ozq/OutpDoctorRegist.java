@@ -1,5 +1,6 @@
 package model.Ozq;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
@@ -10,14 +11,13 @@ public class OutpDoctorRegist implements java.io.Serializable {
 
 	// Fields
 
+	private String counselNo;
+	private String clinicDept;
 	private String doctorNo;
-
+	private String doctor;
 	private Timestamp counselDate;
 	private String clinicDuration;
 	private String queueName;
-	private String counselNo;
-	private String clinicDept;
-	private String doctor;
 	private String autoAssignPatient;
 	private String signIndicator;
 	private Timestamp signTime;
@@ -47,14 +47,30 @@ public class OutpDoctorRegist implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "OutpDoctorRegist [doctorNo=" + doctorNo + ", doctor=" + doctor
-				+ ", queueName=" + queueName + ", clinicDept=" + clinicDept
-				+ ", limitNumApp=" + limitNumApp + ", registApped="
-				+ registApped + ", regBeginTime=" + regBeginTime
-				+ ", regEndTime=" + regEndTime + "]";
+		return "OutpDoctorRegist [counselNo=" + counselNo + ", clinicDept="
+				+ clinicDept + ", doctorNo=" + doctorNo + ", doctor=" + doctor
+				+ ", counselDate=" + counselDate + ", clinicDuration="
+				+ clinicDuration + ", queueName=" + queueName
+				+ ", autoAssignPatient=" + autoAssignPatient
+				+ ", signIndicator=" + signIndicator + ", signTime=" + signTime
+				+ ", leaveIndicator=" + leaveIndicator + ", leaveTime="
+				+ leaveTime + ", counseledNum=" + counseledNum + ", address="
+				+ address + ", maxSequence=" + maxSequence + ", nextSequence="
+				+ nextSequence + ", roomCode=" + roomCode + ", columnNum="
+				+ columnNum + ", stopIndicator=" + stopIndicator
+				+ ", counseledNow=" + counseledNow + ", stopTime=" + stopTime
+				+ ", limitNum=" + limitNum + ", limitNumApp=" + limitNumApp
+				+ ", registNowed=" + registNowed + ", registApped="
+				+ registApped + ", timePoint=" + timePoint
+				+ ", registerAppoint=" + registerAppoint + ", modifier="
+				+ modifier + ", lastModifyTime=" + lastModifyTime
+				+ ", timePointFlag=" + timePointFlag + ", regBeginTime="
+				+ regBeginTime + ", regEndTime=" + regEndTime + ", appType="
+				+ appType + "]";
 	}
 
 	// Property accessors
+
 
 	public String getDoctorNo() {
 		return doctorNo;
@@ -68,24 +84,24 @@ public class OutpDoctorRegist implements java.io.Serializable {
 		return counselDate;
 	}
 
-	public void setCounselDate(Timestamp counselDate) {
-		this.counselDate = counselDate;
+	public void setCounselDate(Object obj) {
+		this.counselDate = (Timestamp) obj;
 	}
 
 	public String getClinicDuration() {
 		return clinicDuration;
 	}
 
-	public void setClinicDuration(String clinicDuration) {
-		this.clinicDuration = clinicDuration;
+	public void setClinicDuration(Object obj) {
+		this.clinicDuration = (String) obj;
 	}
 
 	public String getQueueName() {
 		return queueName;
 	}
 
-	public void setQueueName(String queueName) {
-		this.queueName = queueName;
+	public void setQueueName(Object obj) {
+		this.queueName = (String) obj;
 	}
 
 	public String getCounselNo() {
@@ -108,8 +124,8 @@ public class OutpDoctorRegist implements java.io.Serializable {
 		return this.doctor;
 	}
 
-	public void setDoctor(String doctor) {
-		this.doctor = doctor;
+	public void setDoctor(Object obj) {
+		this.doctor = (String) obj;
 	}
 
 	public String getAutoAssignPatient() {
@@ -236,8 +252,8 @@ public class OutpDoctorRegist implements java.io.Serializable {
 		return this.limitNumApp;
 	}
 
-	public void setLimitNumApp(Integer limitNumApp) {
-		this.limitNumApp = limitNumApp;
+	public void setLimitNumApp(Object obj) {
+		this.limitNumApp = (Integer)((BigDecimal) obj).intValue();
 	}
 
 	public Integer getRegistNowed() {
@@ -252,8 +268,8 @@ public class OutpDoctorRegist implements java.io.Serializable {
 		return this.registApped;
 	}
 
-	public void setRegistApped(Integer registApped) {
-		this.registApped = registApped;
+	public void setRegistApped(Object obj) {
+		this.registApped = (Integer)((BigDecimal) obj).intValue();
 	}
 
 	public Short getTimePoint() {
