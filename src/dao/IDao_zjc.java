@@ -2,14 +2,16 @@ package dao;
 
 import java.util.List;
 
+import model.Ozq.ClinicAppoints;
 import model.Ozq.DeptDict;
 import model.Ozq.OutpDoctorRegist;
 import model.Ozq.StaffDict;
 import model.lhb.PatMasterIndex;
+import model.zjc.MessageBox;
 
 public interface IDao_zjc
 {
-	String verify(String userName, String passWord);
+	PatMasterIndex verify(String userName, String passWord);
 	
 	String getMaxPatientId();
 	
@@ -32,5 +34,8 @@ public interface IDao_zjc
 	
 	/* 根据 天数，查询 医生的排班  */
 	List<OutpDoctorRegist> CheckOnDuty(Integer dayNum,String clinic_dept,String doctor_no);
-	
+
+	List<ClinicAppoints> getAppoints(PatMasterIndex pat);
+
+	boolean saveAdvice(MessageBox advice);
 }

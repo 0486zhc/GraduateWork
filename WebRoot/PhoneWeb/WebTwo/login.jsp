@@ -1,23 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
+<base href="<%=basePath%>">
 <title>东莞市人民医院</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
 <meta content="yes" name="apple-mobile-web-app-capable" />
-<link href="styles/bootstrap.min.css" rel="stylesheet" />
-<link href="styles/NewGlobal.css" rel="stylesheet" />
-<script type="text/javascript" src="Scripts/zepto.js"></script>
+<link href="<%=basePath %>PhoneWeb/WebTwo/styles/bootstrap.min.css" rel="stylesheet" />
+<link href="<%=basePath %>PhoneWeb/WebTwo/styles/NewGlobal.css" rel="stylesheet" />
+<script type="text/javascript" src="<%=basePath %>PhoneWeb/WebTwo/Scripts/zepto.js"></script>
 </head>
 <body>
 	<div class="header">
-		<a href="../index.jsp" class="home"> <span
+		<a href="<%=basePath %>PhoneWeb/index.jsp" class="home"> <span
 			class="header-icon header-icon-home"></span> <span
 			class="header-name">主页</span> </a>
-		<div class="title" id="titleString">登陆</div>
+		<div class="title" id="titleString">登录</div>
 		<a href="javascript:history.go(-1);" class="back"> <span
 			class="header-icon header-icon-return"></span> <span
 			class="header-name">返回</span> </a>

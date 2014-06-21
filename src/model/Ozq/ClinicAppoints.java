@@ -43,62 +43,68 @@ public class ClinicAppoints implements java.io.Serializable {
 	private String mailingAddrStreetNo;
 	private Date phoneNumberHome;
 
-
-
 	// Property accessors
-	
+
+	@Override
+	public String toString() {
+		return "ClinicAppoints [patientId=" + patientId + ", name=" + name
+				+ ",sex=" + sex + ",regTimePoint=" + regTimePoint
+				+ " ,preRegistDoctor=" + preRegistDoctor + ", phoneNo="
+				+ phoneNo + "]";
+	}
+
 	public Date getVisitDateAppted() {
 		return visitDateAppted;
 	}
-	
+
 	public void setVisitDateAppted(Date visitDateAppted) {
 		this.visitDateAppted = visitDateAppted;
 	}
-	
+
 	public String getClinicLabel() {
 		return clinicLabel;
 	}
-	
+
 	public void setClinicLabel(String clinicLabel) {
 		this.clinicLabel = clinicLabel;
 	}
-	
+
 	public String getVisitTimeAppted() {
 		return visitTimeAppted;
 	}
-	
+
 	public void setVisitTimeAppted(String visitTimeAppted) {
 		this.visitTimeAppted = visitTimeAppted;
 	}
-	
+
 	public Short getSerialNo() {
 		return serialNo;
 	}
-	
+
 	public void setSerialNo(Short serialNo) {
 		this.serialNo = serialNo;
 	}
-	
+
 	public String getRegTimePoint() {
 		return regTimePoint;
 	}
-	
+
 	public void setRegTimePoint(String regTimePoint) {
 		this.regTimePoint = regTimePoint;
 	}
-	
+
 	public String getPreRegistDoctor() {
 		return preRegistDoctor;
 	}
-	
+
 	public void setPreRegistDoctor(String preRegistDoctor) {
 		this.preRegistDoctor = preRegistDoctor;
 	}
-	
+
 	public String getRegistStatus() {
 		return registStatus;
 	}
-	
+
 	public void setRegistStatus(String registStatus) {
 		this.registStatus = registStatus;
 	}
