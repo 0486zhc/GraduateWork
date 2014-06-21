@@ -17,6 +17,11 @@
 	</action>
 	<action name="checkId" class="action.LhbAction" method="checkUserId">
 	</action>
+	<action name="checkFlag" class="action.LhbAction" method="checkFlag">
+	</action>
+	<action name="makeAppoints" class="action.LhbAction" method="makeAppoints">
+	   <result name="success">/jsp/page/login.jsp</result>
+	</action>
 </package>
 
 </struts>    

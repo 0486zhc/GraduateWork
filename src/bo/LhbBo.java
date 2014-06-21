@@ -42,9 +42,20 @@ public class LhbBo
       return ERROR;
    }
 
-   public String makeAppoints(ClinicAppoints appoints)
+   public String makeAppoints(ClinicAppoints appoints,String user_id)
    {
-      pmiDao.makeAppoints(appoints);
-      return null;
+      pmiDao.makeAppoints(appoints,user_id);
+      return SUCCESS;
+   }
+
+   public String checkForFlag(String user_id)
+   {
+      PatMasterIndex pat = pmiDao.checkForFlag(user_id);
+      Integer i = pat.getFlag();
+      if(i <= 3 || i == null)
+      {
+         return SUCCESS;
+      }
+      return ERROR;
    }
 }
