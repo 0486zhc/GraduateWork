@@ -1,6 +1,10 @@
 a{color:#0093d0;}
 .pst{width:100%;}
 
+.fl{float:left;}
+.fr{float:right;}
+
+
 .aside{width:220px;color: #606060;border-bottom:1px solid #e6e6e6;background:#f7f7f7;border-right: 1px solid #E6E6E6;margin-right:-1px;}
 .ordernum{background-color: #00aec1;font-size: 18px;padding: 0 22px;height: 56px;line-height: 56px;color:#FFF;}
 .ordernum b{color: #fff799;line-height: 1;}
@@ -19,7 +23,6 @@ a{color:#0093d0;}
 .slidedown{display:block;}
 .slideup{display:none;}
 
-.dc_main{width:739px;}
 .sp_main{width:740px;}
 .doctors{width: 294px;}
 .dct_tt{border-right: 1px solid #00AEC1;background-color: #51d5e1;height: 56px;line-height: 56px;color:#FFF;}
@@ -31,7 +34,7 @@ a{color:#0093d0;}
 .dct_cnt dd b{color: #afabae;font-weight:normal;}
 .dct_cnt dd p{height: 40px;width: 180px;color: #6a6a76;}
 
-.orderdata{width: 445px;}
+.orderdata{margin: 0 auto;min-height: 300px; width: 100%;}
 .dc_od{width:100%;}
 .od_tt{background-color: #51d5e1;height: 56px;}
 .od_tt_btn{height: 24px;margin: 16px 0;width: 29px;cursor:pointer;}

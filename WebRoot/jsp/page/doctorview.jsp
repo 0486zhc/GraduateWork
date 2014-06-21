@@ -31,7 +31,6 @@ $(document).ready(function () {
 </head>
   
   <body>
-    <div id="doctor_tab_view" class="dc_tabbox">
             <div class="dc_tabcnt" id="tab1" style="display:block;">
                 <ul>
                   <s:iterator value="#request.DoctorNametab1">
@@ -59,6 +58,5 @@ $(document).ready(function () {
                   </s:iterator>
                 </ul>
             </div>
-    </div>
   </body>
 </html>

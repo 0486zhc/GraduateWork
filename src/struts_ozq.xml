@@ -4,20 +4,22 @@
 <constant name="struts.objectFactory" value="spring"></constant>
 
 	<package name="CheckOnDuty" namespace="/jsp/page" extends="struts-default">
+		<!-- 查多天排班 -->
+		<action name="OzqActionMany" class="action.OzqAction" method="CheckOnDutyMany">
+			<result>/jsp/page/doctor0301two.jsp</result>
+		</action>
 		<!-- 查排班 -->
 		<action name="OzqAction12" class="action.OzqAction" method="CheckOnDuty12">
-			<result>/jsp/page/Copyofdoctor.jsp</result>
-			<result name="fail">/jsp/page/Copyoflogin.jsp</result>
+			<result>/jsp/page/doctor0301.jsp</result>
 		</action>
 		<action name="OzqAction7" class="action.OzqAction" method="CheckOnDuty7">
 			<result>/jsp/page/Copyofdoctor.jsp</result>
-			<result name="fail">/jsp/page/Copyoflogin.jsp</result>
 		</action>
 		<!-- 查医生 -->
 		<action name="OzqActionDoctorName" class="action.OzqAction" method="CheckDoctorName">
-			<result>/jsp/page/doctortab8.jsp</result>
+			<result>/jsp/page/doctorview.jsp</result>
 		</action>
-		<!-- 查首页医生 -->
+		<!-- 查首页tab1医生 -->
 		<action name="OzqActionDoctorNametab1" class="action.OzqAction" method="CheckDoctorNametab1">
 			<result>/jsp/page/doctorview.jsp</result>
 		</action>

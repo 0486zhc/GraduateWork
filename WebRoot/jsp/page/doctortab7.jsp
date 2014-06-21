@@ -31,10 +31,9 @@ $(document).ready(function () {
 </head>
   
   <body>
-    <div id="doctor_tab_view" class="dc_tabbox">
             <div class="dc_tabcnt" id="tab7">
                 <ul>
-                  <s:iterator value="#request.DoctorNametab7">
+                  <s:iterator value="#session.DoctorNametab7">
                     <li>
                         <div class="dc_info">
                             <dl>
@@ -59,6 +58,5 @@ $(document).ready(function () {
                   </s:iterator>
                 </ul>
             </div>
-    </div>
   </body>
 </html>
