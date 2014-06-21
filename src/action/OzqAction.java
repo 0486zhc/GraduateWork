@@ -1,6 +1,7 @@
 package action;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -69,12 +70,11 @@ public class OzqAction{
 	private List<Object[]> sevendayafternoon;
 	private List<Object[]> sevendaynight;
 	
-	private List<String> OutpDoctorRegistDoctorName;
-	private List<String> OutpDoctorRegistDeptName;
+	private List<Object[]> OutpDoctorRegistDoctorName;
+	private List<Object[]> OutpDoctorRegistDeptName;
 	private List<Timestamp> thedate;
 
-	private Date start_time;
-	private Date end_time;
+	private String doctor_name;
 	private String clinic_dept;
 	private String doctor_no;
 
@@ -325,18 +325,17 @@ public class OzqAction{
 		this.sevendaynight = sevendaynight;
 	}
 	
-	public List<String> getOutpDoctorRegistDoctorName() {
+	public List<Object[]> getOutpDoctorRegistDoctorName() {
 		return OutpDoctorRegistDoctorName;
 	}
-	public void setOutpDoctorRegistDoctorName(
-			List<String> outpDoctorRegistDoctorName) {
+	public void setOutpDoctorRegistDoctorName(List<Object[]> outpDoctorRegistDoctorName) {
 		OutpDoctorRegistDoctorName = outpDoctorRegistDoctorName;
 	}
 	
-	public List<String> getOutpDoctorRegistDeptName() {
+	public List<Object[]> getOutpDoctorRegistDeptName() {
 		return OutpDoctorRegistDeptName;
 	}
-	public void setOutpDoctorRegistDeptName(List<String> outpDoctorRegistDeptName) {
+	public void setOutpDoctorRegistDeptName(List<Object[]> outpDoctorRegistDeptName) {
 		OutpDoctorRegistDeptName = outpDoctorRegistDeptName;
 	}
 	
@@ -347,18 +346,11 @@ public class OzqAction{
 		this.thedate = thedate;
 	}
 	
-	public Date getStart_time() {
-		return start_time;
+	public String getDoctor_name() {
+		return doctor_name;
 	}
-	public void setStart_time(Date start_time) {
-		this.start_time = start_time;
-	}
-	
-	public Date getEnd_time() {
-		return end_time;
-	}
-	public void setEnd_time(Date end_time) {
-		this.end_time = end_time;
+	public void setDoctor_name(String doctor_name) {
+		this.doctor_name = doctor_name;
 	}
 	
 	public String getClinic_dept() {
@@ -474,35 +466,52 @@ public class OzqAction{
 	//设置日期格式
 	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	
-	//查12天排班
-	public String CheckOnDutyMany(){
-		OutpDoctorRegist12 = ozqBo.CheckOnDutyMany("0103", "0301");
-		System.out.println(OutpDoctorRegist12+"==================");
-		request.put("doctorregist", OutpDoctorRegist12);
-		return "success";
-	}
+//	//查12天排班
+//	public String CheckOnDutyMany(){
+//		OutpDoctorRegist12 = ozqBo.CheckOnDutyMany("0103", "0301");
+//		System.out.println(OutpDoctorRegist12+"==================");
+//		request.put("doctorregist", OutpDoctorRegist12);
+//		return "success";
+//	}
 	
 	
 	//查排班
-	public String CheckOnDuty12(){
+	public String CheckOnDuty() throws UnsupportedEncodingException{
 		System.out.println("action1...");
 		
-		CheckOnDutyToday();
-		CheckOnDutyTwoday();
-		CheckOnDutyThreeday();
-		CheckOnDutyFourday();
-		CheckOnDutyFiveday();
-		CheckOnDutySixday();
-		CheckOnDutySevenday();
+		String doctorname = req.getParameter("doctor_name");
+		System.out.println(doctorname);
+		doctorname=new String(doctorname.getBytes("ISO-8859-1"), "UTF-8");
+		System.out.println(doctorname);
+		request.put("doctorname", doctorname);
+		String deptname = req.getParameter("dept_name");
+		System.out.println(deptname);
+		deptname=new String(deptname.getBytes("ISO-8859-1"), "UTF-8");
+		System.out.println(deptname);
+		request.put("deptname", deptname);
+		
+		//根据医生名字名字找到科室编号和医生编号
+		Object[] doctor = ozqBo.CheckClinicDeptDoctorNo(doctorname).get(0);
+		String clinic_dept = (String) doctor[0];
+		String doctor_no = (String) doctor[1];
+		
+		//查7天的排班
+		CheckOnDutyToday(clinic_dept,doctor_no);
+		CheckOnDutyTwoday(clinic_dept,doctor_no);
+		CheckOnDutyThreeday(clinic_dept,doctor_no);
+		CheckOnDutyFourday(clinic_dept,doctor_no);
+		CheckOnDutyFiveday(clinic_dept,doctor_no);
+		CheckOnDutySixday(clinic_dept,doctor_no);
+		CheckOnDutySevenday(clinic_dept,doctor_no);
 		
 		return "success";
 	}
 	
 	//查Today排班
-	public void CheckOnDutyToday(){
+	public void CheckOnDutyToday(String clinic_dept,String doctor_no){
 		System.out.println("action1...");
 		
-		today = ozqBo.CheckOnDutyToday("0103", "0301");
+		today = ozqBo.CheckOnDutyToday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
 		if(today.size() != 0){
@@ -623,10 +632,10 @@ public class OzqAction{
 	}
 	
 	//查Twoday排班
-	public void CheckOnDutyTwoday(){
+	public void CheckOnDutyTwoday(String clinic_dept,String doctor_no){
 		System.out.println("action1...");
 		
-		twoday = ozqBo.CheckOnDutyTwoday("0103", "0301");
+		twoday = ozqBo.CheckOnDutyTwoday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
 		if(twoday.size() != 0){
@@ -751,10 +760,10 @@ public class OzqAction{
 	}
 	
 	//查Threeday排班
-	public void CheckOnDutyThreeday(){
+	public void CheckOnDutyThreeday(String clinic_dept,String doctor_no){
 		System.out.println("action1...");
 		
-		threeday = ozqBo.CheckOnDutyThreeday("0103", "0301");
+		threeday = ozqBo.CheckOnDutyThreeday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
 		if(threeday.size() != 0){
@@ -879,10 +888,10 @@ public class OzqAction{
 	}
 	
 	//查Fourday排班
-	public void CheckOnDutyFourday(){
+	public void CheckOnDutyFourday(String clinic_dept,String doctor_no){
 		System.out.println("action1...");
 		
-		fourday = ozqBo.CheckOnDutyFourday("0103", "0301");
+		fourday = ozqBo.CheckOnDutyFourday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
 		if(fourday.size() != 0){
@@ -1007,10 +1016,10 @@ public class OzqAction{
 	}
 	
 	//查Fiveday排班
-	public void CheckOnDutyFiveday(){
+	public void CheckOnDutyFiveday(String clinic_dept,String doctor_no){
 		System.out.println("action1...");
 		
-		fiveday = ozqBo.CheckOnDutyFiveday("0103", "0301");
+		fiveday = ozqBo.CheckOnDutyFiveday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
 		if(fiveday.size() != 0){
@@ -1135,10 +1144,10 @@ public class OzqAction{
 	}
 	
 	//查Sixday排班
-	public void CheckOnDutySixday(){
+	public void CheckOnDutySixday(String clinic_dept,String doctor_no){
 		System.out.println("action1...");
 		
-		sixday = ozqBo.CheckOnDutySixday("0103", "0301");
+		sixday = ozqBo.CheckOnDutySixday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
 		if(sixday.size() != 0){
@@ -1263,10 +1272,10 @@ public class OzqAction{
 	}
 	
 	//查Sevenday排班
-	public void CheckOnDutySevenday(){
+	public void CheckOnDutySevenday(String clinic_dept,String doctor_no){
 		System.out.println("action1...");
 		
-		sevenday = ozqBo.CheckOnDutySevenday("0103", "0301");
+		sevenday = ozqBo.CheckOnDutySevenday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
 		if(sevenday.size() != 0){
@@ -1482,14 +1491,4 @@ public class OzqAction{
 		    return "success";
 		}
 		
-		//查一进入首页时显示的科室
-		public String CheckDeptName() throws IOException{
-			System.out.println("action1...");
-			
-		    OutpDoctorRegistDeptName = ozqBo.CheckDeptName();
-		    request.put("DeptName", OutpDoctorRegistDeptName);
-		    System.out.println(OutpDoctorRegistDeptName.get(1));
-		    System.out.println("login doctor.............");
-		    return "success";
-		}
 }

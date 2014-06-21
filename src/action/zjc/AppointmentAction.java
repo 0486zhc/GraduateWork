@@ -2,18 +2,30 @@ package action.zjc;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+
+import model.Ozq.ClinicAppoints;
 import model.Ozq.DeptDict;
 import model.Ozq.OutpDoctorRegist;
 import model.Ozq.StaffDict;
+import model.lhb.PatMasterIndex;
 import bo.IBo_zjc;
 
-public class AppointmentAction {
+public class AppointmentAction extends ActionSupport{
 	private IBo_zjc bo ;
 	
 	private List<DeptDict> depts ; 
 	private DeptDict dept;
 	private List<StaffDict> doctorsInfo ;
-	private List<OutpDoctorRegist> outDoctor ; 
+	private List<OutpDoctorRegist> outDoctors ; 
+	private List<ClinicAppoints> appointsList;
+	private ClinicAppoints appoint;
+	private PatMasterIndex pat ;
 	
 	private String mess ;
 	private Integer deptCode ;
@@ -27,22 +39,79 @@ public class AppointmentAction {
 		return "doctors";
 	}
 	
+	public String checkAppoints(){
+		System.out.println("checkAppointment");
+		 pat = (PatMasterIndex) ActionContext.getContext().getSession().get("pat");
+		if(pat != null){
+			appointsList = bo.getAppoints(pat);
+			ActionContext.getContext().getSession().put("appointsList",appointsList);  // 放session
+			// 医生名称
+			System.out.println("appointsList"+appointsList);
+			return "appoints";
+		}else{
+			return "login";
+		} 
+	}
+	
+	// 排班
 	public String findDoctorTime(){
 		System.out.println("doctorNo:"+doctorNo);
-		outDoctor = bo.getOutpDoctor(doctorNo);
-		System.out.println("length = " + outDoctor.size());
+//		outDoctors = bo.getOutpDoctor(doctorNo);
+//		System.out.println("length = " + outDoctors.size());
 		return "doctorTime";
 	}
 	
+	// 取消预约
+	public String cancle(){
+		System.out.println("cancle");
+		String regTime = mess.substring(0, 16);
+		String regDoctorNo = mess.substring(26);
+		appointsList = (List<ClinicAppoints>) ActionContext.getContext().getSession().get("appointsList");
+		for(ClinicAppoints c : appointsList){
+			if(c.getRegTimePoint().equals(regTime) && c.getPreRegistDoctor().equals(regDoctorNo)){
+				appoint = c;
+				System.out.println("appoint="+ appoint);
+			}
+		}
+		mess = bo.modifyAppoint(appoint);
+		System.out.println(mess);
+		return "appointsInfo";
+	}
 	
-	public List<OutpDoctorRegist> getOutDoctor() {
-		return outDoctor;
+/*  ==================== get/set 方法=======================================	*/
+	
+	public List<OutpDoctorRegist> getOutDoctors() {
+		return outDoctors;
 	}
 
-	public void setOutDoctor(List<OutpDoctorRegist> outDoctor) {
-		this.outDoctor = outDoctor;
+	public ClinicAppoints getAppoint() {
+		return appoint;
 	}
-	
+
+	public void setAppoint(ClinicAppoints appoint) {
+		this.appoint = appoint;
+	}
+
+	public PatMasterIndex getPat() {
+		return pat;
+	}
+
+	public void setPat(PatMasterIndex pat) {
+		this.pat = pat;
+	}
+
+	public List<ClinicAppoints> getAppointsList() {
+		return appointsList;
+	}
+
+	public void setAppointsList(List<ClinicAppoints> appointsList) {
+		this.appointsList = appointsList;
+	}
+
+	public void setOutDoctors(List<OutpDoctorRegist> outDoctors) {
+		this.outDoctors = outDoctors;
+	}
+
 	public Integer getDoctorNo() {
 		return doctorNo;
 	}

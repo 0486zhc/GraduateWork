@@ -110,12 +110,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div>
 			<a
-				href=" ">
+				href="<%=basePath%>PhoneWeb/jsp/liucheng.jsp ">
 				<p class="img"
 					style="background:url('<%=basePath +"PhoneWeb/upload/img/icon/1383014031703.png"%>') center no-repeat; background-size:contain;"></p>
-				<p class="text">科室专家</p> </a>
+				<p class="text">就诊流程</p> </a>
 			 <a
-				href="">
+				href="appointment_checkAppoints">
 				<p class="img"
 					style="background:url('<%=basePath +"PhoneWeb/upload/img/icon/13830140513607.png"%>') center no-repeat; background-size:contain;"></p>
 				<p class="text">查询挂号</p> </a>
@@ -146,10 +146,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div class="footer">
 <!-- 		<p class="footer-top">&COPY;<b><s:property value="mess" /> </b>：您好！</p> -->
-		<p class="footer-top">&COPY;<b><s:property value="%{#session.userName}" /> </b>：您好！</p>
+		<p class="footer-top">&COPY;<b><s:property value="%{#session.pat.name}" /> </b>：您好！</p>
 		<p class="footer-bottom" data-role="none">
 			 <a href="<%=basePath %>PhoneWeb/index.jsp">首页</a> <a
-				href="zhengwen.jsp">正文页</a> <a href="liebiao.jsp">列表页</a>
+				href="<%=basePath%>PhoneWeb/WebTwo/login.jsp">登录</a> <a href="user_exit">退出</a>
 		</p>
 		<s:debug></s:debug>
 	</div>

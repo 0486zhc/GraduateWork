@@ -40,24 +40,23 @@
 	<div class="container hotellistbg">
 		<ul class="unstyled hotellist">
 
-<s:debug></s:debug>
 		<s:iterator value="%{doctorsInfo}">
 			<li><a href="appointment_findDoctorTime?doctorNo=<s:property value="%{empNo}" />" ><img
 					class="hotelimg fl"
-					src="http://www.gridinn.com/images/hotel/14.jpg" />
+					src="<%=basePath %>PhoneWeb/upload/img/xctxwlb/20131029/doctor.jpg" />
 					<div class="inline">
 						<h3><s:property value="%{name}" /></h3>
 						<p>医生编号：<s:property value="%{empNo}" /></p>
-						<p>医生职称：<s:property value="%{title}" /></p>
+						<p>医生职称：<s:property value="%{title}" /></p><br/>
 					</div></a>
-					<ul class="unstyled">
-					<li><a href="Hotel.aspx@id=5" class="order">预订</a>
-					</li>
-					<li><a href="Hotelmap.aspx@id=5" class="gps">导航</a>
-					</li>
-					<li><a href="Hotelinfo.aspx@id=5" class="reality">实景</a>
-					</li>
-				</ul>
+<!-- 					<ul class="unstyled"> -->
+<!-- 					<li><a href="Hotel.aspx@id=5" class="order">预订</a> -->
+<!-- 					</li> -->
+<!-- 					<li><a href="Hotelmap.aspx@id=5" class="gps">导航</a> -->
+<!-- 					</li> -->
+<!-- 					<li><a href="Hotelinfo.aspx@id=5" class="reality">实景</a> -->
+<!-- 					</li> -->
+<!-- 				</ul> -->
 			</li>
 		</s:iterator>
 		</ul>
@@ -67,11 +66,11 @@
 	<div class="footer">
 		<div class="gezifooter">
 
-			<a href="login.aspx" class="ui-link">立即登陆</a> <font color="#878787">|</font>
-			<a href="reg.aspx" class="ui-link">免费注册</a> <font color="#878787">|</font>
+			<a href="<%=basePath%>PhoneWeb/WebTwo/login.jsp" class="ui-link">立即登陆</a> <font color="#878787">|</font>
+			<a href="<%=basePath%>PhoneWeb/WebTwo/register.jsp" class="ui-link">免费注册</a> <font color="#878787">|</font>
 
 
-			<a href="http://www.gridinn.com/@display=pc" class="ui-link">电脑版</a>
+			<a href="<%=basePath %>jsp/page/login.jsp" class="ui-link">电脑版</a>
 		</div>
 		<div class="gezifooter">
 			<p style="color:#bbb;"> &copy; 版权所有 2012-2014</p>

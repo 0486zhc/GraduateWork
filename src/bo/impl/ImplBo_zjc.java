@@ -2,16 +2,22 @@ package bo.impl;
 
 import java.util.List;
 
+import oracle.jdbc.Const;
+
+import model.Ozq.ClinicAppoints;
 import model.Ozq.DeptDict;
 import model.Ozq.OutpDoctorRegist;
 import model.Ozq.StaffDict;
 import model.lhb.PatMasterIndex;
+import model.zjc.MessageBox;
 import bo.IBo_zjc;
 import dao.IDao_zjc;
 
 public class ImplBo_zjc implements IBo_zjc{
 
 	private IDao_zjc dao ;
+	
+	final Integer dayNum = 7 ;
 	
 	public IDao_zjc getDao() {
 		return dao;
@@ -23,9 +29,9 @@ public class ImplBo_zjc implements IBo_zjc{
 
 
 	@Override
-	public String verify(String userName, String passWord) {
-		String patName = dao.verify(userName, passWord);
-		return patName;
+	public PatMasterIndex verify(String userName, String passWord) {
+		PatMasterIndex pat = dao.verify(userName, passWord);
+		return pat;
 	}
 
 	@Override
@@ -59,8 +65,38 @@ public class ImplBo_zjc implements IBo_zjc{
 	public List<OutpDoctorRegist> getOutpDoctor(Integer doctorNo) {
 		 StaffDict doctor = dao.getDoctor(doctorNo);
 		 System.out.println("doctor=" + doctor);
-		 List<OutpDoctorRegist> registDoctors= dao.CheckOnDuty(6, doctor.getDeptCode(), String.valueOf(doctorNo));
+		 List<OutpDoctorRegist> registDoctors= dao.CheckOnDuty(dayNum, doctor.getDeptCode(), String.valueOf(doctorNo));
 		 System.out.println("registDoctors="+registDoctors);
-		 return null ;
+		 return registDoctors ;
+	}
+
+	@Override
+	public List<ClinicAppoints> getAppoints(PatMasterIndex pat) {
+
+		return dao.getAppoints(pat);
+	}
+
+	@Override
+	public StaffDict getDoctor(Integer doctorNO) {
+		return dao.getDoctor(doctorNO);
+	}
+
+	@Override
+	public String addAdvice(MessageBox advice) {
+		if(dao.saveAdvice(advice)){
+			return "提交成功";
+		}else{
+			return "提交失败";
+		}
+		
+	}
+
+	@Override
+	public String modifyAppoint(ClinicAppoints appoint) {
+		if(dao.cancleAppoint(appoint)){
+			return "取消预约【成功】！";
+		}else{
+			return "取消预约【失败】！";
+		}
 	}
 }
