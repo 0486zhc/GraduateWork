@@ -6,6 +6,9 @@
 	<action name="login" class="action.LhbAction" method="loginQuery">
 		<result name="success">/jsp/page/login.jsp</result>
 	</action>
+	<action name="exit" class="action.LhbAction" method="exit">
+		<result name="success">/jsp/page/login.jsp</result>
+	</action>
 	<action name="regist" class="action.LhbAction" method="regist">
 		<result name="success">/jsp/page/login.jsp</result>
 	</action>
