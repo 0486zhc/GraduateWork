@@ -20,7 +20,7 @@ a{color:#0093d0;}
 .slideup{display:none;}
 
 .dc_main{width:739px;}
-.sp_main{width:740px;}
+.sp_main{width:733px;}
 .doctors{width: 294px;}
 .dct_tt{border-right: 1px solid #00AEC1;background-color: #51d5e1;height: 56px;line-height: 56px;color:#FFF;}
 .dct_cnt{border-left: 1px solid #E6E6E6;min-height: 115px;}
@@ -57,7 +57,7 @@ a{color:#0093d0;}
 .dpt_page a{height:26px;margin: 0 2px;width:26px;border-radius:50%;line-height: 26px;background:#FFF;}
 .dpt_page a.page_on{background:#0093d0;color:#FFF;}
 
-.board{border: 1px solid #e6e6e6;padding: 25px;width:688px;}
+.board{border: 1px solid #e6e6e6;padding: 25px;width:681px;}
 .board_tt{margin-bottom: 25px;}
 .board_tt span{font-size: 18px;line-height: 24px;font-weight:bold;}
 .board_cnt{width:100%;}

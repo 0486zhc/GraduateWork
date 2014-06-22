@@ -473,15 +473,6 @@ public class OzqAction{
 	//设置日期格式
 	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
-//	//查12天排班
-//	public String CheckOnDutyMany(){
-//		OutpDoctorRegist12 = ozqBo.CheckOnDutyMany("0103", "0301");
-//		System.out.println(OutpDoctorRegist12+"==================");
-//		request.put("doctorregist", OutpDoctorRegist12);
-//		return "success";
-//	}
-
-
 	//查排班
 	public String CheckOnDuty() throws UnsupportedEncodingException{
 		System.out.println("action1...");
@@ -490,21 +481,21 @@ public class OzqAction{
 		System.out.println(doctorname);
 		doctorname=new String(doctorname.getBytes("ISO-8859-1"), "UTF-8");
 		System.out.println(doctorname);
-		request.put("doctorname", doctorname);
-		ActionContext.getContext().getSession().put("doctName",doctorname);  // 放session
+		session.put("doctName",doctorname);  // 放session
 
 		String deptname = req.getParameter("dept_name");
 		System.out.println(deptname);
 		deptname=new String(deptname.getBytes("ISO-8859-1"), "UTF-8");
 		System.out.println(deptname);
-		request.put("deptname", deptname);
+		session.put("thedeptName",deptname);   // 放session
 
 		//根据医生名字找到科室编号和医生编号
 		Object[] doctor = ozqBo.CheckClinicDeptDoctorNo(doctorname).get(0);
 		String clinic_dept = (String) doctor[0];
 		String doctor_no = (String) doctor[1];
-//// leovany
-//		doctor_no = "3506";
+		ActionContext.getContext().getSession().put("Doctor_No",doctor_no);   // 放session
+		session.put("Doctor_No",doctor_no);
+
 		//查7天的排班
 		CheckOnDutyTwoday(doctorname,clinic_dept,doctor_no);
 		CheckOnDutyThreeday(doctorname,clinic_dept,doctor_no);
@@ -531,7 +522,7 @@ public class OzqAction{
 			ob.setDoctor(obj1[3]);
 			ob.setCounselDate(obj1[4]);
 			date2 = df.format(obj1[4]);
-			request.put("date2", date2);
+			session.put("date2", date2);
 			try {
 				if(df.parse(df.format(obj1[4])).getDay() == 0){
 					day2 = "星期天";
@@ -1445,8 +1436,8 @@ public class OzqAction{
 
 			String queuename = req.getParameter("queue_name");
 			queuename=new String(queuename.getBytes("ISO-8859-1"), "UTF-8");
-			request.put("queuename", queuename);
-
+			session.put("queuename", queuename);
+			
 			OutpDoctorRegistTime = ozqBo.CheckRegistTime(doctorno, counseldate, clinicduration, queuename);
 			if(OutpDoctorRegistTime.size() != 0){
 				String[] registtime = new String[OutpDoctorRegistTime.size()];
@@ -1459,7 +1450,7 @@ public class OzqAction{
 				request.put("registtime", registtime);
 				System.out.println("1");
 			}else{
-			request.put("registtime", null);
+			request.put("registtime", "");
 			System.out.println("2");
 			}
 			return "success";
