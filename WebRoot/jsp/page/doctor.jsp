@@ -126,7 +126,7 @@ $(document).ready(function () {
                     <dl class="dpt_info">
                         <dt><s:property value="#session.doctName"/></dt>
                         <dd>
-                            <b><s:property value="#session.queuename"/></b>
+                            <b>副主任医生</b>
                             <p>科室：<a href="specialty.jsp"><s:property value="#session.thedeptName"/></a></p>
                             <p>医院：<a href="">东莞市妇幼保健院</a></p>
                             <p>挂号级别：<strong> 9 元</strong></p>
