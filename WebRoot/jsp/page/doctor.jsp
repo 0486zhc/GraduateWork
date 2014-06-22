@@ -113,7 +113,7 @@ $(document).ready(function () {
     </div>
 </div>
 <div class="content w960 center clearfix">
-    <div class="pst fl fs12"><a href="index.html">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="">东莞市妇幼保健院</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="specialty.jsp">产科</a>&nbsp;&nbsp;>&nbsp;&nbsp;钟灵（专病门诊）</div>
+    <div class="pst fl fs12"><a href="login.jsp">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="">东莞市妇幼保健院</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="specialty.jsp"><s:property value="#session.thedeptName"/></a>&nbsp;&nbsp;>&nbsp;&nbsp;<s:property value="#session.doctName"/>（专病门诊）</div>
     <div class="clear"></div>
 	<div class="sp_cnt clearfix">
         <div class="aside fl fs12">
@@ -121,13 +121,13 @@ $(document).ready(function () {
                 <div class="ordernum">已预约<b>631</b>&nbsp;人</div>
                 <div class="dpt_dpt card">
                     <div class="dpt_img">
-                        <img src="images/doctor.jpg" alt="刘浩斌" title="刘浩斌" width="150" height="200">
+                        <img src="images/doctor.jpg" alt='<s:property value="#session.doctName"/>' title='<s:property value="#session.doctName"/>' width="150" height="200">
                     </div>
                     <dl class="dpt_info">
-                        <dt><s:property value="#request.doctorname"/></dt>
+                        <dt><s:property value="#session.doctName"/></dt>
                         <dd>
-                            <b>副主任医师</b>
-                            <p>科室：<a href="specialty.jsp"><s:property value="#request.deptname"/></a></p>
+                            <b><s:property value="#session.queuename"/></b>
+                            <p>科室：<a href="specialty.jsp"><s:property value="#session.thedeptName"/></a></p>
                             <p>医院：<a href="">东莞市妇幼保健院</a></p>
                             <p>挂号级别：<strong> 9 元</strong></p>
                         </dd>
@@ -143,7 +143,7 @@ $(document).ready(function () {
                 </div>
             </div>
         </div>
-        <div class="sp_main fr">
+        <div class="sp_main fl">
             <div class="orderdata dc_od fl">
                 <div class="od_tt">
                     <div class="od_prev fl dc_od_tt_btn t_c"></div>
