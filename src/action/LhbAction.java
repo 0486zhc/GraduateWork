@@ -296,7 +296,6 @@ public class LhbAction extends ActionSupport
 
    public void checkFlag() throws IOException
    {
-      String user_id = "441900199201157075";//requestForAjax.getParameter("user_id");
       String state = lhbBo.checkForFlag(user_id);
       response.getWriter().write(state);
    }

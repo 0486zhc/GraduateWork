@@ -29,10 +29,12 @@ public class PatMasterIndexDAO
    private Query               query;
    private Session             session;
    private static final String strForLogin  = "from PatMasterIndex where id_no = ? and password = ?";
-   private static final String strForRegist = "insert into pat_master_index (patient_id,name,phone_number_business,id_no,password,sex,date_of_birth) values (?,?,?,?,?,?,?)";
+   private static final String strForRegist = 
+         "insert into pat_master_index (patient_id,name,phone_number_business,id_no,password,sex,date_of_birth) values (?,?,?,?,?,?,?)";
    private static final String strForMaxId  = "select max(patient_id) from pat_master_index";
    private static final String strByUserId  = "from PatMasterIndex where id_no = ?";
-
+   private static final String strForSeq = 
+         "select max(serial_no) from clinic_appoints where visit_date_appted = ? and clinic_label = ? and visit_time_appted = ? and pre_regist_doctor = ? and regist_status = '0' and regist_flag = '0';";
    public HibernateTemplate getTemplate()
    {
       return template;
@@ -127,6 +129,7 @@ public class PatMasterIndexDAO
       Session session = HibernateUtil.getSession();
       Transaction ts = session.beginTransaction();
       ts.begin();
+      appoints.setSerialNo(getMaxSeq(appoints));
       session.saveOrUpdate(appoints);
       addOne(user_id);
       ts.commit();
@@ -157,5 +160,20 @@ public class PatMasterIndexDAO
       query.setString(0, user_id);
       pmi = query.list();
       return pmi.get(0);  
+    }
+   
+    private short getMaxSeq(ClinicAppoints appoints)
+    {
+       session = HibernateUtil.getSession();
+       query = session.createQuery(strForSeq);
+       query.setDate(0, appoints.getVisitDateAppted());
+       query.setString(1, appoints.getClinicLabel());
+       query.setString(3, appoints.getVisitTimeAppted());
+       query.setString(4, appoints.getPreRegistDoctor());
+       query.setString(5, appoints.getRegistStatus());
+       List<String> list = query.list();
+       
+       short i = (short) (Integer.valueOf(list.get(0)) + 1);
+       return i;
     }
 }

@@ -5,12 +5,15 @@
 <package name="lhb" namespace="/jsp/page" extends="struts-default">
 	<action name="login" class="action.LhbAction" method="loginQuery">
 		<result name="success">/jsp/page/login.jsp</result>
+		<result name="error">/jsp/page/error.jsp</result>
 	</action>
 	<action name="exit" class="action.LhbAction" method="exit"  >
 		<result name="success">/jsp/page/login.jsp</result>
+		<result name="error">/jsp/page/error.jsp</result>
 	</action>
 	<action name="regist" class="action.LhbAction" method="regist">
 		<result name="success">/jsp/page/login.jsp</result>
+		<result name="error">/jsp/page/error.jsp</result>
 	</action>
 	<action name ="rand" class="action.RandomAction">
 		<result type = "stream">
@@ -24,6 +27,7 @@
 	</action>
 	<action name="makeAppoints" class="action.LhbAction" method="makeAppoints">
 	   <result name="success">/jsp/page/login.jsp</result>
+	   <result name="error">/jsp/page/error.jsp</result>
 	</action>
 </package>
 
