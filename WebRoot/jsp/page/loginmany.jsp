@@ -104,7 +104,6 @@ obj.src="rand.action?d="+timenow;
                <li><a href="baidu.jsp" target="_black">百度地图</a>
                <li class="login"><a href="">你好,<s:property value="#session.user.name" default="游客"/></a><span class="fr">|</span></li>
                 <li><a href="regist.jsp">注册</a></li>
-                <li><a href="exit.action">注销</a></li>
             </ul>
         </div>
     </div>
@@ -149,7 +148,7 @@ obj.src="rand.action?d="+timenow;
             <div class="s_l_bd">
                 <label class="s_wrong clearfix"><b>×</b><span></span></label>
                 <ul class="center clearfix">
-                    <li class="login-li center"><span>用户名</span><input id="s_uid" type="text" autocomplete="off" placeholder="手机/邮箱/身份证" maxlength="18" name="user_id"></li>
+                    <li class="login-li center"><span>用户名</span><input id="s_uid" type="text" autocomplete="off" placeholder="手机/邮箱/身份证" name="user_id"></li>
                     <li class="login-li center"><span>密&nbsp;&nbsp;码</span><input id="s_pwd" type="password" maxlength="20" autocomplete="off" placeholder="请输入您的密码" name="pwd"></li>
                     <li class="login-li center"><span>验证码</span><input class="fl" style="margin-top:6px;" id="text" type="text" maxlength="6" size="9" name="rand"><img alt="验证码"src="rand.action"  class="vccode fl"  style="cursor:pointer;" onclick="changeValidateCode(this)" title="点击图片刷新验证码"/> 
                 </ul>
@@ -398,8 +397,8 @@ obj.src="rand.action?d="+timenow;
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊内科' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊内科' class="dc_info_name fl fs18">KW</a>
+                                    <a href='OzqActionMany.action' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href='OzqActionMany.action' class="dc_info_name fl fs18">钟灵</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
@@ -412,15 +411,15 @@ obj.src="rand.action?d="+timenow;
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊内科'><i></i>预约挂号</a>
+                            <a href='OzqActionMany.action'><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href='OzqActionOnDuty.action?doctor_name=钟灵&dept_name=门诊内科' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href='OzqActionOnDuty.action?doctor_name=钟灵&dept_name=门诊内科' class="dc_info_name fl fs18">钟灵</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">廖志坚</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
@@ -433,28 +432,7 @@ obj.src="rand.action?d="+timenow;
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href='OzqActionOnDuty.action?doctor_name=钟灵&dept_name=门诊内科'><i></i>预约挂号</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dc_info">
-                            <dl>
-                                <dt>
-                                    <a href="OzqActionOnDuty.action?doctor_name=廖志坚&dept_name=门诊内科" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="OzqActionOnDuty.action?doctor_name=廖志坚&dept_name=门诊内科" class="dc_info_name fl fs18">廖志坚</a>
-                                    <span class="dc_info_pst fl fs12">副主任医师</span>
-                                </dt>
-                                <dd>
-                                    <div class="dc_info_hs">
-                                        <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.jsp" class="fs12">门诊内科</a>
-                                    </div>
-                                    <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="dc_icon">
-                            <a href="OzqActionOnDuty.action?doctor_name=廖志坚&dept_name=门诊内科"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
@@ -482,27 +460,6 @@ obj.src="rand.action?d="+timenow;
             </div>
             <div class="dc_tabcnt" id="tab2">
                 <ul>
-                	<li>
-                        <div class="dc_info">
-                            <dl>
-                                <dt>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊妇科' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊妇科' class="dc_info_name fl fs18">KW</a>
-                                    <span class="dc_info_pst fl fs12">副主任医师</span>
-                                </dt>
-                                <dd>
-                                    <div class="dc_info_hs">
-                                        <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.jsp" class="fs12">门诊内科</a>
-                                    </div>
-                                    <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="dc_icon">
-                            <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊内科'><i></i>预约挂号</a>
-                        </div>
-                    </li>
                     <li>
                         <div class="dc_info">
                             <dl>
@@ -591,27 +548,6 @@ obj.src="rand.action?d="+timenow;
             </div>
             <div class="dc_tabcnt" id="tab3">
                 <ul>
-                	<li>
-                        <div class="dc_info">
-                            <dl>
-                                <dt>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊急诊科' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊急诊科' class="dc_info_name fl fs18">KW</a>
-                                    <span class="dc_info_pst fl fs12">副主任医师</span>
-                                </dt>
-                                <dd>
-                                    <div class="dc_info_hs">
-                                        <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.jsp" class="fs12">门诊内科</a>
-                                    </div>
-                                    <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="dc_icon">
-                            <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊急诊科'><i></i>预约挂号</a>
-                        </div>
-                    </li>
                     <li>
                         <div class="dc_info">
                             <dl>
@@ -699,27 +635,6 @@ obj.src="rand.action?d="+timenow;
                 </ul>
             </div><div class="dc_tabcnt" id="tab4">
                 <ul>
-                	<li>
-                        <div class="dc_info">
-                            <dl>
-                                <dt>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊口腔科' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊口腔科' class="dc_info_name fl fs18">KW</a>
-                                    <span class="dc_info_pst fl fs12">副主任医师</span>
-                                </dt>
-                                <dd>
-                                    <div class="dc_info_hs">
-                                        <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.jsp" class="fs12">门诊内科</a>
-                                    </div>
-                                    <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="dc_icon">
-                            <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊口腔科'><i></i>预约挂号</a>
-                        </div>
-                    </li>
                     <li>
                         <div class="dc_info">
                             <dl>
@@ -766,27 +681,6 @@ obj.src="rand.action?d="+timenow;
             </div>
             <div class="dc_tabcnt" id="tab5">
                 <ul>
-                	<li>
-                        <div class="dc_info">
-                            <dl>
-                                <dt>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊中医科' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊中医科' class="dc_info_name fl fs18">KW</a>
-                                    <span class="dc_info_pst fl fs12">副主任医师</span>
-                                </dt>
-                                <dd>
-                                    <div class="dc_info_hs">
-                                        <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.jsp" class="fs12">门诊内科</a>
-                                    </div>
-                                    <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="dc_icon">
-                            <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊中医科'><i></i>预约挂号</a>
-                        </div>
-                    </li>
                     <li>
                         <div class="dc_info">
                             <dl>
@@ -875,27 +769,6 @@ obj.src="rand.action?d="+timenow;
             </div>
             <div class="dc_tabcnt" id="tab6">
                 <ul>
-                	<li>
-                        <div class="dc_info">
-                            <dl>
-                                <dt>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊外科' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊外科' class="dc_info_name fl fs18">KW</a>
-                                    <span class="dc_info_pst fl fs12">副主任医师</span>
-                                </dt>
-                                <dd>
-                                    <div class="dc_info_hs">
-                                        <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.jsp" class="fs12">门诊内科</a>
-                                    </div>
-                                    <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="dc_icon">
-                            <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=门诊外科'><i></i>预约挂号</a>
-                        </div>
-                    </li>
                     <li>
                         <div class="dc_info">
                             <dl>
@@ -984,27 +857,6 @@ obj.src="rand.action?d="+timenow;
             </div>
             <div class="dc_tabcnt" id="tab7">
                 <ul>
-                	<li>
-                        <div class="dc_info">
-                            <dl>
-                                <dt>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=体检科' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=体检科' class="dc_info_name fl fs18">KW</a>
-                                    <span class="dc_info_pst fl fs12">副主任医师</span>
-                                </dt>
-                                <dd>
-                                    <div class="dc_info_hs">
-                                        <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.jsp" class="fs12">门诊内科</a>
-                                    </div>
-                                    <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="dc_icon">
-                            <a href='OzqActionOnDuty.action?doctor_name=KW&dept_name=体检科'><i></i>预约挂号</a>
-                        </div>
-                    </li>
                     <li>
                         <div class="dc_info">
                             <dl>
@@ -1059,6 +911,94 @@ obj.src="rand.action?d="+timenow;
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
                                         <a href="specialty.jsp" class="fs12">体检科</a>
+                                    </div>
+                                    <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="dc_icon">
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="dc_tabcnt" id="tab8">
+                <ul>
+                    <li>
+                        <div class="dc_info">
+                            <dl>
+                                <dt>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <span class="dc_info_pst fl fs12">副主任医师</span>
+                                </dt>
+                                <dd>
+                                    <div class="dc_info_hs">
+                                        <a href="">东莞市人民医院</a><br>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
+                                    </div>
+                                    <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="dc_icon">
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dc_info">
+                            <dl>
+                                <dt>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <span class="dc_info_pst fl fs12">副主任医师</span>
+                                </dt>
+                                <dd>
+                                    <div class="dc_info_hs">
+                                        <a href="">东莞市人民医院</a><br>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
+                                    </div>
+                                    <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="dc_icon">
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dc_info">
+                            <dl>
+                                <dt>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌</a>
+                                    <span class="dc_info_pst fl fs12">副主任医师</span>
+                                </dt>
+                                <dd>
+                                    <div class="dc_info_hs">
+                                        <a href="">东莞市人民医院</a><br>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
+                                    </div>
+                                    <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="dc_icon">
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
+                        </div>
+                    </li>
+                    <li class="no_mr">
+                        <div class="dc_info">
+                            <dl>
+                                <dt>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">刘浩斌8</a>
+                                    <span class="dc_info_pst fl fs12">副主任医师</span>
+                                </dt>
+                                <dd>
+                                    <div class="dc_info_hs">
+                                        <a href="">东莞市人民医院</a><br>
+                                        <a href="specialty.jsp" class="fs12">内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>

@@ -27,49 +27,49 @@ public class OzqAction{
 
 	private OzqBo ozqBo;
 	private List<Object[]> OutpDoctorRegist12;
-	
+
 	private List<Object[]> twoday;
 	private List<Object[]> twodaymoring;
 	private List<Object[]> twodaynoon;
 	private List<Object[]> twodayafternoon;
 	private List<Object[]> twodaynight;
-	
+
 	private List<Object[]> threeday;
 	private List<Object[]> threedaymoring;
 	private List<Object[]> threedaynoon;
 	private List<Object[]> threedayafternoon;
 	private List<Object[]> threedaynight;
-	
+
 	private List<Object[]> fourday;
 	private List<Object[]> fourdaymoring;
 	private List<Object[]> fourdaynoon;
 	private List<Object[]> fourdayafternoon;
 	private List<Object[]> fourdaynight;
-	
+
 	private List<Object[]> fiveday;
 	private List<Object[]> fivedaymoring;
 	private List<Object[]> fivedaynoon;
 	private List<Object[]> fivedayafternoon;
 	private List<Object[]> fivedaynight;
-	
+
 	private List<Object[]> sixday;
 	private List<Object[]> sixdaymoring;
 	private List<Object[]> sixdaynoon;
 	private List<Object[]> sixdayafternoon;
 	private List<Object[]> sixdaynight;
-	
+
 	private List<Object[]> sevenday;
 	private List<Object[]> sevendaymoring;
 	private List<Object[]> sevendaynoon;
 	private List<Object[]> sevendayafternoon;
 	private List<Object[]> sevendaynight;
-	
+
 	private List<Object[]> eightday;
 	private List<Object[]> eightdaymoring;
 	private List<Object[]> eightdaynoon;
 	private List<Object[]> eightdayafternoon;
 	private List<Object[]> eightdaynight;
-	
+
 	private List<Object[]> OutpDoctorRegistDoctorName;
 	private List<Object[]> OutpDoctorRegistDeptName;
 	private List<Object[]> OutpDoctorRegistTime;
@@ -84,7 +84,7 @@ public class OzqAction{
 	private Map<String, Object> application;
 	HttpServletRequest req;
 	HttpServletResponse resp;
-	
+
 	private String date2;
 	private String date3;
 	private String date4;
@@ -100,7 +100,7 @@ public class OzqAction{
 	private String day7;
 	private String day8;
 
-	
+
 	public OzqBo getOzqBo() {
 		return ozqBo;
 	}
@@ -325,56 +325,56 @@ public class OzqAction{
 	public void setEightdaynight(List<Object[]> eightdaynight) {
 		this.eightdaynight = eightdaynight;
 	}
-	
+
 	public List<Object[]> getOutpDoctorRegistDoctorName() {
 		return OutpDoctorRegistDoctorName;
 	}
 	public void setOutpDoctorRegistDoctorName(List<Object[]> outpDoctorRegistDoctorName) {
 		OutpDoctorRegistDoctorName = outpDoctorRegistDoctorName;
 	}
-	
+
 	public List<Object[]> getOutpDoctorRegistDeptName() {
 		return OutpDoctorRegistDeptName;
 	}
 	public void setOutpDoctorRegistDeptName(List<Object[]> outpDoctorRegistDeptName) {
 		OutpDoctorRegistDeptName = outpDoctorRegistDeptName;
 	}
-	
+
 	public List<Object[]> getOutpDoctorRegistTime() {
 		return OutpDoctorRegistTime;
 	}
 	public void setOutpDoctorRegistTime(List<Object[]> outpDoctorRegistTime) {
 		OutpDoctorRegistTime = outpDoctorRegistTime;
 	}
-	
+
 	public List<Timestamp> getThedate() {
 		return thedate;
 	}
 	public void setThedate(List<Timestamp> thedate) {
 		this.thedate = thedate;
 	}
-	
+
 	public String getDoctor_name() {
 		return doctor_name;
 	}
 	public void setDoctor_name(String doctor_name) {
 		this.doctor_name = doctor_name;
 	}
-	
+
 	public String getClinic_dept() {
 		return clinic_dept;
 	}
 	public void setClinic_dept(String clinic_dept) {
 		this.clinic_dept = clinic_dept;
 	}
-	
+
 	public String getDoctor_no() {
 		return doctor_no;
 	}
 	public void setDoctor_no(String doctor_no) {
 		this.doctor_no = doctor_no;
 	}
-	
+
 	public String getDate2() {
 		return date2;
 	}
@@ -417,7 +417,7 @@ public class OzqAction{
 	public void setDate8(String date8) {
 		this.date8 = date8;
 	}
-	
+
 	public String getDay2() {
 		return day2;
 	}
@@ -460,7 +460,7 @@ public class OzqAction{
 	public void setDay8(String day8) {
 		this.day8 = day8;
 	}
-	
+
 	public OzqAction()
 	   {
 	      request = (Map<String, Object>) ActionContext.getContext().get("request");
@@ -469,10 +469,10 @@ public class OzqAction{
 	      req = ServletActionContext.getRequest();
 	      resp = ServletActionContext.getResponse();
 	   }
-	
+
 	//设置日期格式
 	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-	
+
 //	//查12天排班
 //	public String CheckOnDutyMany(){
 //		OutpDoctorRegist12 = ozqBo.CheckOnDutyMany("0103", "0301");
@@ -480,31 +480,31 @@ public class OzqAction{
 //		request.put("doctorregist", OutpDoctorRegist12);
 //		return "success";
 //	}
-	
-	
+
+
 	//查排班
 	public String CheckOnDuty() throws UnsupportedEncodingException{
 		System.out.println("action1...");
-		
+
 		String doctorname = req.getParameter("doctor_name");
 		System.out.println(doctorname);
 		doctorname=new String(doctorname.getBytes("ISO-8859-1"), "UTF-8");
 		System.out.println(doctorname);
 		request.put("doctorname", doctorname);
 		ActionContext.getContext().getSession().put("doctName",doctorname);  // 放session
-		
+
 		String deptname = req.getParameter("dept_name");
 		System.out.println(deptname);
 		deptname=new String(deptname.getBytes("ISO-8859-1"), "UTF-8");
 		System.out.println(deptname);
 		request.put("deptname", deptname);
-		ActionContext.getContext().getSession().put("thedeptName",deptname);  // 放session
-		
+
 		//根据医生名字找到科室编号和医生编号
 		Object[] doctor = ozqBo.CheckClinicDeptDoctorNo(doctorname).get(0);
 		String clinic_dept = (String) doctor[0];
 		String doctor_no = (String) doctor[1];
-		
+//// leovany
+//		doctor_no = "3506";
 		//查7天的排班
 		CheckOnDutyTwoday(doctorname,clinic_dept,doctor_no);
 		CheckOnDutyThreeday(doctorname,clinic_dept,doctor_no);
@@ -513,14 +513,14 @@ public class OzqAction{
 		CheckOnDutySixday(doctorname,clinic_dept,doctor_no);
 		CheckOnDutySevenday(doctorname,clinic_dept,doctor_no);
 		CheckOnDutyEightday(doctorname,clinic_dept,doctor_no);
-		
+
 		return "success";
 	}
-	
+
 	//查Twoday排班
 	public void CheckOnDutyTwoday(String doctorname,String clinic_dept,String doctor_no){
 		System.out.println("action1...");
-		
+
 		twoday = ozqBo.CheckOnDutyTwoday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
@@ -555,7 +555,7 @@ public class OzqAction{
 			System.out.println(ob);
 			request.put("twoday", ob);
 			System.out.println(ob);
-			
+
 			//当天排了多少班
 			for(int i = 0; i<twoday.size(); i++){
 				Object[] obj = twoday.get(i);
@@ -568,7 +568,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("twodaymoring", ob1);
 				}else if("急诊中午".equals(obj[5])){
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -578,7 +578,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("twodaynoon", ob1);
 				}else if("下午".equals(obj[5])){
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -588,7 +588,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("twodayafternoon", ob1);
 				}else{
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -597,16 +597,16 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("twodaynight", ob1);
 				}
 			}
-		
+
 			System.out.println("1");
 		}else{
-			
+
 			ob.setDoctor(doctorname);
-			
+
 			//日期
 			Date Twoday = new Date();
 			Calendar calendar = new GregorianCalendar();
@@ -638,20 +638,20 @@ public class OzqAction{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			request.put("twoday", ob);
 			System.out.println("2");
 		}
 		System.out.println(ob);
-		
+
 		System.out.println("twoday action end...");
-		
+
 	}
-	
+
 	//查Threeday排班
 	public void CheckOnDutyThreeday(String doctorname,String clinic_dept,String doctor_no){
 		System.out.println("action1...");
-		
+
 		threeday = ozqBo.CheckOnDutyThreeday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
@@ -684,7 +684,7 @@ public class OzqAction{
 				e.printStackTrace();
 			}
 			request.put("threeday", ob);
-			
+
 			//当天排了多少班
 			for(int i = 0; i<threeday.size(); i++){
 				Object[] obj = threeday.get(i);
@@ -697,7 +697,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("threedaymoring", ob1);
 				}else if("急诊中午".equals(obj[5])){
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -707,7 +707,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("threedaynoon", ob1);
 				}else if("下午".equals(obj[5])){
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -717,7 +717,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("threedayafternoon", ob1);
 				}else{
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -727,16 +727,16 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("threedaynight", ob1);
 				}
 			}
-		
+
 			System.out.println("1");
 		}else{
-			
+
 			ob.setDoctor(doctorname);
-			
+
 			//日期
 			Date Threeday = new Date();
 			Calendar calendar = new GregorianCalendar();
@@ -768,20 +768,20 @@ public class OzqAction{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			request.put("threeday", ob);
 			System.out.println("2");
 		}
 		System.out.println(ob);
-		
+
 		System.out.println("threeday action end...");
-		
+
 	}
-	
+
 	//查Fourday排班
 	public void CheckOnDutyFourday(String doctorname,String clinic_dept,String doctor_no){
 		System.out.println("action1...");
-		
+
 		fourday = ozqBo.CheckOnDutyFourday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
@@ -814,7 +814,7 @@ public class OzqAction{
 				e.printStackTrace();
 			}
 			request.put("fourday", ob);
-			
+
 			//当天排了多少班
 			for(int i = 0; i<fourday.size(); i++){
 				Object[] obj = fourday.get(i);
@@ -827,7 +827,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("fourdaymoring", ob1);
 				}else if("急诊中午".equals(obj[5])){
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -837,7 +837,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("fourdaynoon", ob1);
 				}else if("下午".equals(obj[5])){
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -847,7 +847,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("fourdayafternoon", ob1);
 				}else{
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -857,16 +857,16 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("fourdaynight", ob1);
 				}
 			}
-		
+
 			System.out.println("1");
 		}else{
-			
+
 			ob.setDoctor(doctorname);
-			
+
 			//日期
 			Date Fourday = new Date();
 			Calendar calendar = new GregorianCalendar();
@@ -898,20 +898,20 @@ public class OzqAction{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			request.put("fourday", ob);
 			System.out.println("2");
 		}
 		System.out.println(ob);
-		
+
 		System.out.println("fourday action end...");
-		
+
 	}
-	
+
 	//查Fiveday排班
 	public void CheckOnDutyFiveday(String doctorname,String clinic_dept,String doctor_no){
 		System.out.println("action1...");
-		
+
 		fiveday = ozqBo.CheckOnDutyFiveday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
@@ -944,7 +944,7 @@ public class OzqAction{
 				e.printStackTrace();
 			}
 			request.put("fiveday", ob);
-			
+
 			//当天排了多少班
 			for(int i = 0; i<fiveday.size(); i++){
 				Object[] obj = fiveday.get(i);
@@ -957,7 +957,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("fivedaymoring", ob1);
 				}else if("急诊中午".equals(obj[5])){
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -967,7 +967,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("fivedaynoon", ob1);
 				}else if("下午".equals(obj[5])){
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -977,7 +977,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("fivedayafternoon", ob1);
 				}else{
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -987,16 +987,16 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("fivedaynight", ob1);
 				}
 			}
-		
+
 			System.out.println("1");
 		}else{
-			
+
 			ob.setDoctor(doctorname);
-			
+
 			//日期
 			Date Fiveday = new Date();
 			Calendar calendar = new GregorianCalendar();
@@ -1028,20 +1028,20 @@ public class OzqAction{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			request.put("fiveday", ob);
 			System.out.println("2");
 		}
 		System.out.println(ob);
-		
+
 		System.out.println("fiveday action end...");
-		
+
 	}
-	
+
 	//查Sixday排班
 	public void CheckOnDutySixday(String doctorname,String clinic_dept,String doctor_no){
 		System.out.println("action1...");
-		
+
 		sixday = ozqBo.CheckOnDutySixday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
@@ -1074,7 +1074,7 @@ public class OzqAction{
 				e.printStackTrace();
 			}
 			request.put("sixday", ob);
-			
+
 			//当天排了多少班
 			for(int i = 0; i<sixday.size(); i++){
 				Object[] obj = sixday.get(i);
@@ -1087,7 +1087,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("sixdaymoring", ob1);
 				}else if("急诊中午".equals(obj[5])){
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -1097,7 +1097,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("sixdaynoon", ob1);
 				}else if("下午".equals(obj[5])){
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -1107,7 +1107,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("sixdayafternoon", ob1);
 				}else{
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -1117,16 +1117,16 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("sixdaynight", ob1);
 				}
 			}
-		
+
 			System.out.println("1");
 		}else{
-			
+
 			ob.setDoctor(doctorname);
-			
+
 			//日期
 			Date Sixday = new Date();
 			Calendar calendar = new GregorianCalendar();
@@ -1158,20 +1158,20 @@ public class OzqAction{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			request.put("sixday", ob);
 			System.out.println("2");
 		}
 		System.out.println(ob);
-		
+
 		System.out.println("sixday action end...");
-		
+
 	}
-	
+
 	//查Sevenday排班
 	public void CheckOnDutySevenday(String doctorname,String clinic_dept,String doctor_no){
 		System.out.println("action1...");
-		
+
 		sevenday = ozqBo.CheckOnDutySevenday(clinic_dept, doctor_no);
 		OutpDoctorRegist ob = new OutpDoctorRegist();
 		//判断当天是否有排班
@@ -1204,7 +1204,7 @@ public class OzqAction{
 				e.printStackTrace();
 			}
 			request.put("sevenday", ob);
-			
+
 			//当天排了多少班
 			for(int i = 0; i<sevenday.size(); i++){
 				Object[] obj = sevenday.get(i);
@@ -1217,7 +1217,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("sevendaymoring", ob1);
 				}else if("急诊中午".equals(obj[5])){
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -1227,7 +1227,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("sevendaynoon", ob1);
 				}else if("下午".equals(obj[5])){
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -1237,7 +1237,7 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("sevendayafternoon", ob1);
 				}else{
 					OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -1247,16 +1247,16 @@ public class OzqAction{
 					ob1.setQueueName(obj[6]);
 					ob1.setLimitNumApp(obj[14]);
 					ob1.setRegistApped(obj[16]);
-				
+
 					request.put("sevendaynight", ob1);
 				}
 			}
-		
+
 			System.out.println("1");
 		}else{
-			
+
 			ob.setDoctor(doctorname);
-			
+
 			//日期
 			Date Sevenday = new Date();
 			Calendar calendar = new GregorianCalendar();
@@ -1288,20 +1288,20 @@ public class OzqAction{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			request.put("sevenday", ob);
 			System.out.println("2");
 		}
 		System.out.println(ob);
-		
+
 		System.out.println("sevenday action end...");
-		
+
 	}
-	
+
 	//查Eightday排班
 		public void CheckOnDutyEightday(String doctorname,String clinic_dept,String doctor_no){
 			System.out.println("action1...");
-			
+
 			eightday = ozqBo.CheckOnDutyEightday(clinic_dept, doctor_no);
 			OutpDoctorRegist ob = new OutpDoctorRegist();
 			//判断当天是否有排班
@@ -1334,7 +1334,7 @@ public class OzqAction{
 					e.printStackTrace();
 				}
 				request.put("eightday", ob);
-				
+
 				//当天排了多少班
 				for(int i = 0; i<eightday.size(); i++){
 					Object[] obj = eightday.get(i);
@@ -1347,7 +1347,7 @@ public class OzqAction{
 						ob1.setQueueName(obj[6]);
 						ob1.setLimitNumApp(obj[14]);
 						ob1.setRegistApped(obj[16]);
-					
+
 						request.put("eightdaymoring", ob1);
 					}else if("急诊中午".equals(obj[5])){
 						OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -1357,7 +1357,7 @@ public class OzqAction{
 						ob1.setQueueName(obj[6]);
 						ob1.setLimitNumApp(obj[14]);
 						ob1.setRegistApped(obj[16]);
-					
+
 						request.put("eightdaynoon", ob1);
 					}else if("下午".equals(obj[5])){
 						OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -1367,7 +1367,7 @@ public class OzqAction{
 						ob1.setQueueName(obj[6]);
 						ob1.setLimitNumApp(obj[14]);
 						ob1.setRegistApped(obj[16]);
-					
+
 						request.put("eightdayafternoon", ob1);
 					}else{
 						OutpDoctorRegist ob1 = new OutpDoctorRegist();
@@ -1377,16 +1377,16 @@ public class OzqAction{
 						ob1.setQueueName(obj[6]);
 						ob1.setLimitNumApp(obj[14]);
 						ob1.setRegistApped(obj[16]);
-					
+
 						request.put("eightdaynight", ob1);
 					}
 				}
-			
+
 				System.out.println("1");
 			}else{
-				
+
 				ob.setDoctor(doctorname);
-				
+
 				//日期
 				Date eightday = new Date();
 				Calendar calendar = new GregorianCalendar();
@@ -1418,35 +1418,35 @@ public class OzqAction{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 				request.put("eightday", ob);
 				System.out.println("2");
 			}
 			System.out.println(ob);
-			
+
 			System.out.println("eightday action end...");
-			
+
 		}
-	
+
 	//查每个时间点
 	public String CheckRegistTime() throws UnsupportedEncodingException{
 			System.out.println("action1...");
-			
+
 			String doctorno = req.getParameter("doctor_no");
 			doctorno=new String(doctorno.getBytes("ISO-8859-1"), "UTF-8");
-			
+
 			String counseldate = req.getParameter("counsel_date");
 			counseldate=new String(counseldate.getBytes("ISO-8859-1"), "UTF-8");
 			request.put("counseldate", counseldate);
-			
+
 			String clinicduration = req.getParameter("clinic_duration");
 			clinicduration=new String(clinicduration.getBytes("ISO-8859-1"), "UTF-8");
 			request.put("clinicduration", clinicduration);
-			
+
 			String queuename = req.getParameter("queue_name");
 			queuename=new String(queuename.getBytes("ISO-8859-1"), "UTF-8");
 			request.put("queuename", queuename);
-			
+
 			OutpDoctorRegistTime = ozqBo.CheckRegistTime(doctorno, counseldate, clinicduration, queuename);
 			if(OutpDoctorRegistTime.size() != 0){
 				String[] registtime = new String[OutpDoctorRegistTime.size()];
@@ -1459,16 +1459,16 @@ public class OzqAction{
 				request.put("registtime", registtime);
 				System.out.println("1");
 			}else{
-			request.put("registtime", "");
+			request.put("registtime", null);
 			System.out.println("2");
 			}
 			return "success";
 		}
-	
+
 		//查医生
 		public String CheckDoctorName() throws IOException{
 			System.out.println("action1...");
-			
+
 			String deptname = req.getParameter("dept_name");
 			System.out.println(deptname);
 			deptname=new String(deptname.getBytes("ISO-8859-1"), "UTF-8");
@@ -1483,78 +1483,78 @@ public class OzqAction{
 		//查tab1的医生
 		public String CheckDoctorNametab1() throws IOException{
 			System.out.println("action1...");
-			
+
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊内科");
 		    request.put("DoctorNametab1", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
 		}
-		
+
 		//查tab2的医生
 		public String CheckDoctorNametab2() throws IOException{
 			System.out.println("action1...");
-			
+
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊妇科");
 		    request.put("DoctorNametab2", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
 		}
-		
+
 		//查tab3的医生
 		public String CheckDoctorNametab3() throws IOException{
 			System.out.println("action1...");
-			
+
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊急诊科");
 		    request.put("DoctorNametab3", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
 		}
-		
+
 		//查tab4的医生
 		public String CheckDoctorNametab4() throws IOException{
 			System.out.println("action1...");
-			
+
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊口腔科");
 		    request.put("DoctorNametab4", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
 		}
-		
+
 		//查tab5的医生
 		public String CheckDoctorNametab5() throws IOException{
 			System.out.println("action1...");
-			
+
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊中医科");
 		    request.put("DoctorNametab5", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
 		}
-		
+
 		//查tab6的医生
 		public String CheckDoctorNametab6() throws IOException{
 			System.out.println("action1...");
-			
+
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊外科");
 		    request.put("DoctorNametab6", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
 		}
-		
+
 		//查tab7的医生
 		public String CheckDoctorNametab7() throws IOException{
 			System.out.println("action1...");
-			
+
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("体检科");
 		    request.put("DoctorNametab7", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("login doctor.............");
 		    return "success";
 		}
-		
+
 }

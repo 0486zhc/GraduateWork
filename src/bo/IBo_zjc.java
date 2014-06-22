@@ -32,4 +32,7 @@ public interface IBo_zjc
 	String addAdvice(MessageBox advice);
 
 	String modifyAppoint(ClinicAppoints appoint); 
+	//一条预约记录
+	List<String> getAppointTimes(String doctorName,String date,String duration);
+	
 }

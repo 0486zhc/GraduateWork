@@ -36,8 +36,13 @@ public interface IDao_zjc
 	List<OutpDoctorRegist> CheckOnDuty(Integer dayNum,String clinic_dept,String doctor_no);
 
 	List<ClinicAppoints> getAppoints(PatMasterIndex pat);
-
+	
+	// 保存建议
 	boolean saveAdvice(MessageBox advice);
-
+	
+	// 取消预约
 	public boolean cancleAppoint(ClinicAppoints appoint);
+	
+	public OutpDoctorRegist getOutpDoctorOne(String doctorName,String date,String duration);
+	
 }

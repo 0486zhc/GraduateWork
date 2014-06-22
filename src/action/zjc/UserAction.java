@@ -38,6 +38,7 @@ public class UserAction
 		return "success";
 	}
 	
+	// 建议箱
 	public String advice(){
 		System.out.println("advice");
 		advice.setWriteDate(new Date(0));
@@ -47,6 +48,7 @@ public class UserAction
 		return "advice";
 	}
 	
+	// 退出
 	public String exit(){
 		ActionContext.getContext().getSession().clear(); 
 		return "success";

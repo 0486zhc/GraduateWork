@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -11,24 +11,32 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>
-	东莞市人民医院
-</title>
+<title>东莞市人民医院</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
 <meta content="yes" name="apple-mobile-web-app-capable" />
-<link href="<%=basePath %>PhoneWeb/WebTwo/styles/bootstrap.min.css" rel="stylesheet" />
-<link href="<%=basePath %>PhoneWeb/WebTwo/styles/NewGlobal.css" rel="stylesheet" />
-<script type="text/javascript" src="<%=basePath %>PhoneWeb/WebTwo/Scripts/zepto.js"></script>
+<link href="<%=basePath%>PhoneWeb/WebTwo/styles/specialty.css"
+	rel="stylesheet" type="text/css">
+<link href="<%=basePath%>PhoneWeb/WebTwo/styles/bootstrap.min.css"
+	rel="stylesheet" />
+<link href="<%=basePath%>PhoneWeb/WebTwo/styles/NewGlobal.css"
+	rel="stylesheet" />
+<link href="<%=basePath%>PhoneWeb/WebTwo/styles/My.css"
+	rel="stylesheet" />
+	
+<script type="text/javascript"
+	src="<%=basePath%>PhoneWeb/WebTwo/Scripts/zepto.js"></script>
+	
+	
 </head>
 
 <s:action name="appoint_findDept" executeResult="true">
-	<s:param name = "dept" value="depts"></s:param>
+	<s:param name="dept" value="depts"></s:param>
 </s:action>
 
-<body >
+<body>
 	<div class="header">
-		<a href="<%=basePath %>PhoneWeb/index.jsp" class="home"> <span
+		<a href="<%=basePath%>PhoneWeb/index.jsp" class="home"> <span
 			class="header-icon header-icon-home"></span> <span
 			class="header-name">主页</span> </a>
 		<div class="title" id="titleString">医生时间</div>
@@ -38,47 +46,225 @@
 	</div>
 
 
-	<div class="container hotellistbg">
-		<ul class="unstyled hotellist">
-			
-<!-- 			<li><a href="Hotel.aspxcheckInDate.html"> <img -->
-<!-- 					class="hotelimg fl" src="http://www.gridinn.com/images/hotel/5.jpg" /> -->
-<!-- 					<div class="inline"> -->
-<!-- 						<h3>南宁秀灵店</h3> -->
-<!-- 						<p>地址：秀灵路55号（出入境管理局旁）</p> -->
-<!-- 						<p>评分：4.6 （1200人已评）</p> -->
-<!-- 					</div> -->
-<!-- 					<div class="clear"></div> </a> -->
-<!-- 				<ul class="unstyled"> -->
-<!-- 					<li><a href="Hotel.aspx@id=5" class="order">预订</a> -->
-<!-- 					</li> -->
-<!-- 					<li><a href="Hotelmap.aspx@id=5" class="gps">导航</a> -->
-<!-- 					</li> -->
-<!-- 					<li><a href="Hotelinfo.aspx@id=5" class="reality">实景</a> -->
-<!-- 					</li> -->
-<!-- 				</ul></li> -->
-<s:debug></s:debug>
-		<s:iterator value="%{outDoctor}">
-			<li><a href="appointment_findDoctors?deptCode=<s:property value="%{deptCode}" />" ><img
-					class="hotelimg fl"
-					src="http://www.gridinn.com/images/hotel/14.jpg" />
-					<div class="inline">
-						<h3><s:property value="%{doctor}" /></h3>
-						<p>预约日期：<s:property value="%{counselDate}" /></p>
-						<p>预约时间：<s:property value="%{clinicDuration}" />:<s:property value="%{regBeginTime}" /> - <s:property value="%{regEndTime}" /></p>
-					</div></a>
-					<ul class="unstyled">
-					<li><a href="Hotel.aspx@id=5" class="order">预订</a>
-					</li>
-					<li><a href="Hotelmap.aspx@id=5" class="gps">导航</a>
-					</li>
-					<li><a href="Hotelinfo.aspx@id=5" class="reality">实景</a>
-					</li>
-				</ul>
-			</li>
-		</s:iterator>
-		</ul>
-	</div>
+<!-- 	<div class="container hotellistbg"> -->
+<!-- 		<ul class="unstyled hotellist"> -->
+<!-- begin ===== -->
+		<div id="wrap" class="center">
+			<div class="orderdata">
+                <div class="od_tt">
+                    <div class="od_prev fl od_tt_btn t_c"></div>
+                    <div class="od_next fr od_tt_btn t_c"></div>
+                    <div class="timetable fl">
+                        <ul>
+                            <li class="fl">
+                                06-11<br>周三
+                            </li>
+                            <li class="fl">
+                                06-12<br>周四
+                            </li>
+                            <li class="fl">
+                                06-13<br>周五
+                            </li>
+                            <li class="fl holiday">
+                                06-14<br>周六
+                            </li>
+                            <li class="fl holiday">
+                                06-15<br>周日
+                            </li>
+                            <li class="fl">
+                                06-16<br>周一
+                            </li>
+                            <li class="fl">
+                                06-17<br>周二
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="od_cnt">
+                    <ul>
+                        <li class="beforenoon od_cnt_time clearfix">
+                            <div class="fl">上<br>午</div>
+                            <div class="fr">上<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                        </li>
+                        <li class="afternoon od_cnt_time clearfix">
+                            <div class="fl">下<br>午</div>
+                            <div class="fr">下<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_out">已过期</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                        </li>
+                        <li class="beforenoon od_cnt_time clearfix">
+                            <div class="fl">上<br>午</div>
+                            <div class="fr">上<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                        </li>
+                        <li class="afternoon od_cnt_time clearfix">
+                            <div class="fl">下<br>午</div>
+                            <div class="fr">下<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_out">已过期</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                        </li>
+                        <li class="beforenoon od_cnt_time clearfix">
+                            <div class="fl">上<br>午</div>
+                            <div class="fr">上<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                        </li>
+                        <li class="afternoon od_cnt_time clearfix">
+                            <div class="fl">下<br>午</div>
+                            <div class="fr">下<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_out">已过期</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                        </li>
+                        <li class="beforenoon od_cnt_time clearfix">
+                            <div class="fl">上<br>午</div>
+                            <div class="fr">上<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                        </li>
+                        <li class="afternoon od_cnt_time clearfix">
+                            <div class="fl">下<br>午</div>
+                            <div class="fr">下<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_out">已过期</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                        </li>
+                        <li class="beforenoon od_cnt_time clearfix">
+                            <div class="fl">上<br>午</div>
+                            <div class="fr">上<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                        </li>
+                        <li class="afternoon od_cnt_time clearfix">
+                            <div class="fl">下<br>午</div>
+                            <div class="fr">下<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_out">已过期</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                        </li>
+                        <li class="beforenoon od_cnt_time clearfix">
+                            <div class="fl">上<br>午</div>
+                            <div class="fr">上<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                        </li>
+                        <li class="afternoon od_cnt_time clearfix">
+                            <div class="fl">下<br>午</div>
+                            <div class="fr">下<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_out">已过期</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                        </li>
+                        <li class="beforenoon od_cnt_time clearfix">
+                            <div class="fl">上<br>午</div>
+                            <div class="fr">上<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                        </li>
+                        <li class="afternoon od_cnt_time clearfix">
+                            <div class="fl">下<br>午</div>
+                            <div class="fr">下<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_out">已过期</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                        </li>
+                        <li class="beforenoon od_cnt_time clearfix">
+                            <div class="fl">上<br>午</div>
+                            <div class="fr">上<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                        </li>
+                        <li class="afternoon od_cnt_time clearfix">
+                            <div class="fl">下<br>午</div>
+                            <div class="fr">下<br>午</div>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_out">已过期</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>16/21</a>
+                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+</div>
+<!-- end ===== -->
+<!-- 		</ul> -->
+<!-- 	</div> -->
 
 
 	<div class="footer">
@@ -91,7 +277,7 @@
 			<a href="<%=basePath %>jsp/page/login.jsp" class="ui-link">电脑版</a>
 		</div>
 		<div class="gezifooter">
-			<p style="color:#bbb;"> &copy; 版权所有 2012-2014</p>
+			<p style="color:#bbb;">&copy; 版权所有 2012-2014</p>
 		</div>
 	</div>
 

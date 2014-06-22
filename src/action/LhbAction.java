@@ -3,8 +3,8 @@ package action;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -210,30 +210,32 @@ public class LhbAction extends ActionSupport
 
    public void makeAppoints()
    {
+      PatMasterIndex pi = (PatMasterIndex) session.get("user");
       // appoints
       appoints = new ClinicAppoints();
-      appoints.setName("刘浩斌");
-      Date date = Date.valueOf("2014-10-10");
-      appoints.setVisitDateAppted(date);
-      appoints.setClinicLabel("内科副主任号");
-      appoints.setVisitTimeAppted("15:20");
-      appoints.setSerialNo((short) 1);
-      appoints.setRegTimePoint(String.valueOf(date) + "15:20");
-      appoints.setPreRegistDoctor("钟灵");
-      appoints.setRegistStatus("1");
-      appoints.setRegistFlag("1");
-      user_id = "441900199201157075";
+      appoints.setPatientId(pi.getPatientId());
+      appoints.setName(pi.getName());
+      appoints.setAge(getAge(pi.getDateOfBirth()));
       String state = lhbBo.makeAppoints(appoints,user_id);
       //return state;
       System.out.println("state is :" + state + "!!!!!");
    }
    
+   private Long getAge(Timestamp dateOfBirth)
+   {
+      
+      Calendar cal = Calendar.getInstance();
+      int year = cal.get(Calendar.YEAR);
+      Long age = (long) (year- (dateOfBirth.getYear()+1900));
+       
+      return age;
+   }
+
    public void checkFlag() throws IOException
    {
       String user_id = "441900199201157075";//requestForAjax.getParameter("user_id");
       String state = lhbBo.checkForFlag(user_id);
-      System.out.println(state);
-      //response.getWriter().write(state);
+      response.getWriter().write(state);
    }
    
    public String exit()
@@ -243,12 +245,5 @@ public class LhbAction extends ActionSupport
       application.clear();
       return SUCCESS;
    }
-   
-   private Date stringToDate(String year,String month,String day)
-   {
-      Date date =new Date(Integer.valueOf(year),
-                Integer.valueOf(month), Integer.valueOf(day));
-   
-      return date;
-   }
+
 }
