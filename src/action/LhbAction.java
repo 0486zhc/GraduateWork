@@ -2,6 +2,9 @@ package action;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +39,50 @@ public class LhbAction extends ActionSupport
    private HttpServletRequest  requestForAjax;
    private static final String SUCCESS = "success";
    private static final String ERROR   = "error";
+   private String year;
+   private String month;
+   private String day;
+   private String sex;
+   
+   public String getYear()
+   {
+      return year;
+   }
+
+   public void setYear(String year)
+   {
+      this.year = year;
+   }
+
+   public String getMonth()
+   {
+      return month;
+   }
+
+   public void setMonth(String month)
+   {
+      this.month = month;
+   }
+
+   public String getDay()
+   {
+      return day;
+   }
+
+   public void setDay(String day)
+   {
+      this.day = day;
+   }
+
+   public String getSex()
+   {
+      return sex;
+   }
+
+   public void setSex(String sex)
+   {
+      this.sex = sex;
+   }
 
    public String getRand()
    {
@@ -139,7 +186,8 @@ public class LhbAction extends ActionSupport
          pmi.setIdNo(user_id);
          pmi.setName(user_name);
          pmi.setPhoneNumberBusiness(phoneNum);
-         String state = lhbBo.regist(pmi);
+         pmi.setSex(sex);
+         String state = lhbBo.regist(pmi,(year+"-"+month+"-"+day));
          if(SUCCESS.equals(state))
          {
             session.put("user", pmi);
@@ -188,4 +236,19 @@ public class LhbAction extends ActionSupport
       //response.getWriter().write(state);
    }
    
+   public String exit()
+   {
+      request.clear();
+      session.clear();
+      application.clear();
+      return SUCCESS;
+   }
+   
+   private Date stringToDate(String year,String month,String day)
+   {
+      Date date =new Date(Integer.valueOf(year),
+                Integer.valueOf(month), Integer.valueOf(day));
+   
+      return date;
+   }
 }
