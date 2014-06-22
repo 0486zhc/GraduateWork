@@ -81,6 +81,12 @@ private OzqDao OzqDao;
 		return odr;
 	}
 	
+	//查每个时间点
+		public List<Object[]> CheckRegistTime(String doctor_no, String counsel_date, String clinic_duration, String queue_name){
+			System.out.println("bo CheckRegistTime begin...");
+			return OzqDao.CheckRegistTime(doctor_no, counsel_date, clinic_duration, queue_name);
+		}
+	
 	//查诊室代号 & 医生工号
 			public List<Object[]> CheckClinicDeptDoctorNo(String doctor_name) {
 				System.out.println("bo...");

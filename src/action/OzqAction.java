@@ -1399,6 +1399,25 @@ public class OzqAction{
 		
 	}
 	
+	//查每个时间点
+	public String CheckRegistTime() throws UnsupportedEncodingException{
+			System.out.println("action1...");
+			
+			String doctorno = req.getParameter("doctor_no");
+			System.out.println(doctorno);
+			doctorno=new String(doctorno.getBytes("ISO-8859-1"), "UTF-8");
+			System.out.println(doctorno);
+			request.put("doctorname", doctorno);
+			
+			String deptname = req.getParameter("dept_name");
+			System.out.println(deptname);
+			deptname=new String(deptname.getBytes("ISO-8859-1"), "UTF-8");
+			System.out.println(deptname);
+			request.put("deptname", deptname);
+			
+			return "success";
+		}
+	
 		//查医生
 		public String CheckDoctorName() throws IOException{
 			System.out.println("action1...");
