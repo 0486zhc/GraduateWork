@@ -1,37 +1,74 @@
 package action.zjc;
 
+import java.sql.Date;
+
 import com.opensymphony.xwork2.ActionContext;
 
 import bo.IBo_zjc;
 import model.lhb.PatMasterIndex;
+import model.zjc.MessageBox;
 
 public class UserAction
 {
-	private PatMasterIndex patMasterIndex; 
 	private IBo_zjc bo ;
+	private PatMasterIndex patMasterIndex;
+	private MessageBox advice ;
 	
 	String mess ;
 	String userName;
 	String passWord;
 	
-	public String Login(){
+	// 登录
+	public String login(){
 		System.out.println("action");
-		mess = bo.verify(userName,passWord);
-		ActionContext.getContext().getSession().put("userName",mess);  // 放session
-		if(mess == "" )
-			return "false";
-		else
+		patMasterIndex = bo.verify(userName,passWord);
+		System.out.println("patMasterIndex="+ patMasterIndex);
+		if(patMasterIndex.getName() != "" ){
+			ActionContext.getContext().getSession().put("pat",patMasterIndex);  // 放session
 			return "success";
+		}else
+			return "false";
 	}
 	
+	// 注册
 	public String register(){
 		System.out.println("register");
 		mess = bo.addRegister(patMasterIndex);
 		System.out.println(mess);
 		return "success";
 	}
+	
+	public String advice(){
+		System.out.println("advice");
+		advice.setWriteDate(new Date(0));
+		System.out.println(advice);
+		mess = bo.addAdvice(advice);
+		System.out.println(mess);
+		return "advice";
+	}
+	
+	public String exit(){
+		ActionContext.getContext().getSession().clear(); 
+		return "success";
+	}
+	
+	
+/* =============================================================== */
+	
+	
+	
 	public String getMess() {
 		return mess;
+	}
+
+	
+
+	public MessageBox getAdvice() {
+		return advice;
+	}
+
+	public void setAdvice(MessageBox advice) {
+		this.advice = advice;
 	}
 
 	public void setMess(String mess) {
