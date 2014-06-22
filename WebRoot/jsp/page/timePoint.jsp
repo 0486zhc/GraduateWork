@@ -147,32 +147,9 @@ $(document).ready(function () {
         <div class="sp_main fr">
             <div class="orderdata dc_od fl">
                 <div class="od_tt">
-                    <div class="od_prev fl dc_od_tt_btn t_c"></div>
-                    <div class="od_next fr dc_od_tt_btn t_c"></div>
+                   
                     <div class="timetable fl">
-                        <ul>
-                            <li class="fl" id='date1'>
-                             	${date2 }<br>${day2 }
-                            </li>
-                            <li class="fl" id='date2'>
-                             	${date3 }<br>${day3 }
-                            </li>
-                            <li class="fl" id='date3'>
-                            	${date4 }<br>${day4 }
-                            </li>
-                            <li class="fl" id='date4'>
-                            	${date5 }<br>${day5 }
-                            </li>
-                            <li class="fl" id='date5'>
-                            	${date6 }<br>${day6 }
-                            </li>
-                            <li class="fl" id='date6'>
-                            	${date7 }<br>${day7 }
-                            </li>
-                            <li class="fl" id='date7'>
-                             	${date8 }<br>${day8 }
-                            </li>
-                        </ul>
+                           11111
                     </div>
                 </div>
                 <div class="od_cnt">

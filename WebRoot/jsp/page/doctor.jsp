@@ -17,7 +17,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="Description" content="" />
 <link href="css/global.css" rel="stylesheet" type="text/css">
 <link href="css/specialty.css" rel="stylesheet" type="text/css">
-<link href="css/doctor.css" rel="stylesheet" type="text/css">
 <script language="javascript" type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.lazyload.1.8.4.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
