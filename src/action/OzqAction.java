@@ -498,6 +498,7 @@ public class OzqAction{
 		deptname=new String(deptname.getBytes("ISO-8859-1"), "UTF-8");
 		System.out.println(deptname);
 		request.put("deptname", deptname);
+		ActionContext.getContext().getSession().put("thedeptName",deptname);  // 放session
 		
 		//根据医生名字找到科室编号和医生编号
 		Object[] doctor = ozqBo.CheckClinicDeptDoctorNo(doctorname).get(0);
@@ -1436,6 +1437,7 @@ public class OzqAction{
 			
 			String counseldate = req.getParameter("counsel_date");
 			counseldate=new String(counseldate.getBytes("ISO-8859-1"), "UTF-8");
+			counseldate = df.format(counseldate);
 			request.put("counseldate", counseldate);
 			
 			String clinicduration = req.getParameter("clinic_duration");
@@ -1458,7 +1460,7 @@ public class OzqAction{
 				request.put("registtime", registtime);
 				System.out.println("1");
 			}else{
-			request.put("registtime", null);
+			request.put("registtime", "");
 			System.out.println("2");
 			}
 			return "success";

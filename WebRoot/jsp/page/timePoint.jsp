@@ -114,7 +114,7 @@ $(document).ready(function () {
     </div>
 </div>
 <div class="content w960 center clearfix">
-    <div class="pst fl fs12"><a href="index.html">é¦é¡µ</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="">ä¸èå¸å¦å¹¼ä¿å¥é¢</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="specialty.html">äº§ç§</a>&nbsp;&nbsp;>&nbsp;&nbsp;åæµ©æï¼ä¸çé¨è¯ï¼</div>
+    <div class="pst fl fs12"><a href="index.html">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="">东莞市妇幼保健院</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="specialty.jsp"><s:property value="#session.thedeptName"/></a>&nbsp;&nbsp;>&nbsp;&nbsp;<s:property value="#session.doctName"/>（专病门诊）</div>
     <div class="clear"></div>
 	<div class="sp_cnt clearfix">
         <div class="aside fl fs12">
@@ -125,10 +125,10 @@ $(document).ready(function () {
                         <img src="images/doctor.jpg" alt="刘浩斌" title="刘浩斌" width="150" height="200">
                     </div>
                     <dl class="dpt_info">
-                        <dt><s:property value="#request.doctorname"/></dt>
+                        <dt><s:property value="#session.doctName"/></dt>
                         <dd>
                             <b>副主任医师</b>
-                            <p>科室：<a href="specialty.jsp"><s:property value="#request.deptname"/></a></p>
+                            <p>科室：<a href="specialty.jsp"><s:property value="#session.thedeptName"/></a></p>
                             <p>医院：<a href="">东莞市妇幼保健院</a></p>
                             <p>挂号级别：<strong> 9 元</strong></p>
                         </dd>
@@ -144,62 +144,26 @@ $(document).ready(function () {
                 </div>
             </div>
         </div>
-        <div class="sp_main fr">
+        <div class="sp_main fl">
             <div class="orderdata dc_od fl">
                 <div class="od_tt">
-                    <div class="od_prev fl dc_od_tt_btn t_c"></div>
-                    <div class="od_next fr dc_od_tt_btn t_c"></div>
-                    <div class="timetable fl">
-                        <ul>
-                            <li class="fl" id='date1'>
-                             	${date2 }<br>${day2 }
-                            </li>
-                            <li class="fl" id='date2'>
-                             	${date3 }<br>${day3 }
-                            </li>
-                            <li class="fl" id='date3'>
-                            	${date4 }<br>${day4 }
-                            </li>
-                            <li class="fl" id='date4'>
-                            	${date5 }<br>${day5 }
-                            </li>
-                            <li class="fl" id='date5'>
-                            	${date6 }<br>${day6 }
-                            </li>
-                            <li class="fl" id='date6'>
-                            	${date7 }<br>${day7 }
-                            </li>
-                            <li class="fl" id='date7'>
-                             	${date8 }<br>${day8 }
-                            </li>
-                        </ul>
+                    <div class="timetable block t_c">
+                             	<span><s:property value="#request.counseldate"/></span>
+                             	<p><s:property value="#request.clinicduration"/></p>
                     </div>
                 </div>
                 <div class="od_cnt">
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(16/21)</a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_man_out">出诊</a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(16/21)</a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            <a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_man_out">出诊</a>
+                	<s:if test='#request.registtime != ""'>
+                		<s:iterator value="#request.registtime">
+                            <a href="javascript:void(0);" class="fl t_c block fs14 od_btn order_access"><s:property /></a>
+                    	</s:iterator>
+                    </s:if>
+                    <s:else>
+                    		<a href="javascript:void(0);" class="fl t_c block fs14 od_btn order_null"></a>
+                    </s:else>
                 </div>
             </div>
-            <div class="bar_middle fl">（ 今日 <strong>18:00</strong> 开始可预约至<strong> ${date8 } </strong>号源，<strong>16:00</strong> 截止<strong> ${date2 } </strong>号源的预约 ）</div>
+            <div class="bar_middle fl"></div>
             <div class="dc_page fl t_c">
             </div>
         </div>

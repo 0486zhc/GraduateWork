@@ -1,6 +1,7 @@
 .aside {width: 220px;}
-.od_cnt{padding-left:65px;min-height:1px;}
-.od_btn{margin:2px 1px 2px 0;outline: 0;width: 83px;height: 45px;line-height:40px;}
+.od_cnt{padding-left:0px;min-height:1px;}
+.od_btn{margin:2px 1px 2px 0;outline: 0;width: 101.4px;height: 45px;line-height:40px;}
 .order_access{line-height:20px;}
 .timetable span{line-height:20px;color:#FFF;display:block;padding-top:9px;}
 .timetable p{line-height:20px;color:#FFF;}
+.sp_main{width:732px;}

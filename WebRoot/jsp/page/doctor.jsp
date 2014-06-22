@@ -17,7 +17,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="Description" content="" />
 <link href="css/global.css" rel="stylesheet" type="text/css">
 <link href="css/specialty.css" rel="stylesheet" type="text/css">
-<link href="css/doctor.css" rel="stylesheet" type="text/css">
 <script language="javascript" type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.lazyload.1.8.4.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
@@ -114,7 +113,7 @@ $(document).ready(function () {
     </div>
 </div>
 <div class="content w960 center clearfix">
-    <div class="pst fl fs12"><a href="index.html">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="">东莞市妇幼保健院</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="specialty.jsp">产科</a>&nbsp;&nbsp;>&nbsp;&nbsp;钟灵（专病门诊）</div>
+    <div class="pst fl fs12"><a href="index.html">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="">东莞市妇幼保健院</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="specialty.jsp"><s:property value="#request.deptname"/></a>&nbsp;&nbsp;>&nbsp;&nbsp;<s:property value="#session.doctName"/>（专病门诊）</div>
     <div class="clear"></div>
 	<div class="sp_cnt clearfix">
         <div class="aside fl fs12">
@@ -144,10 +143,10 @@ $(document).ready(function () {
                 </div>
             </div>
         </div>
-        <div class="sp_main fr">
+        <div class="sp_main fl">
             <div class="orderdata dc_od fl">
                 <div class="od_tt">
-                    <div class="od_prev fl dc_od_tt_btn t_c"></div>
+                	<div class="od_prev fl dc_od_tt_btn t_c"></div>
                     <div class="od_next fr dc_od_tt_btn t_c"></div>
                     <div class="timetable fl">
                         <ul>
