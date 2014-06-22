@@ -124,10 +124,10 @@ $(document).ready(function () {
                         <img src="images/doctor.jpg" alt="刘浩斌" title="刘浩斌" width="150" height="200">
                     </div>
                     <dl class="dpt_info">
-                        <dt>钟灵</dt>
+                        <dt><s:property value="#request.doctorname"/></dt>
                         <dd>
                             <b>副主任医师</b>
-                            <p>科室：<a href="specialty.jsp">产科</a></p>
+                            <p>科室：<a href="specialty.jsp"><s:property value="#request.deptname"/></a></p>
                             <p>医院：<a href="">东莞市妇幼保健院</a></p>
                             <p>挂号级别：<strong> 9 元</strong></p>
                         </dd>

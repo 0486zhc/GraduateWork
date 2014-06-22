@@ -3,11 +3,6 @@ package bo;
 import java.sql.Timestamp;
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-
-import util.HibernateUtil;
-
 import dao.OzqDao;
 
 public class OzqBo{
@@ -21,20 +16,20 @@ private OzqDao OzqDao;
 		this.OzqDao = OzqDao;
 	}
 	
-	//查12天排班
-	public List<Object[]> CheckOnDutyMany(String clinic_dept, String doctor_no) {
-		System.out.println("bo CheckOnDuty begin...");
-		List<Object[]> odr = OzqDao.CheckOnDutyMany(clinic_dept, doctor_no);
-		System.out.println(odr instanceof Object);
-//		for (int i = 0; i < odr.size(); i++) {
-//				if(odr.get(i).getLimitNumApp() == odr.get(i).getRegistApped())
-//				{
-//					odr.remove(i);
-//				}
-//		
-//		}
-		return odr;
-	}
+//	//查12天排班
+//	public List<Object[]> CheckOnDutyMany(String clinic_dept, String doctor_no) {
+//		System.out.println("bo CheckOnDuty begin...");
+//		List<Object[]> odr = OzqDao.CheckOnDutyMany(clinic_dept, doctor_no);
+//		System.out.println(odr instanceof Object);
+////		for (int i = 0; i < odr.size(); i++) {
+////				if(odr.get(i).getLimitNumApp() == odr.get(i).getRegistApped())
+////				{
+////					odr.remove(i);
+////				}
+////		
+////		}
+//		return odr;
+//	}
 
 	//查Today排班
 	public List<Object[]> CheckOnDutyToday(String clinic_dept, String doctor_no) {
@@ -79,20 +74,19 @@ private OzqDao OzqDao;
 	}
 	
 	//查医生姓名
-	public List<String> CheckDoctorName(String deptname) {
+	public List<Object[]> CheckDoctorName(String deptname) {
 		System.out.println("bo...");
-		List<String> odr = OzqDao.CheckDoctorName(deptname);
+		List<Object[]> odr = OzqDao.CheckDoctorName(deptname);
 		System.out.println("bo CheckDoctorName end...");
 		return odr;
 	}
 	
-	//查科室
-		public List<String> CheckDeptName() {
-			System.out.println("bo...");
-			List<String> odr = OzqDao.CheckDeptName();
-			System.out.println("bo CheckDeptName end...");
-			return odr;
-		}
+	//查诊室代号 & 医生工号
+			public List<Object[]> CheckClinicDeptDoctorNo(String doctor_name) {
+				System.out.println("bo...");
+				
+			    return OzqDao.CheckClinicDeptDoctorNo(doctor_name);
+			}
 		
 	//查时间
 		public List<Timestamp> CheckDate(String date){

@@ -7,8 +7,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import model.Ozq.OutpDoctorRegist;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -27,35 +25,35 @@ public class OzqDao{
 		this.template = hibernateTemplate;
 	}
 	
-	//查12天排班
-	public List<Object[]> CheckOnDutyMany(String clinic_dept,String doctor_no) {
-		System.out.println("dao...");
-		
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
-		//开始日期
-		Date today = new Date();
-		String start_time = df.format(today);
-		//结束日期(12天)
-		Date Twelveday = new Date();
-		Calendar calendar = new GregorianCalendar();
-		calendar.setTime(Twelveday);
-		calendar.add(calendar.DATE,11);//把日期往后增加.整数往后推,负数往前移动
-		Twelveday=calendar.getTime(); //这个时间就是日期往后推的结果 
-		String end_time = df.format(Twelveday);
-		
-		Session session = HibernateUtil.getSession();
-		List<Object[]> odr = null;
-		
-		Query query = session.createSQLQuery("select * FROM outp_doctor_regist WHERE to_date(COUNSEL_DATE) >= to_date( ?,'yyyy-mm-dd')and to_date(COUNSEL_DATE) <= to_date( ?,'yyyy-mm-dd') and (CLINIC_DEPT = ?) and (DOCTOR_NO = ?)")
-				.setParameter(0, start_time)
-				.setParameter(1, end_time)
-				.setParameter(2, clinic_dept)
-				.setParameter(3, doctor_no);
-	    System.out.println("dao end1...");
-	    odr = query.list();
-	    System.out.println("dao CheckOnDuty end2...");
-	    return odr;
-	}
+//	//查12天排班
+//	public List<Object[]> CheckOnDutyMany(String clinic_dept,String doctor_no) {
+//		System.out.println("dao...");
+//		
+//		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+//		//开始日期
+//		Date today = new Date();
+//		String start_time = df.format(today);
+//		//结束日期(12天)
+//		Date Twelveday = new Date();
+//		Calendar calendar = new GregorianCalendar();
+//		calendar.setTime(Twelveday);
+//		calendar.add(calendar.DATE,11);//把日期往后增加.整数往后推,负数往前移动
+//		Twelveday=calendar.getTime(); //这个时间就是日期往后推的结果 
+//		String end_time = df.format(Twelveday);
+//		
+//		Session session = HibernateUtil.getSession();
+//		List<Object[]> odr = null;
+//		
+//		Query query = session.createSQLQuery("select * FROM outp_doctor_regist WHERE to_date(COUNSEL_DATE) >= to_date( ?,'yyyy-mm-dd')and to_date(COUNSEL_DATE) <= to_date( ?,'yyyy-mm-dd') and (CLINIC_DEPT = ?) and (DOCTOR_NO = ?)")
+//				.setParameter(0, start_time)
+//				.setParameter(1, end_time)
+//				.setParameter(2, clinic_dept)
+//				.setParameter(3, doctor_no);
+//	    System.out.println("dao end1...");
+//	    odr = query.list();
+//	    System.out.println("dao CheckOnDuty end2...");
+//	    return odr;
+//	}
 	
 	//查today排班
 	public List<Object[]> CheckOnDutyToday(String clinic_dept,String doctor_no) {
@@ -361,12 +359,71 @@ public class OzqDao{
 	    return odr;
 	}
 	
+//	//查每个时间点
+//	public List<Object[]> CheckRegistTime(){
+//		System.out.println("dao...");
+//		
+//		Session session = HibernateUtil.getSession();
+//		List<Object[]> odr = null;
+//		
+//		Query query = session.createSQLQuery(
+//				"SELECT T_A.TIMES, to_char(T_A.TIMES, 'hh24:mi') as regist_time, to_char(T_A.TIMES, 'yyyy-mm-dd hh24:mi') as real_regist_time, T_A.SQNO " + 
+//  "FROM (select T.times as times, rownum as sqno " + 
+//          "from (select to_date(bb || ':00', 'yyyy-mm-dd hh24:mi:ss') times " + 
+//                  "from (select a.doctor_no, a.doctor, a.queue_name, a.clinic_duration, to_char(a.counsel_date, 'yyyy-mm-dd') || ' ' || nvl(a.reg_begin_time, b.reg_begin_time) bb, to_char(a.counsel_date, 'yyyy-mm-dd') || ' ' || nvl(a.reg_end_time, b.reg_end_time) cc " + 
+//                          "from OUTP_DOCTOR_REGIST a, " + 
+//                               "TIME_INTERVAL_DICT b, " + 
+//                               "clinic_index       c " + 
+//                         "where a.clinic_dept = b.dept_code " + 
+//                           "and a.queue_name = c.clinic_label " + 
+//                           "and a.clinic_duration = b.time_interval_name " + 
+//                           "and to_date(a.counsel_date) = to_date('" + counsel_date + "', 'yyyy-mm-dd') " + 
+//                           "and a.doctor_no = '" + doctor_no + "' " + 
+//                           "and a.clinic_duration = '" + clinic_duration + "') " + 
+//                "union " + 
+//                "select y.tt + 1 / (24 * 60) * rownum * 15 as times " + 
+//                  "from (select to_date(bb || ':00', 'yyyy-mm-dd hh24:mi:ss') tt, " + 
+//                               "floor((((case " + 
+//                                       "when to_date(bb || ':00', 'yyyy-mm-dd hh24:mi:ss') > " + 
+//                                            "to_date(cc || ':00', 'yyyy-mm-dd hh24:mi:ss')  " + 
+//                                            "then " + 
+//                                            "to_date(cc || ':00', 'yyyy-mm-dd hh24:mi:ss') + 1 " + 
+//                                       "else " + 
+//                                            "to_date(cc || ':00', 'yyyy-mm-dd hh24:mi:ss') " + 
+//                                     "end) - to_date(bb || ':00', 'yyyy-mm-dd hh24:mi:ss')) * 24 * 60 - 5) / 15) times " + 
+//                          "from (select a.doctor_no, a.doctor, a.queue_name, a.clinic_duration, to_char(a.counsel_date, 'yyyy-mm-dd') || ' ' || nvl(a.reg_begin_time, b.reg_begin_time) bb, to_char(a.counsel_date, 'yyyy-mm-dd') || ' ' || nvl(a.reg_end_time, b.reg_end_time) cc " + 
+//                                  "from OUTP_DOCTOR_REGIST a, " + 
+//                                       "TIME_INTERVAL_DICT b, " + 
+//                                       "clinic_index c " + 
+//                                 "where a.clinic_dept = b.dept_code " + 
+//                                   "and a.queue_name = c.clinic_label " + 
+//                                   "and a.clinic_duration = b.time_interval_name " + 
+//                                   "and to_date(a.counsel_date) = to_date('" + counsel_date + "', 'yyyy-mm-dd') " + 
+//                                   "and a.doctor_no = '" + doctor_no + "' " + 
+//                                   "and a.QUEUE_NAME = '" + queue_name + "' " + 
+//                                   "and a.clinic_duration = '" + clinic_duration + "') X, dept_dict z) Y " + 
+//                 "where rownum <= y.times) T) T_A " + 
+// "where to_char(T_A.times, 'yyyy-mm-dd hh24:mi') not in " + 
+//       "(select REG_TIME_POINT " + 
+//          "from CLINIC_APPOINTS " + 
+//          "where PRE_REGIST_DOCTOR = '" + doctor_no + "' " + 
+//            "and REGIST_STATUS <> '2' " + 
+//            "and to_date(VISIT_DATE_APPTED) = to_date('" + counsel_date + "', 'yyyy-mm-dd')) " +
+//            "and T_A.times > sysdate " + 
+// "order by T_A.times;")
+//        .setParameter(0, doctor_name); 
+//	    System.out.println("dao end1...");
+//	    odr = query.list();
+//	    System.out.println("dao CheckClinicDeptDoctorNo end2...");
+//	    return odr;
+//	}
+	
 	//查诊室代号 & 医生工号
-		public List<OutpDoctorRegist> CheckClinicDeptDoctorNo(String doctor_name) {
+		public List<Object[]> CheckClinicDeptDoctorNo(String doctor_name) {
 			System.out.println("dao...");
 			
 			Session session = HibernateUtil.getSession();
-			List<OutpDoctorRegist> odr = null;
+			List<Object[]> odr = null;
 			
 			Query query = session.createSQLQuery(
 					"select CLINIC_DEPT,DOCTOR_NO " + 
@@ -381,7 +438,7 @@ public class OzqDao{
 		}
 	
 	//查医生名字
-		public List<String> CheckDoctorName(String deptname) {
+		public List<Object[]> CheckDoctorName(String deptname) {
 			System.out.println("dao...");
 			
 			Session session = HibernateUtil.getSession();
@@ -394,25 +451,10 @@ public class OzqDao{
 					"group by DOCTOR")
 					.setParameter(0, deptname);
 		    System.out.println("dao end1...");
-		    List<String> odr = query.list();
+		    List<Object[]> odr = query.list();
 		    System.out.println(odr.get(0));
 		    System.out.println("dao CheckDoctorName end2...");
 		    return odr;
-		}
-		
-	//首页的科室
-		public List<String> CheckDeptName() {
-			System.out.println("dao...");
-			
-			Session session = HibernateUtil.getSession();
-			Query query = session.createSQLQuery(
-						"select DEPT_NAME from DEPT_DICT where  DEPT_NAME in ('门诊中医科','门诊外科','门诊内科','门诊口腔科','门诊急诊科','门诊妇科') group by DEPT_NAME"
-						);
-			System.out.println("dao end1...");
-			List<String> odr = query.list();
-			System.out.println(odr.get(0));
-			System.out.println("dao CheckDeptName end2...");
-			return odr;
 		}
 		
 		//查时间
