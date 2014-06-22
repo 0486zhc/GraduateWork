@@ -1437,7 +1437,6 @@ public class OzqAction{
 			
 			String counseldate = req.getParameter("counsel_date");
 			counseldate=new String(counseldate.getBytes("ISO-8859-1"), "UTF-8");
-			counseldate = df.format(counseldate);
 			request.put("counseldate", counseldate);
 			
 			String clinicduration = req.getParameter("clinic_duration");

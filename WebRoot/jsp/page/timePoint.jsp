@@ -122,7 +122,7 @@ $(document).ready(function () {
                <div class="ordernum">已预约<b>631</b>&nbsp;人</div>
                 <div class="dpt_dpt card">
                     <div class="dpt_img">
-                        <img src="images/doctor.jpg" alt="刘浩斌" title="刘浩斌" width="150" height="200">
+                        <img src="images/doctor.jpg" alt='<s:property value="#session.doctName"/>' title='<s:property value="#session.doctName"/>' width="150" height="200">
                     </div>
                     <dl class="dpt_info">
                         <dt><s:property value="#session.doctName"/></dt>
