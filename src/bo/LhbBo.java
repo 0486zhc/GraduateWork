@@ -26,9 +26,9 @@ public class LhbBo
       return pat;
    }
 
-   public String regist(PatMasterIndex pmi)
+   public String regist(PatMasterIndex pmi,String date)
    {
-      pmiDao.regist(pmi);
+      pmiDao.regist(pmi,date);
       return SUCCESS;
    }
 

@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import model.Ozq.ClinicAppoints;
@@ -28,7 +29,7 @@ public class PatMasterIndexDAO
    private Query               query;
    private Session             session;
    private static final String strForLogin  = "from PatMasterIndex where id_no = ? and password = ?";
-   private static final String strForRegist = "insert into pat_master_index (patient_id,name,phone_number_business,id_no,password) values (?,?,?,?,?)";
+   private static final String strForRegist = "insert into pat_master_index (patient_id,name,phone_number_business,id_no,password,sex,date_of_birth) values (?,?,?,?,?,?,?)";
    private static final String strForMaxId  = "select max(patient_id) from pat_master_index";
    private static final String strByUserId  = "from PatMasterIndex where id_no = ?";
 
@@ -53,7 +54,7 @@ public class PatMasterIndexDAO
       return pmi.get(0);
    }
 
-   public void regist(PatMasterIndex pmi)
+   public void regist(PatMasterIndex pmi,String date)
    {
       // Session session = HibernateUtil.getSession();
       // session.setFlushMode(FlushMode.AUTO);
@@ -79,6 +80,8 @@ public class PatMasterIndexDAO
       query.setString(2, pmi.getPhoneNumberBusiness());
       query.setString(3, pmi.getIdNo());
       query.setString(4, pmi.getPassword());
+      query.setString(5, pmi.getSex());
+      query.setDate(6, Date.valueOf(date));
       query.executeUpdate();
       ts.commit();
       session.flush();
