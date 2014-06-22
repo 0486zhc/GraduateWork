@@ -76,6 +76,30 @@ public class OutpDoctorRegist implements java.io.Serializable {
 		return doctorNo;
 	}
 
+	public void setDoctor(String doctor) {
+		this.doctor = doctor;
+	}
+
+	public void setCounselDate(Timestamp counselDate) {
+		this.counselDate = counselDate;
+	}
+
+	public void setClinicDuration(String clinicDuration) {
+		this.clinicDuration = clinicDuration;
+	}
+
+	public void setQueueName(String queueName) {
+		this.queueName = queueName;
+	}
+
+	public void setLimitNumApp(Integer limitNumApp) {
+		this.limitNumApp = limitNumApp;
+	}
+
+	public void setRegistApped(Integer registApped) {
+		this.registApped = registApped;
+	}
+
 	public void setDoctorNo(String doctorNo) {
 		this.doctorNo = doctorNo;
 	}

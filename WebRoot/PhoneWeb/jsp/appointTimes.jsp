@@ -31,36 +31,40 @@
 		<a href="<%=basePath %>PhoneWeb/index.jsp" class="home"> <span
 			class="header-icon header-icon-home"></span> <span
 			class="header-name">主页</span> </a>
-		<div class="title" id="titleString"><s:property value="dept.deptName"/></div>
+		<div class="title" id="titleString">预约时间</div>
 		<a href="javascript:history.go(-1);" class="back"> <span
 			class="header-icon header-icon-return"></span> <span
 			class="header-name">返回</span> </a>
 	</div>
 
+
 	<div class="container hotellistbg">
 		<ul class="unstyled hotellist">
-
-		<s:iterator value="%{doctorsInfo}">
-<!-- 			<li><a href="appointment_findDoctorTime?doctorNo=<s:property value="%{empNo}" />" ><img -->
-<!-- 				<li><a href="OzqActionOnDuty2.action?doctor_name=钟灵&dept_name=门诊内科" ><img -->
-				<li><a href="OzqActionOnDuty2.action?doctor_name=<s:property value="%{name}" />&dept_name=<s:property value="dept.deptName"/>" ><img
+			<div align="center">
+		<s:property value="mess"/>
+	</div>
+		<s:iterator value="%{appointsList}" var="app" >
+			<li><img
 					class="hotelimg fl"
-					src="<%=basePath %>PhoneWeb/upload/img/xctxwlb/20131029/doctor.jpg" />
-					<div class="inline">
-						<h3><s:property value="%{name}" /></h3>
-						<p>医生编号：<s:property value="%{empNo}" /></p>
-						<p>医生职称：<s:property value="%{title}" /></p><br/>
-					</div></a>
-<!-- 					<ul class="unstyled"> -->
-<!-- 					<li><a href="Hotel.aspx@id=5" class="order">预订</a> -->
-<!-- 					</li> -->
-<!-- 					<li><a href="Hotelmap.aspx@id=5" class="gps">导航</a> -->
-<!-- 					</li> -->
-<!-- 					<li><a href="Hotelinfo.aspx@id=5" class="reality">实景</a> -->
-<!-- 					</li> -->
-<!-- 				</ul> -->
-			</li>
+					src="<%=basePath %>PhoneWeb/upload/img/xctxwlb/20131029/aixin.jpg" />
+					<div class="inlinea">
+<!-- 							<h3><s:property value="%{clinicLabel}" /></h3> -->
+							<h3><s:property value="#app.clinicLabel" /></h3>
+							<p>预约类型：<s:property value="#app.identity" /></p>
+							<p>预约时间：<s:property value="#app.visitTimeAppted" /> <s:property value="#app.regTimePoint" /></p>
+							<p><br/></p>
+					</div>
+					<ul class="unstyled"> 
+					<li></li>
+					<li><a href="appointment_cancle?mess=<s:property value="#app.regTimePoint"/>?doctorNo=<s:property value="#app.preRegistDoctor"/>" class="order">取消预约</a>
+					</li><li>
+						
+
+					</li> 
+					</ul>
 		</s:iterator>
+		
+		<s:debug/>
 		</ul>
 	</div>
 
@@ -78,6 +82,6 @@
 			<p style="color:#bbb;"> &copy; 版权所有 2012-2014</p>
 		</div>
 	</div>
-<s:debug></s:debug>
+
 </body>
 </html>
