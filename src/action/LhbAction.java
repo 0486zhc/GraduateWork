@@ -43,7 +43,64 @@ public class LhbAction extends ActionSupport
    private String month;
    private String day;
    private String sex;
+   private String visit_date;
+   private String clinic_Label;
+   private String visit_time;
+   private String timePoint;
+   private String doc_no;
    
+   
+   
+   public String getVisit_date()
+   {
+      return visit_date;
+   }
+
+   public void setVisit_date(String visit_date)
+   {
+      this.visit_date = visit_date;
+   }
+
+   public String getClinic_Label()
+   {
+      return clinic_Label;
+   }
+
+   public void setClinic_Label(String clinic_Label)
+   {
+      this.clinic_Label = clinic_Label;
+   }
+
+   public String getVisit_time()
+   {
+      return visit_time;
+   }
+
+   public void setVisit_time(String visit_time)
+   {
+      this.visit_time = visit_time;
+   }
+
+   public String getTimePoint()
+   {
+      return timePoint;
+   }
+
+   public void setTimePoint(String timePoint)
+   {
+      this.timePoint = timePoint;
+   }
+
+   public String getDoc_no()
+   {
+      return doc_no;
+   }
+
+   public void setDoc_no(String doc_no)
+   {
+      this.doc_no = doc_no;
+   }
+
    public String getYear()
    {
       return year;
@@ -216,6 +273,12 @@ public class LhbAction extends ActionSupport
       appoints.setPatientId(pi.getPatientId());
       appoints.setName(pi.getName());
       appoints.setAge(getAge(pi.getDateOfBirth()));
+      appoints.setRegistFlag("0");
+      appoints.setRegistStatus("0");
+      appoints.setModeCode("7");
+      appoints.setVisitDateAppted(Date.valueOf(visit_date));
+      appoints.setClinicLabel(clinic_Label);
+      //appoints.setVisitTimeAppted();
       String state = lhbBo.makeAppoints(appoints,user_id);
       //return state;
       System.out.println("state is :" + state + "!!!!!");
