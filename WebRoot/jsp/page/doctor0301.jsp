@@ -151,25 +151,25 @@ $(document).ready(function () {
                     <div class="timetable fl">
                         <ul>
                             <li class="fl" id='date1'>
-                             	${date1 }<br>${day1 }
-                            </li>
-                            <li class="fl" id='date2'>
                              	${date2 }<br>${day2 }
                             </li>
-                            <li class="fl" id='date3'>
+                            <li class="fl" id='date2'>
                              	${date3 }<br>${day3 }
                             </li>
-                            <li class="fl" id='date4'>
+                            <li class="fl" id='date3'>
                             	${date4 }<br>${day4 }
                             </li>
-                            <li class="fl" id='date5'>
+                            <li class="fl" id='date4'>
                             	${date5 }<br>${day5 }
                             </li>
-                            <li class="fl" id='date6'>
+                            <li class="fl" id='date5'>
                             	${date6 }<br>${day6 }
                             </li>
-                            <li class="fl" id='date7'>
+                            <li class="fl" id='date6'>
                             	${date7 }<br>${day7 }
+                            </li>
+                            <li class="fl" id='date7'>
+                             	${date8 }<br>${day8 }
                             </li>
                         </ul>
                     </div>
@@ -179,24 +179,6 @@ $(document).ready(function () {
                         <li class="beforenoon dc_od_cnt_li od_cnt_time clearfix">
                             <div class="fl">上<br>午</div>
                             <div class="fr">上<br>午</div>
-                            <s:if test="#request.todaymoring.clinicDuration == '上午'">
-                            	<s:if test="#request.todaymoring.limitNumApp != 0">
-                            		<s:if test="#request.todaymoring.registApped != #request.todaymoring.limitNumApp">
-                            			<s:iterator value="#request.todaymoring">
-                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
-                            			</s:iterator>
-                            		</s:if>
-                            		<s:else>
-                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
-                            		</s:else>
-                            	</s:if>
-                            	<s:else>
-                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            	</s:else>
-                            </s:if>
-                            <s:else>
-                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
-                            </s:else>
                             <s:if test="#request.twodaymoring.clinicDuration == '上午'">
                             	<s:if test="#request.twodaymoring.limitNumApp != 0">
                             		<s:if test="#request.twodaymoring.registApped != #request.twodaymoring.limitNumApp">
@@ -205,7 +187,7 @@ $(document).ready(function () {
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
-                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            			<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.twoday.doctorNo"/>&counsel_date=<s:property value="#request.twodaymoring.counselDate"/>&clinic_duration=<s:property value="#request.twodaymoring.clinicDuration"/>&queue_name=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_off">约满</a>
                             		</s:else>
                             	</s:if>
                             	<s:else>
@@ -305,14 +287,10 @@ $(document).ready(function () {
                             <s:else>
                             	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
                             </s:else>
-                        </li>
-                        <li class="beforenoon dc_od_cnt_li od_cnt_time clearfix">
-                            <div class="fl">中<br>午</div>
-                            <div class="fr">中<br>午</div>
-                            <s:if test="#request.todaynoon.clinicDuration == '急诊中午'">
-                            	<s:if test="#request.todaynoon.limitNumApp != 0">
-                            		<s:if test="#request.todaynoon.registApped != #request.todaynoon.limitNumApp">
-                            			<s:iterator value="#request.todaynoon">
+                            <s:if test="#request.eightdaymoring.clinicDuration == '上午'">
+                            	<s:if test="#request.eightdaymoring.limitNumApp != 0">
+                            		<s:if test="#request.eightdaymoring.registApped != #request.eightdaymoring.limitNumApp">
+                            			<s:iterator value="#request.eightdaymoring">
                             				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
@@ -327,6 +305,10 @@ $(document).ready(function () {
                             <s:else>
                             	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
                             </s:else>
+                        </li>
+                        <li class="beforenoon dc_od_cnt_li od_cnt_time clearfix">
+                            <div class="fl">中<br>午</div>
+                            <div class="fr">中<br>午</div>
                             <s:if test="#request.twodaynoon.clinicDuration == '急诊中午'">
                             	<s:if test="#request.twodaynoon.limitNumApp != 0">
                             		<s:if test="#request.twodaynoon.registApped != #request.twodaynoon.limitNumApp">
@@ -435,14 +417,10 @@ $(document).ready(function () {
                             <s:else>
                             	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
                             </s:else>
-                        </li>
-                        <li class="afternoon dc_od_cnt_li od_cnt_time clearfix">
-                            <div class="fl">下<br>午</div>
-                            <div class="fr">下<br>午</div>
-                            <s:if test="#request.todayafternoon.clinicDuration == '下午'">
-                            	<s:if test="#request.todayafternoon.limitNumApp != 0">
-                            		<s:if test="#request.todayafternoon.registApped != #request.todayafternoon.limitNumApp">
-                            			<s:iterator value="#request.todayafternoon">
+                            <s:if test="#request.eightdaynoon.clinicDuration == '急诊中午'">
+                            	<s:if test="#request.eightdaynoon.limitNumApp != 0">
+                            		<s:if test="#request.eightdaynoon.registApped != #request.eightdaynoon.limitNumApp">
+                            			<s:iterator value="#request.eightdaynoon">
                             				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
@@ -457,6 +435,10 @@ $(document).ready(function () {
                             <s:else>
                             	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
                             </s:else>
+                        </li>
+                        <li class="afternoon dc_od_cnt_li od_cnt_time clearfix">
+                            <div class="fl">下<br>午</div>
+                            <div class="fr">下<br>午</div>
                             <s:if test="#request.twodayafternoon.clinicDuration == '下午'">
                             	<s:if test="#request.twodayafternoon.limitNumApp != 0">
                             		<s:if test="#request.twodayafternoon.registApped != #request.twodayafternoon.limitNumApp">
@@ -565,14 +547,10 @@ $(document).ready(function () {
                             <s:else>
                             	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
                             </s:else>
-                        </li>
-                        <li class="beforenoon dc_od_cnt_li od_cnt_time clearfix">
-                            <div class="fl">晚<br>上</div>
-                            <div class="fr">晚<br>上</div>
-                            <s:if test="#request.todaynight.clinicDuration == '急诊晚上'">
-                            	<s:if test="#request.todaynight.limitNumApp != 0">
-                            		<s:if test="#request.todaynight.registApped != #request.todaynight.limitNumApp">
-                            			<s:iterator value="#request.todaynight">
+                            <s:if test="#request.eightdayafternoon.clinicDuration == '下午'">
+                            	<s:if test="#request.eightdayafternoon.limitNumApp != 0">
+                            		<s:if test="#request.eightdayafternoon.registApped != #request.eightdayafternoon.limitNumApp">
+                            			<s:iterator value="#request.eightdayafternoon">
                             				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
@@ -587,6 +565,10 @@ $(document).ready(function () {
                             <s:else>
                             	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
                             </s:else>
+                        </li>
+                        <li class="beforenoon dc_od_cnt_li od_cnt_time clearfix">
+                            <div class="fl">晚<br>上</div>
+                            <div class="fr">晚<br>上</div>
                             <s:if test="#request.twodaynight.clinicDuration == '急诊晚上'">
                             	<s:if test="#request.twodaynight.limitNumApp != 0">
                             		<s:if test="#request.twodaynight.registApped != #request.twodaynight.limitNumApp">
@@ -695,6 +677,24 @@ $(document).ready(function () {
                             <s:else>
                             	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
                             </s:else>
+                            <s:if test="#request.eightdaynight.clinicDuration == '急诊晚上'">
+                            	<s:if test="#request.eightdaynight.limitNumApp != 0">
+                            		<s:if test="#request.eightdaynight.registApped != #request.eightdaynight.limitNumApp">
+                            			<s:iterator value="#request.eightdaynight">
+                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            			</s:iterator>
+                            		</s:if>
+                            		<s:else>
+                            			<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_off">约满</a>
+                            		</s:else>
+                            	</s:if>
+                            	<s:else>
+                            		<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            	</s:else>
+                            </s:if>
+                            <s:else>
+                            	<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_null"></a>
+                            </s:else>
                         </li>
                     </ul>
                 </div>
@@ -740,7 +740,6 @@ $(document).ready(function () {
 <div class="footer center t_c">
     <p>客服电话 00000000&nbsp;&nbsp;&nbsp;&nbsp;报警电话 110</p>
     <p>版权所有 Copyright©2014-9999 广东医学院10级信管15班 </p>
-    <s:property value="#request.todaymoring.clinicDuration"/>
 </div>
 </div>
 <div class="login_bg absolute center"><div class="lg_bg fixed center"></div></div>

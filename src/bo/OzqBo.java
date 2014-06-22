@@ -30,12 +30,6 @@ private OzqDao OzqDao;
 ////		}
 //		return odr;
 //	}
-
-	//查Today排班
-	public List<Object[]> CheckOnDutyToday(String clinic_dept, String doctor_no) {
-		System.out.println("bo CheckOnDuty begin...");
-		return  OzqDao.CheckOnDutyToday(clinic_dept, doctor_no);
-	}
 	
 	//查Twoday排班
 	public List<Object[]> CheckOnDutyTwoday(String clinic_dept, String doctor_no) {
@@ -71,6 +65,12 @@ private OzqDao OzqDao;
 	public List<Object[]> CheckOnDutySevenday(String clinic_dept, String doctor_no) {
 		System.out.println("bo CheckOnDuty begin...");
 		return OzqDao.CheckOnDutySevenday(clinic_dept, doctor_no);
+	}
+
+	//查Eightday排班
+	public List<Object[]> CheckOnDutyEightday(String clinic_dept, String doctor_no) {
+		System.out.println("bo CheckOnDuty begin...");
+		return  OzqDao.CheckOnDutyEightday(clinic_dept, doctor_no);
 	}
 	
 	//查医生姓名
