@@ -106,6 +106,7 @@ obj.src="rand.action?d="+timenow;
             <ul>
                 <li class="login"><a href="javascript:void(0);">登录</a><span class="fr">|</span></li>
                 <li><a href="regist.jsp">注册</a></li>
+                <li><a href="exit.action">注销</a></li>
             </ul>
         </div>
     </div>
@@ -124,31 +125,47 @@ obj.src="rand.action?d="+timenow;
     </div>
 </div>
 <div class="content">
-	<div class="cnt w960 center clearfix" style="height:500px;background:#FFF;">
+	<div class="cnt w960 center clearfix" style="height:550px;background:#FFF;">
 		<div class="rg_tt"><span>注册新帐号</span></div>
 		<form class="rg_cnt fl" action="regist.action" method="post" id="regist"name="regist">
 			<p>请填写以下账号信息</p>
 			<ul>
 				<li>
-					<span>手机号</span>
+					<span>手&nbsp;&nbsp;机&nbsp;&nbsp;号</span>
 					<input type="text" value="" placeholder="请输入您的手机号码" maxlength="11" name="phoneNum">
 					<label for="">手机号码不能为空</label>
 				</li>
 				<li>
-					<span>用户密码</span>
-					<input type="password" value="" placeholder="请输入8-20位登录密码"  maxlength="20" name="pwd">
-					<label for="">密码不能为空</label>
-				</li>
-				<li>
-					<span>真实姓名</span>
+					<span>真实姓名&nbsp;</span>
 					<input type="text" value="" placeholder="为了成功就诊，请正确填写" name="user_name">
 					<label for="">姓名不能为空</label>
 				</li>
 				<li>
-					<span>身份证</span>
+				      <span>出生日期&nbsp;</span>
+				      <select  id="_birthyear" style="width:65px;" name="year"></select>年
+                      <select  id="_birthmonth"  style="width:65px;"name="month"></select>月
+                      <select  id="_birthday"  style="width:65px;"name="day"></select>日
+					<label for="">出生日期不能为空</label>
+				</li>
+				<li>
+					<span>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</span>
+					<select name="sex">
+ 							 <option value ="男">男</option>
+  							 <option value ="女">女</option>
+  							 <option value="不详">不详</option>
+				    </select>
+					<label for="">性别不能为空</label>
+				</li>
+				<li>
+					<span>身&nbsp;&nbsp;份&nbsp;&nbsp;证</span>
 					<input id="uid"type="text" value="" placeholder="为了成功就诊，请正确填写" maxlength="18" name="user_id" onblur="checkUserName()">
 					<label for="">请填写正确的身份证号码!</label>
 					<b>该用户已经注册!</b>
+				</li>	
+				<li>
+					<span>用户密码&nbsp;</span>
+					<input type="password" value="" placeholder="请输入8-20位登录密码"  maxlength="20" name="pwd">
+					<label for="">密码不能为空</label>
 				</li>
 			</ul>
 			<input id="commit" type="button" value="同意协议并注册">
