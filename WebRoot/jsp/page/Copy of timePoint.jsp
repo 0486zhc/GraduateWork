@@ -96,7 +96,6 @@ $(document).ready(function () {
             <ul>
                 <li class="login"><a href="javascript:void(0);">登录</a><span class="fr">|</span></li>
                 <li><a href="regist.jsp">注册</a></li>
-                <li><a href="exit.action">注销</a></li>
             </ul>
         </div>
     </div>
@@ -126,7 +125,7 @@ $(document).ready(function () {
                         <img src="images/doctor.jpg" alt='<s:property value="#session.doctName"/>' title='<s:property value="#session.doctName"/>' width="150" height="200">
                     </div>
                     <dl class="dpt_info">
-                        <dt><s:property value="#session.doctName"/></dt>
+                        <dt id="docc_name"><s:property value="#session.doctName"/></dt>
                         <dd>
                             <b><s:property value="#session.queuename"/></b>
                             <p>科室：<a href="specialty.jsp"><s:property value="#session.thedeptName"/></a></p>
@@ -156,7 +155,7 @@ $(document).ready(function () {
                 <div class="od_cnt">
                 	<s:if test='#request.registtime != ""'>
                 		<s:iterator value="#request.registtime">
-                            <a href="javascript:void(0);" class="fl t_c block fs14 od_btn order_access"><s:property /></a>
+                            <a href="javascript:void(0);" id="texx" class="fl t_c block fs14 od_btn order_access"><s:property /></a>
                     	</s:iterator>
                     </s:if>
                     <s:else>
@@ -229,5 +228,34 @@ $(document).ready(function () {
     </form>
 </div>
 
+<div id="order" class="or_cnt center fixed" style="display: none; margin-top: 50.5px;">
+    <div class="lg_tt">
+        <span>确认订单</span>
+        <a href="javascript:void(0);" class="t_c block fr loginclose">×</a>
+    </div>
+    <form class="lg_form relative" action="">
+        <label class="wrong clearfix"><b>×</b><span></span></label>
+        <ul class="center clearfix">
+            <li><span>用 户 名 :</span><p id="uid" size="35" style=:padding-left:6px>&nbsp;范璟</p></li>
+            <li><span>医   生 : </span><p id="doc" size="35">&nbsp;范璟</p></li>
+            <li><span>号   别:</span><p id="clinic_label" size="35">&nbsp;妇科主任号</p></li>
+            <li><span>预约时间:</span><p id="app_time" size="35">&nbsp;2014-12-12 15:25</p></li>
+            <li><span>预约时段:</span><p id="app_time_" size="35">&nbsp;晚上</p></li>
+        </ul>
+        <input type="submit" class="login_btn center t_c" value="确认">
+    </form>
+</div>
+<script>
+	var texx = document.getElementById('texx');
+	var order = documen.getElementById('order');
+	texx.onclick=function()
+	{
+		order.style.display="block";
+		var docname = document.getElementById('docc_name');
+		var doc = document.getElementById('doc');
+		doc.innerHtml = docname.value;
+	}
+	
+</script>
 </body>
 </html>

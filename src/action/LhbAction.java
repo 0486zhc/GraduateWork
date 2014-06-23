@@ -244,7 +244,7 @@ public class LhbAction extends ActionSupport
          pmi.setName(user_name);
          pmi.setPhoneNumberBusiness(phoneNum);
          pmi.setSex(sex);
-         String state = lhbBo.regist(pmi,(year+"-"+month+"-"+day));
+         String state = lhbBo.regist(pmi,(year + "-" + month + "-" + day));
          if(SUCCESS.equals(state))
          {
             session.put("user", pmi);
@@ -289,7 +289,7 @@ public class LhbAction extends ActionSupport
       appoints.setVisitTimeAppted(visit_time);
       appoints.setRegTimePoint(visit_date + " " + timePoint);
       appoints.setPreRegistDoctor((String)session.get("doctorno"));
-      String state = lhbBo.makeAppoints(appoints,user_id);
+      String state = lhbBo.makeAppoints(appoints,pi.getIdNo());
       return state;
      
       
