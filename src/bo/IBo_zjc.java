@@ -35,4 +35,7 @@ public interface IBo_zjc
 	//一条预约记录
 	List<String> getAppointTimes(String doctorName,String date,String duration);
 	
+	
+	public List<Object[]> CheckRegistTime(String doctor_no, String counsel_date, String clinic_duration, String queue_name);
+	
 }

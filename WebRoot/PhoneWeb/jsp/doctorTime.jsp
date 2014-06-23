@@ -39,7 +39,7 @@
 		<a href="<%=basePath%>PhoneWeb/index.jsp" class="home"> <span
 			class="header-icon header-icon-home"></span> <span
 			class="header-name">主页</span> </a>
-		<div class="title" id="titleString">医生时间</div>
+		<div class="title" id="titleString">医生时间ss</div>
 		<a href="javascript:history.go(-1);" class="back"> <span
 			class="header-icon header-icon-return"></span> <span
 			class="header-name">返回</span> </a>
@@ -108,7 +108,7 @@
                             	<s:if test="#request.threedaymoring.limitNumApp != 0">
                             		<s:if test="#request.threedaymoring.registApped != #request.threedaymoring.limitNumApp">
                             			<s:iterator value="#request.threedaymoring">
-                            				<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.threeday.doctorNo"/>&counsel_date=<s:property value="#request.date3"/>&clinic_duration=<s:property value="#request.threedaymoring.clinicDuration"/>&queue_name=<s:property value="#request.threedaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -126,7 +126,7 @@
                             	<s:if test="#request.fourdaymoring.limitNumApp != 0">
                             		<s:if test="#request.fourdaymoring.registApped != #request.fourdaymoring.limitNumApp">
                             			<s:iterator value="#request.fourdaymoring">
-                            				<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.fourday.doctorNo"/>&counsel_date=<s:property value="#request.date4"/>&clinic_duration=<s:property value="#request.fourdaymoring.clinicDuration"/>&queue_name=<s:property value="#request.fourdaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -144,7 +144,7 @@
                             	<s:if test="#request.fivedaymoring.limitNumApp != 0">
                             		<s:if test="#request.fivedaymoring.registApped != #request.fivedaymoring.limitNumApp">
                             			<s:iterator value="#request.fivedaymoring">
-                            				<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.fiveday.doctorNo"/>&counsel_date=<s:property value="#request.date5"/>&clinic_duration=<s:property value="#request.fivedaymoring.clinicDuration"/>&queue_name=<s:property value="#request.fivedaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -162,7 +162,7 @@
                             	<s:if test="#request.sixdaymoring.limitNumApp != 0">
                             		<s:if test="#request.sixdaymoring.registApped != #request.sixdaymoring.limitNumApp">
                             			<s:iterator value="#request.sixdaymoring">
-                            				<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.sixday.doctorNo"/>&counsel_date=<s:property value="#request.date6"/>&clinic_duration=<s:property value="#request.sixdaymoring.clinicDuration"/>&queue_name=<s:property value="#request.sixdaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -180,7 +180,7 @@
                             	<s:if test="#request.sevendaymoring.limitNumApp != 0">
                             		<s:if test="#request.sevendaymoring.registApped != #request.sevendaymoring.limitNumApp">
                             			<s:iterator value="#request.sevendaymoring">
-                            				<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.sevenday.doctorNo"/>&counsel_date=<s:property value="#request.date7"/>&clinic_duration=<s:property value="#request.sevendaymoring.clinicDuration"/>&queue_name=<s:property value="#request.sevendaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -198,7 +198,7 @@
                             	<s:if test="#request.eightdaymoring.limitNumApp != 0">
                             		<s:if test="#request.eightdaymoring.registApped != #request.eightdaymoring.limitNumApp">
                             			<s:iterator value="#request.eightdaymoring">
-                            				<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.eightday.doctorNo"/>&counsel_date=<s:property value="#request.date8"/>&clinic_duration=<s:property value="#request.eightdaymoring.clinicDuration"/>&queue_name=<s:property value="#request.eightdaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -220,7 +220,7 @@
                             	<s:if test="#request.twodaynoon.limitNumApp != 0">
                             		<s:if test="#request.twodaynoon.registApped != #request.twodaynoon.limitNumApp">
                             			<s:iterator value="#request.twodaynoon">
-                            				<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.eightday.doctorNo"/>&counsel_date=<s:property value="#request.date8"/>&clinic_duration=<s:property value="#request.eightdaymoring.clinicDuration"/>&queue_name=<s:property value="#request.eightdaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -242,7 +242,7 @@
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
-                            			<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.eightday.doctorNo"/>&counsel_date=<s:property value="#request.date8"/>&clinic_duration=<s:property value="#request.eightdaymoring.clinicDuration"/>&queue_name=<s:property value="#request.eightdaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_off">约满</a>
+                            			<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_off">约满</a>
                             		</s:else>
                             	</s:if>
                             	<s:else>
@@ -274,7 +274,7 @@
                             	<s:if test="#request.fivedaynoon.limitNumApp != 0">
                             		<s:if test="#request.fivedaynoon.registApped != #request.fivedaynoon.limitNumApp">
                             			<s:iterator value="#request.fivedaynoon">
-                            				<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.eightday.doctorNo"/>&counsel_date=<s:property value="#request.date8"/>&clinic_duration=<s:property value="#request.eightdaymoring.clinicDuration"/>&queue_name=<s:property value="#request.eightdaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -292,7 +292,7 @@
                             	<s:if test="#request.sixdaynoon.limitNumApp != 0">
                             		<s:if test="#request.sixdaynoon.registApped != #request.sixdaynoon.limitNumApp">
                             			<s:iterator value="#request.sixdaynoon">
-                            				<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.eightday.doctorNo"/>&counsel_date=<s:property value="#request.date8"/>&clinic_duration=<s:property value="#request.eightdaymoring.clinicDuration"/>&queue_name=<s:property value="#request.eightdaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -310,7 +310,7 @@
                             	<s:if test="#request.sevendaynoon.limitNumApp != 0">
                             		<s:if test="#request.sevendaynoon.registApped != #request.sevendaynoon.limitNumApp">
                             			<s:iterator value="#request.sevendaynoon">
-                            				<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.eightday.doctorNo"/>&counsel_date=<s:property value="#request.date8"/>&clinic_duration=<s:property value="#request.eightdaymoring.clinicDuration"/>&queue_name=<s:property value="#request.eightdaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -368,7 +368,7 @@
                             	<s:if test="#request.threedayafternoon.limitNumApp != 0">
                             		<s:if test="#request.threedayafternoon.registApped != #request.threedayafternoon.limitNumApp">
                             			<s:iterator value="#request.threedayafternoon">
-                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href="appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -404,7 +404,7 @@
                             	<s:if test="#request.fivedayafternoon.limitNumApp != 0">
                             		<s:if test="#request.fivedayafternoon.registApped != #request.fivedayafternoon.limitNumApp">
                             			<s:iterator value="#request.fivedayafternoon">
-                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href="appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -422,7 +422,7 @@
                             	<s:if test="#request.sixdayafternoon.limitNumApp != 0">
                             		<s:if test="#request.sixdayafternoon.registApped != #request.sixdayafternoon.limitNumApp">
                             			<s:iterator value="#request.sixdayafternoon">
-                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href="appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -440,7 +440,7 @@
                             	<s:if test="#request.sevendayafternoon.limitNumApp != 0">
                             		<s:if test="#request.sevendayafternoon.registApped != #request.sevendayafternoon.limitNumApp">
                             			<s:iterator value="#request.sevendayafternoon">
-                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href="appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -458,7 +458,7 @@
                             	<s:if test="#request.eightdayafternoon.limitNumApp != 0">
                             		<s:if test="#request.eightdayafternoon.registApped != #request.eightdayafternoon.limitNumApp">
                             			<s:iterator value="#request.eightdayafternoon">
-                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href="appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -480,7 +480,7 @@
                             	<s:if test="#request.twodaynight.limitNumApp != 0">
                             		<s:if test="#request.twodaynight.registApped != #request.twodaynight.limitNumApp">
                             			<s:iterator value="#request.twodaynight">
-                            				<a href='OzqActionRegistTime.action?doctor_no=<s:property value="#request.twoday.doctorNo"/>&counsel_date=<s:property value="#request.date2"/>&clinic_duration=<s:property value="#request.twodaynight.clinicDuration"/>&queue_name=<s:property value="#request.twodaynight.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -498,7 +498,7 @@
                             	<s:if test="#request.threedaynight.limitNumApp != 0">
                             		<s:if test="#request.threedaynight.registApped != #request.threedaynight.limitNumApp">
                             			<s:iterator value="#request.threedaynight">
-                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href="appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -516,7 +516,7 @@
                             	<s:if test="#request.fourdaynight.limitNumApp != 0">
                             		<s:if test="#request.fourdaynight.registApped != #request.fourdaynight.limitNumApp">
                             			<s:iterator value="#request.fourdaynight">
-                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href="appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -534,7 +534,7 @@
                             	<s:if test="#request.fivedaynight.limitNumApp != 0">
                             		<s:if test="#request.fivedaynight.registApped != #request.fivedaynight.limitNumApp">
                             			<s:iterator value="#request.fivedaynight">
-                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href="appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -552,7 +552,7 @@
                             	<s:if test="#request.sixdaynight.limitNumApp != 0">
                             		<s:if test="#request.sixdaynight.registApped != #request.sixdaynight.limitNumApp">
                             			<s:iterator value="#request.sixdaynight">
-                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href="appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -570,7 +570,7 @@
                             	<s:if test="#request.sevendaynight.limitNumApp != 0">
                             		<s:if test="#request.sevendaynight.registApped != #request.sevendaynight.limitNumApp">
                             			<s:iterator value="#request.sevendaynight">
-                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href="appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -588,7 +588,7 @@
                             	<s:if test="#request.eightdaynight.limitNumApp != 0">
                             		<s:if test="#request.eightdaynight.registApped != #request.eightdaynight.limitNumApp">
                             			<s:iterator value="#request.eightdaynight">
-                            				<a href="javascript:void(0);" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href="appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>" class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>
@@ -627,6 +627,5 @@
 			<p style="color:#bbb;">&copy; 版权所有 2012-2014</p>
 		</div>
 	</div>
-
 </body>
 </html>

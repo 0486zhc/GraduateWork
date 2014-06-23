@@ -117,4 +117,11 @@ public class ImplBo_zjc implements IBo_zjc{
 		System.out.println("out="+out);
 		return null;
 	}
+
+	@Override
+	public List<Object[]> CheckRegistTime(String doctor_no,
+			String counsel_date, String clinic_duration, String queue_name) {
+		System.out.println("bo CheckRegistTime begin...");
+		return dao.CheckRegistTime(doctor_no, counsel_date, clinic_duration, queue_name);
+	}
 }

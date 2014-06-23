@@ -31,7 +31,7 @@
 		<a href="<%=basePath %>PhoneWeb/index.jsp" class="home"> <span
 			class="header-icon header-icon-home"></span> <span
 			class="header-name">主页</span> </a>
-		<div class="title" id="titleString">预约时间</div>
+		<div class="title" id="titleString"><s:property value="%{date}" /></div>
 		<a href="javascript:history.go(-1);" class="back"> <span
 			class="header-icon header-icon-return"></span> <span
 			class="header-name">返回</span> </a>
@@ -41,22 +41,22 @@
 	<div class="container hotellistbg">
 		<ul class="unstyled hotellist">
 			<div align="center">
-		<s:property value="mess"/>
+<!-- 		<s:property value="mess"/> -->
 	</div>
-		<s:iterator value="%{appointsList}" var="app" >
+		<s:iterator value="#session.preTimes" var="app" >
 			<li><img
 					class="hotelimg fl"
 					src="<%=basePath %>PhoneWeb/upload/img/xctxwlb/20131029/aixin.jpg" />
 					<div class="inlinea">
-<!-- 							<h3><s:property value="%{clinicLabel}" /></h3> -->
+							<h3><s:property value="#session.doctName" /></h3>
 							<h3><s:property value="#app.clinicLabel" /></h3>
-							<p>预约类型：<s:property value="#app.identity" /></p>
-							<p>预约时间：<s:property value="#app.visitTimeAppted" /> <s:property value="#app.regTimePoint" /></p>
-							<p><br/></p>
+							<p>预约时间：<s:property /></p>
+							<p>预约号别：<s:property value="%{mess3}" /></p>
+<!-- 							<p><br/></p> -->
 					</div>
 					<ul class="unstyled"> 
 					<li></li>
-					<li><a href="appointment_cancle?mess=<s:property value="#app.regTimePoint"/>?doctorNo=<s:property value="#app.preRegistDoctor"/>" class="order">取消预约</a>
+					<li><a href="appointment_cancle?mess=<s:property value="#app.regTimePoint"/>?doctorNo=<s:property value="#app.preRegistDoctor"/>" class="order">预约挂号</a>
 					</li><li>
 						
 

@@ -44,6 +44,8 @@ public class AppointmentAction extends ActionSupport{
 	private String date;
 	private String mess2;
 	private String mess3;
+
+	private List<Object[]> OutpDoctorRegistTime;
 	
 	// 找科室
 	public String findDepts(){
@@ -68,18 +70,46 @@ public class AppointmentAction extends ActionSupport{
 	public String appointTimes(){
 		System.out.println("appointTime");
 //		String a= MyUtil.formatContent(mess);
-		mess2 =  (String) ActionContext.getContext().getSession().get("doctName");;
+//		mess2 =  (String) ActionContext.getContext().getSession().get("doctName"); //医生姓名
+		mess2= MyUtil.formatContent(mess2);  // 医生编号
 		System.out.println(mess2);
-		date = MyUtil.formatContent(date);
+		date = MyUtil.formatContent(date);  // 日期
 		System.out.println(date);
-		mess = MyUtil.formatContent(mess);
-		mess3 = MyUtil.formatContent(mess3);
+		mess = MyUtil.formatContent(mess);  // 上午
+		System.out.println(mess);
+		mess3 = MyUtil.formatContent(mess3);  // queueName
 		System.out.println(mess3);
-		times = bo.getAppointTimes(mess2, date, mess);
+//		times = bo.getAppointTimes(mess2, date, mess);
 		
+//		OutpDoctorRegistTime = bo.CheckRegistTime(doctorno, counseldate, clinicduration, queuename);
+		OutpDoctorRegistTime = bo.CheckRegistTime(mess2, date, mess, mess3);
+		if(OutpDoctorRegistTime.size() != 0){
+			String[] registtime = new String[OutpDoctorRegistTime.size()];
+			for(int i = 0; i < OutpDoctorRegistTime.size(); i++){
+				Object[] obj = OutpDoctorRegistTime.get(i);
+				registtime[i] = (String) obj[1];
+				System.out.println(registtime[i]);
+//				System.out.println(registtime.length);
+			}
+//			request.put("registtime", registtime);
+			ActionContext.getContext().getSession().put("preTimes",registtime);  // 放session
+			System.out.println("1");
+		}else{
+//		request.put("registtime", null);
+			ActionContext.getContext().getSession().put("preTimes",null);  // 放session
+			System.out.println("2");
+		}
 		System.out.println(times);
-		
 		return "appointTimes";
+	}
+	
+	
+	public String addAppoint(){
+		System.out.println("addAppoint");
+		
+		
+		
+		return "appointsInfo";
 	}
 	
 	// 查询预约
