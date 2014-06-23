@@ -81,6 +81,14 @@ private OzqDao OzqDao;
 		return odr;
 	}
 	
+	//查其他医生姓名
+		public List<Object[]> CheckOtherDoctorName(String deptname, String doctorname) {
+			System.out.println("bo...");
+			List<Object[]> odr = OzqDao.CheckOtherDoctorName(deptname, doctorname);
+			System.out.println("bo CheckDoctorName end...");
+			return odr;
+		}
+	
 	//查每个时间点
 		public List<Object[]> CheckRegistTime(String doctor_no, String counsel_date, String clinic_duration, String queue_name){
 			System.out.println("bo CheckRegistTime begin...");

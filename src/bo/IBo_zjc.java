@@ -38,4 +38,7 @@ public interface IBo_zjc
 	
 	public List<Object[]> CheckRegistTime(String doctor_no, String counsel_date, String clinic_duration, String queue_name);
 	
+	public String addAppoints(ClinicAppoints appoints,String user_id);
+	   
+	
 }

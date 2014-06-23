@@ -175,28 +175,19 @@ $(document).ready(function () {
             </div>
             <div class="board_cnt o-hidden">
                 <ul>
+                    <s:iterator value="#request.otherdoctor">
                     <li class="fl">
                         <dl class="clearfix">
-                            <dt class="fl"><a href="doctor.jsp"><img src="images/doctor.jpg" width="48" height="58" alt="刘浩斌（专病门诊）"></a></dt>
+                            <dt class="fl"><a href='OzqActionOnDuty.action?doctor_name=<s:property />&dept_name=<s:property value="#session.thedeptName"/>'><img src="images/doctor.jpg" width="48" height="58" alt="<s:property />（专病门诊）"></a></dt>
                             <dd class="fl">
-                                <a href="doctor1105.jsp">廖志坚</a><br>
+                                <a href='OzqActionOnDuty.action?doctor_name=<s:property />&dept_name=<s:property value="#session.thedeptName"/>'><s:property /></a><br>
                                 <span class="fs12">副主任医师</span>
                             </dd>
                         </dl>
                         <i class="fl fs12">擅长：</i>
                         <p class="fs12 o-hidden">从事门诊内科临床工作二十余年，对门诊内科常见病及疑难杂症临床处理具有丰富的临床经验。</p>
                     </li>
-                    <li class="fl">
-                        <dl class="clearfix">
-                            <dt class="fl"><a href="doctor.jsp"><img src="images/doctor.jpg" width="48" height="58" alt="刘浩斌（专病门诊）"></a></dt>
-                            <dd class="fl">
-                                <a href="doctor.jsp">陈维东</a><br>
-                                <span class="fs12">副主任医师</span>
-                            </dd>
-                        </dl>
-                        <i class="fl fs12">擅长：</i>
-                        <p class="fs12 o-hidden">从事门诊内科临床工作二十余年，对门诊内科常见病及疑难杂症临床处理具有丰富的临床经验。</p>
-                    </li>
+                  </s:iterator>
                 </ul>
             </div>
         </div>

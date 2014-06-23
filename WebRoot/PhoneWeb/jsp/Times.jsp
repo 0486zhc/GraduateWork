@@ -31,7 +31,7 @@
 		<a href="<%=basePath %>PhoneWeb/index.jsp" class="home"> <span
 			class="header-icon header-icon-home"></span> <span
 			class="header-name">主页</span> </a>
-		<div class="title" id="titleString">222<s:property value="%{date}" /></div>
+		<div class="title" id="titleString"><s:property value="%{date}" /></div>
 		<a href="javascript:history.go(-1);" class="back"> <span
 			class="header-icon header-icon-return"></span> <span
 			class="header-name">返回</span> </a>
@@ -56,7 +56,7 @@
 					</div>
 					<ul class="unstyled"> 
 					<li></li>
-					<li><a href="appointment_addAppoint?mess=<s:property value="#app.regTimePoint"/>?doctorNo=<s:property value="#app.preRegistDoctor"/>" class="order">预约挂号2</a>
+					<li><a href="appointment_addAppoint?mess=<s:property />&mess4=<s:property value="%{mess3}" />" class="order">预约挂号</a>
 					</li><li>
 						
 

@@ -1,10 +1,11 @@
 package action.zjc;
 
 import java.io.UnsupportedEncodingException;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Calendar;
-import java.util.Date;
+
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
@@ -44,7 +45,8 @@ public class AppointmentAction extends ActionSupport{
 	private String date;
 	private String mess2;
 	private String mess3;
-
+	private String user_id; // 预约
+	private String mess4;
 	private List<Object[]> OutpDoctorRegistTime;
 	
 	// 找科室
@@ -77,9 +79,15 @@ public class AppointmentAction extends ActionSupport{
 		System.out.println(date);
 		mess = MyUtil.formatContent(mess);  // 上午
 		System.out.println(mess);
-		mess3 = MyUtil.formatContent(mess3);  // queueName
+		mess3 = MyUtil.formatContent(mess3);  // 号别
 		System.out.println(mess3);
 //		times = bo.getAppointTimes(mess2, date, mess);
+		
+		// 将医生编号，日期,上午 放入 session
+		ActionContext.getContext().getSession().put("dNo", mess2);
+		ActionContext.getContext().getSession().put("dDate", date);
+		ActionContext.getContext().getSession().put("dDuring", mess);
+		
 		
 //		OutpDoctorRegistTime = bo.CheckRegistTime(doctorno, counseldate, clinicduration, queuename);
 		OutpDoctorRegistTime = bo.CheckRegistTime(mess2, date, mess, mess3);
@@ -106,9 +114,44 @@ public class AppointmentAction extends ActionSupport{
 	
 	public String addAppoint(){
 		System.out.println("addAppoint");
+		pat = (PatMasterIndex) ActionContext.getContext().getSession().get("pat");  // 放session 
+		System.out.println(pat);
+		if(pat == null){
+			return "login";
+		}
+		System.out.println("pat="+pat);
+		System.out.println("appoint="+appoint);
+		System.out.println(pat.getPatientId());
+		String id = pat.getPatientId();
+		
+		mess2 =(String) ActionContext.getContext().getSession().get("dNo"); // 医生编号
+		date = (String) ActionContext.getContext().getSession().get("dDate"); // 日期
+		mess3 = (String) ActionContext.getContext().getSession().get("dDuring");  // 白天 中午 晚上         
+		mess = MyUtil.formatContent(mess);		// 时间点	
+		mess4 = MyUtil.formatContent(mess4);// queuename 号别
+					
+		System.out.println("医生编号："+mess2 +",日期:"+date+",间断:"+mess3+",时间点："+mess+",号别："+mess4);		
 		
 		
-		
+//		appoint.setPatientId(pat.getPatientId());id
+		ClinicAppoints appoints = new ClinicAppoints();
+		appoints.setPatientId("0000000123");
+		appoints.setName(pat.getName());
+	    appoints.setAge(MyUtil.getAge(pat.getDateOfBirth())); // 缺
+	    appoints.setRegistFlag("0");
+	    appoints.setRegistStatus("0");
+	    appoints.setModeCode("8");
+	    appoints.setVisitDateAppted(Date.valueOf(date));
+	    appoints.setClinicLabel(mess4); // 号别
+	    Date today = new Date(System.currentTimeMillis());
+	    appoints.setApptMadeDate(today);
+	    appoints.setVisitTimeAppted(mess3);
+	    appoints.setRegTimePoint(date + " " + mess);
+	    appoints.setPreRegistDoctor(mess2);
+	    System.out.println(appoints);
+	    
+	    mess = bo.addAppoints(appoints,pat.getIdNo());
+	    
 		return "appointsInfo";
 	}
 	
@@ -334,6 +377,22 @@ public class AppointmentAction extends ActionSupport{
 		return outDoctors;
 	}
 
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public List<Object[]> getOutpDoctorRegistTime() {
+		return OutpDoctorRegistTime;
+	}
+
+	public void setOutpDoctorRegistTime(List<Object[]> outpDoctorRegistTime) {
+		OutpDoctorRegistTime = outpDoctorRegistTime;
+	}
+
 	public List<String> getTimes() {
 		return times;
 	}
@@ -448,6 +507,14 @@ public class AppointmentAction extends ActionSupport{
 
 	public void setBo(IBo_zjc bo) {
 		this.bo = bo;
+	}
+
+	public String getMess4() {
+		return mess4;
+	}
+
+	public void setMess4(String mess4) {
+		this.mess4 = mess4;
 	}
 
 	

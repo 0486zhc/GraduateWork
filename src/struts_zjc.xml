@@ -34,7 +34,8 @@
 			<result name="success">/PhoneWeb/index.jsp</result>
 			<result name="false">/PhoneWeb/jsp/false.jsp</result>
 			<result name="appointsInfo">/PhoneWeb/jsp/appointsInfo.jsp</result>
-			<result name="appointTimes">/PhoneWeb/jsp/appointTimes.jsp</result>
+<!-- 			<result name="appointTimes">/PhoneWeb/jsp/appointTimes.jsp</result> -->
+			<result name="appointTimes">/PhoneWeb/jsp/Times.jsp</result>
 			
 			<!-- <result name="cencle"></result> -->
 		</action>
