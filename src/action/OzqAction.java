@@ -1425,6 +1425,7 @@ public class OzqAction{
 
 			String doctorno = req.getParameter("doctor_no");
 			doctorno=new String(doctorno.getBytes("ISO-8859-1"), "UTF-8");
+			session.put("doctorno", doctorno);
 
 			String counseldate = req.getParameter("counsel_date");
 			counseldate=new String(counseldate.getBytes("ISO-8859-1"), "UTF-8");

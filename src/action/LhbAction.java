@@ -45,7 +45,7 @@ public class LhbAction extends ActionSupport
    private String sex;
    private String visit_date;
    private String clinic_Label;
-   private String visit_time;
+   private String visit_time;//白天 中午 晚上
    private String timePoint;
    private String doc_no;
    
@@ -277,11 +277,17 @@ public class LhbAction extends ActionSupport
       appoints.setRegistStatus("0");
       appoints.setModeCode("7");
       appoints.setVisitDateAppted(Date.valueOf(visit_date));
-      appoints.setClinicLabel(clinic_Label);
-      //appoints.setVisitTimeAppted();
+      //appoints.setClinicLabel(clinic_Label);
+      appoints.setClinicLabel((String)session.get("queuename"));
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+      Date today = new Date(System.currentTimeMillis());
+      appoints.setApptMadeDate(today);
+      appoints.setVisitTimeAppted(visit_time);
+      appoints.setRegTimePoint(visit_date + " " + timePoint);
+      appoints.setPreRegistDoctor((String)session.get("doctorno"));
       String state = lhbBo.makeAppoints(appoints,user_id);
       //return state;
-      System.out.println("state is :" + state + "!!!!!");
+     
    }
    
    private Long getAge(Timestamp dateOfBirth)
