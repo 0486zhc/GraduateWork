@@ -288,6 +288,10 @@ public class LhbAction extends ActionSupport
       String state = lhbBo.makeAppoints(appoints,user_id);
       //return state;
      
+      
+      
+      
+      
    }
    
    private Long getAge(Timestamp dateOfBirth)
