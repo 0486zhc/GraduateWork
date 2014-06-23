@@ -265,8 +265,12 @@ public class LhbAction extends ActionSupport
       response.getWriter().write(state);
    }
 
-   public void makeAppoints()
+   public String makeAppoints()
    {
+      if(session.get("user") == null)
+      {
+         return SUCCESS;
+      }
       PatMasterIndex pi = (PatMasterIndex) session.get("user");
       // appoints
       appoints = new ClinicAppoints();
@@ -286,7 +290,7 @@ public class LhbAction extends ActionSupport
       appoints.setRegTimePoint(visit_date + " " + timePoint);
       appoints.setPreRegistDoctor((String)session.get("doctorno"));
       String state = lhbBo.makeAppoints(appoints,user_id);
-      //return state;
+      return state;
      
       
       
