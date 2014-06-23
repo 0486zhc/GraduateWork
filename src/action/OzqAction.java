@@ -1498,6 +1498,7 @@ public class OzqAction{
 			System.out.println(deptname);
 			deptname=new String(deptname.getBytes("ISO-8859-1"), "UTF-8");
 			System.out.println(deptname);
+			session.put("thedeptName", deptname);
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName(deptname);
 		    request.put("DoctorName", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
