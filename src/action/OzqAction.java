@@ -488,6 +488,22 @@ public class OzqAction{
 		deptname=new String(deptname.getBytes("ISO-8859-1"), "UTF-8");
 		System.out.println(deptname);
 		session.put("thedeptName",deptname);   // 放session
+		
+		List<Object[]> OtherDoctorName = ozqBo.CheckOtherDoctorName((String)session.get("thedeptName"), (String)session.get("doctName"));
+		if(OtherDoctorName.size() != 0){
+			String[] otherdoctor = new String[OtherDoctorName.size()];
+			for(int i = 0; i < OtherDoctorName.size(); i++){
+				Object obj = OtherDoctorName.get(i);
+				otherdoctor[i] = (String) obj;
+				System.out.println(otherdoctor[i]);
+				System.out.println(otherdoctor.length);
+			}
+			request.put("otherdoctor", otherdoctor);
+			System.out.println("1");
+		}else{
+			request.put("otherdoctor", "");
+			System.out.println("2");
+			}
 
 		//根据医生名字找到科室编号和医生编号
 		Object[] doctor = ozqBo.CheckClinicDeptDoctorNo(doctorname).get(0);
@@ -1438,6 +1454,22 @@ public class OzqAction{
 			String queuename = req.getParameter("queue_name");
 			queuename=new String(queuename.getBytes("ISO-8859-1"), "UTF-8");
 			session.put("queuename", queuename);
+			
+			List<Object[]> OtherDoctorName = ozqBo.CheckOtherDoctorName((String)session.get("thedeptName"), (String)session.get("doctName"));
+			if(OtherDoctorName.size() != 0){
+				String[] otherdoctor = new String[OtherDoctorName.size()];
+				for(int i = 0; i < OtherDoctorName.size(); i++){
+					Object obj = OtherDoctorName.get(i);
+					otherdoctor[i] = (String) obj;
+					System.out.println(otherdoctor[i]);
+					System.out.println(otherdoctor.length);
+				}
+				request.put("otherdoctor", otherdoctor);
+				System.out.println("1");
+			}else{
+				request.put("otherdoctor", "");
+				System.out.println("2");
+				}
 			
 			OutpDoctorRegistTime = ozqBo.CheckRegistTime(doctorno, counseldate, clinicduration, queuename);
 			if(OutpDoctorRegistTime.size() != 0){
