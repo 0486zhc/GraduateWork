@@ -127,7 +127,7 @@ $(document).ready(function () {
                     <dl class="dpt_info">
                         <dt id="docc_name"><s:property value="#session.doctName"/></dt>
                         <dd>
-                            <b><s:property value="#session.queuename"/></b>
+                            <b id="label"><s:property value="#session.queuename"/></b>
                             <p>科室：<a href="specialty.jsp"><s:property value="#session.thedeptName"/></a></p>
                             <p>医院：<a href="">东莞市妇幼保健院</a></p>
                             <p>挂号级别：<strong> 9 元</strong></p>
@@ -148,14 +148,14 @@ $(document).ready(function () {
             <div class="orderdata dc_od fl">
                 <div class="od_tt">
                     <div class="timetable block t_c">
-                             	<span><s:property value="#request.counseldate"/></span>
-                             	<p><s:property value="#request.clinicduration"/></p>
+                             	<span id="a_date"><s:property value="#session.counseldate"/></span>
+                             	<p id="a_time"><s:property value="#session.clinicduration"/></p>
                     </div>
                 </div>
-                <div class="od_cnt">
-                	<s:if test='#request.registtime != ""'>
-                		<s:iterator value="#request.registtime">
-                            <a href="javascript:void(0);" id="texx" class="fl t_c block fs14 od_btn order_access"><s:property /></a>
+                <div id="texxx"class="od_cnt">
+                	<s:if test='#session.registtime != ""'>
+                		<s:iterator value="#session.registtime">
+                            <a href="javascript:void(0);" class="fl t_c block fs14 od_btn order_access"><s:property /></a>
                     	</s:iterator>
                     </s:if>
                     <s:else>
@@ -174,28 +174,19 @@ $(document).ready(function () {
             </div>
             <div class="board_cnt o-hidden">
                 <ul>
+                    <s:iterator value="#request.otherdoctor">
                     <li class="fl">
                         <dl class="clearfix">
-                            <dt class="fl"><a href="doctor.jsp"><img src="images/doctor.jpg" width="48" height="58" alt="刘浩斌（专病门诊）"></a></dt>
+                            <dt class="fl"><a href='OzqActionOnDuty.action?doctor_name=<s:property />&dept_name=<s:property value="#session.thedeptName"/>'><img src="images/doctor.jpg" width="48" height="58" alt="<s:property />（专病门诊）"></a></dt>
                             <dd class="fl">
-                                <a href="doctor1105.jsp">廖志坚</a><br>
+                                <a href='OzqActionOnDuty.action?doctor_name=<s:property />&dept_name=<s:property value="#session.thedeptName"/>'><s:property /></a><br>
                                 <span class="fs12">副主任医师</span>
                             </dd>
                         </dl>
                         <i class="fl fs12">擅长：</i>
                         <p class="fs12 o-hidden">从事门诊内科临床工作二十余年，对门诊内科常见病及疑难杂症临床处理具有丰富的临床经验。</p>
                     </li>
-                    <li class="fl">
-                        <dl class="clearfix">
-                            <dt class="fl"><a href="doctor.jsp"><img src="images/doctor.jpg" width="48" height="58" alt="刘浩斌（专病门诊）"></a></dt>
-                            <dd class="fl">
-                                <a href="doctor.jsp">陈维东</a><br>
-                                <span class="fs12">副主任医师</span>
-                            </dd>
-                        </dl>
-                        <i class="fl fs12">擅长：</i>
-                        <p class="fs12 o-hidden">从事门诊内科临床工作二十余年，对门诊内科常见病及疑难杂症临床处理具有丰富的临床经验。</p>
-                    </li>
+                  </s:iterator>
                 </ul>
             </div>
         </div>
@@ -227,26 +218,26 @@ $(document).ready(function () {
         <input type="submit" class="login_btn center t_c" value="登录">
     </form>
 </div>
-
+<div class="or_bg absolute center"></div>
 <div id="order" class="or_cnt center fixed" style="display: none; margin-top: 50.5px;">
     <div class="lg_tt">
         <span>确认订单</span>
-        <a href="javascript:void(0);" class="t_c block fr loginclose">×</a>
+        <a href="javascript:void(0);" class="t_c block fr orderclose">×</a>
     </div>
-    <form class="lg_form relative" action="">
+    <form class="lg_form relative" id="or_form" action="makeAppoints" method="get">
         <label class="wrong clearfix"><b>×</b><span></span></label>
         <ul class="center clearfix">
-            <li><span>用 户 名 :</span><p id="uid" size="35" style=:padding-left:6px>&nbsp;范璟</p></li>
-            <li><span>医   生 : </span><p id="doc" size="35">&nbsp;范璟</p></li>
-            <li><span>号   别:</span><p id="clinic_label" size="35">&nbsp;妇科主任号</p></li>
-            <li><span>预约时间:</span><p id="app_time" size="35">&nbsp;2014-12-12 15:25</p></li>
-            <li><span>预约时段:</span><p id="app_time_" size="35">&nbsp;晚上</p></li>
+            <li><span>用 户 名 :</span><p id="uid" size="35" style=:padding-left:6px>&nbsp;<s:property value="#session.user.name"/></p></li>
+            <li><span>医   生 : </span><P id="doc" size="35"></P></li>
+            <li><span>号   别:</span><p id="clinic_label" size="35" name="clinic_Label"></p></li>
+            <li><span>预约时间:</span><p id="app_date" size="35" name="timePoint"></p></li>
+            <li><span>预约时段:</span><p id="app_time_" size="35" name="visit_date"></p></li>
         </ul>
-        <input type="submit" class="login_btn center t_c" value="确认">
+        <input id="comfirm" type="button" class="login_btn center t_c" value="确认" >
     </form>
 </div>
 <script>
-	var texx = document.getElementById('texx');
+/* 	var texx = document.getElementById('texx');
 	var order = documen.getElementById('order');
 	texx.onclick=function()
 	{
@@ -254,8 +245,45 @@ $(document).ready(function () {
 		var docname = document.getElementById('docc_name');
 		var doc = document.getElementById('doc');
 		doc.innerHtml = docname.value;
-	}
+	} */
+	var url;
+	$("#texxx").children("a").click(function(e){
+		var bodyheight = document.body.scrollHeight;
+		$(".or_bg").height(bodyheight);
+		$(".or_bg").fadeIn();
+		$(".or_cnt").fadeIn();
+		var oldaction = $("#or_form").attr("action"),
+			action = oldaction + "?timepoint=" + $(this).text();
+		$("#or_form").attr("action",action);
+         url = "makeAppoints.action?timepoint=" + $(this).text();
+		var point = $(this).html();
+		var docname = document.getElementById('docc_name');
+		var doclabel = document.getElementById('label');
+		var ap_date = document.getElementById('a_date');
+		var ap_time = document.getElementById('a_time');
+
+		var doc = document.getElementById('doc');
+		var label = document.getElementById('clinic_label');
+		var date = document.getElementById('app_date');
+		var time = document.getElementById('app_time_');
+		/* var visitTime = document.getElementById('appp_time_'); */
+		
+		doc.innerHTML = "&nbsp;" + docname.innerHTML;
+		label.innerHTML = "&nbsp;" + doclabel.innerHTML;
+		date.innerHTML = "&nbsp;" + ap_date.innerHTML + "&nbsp;" + point;
+		time.innerHTML = "&nbsp;" + ap_time.innerHTML;
+		/* visitTime.innerHTML = ap_date.innerHTML; */
+		
+	});
 	
+	$(".orderclose").click(function(){
+		$(".or_bg").fadeOut();
+		$(".or_cnt").fadeOut();
+	});
+	
+ 	$("#comfirm").click(function(){
+		window.location.href=url;
+	}) 
 </script>
 </body>
 </html>

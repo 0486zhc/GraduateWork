@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Map;
 
@@ -269,38 +270,43 @@ public class LhbAction extends ActionSupport
    {
       if(session.get("user") == null)
       {
-         return SUCCESS;
+         return ERROR;
       }
-      PatMasterIndex pi = (PatMasterIndex) session.get("user");
-      // appoints
-      appoints = new ClinicAppoints();
-      appoints.setPatientId(pi.getPatientId());
-      appoints.setName(pi.getName());
-      appoints.setAge(getAge(pi.getDateOfBirth()));
-      appoints.setRegistFlag("0");
-      appoints.setRegistStatus("0");
-      appoints.setModeCode("7");
-      appoints.setVisitDateAppted(Date.valueOf(visit_date));
-      //appoints.setClinicLabel(clinic_Label);
-      appoints.setClinicLabel((String)session.get("queuename"));
-      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-      Date today = new Date(System.currentTimeMillis());
-      appoints.setApptMadeDate(today);
-      appoints.setVisitTimeAppted(visit_time);
-      appoints.setRegTimePoint(visit_date + " " + timePoint);
-      appoints.setPreRegistDoctor((String)session.get("doctorno"));
-      String state = lhbBo.makeAppoints(appoints,pi.getIdNo());
-      return state;
-     
-      
-      
-      
-      
+      try{
+    	  String timepoint =  ServletActionContext.getRequest().getParameter("timepoint");
+          PatMasterIndex pi = (PatMasterIndex) session.get("user");
+          System.out.println(session.get("doctorno"));
+          // appoints
+          appoints = new ClinicAppoints();
+          appoints.setPatientId(pi.getPatientId());
+          appoints.setName(pi.getName());
+          appoints.setSex(pi.getSex());
+          appoints.setAge(getAge(pi.getDateOfBirth()));
+          appoints.setRegistFlag("0");
+          appoints.setRegistStatus("0");
+          appoints.setModeCode("7");
+          appoints.setPreRegistDoctor((String)session.get("doctorno"));
+          SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+          Date today = new Date(System.currentTimeMillis());
+          appoints.setApptMadeDate(today);
+          
+          appoints.setVisitDateAppted(Date.valueOf((String)session.get("counseldate")));
+          //appoints.setClinicLabel(clinic_Label);
+          appoints.setClinicLabel((String)session.get("queuename"));
+         // System.out.println(Arrays.toString((String[]) session.get("registtime")));
+          appoints.setVisitTimeAppted((String)session.get("clinicduration"));
+          
+          appoints.setRegTimePoint(session.get("counseldate") +" " + timepoint);
+          String state = lhbBo.makeAppoints(appoints,pi.getIdNo(),(String)session.get("counseldate"));
+          return state;
+      }catch(Exception ex){
+    	  ex.printStackTrace();
+    	  return ERROR;
+      }
    }
    
    private Long getAge(Timestamp dateOfBirth)
    {
-      
       Calendar cal = Calendar.getInstance();
       int year = cal.get(Calendar.YEAR);
       Long age = (long) (year- (dateOfBirth.getYear()+1900));

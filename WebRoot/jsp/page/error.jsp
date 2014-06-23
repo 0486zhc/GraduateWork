@@ -26,6 +26,8 @@ $(document).ready(function () {
         effect: "fadeIn"
     });
 });
+
+setTimeout("history.go(-1);",3000); 
 </script>
 </head>
 

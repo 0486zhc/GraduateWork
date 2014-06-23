@@ -5,59 +5,24 @@
 
 	<package name="CheckOnDuty" namespace="/jsp/page" extends="struts-default">
 	
-		<!-- 查多天排班 -->
-		<!--<action name="OzqActionMany" class="action.OzqAction" method="CheckOnDutyMany">
-			<result>/jsp/page/doctor0301two.jsp</result>
-		</action>-->
-		
 		<!-- 查排班 -->
 		<action name="OzqActionOnDuty" class="action.OzqAction" method="CheckOnDuty">
 			<result>/jsp/page/doctor.jsp</result>
+			<result name="fail">/jsp/page/error.jsp</result>
 		</action>
 		
 		<!-- 查时间点 -->
 		<action name="OzqActionRegistTime" class="action.OzqAction" method="CheckRegistTime">
 			<result>/jsp/page/timePoint.jsp</result>
+			<result name="fail">/jsp/page/error.jsp</result>
 		</action>
 		
 		<!-- 查医生 -->
 		<action name="OzqActionDoctorName" class="action.OzqAction" method="CheckDoctorName">
 			<result>/jsp/page/doctorview.jsp</result>
+			<result name="fail">/jsp/page/error.jsp</result>
 		</action>
 		
-		<!-- 查首页tab1医生 -->
-		<action name="OzqActionDoctorNametab1" class="action.OzqAction" method="CheckDoctorNametab1">
-			<result>/jsp/page/doctorview.jsp</result>
-		</action>
-		<!-- 查tab2医生 -->
-		<action name="OzqActionDoctorNametab2" class="action.OzqAction" method="CheckDoctorNametab2">
-			<result>/jsp/page/doctortab2.jsp</result>
-		</action>
-		<!-- 查tab3医生 -->
-		<action name="OzqActionDoctorNametab3" class="action.OzqAction" method="CheckDoctorNametab3">
-			<result>/jsp/page/doctortab3.jsp</result>
-		</action>
-		<!-- 查tab4医生 -->
-		<action name="OzqActionDoctorNametab4" class="action.OzqAction" method="CheckDoctorNametab4">
-			<result>/jsp/page/doctortab4.jsp</result>
-		</action>
-		<!-- 查tab5医生 -->
-		<action name="OzqActionDoctorNametab5" class="action.OzqAction" method="CheckDoctorNametab5">
-			<result>/jsp/page/doctortab5.jsp</result>
-		</action>
-		<!-- 查tab6医生 -->
-		<action name="OzqActionDoctorNametab6" class="action.OzqAction" method="CheckDoctorNametab6">
-			<result>/jsp/page/doctortab6.jsp</result>
-		</action>
-		<!-- 查tab7医生 -->
-		<action name="OzqActionDoctorNametab7" class="action.OzqAction" method="CheckDoctorNametab7">
-			<result>/jsp/page/doctortab7.jsp</result>
-		</action>
-		
-		<!-- 查首页科室 -->
-		<!--<action name="OzqActionDeptName" class="action.OzqAction" method="CheckDeptName">
-			<result>/jsp/page/deptview.jsp</result>
-		</action>-->
 	</package>
 
 </struts>    
