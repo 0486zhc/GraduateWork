@@ -44,5 +44,8 @@ public interface IDao_zjc
 	public boolean cancleAppoint(ClinicAppoints appoint);
 	
 	public OutpDoctorRegist getOutpDoctorOne(String doctorName,String date,String duration);
+
+	List<Object[]> CheckRegistTime(String doctor_no, String counsel_date,
+			String clinic_duration, String queue_name);
 	
 }
