@@ -470,6 +470,27 @@ public class OzqDao{
 		    return odr;
 		}
 		
+		//查其他医生名字
+				public List<Object[]> CheckOtherDoctorName(String deptname,String doctorname) {
+					System.out.println("dao...");
+					
+					Session session = HibernateUtil.getSession();
+					Query query = session.createSQLQuery(
+							"select DOCTOR " + 
+							"from OUTP_DOCTOR_REGIST " + 
+							"where CLINIC_DEPT in (select DEPT_CODE " + 
+							"from DEPT_DICT where DEPT_NAME " + 
+							"like ? and DOCTOR != ?)" + 
+							"group by DOCTOR")
+							.setParameter(0, deptname)
+							.setParameter(1, doctorname);
+				    System.out.println("dao end1...");
+				    List<Object[]> odr = query.list();
+				    System.out.println(odr.get(0));
+				    System.out.println("dao CheckDoctorName end2...");
+				    return odr;
+				}
+		
 		//查时间
 		public List<Timestamp> CheckDate(String date){
 			System.out.println("dao...");
