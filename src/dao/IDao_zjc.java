@@ -55,5 +55,5 @@ public interface IDao_zjc
 	
 	public boolean addAppoints(ClinicAppoints appoints,String user_id);
 	  
-	
+	public boolean updateOutDoctor(ClinicAppoints appoints);
 }

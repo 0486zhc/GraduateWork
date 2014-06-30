@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					name="ctl00$ContentPlaceHolder1$cbSaveCookie" type="checkbox"
 					id="ctl00_ContentPlaceHolder1_cbSaveCookie"
 					style="float: none;margin-left: 0px;" /> 记住账号 </label> <a class="fr"
-					href="GetPassword.aspx">忘记密码？</a>
+					href="<%=basePath%>PhoneWeb/WebTwo/login.jsp">忘记密码？</a>
 
 			</div>
 			<div class="control-group">

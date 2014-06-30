@@ -1,6 +1,10 @@
 package action.zjc;
 
-import java.sql.Date;
+import java.util.Date;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import com.opensymphony.xwork2.ActionContext;
 
@@ -18,6 +22,10 @@ public class UserAction
 	String userName;
 	String passWord;
 	
+	String year;
+	String month;
+	String day;
+	
 	// 登录
 	public String login(){
 		System.out.println("action");
@@ -33,6 +41,21 @@ public class UserAction
 	// 注册
 	public String register(){
 		System.out.println("register");
+		String birthDate = year+"-"+month+"-"+day;
+		System.out.println(birthDate);
+		
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		format.setLenient(false);
+		
+		Timestamp ts = null;
+		try {
+			ts = new Timestamp(format.parse(birthDate).getTime());
+		} catch (ParseException e) {
+			System.out.println("注册日期转换");
+			e.printStackTrace();
+		}  
+		
+		patMasterIndex.setDateOfBirth(ts);
 		mess = bo.addRegister(patMasterIndex);
 		System.out.println(mess);
 		return "success";
@@ -108,6 +131,30 @@ public class UserAction
 
 	public void setPatMasterIndex(PatMasterIndex patMasterIndex) {
 		this.patMasterIndex = patMasterIndex;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public void setMonth(String month) {
+		this.month = month;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
 	}
 
 }

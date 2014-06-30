@@ -141,7 +141,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				href="<%=basePath%>PhoneWeb/WebTwo/login.jsp">
 				<p class="img"
 					style="background:url('<%=basePath +"PhoneWeb/upload/img/icon/13830141579551.png"%>') center no-repeat; background-size:contain;"></p>
-				<p class="text">我的信息</p> </a>
+				<p class="text">用户登录</p> </a>
 		</div>
 	</div>
 	<div class="footer">

@@ -14,7 +14,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <link href="styles/bootstrap.min.css" rel="stylesheet" />
 <link href="styles/NewGlobal.css" rel="stylesheet" />
+
 <script type="text/javascript" src="Scripts/zepto.js"></script>
+<script type="text/javascript" src="Scripts/index.js"></script>
+
+
 </head>
 <body>
 	<div class="header">
@@ -86,6 +90,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					style="background: none repeat scroll 0 0 #F9F9F9;padding: 8px 0px 8px 4px"
 					placeholder="请输入性别" />
 			</div>
+			
+			<div class="control-group">
+			  <li>
+                  	出生日期&nbsp;<br>
+                  <select  id="_birthyear" style="width:65px;" name="year"></select>年
+                      <select  id="_birthmonth"  style="width:65px;"name="month"></select>月
+                      <select  id="_birthday"  style="width:65px;"name="day"></select>日
+              
+            </li>
+			
+			</div>
+			
+			
 			<div class="control-group">
 				联系方式：<input name="patMasterIndex.phoneNumberHome" type="text"
 					id="ctl00_ContentPlaceHolder1_txtPassword" class="width100 input"

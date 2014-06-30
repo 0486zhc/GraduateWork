@@ -46,7 +46,7 @@
 		<s:iterator value="%{appointsList}" var="app" >
 			<li><img
 					class="hotelimg fl"
-					src="<%=basePath %>PhoneWeb/upload/img/xctxwlb/20131029/aixin.jpg" />
+					src="<%=basePath %>PhoneWeb/upload/img/xctxwlb/20131029/doctor.jpg" />
 					<div class="inlinea">
 <!-- 							<h3><s:property value="%{clinicLabel}" /></h3> -->
 							<h3><s:property value="#app.clinicLabel" /></h3>

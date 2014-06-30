@@ -3,6 +3,8 @@ package bo.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.opensymphony.xwork2.ActionContext;
+
 import oracle.jdbc.Const;
 
 import model.Ozq.ClinicAppoints;
@@ -39,7 +41,9 @@ public class ImplBo_zjc implements IBo_zjc{
 	public String addRegister(PatMasterIndex patMasterIndex) {
 		System.out.println("maxPatientId : "+dao.getMaxPatientId());
 		patMasterIndex.setPatientId(dao.getMaxPatientId());
+//		patMasterIndex.setDateOfBirth("1992-3-5");
 		if(dao.savePatientInfo(patMasterIndex)){
+			ActionContext.getContext().getSession().put("pat",patMasterIndex); 
 			return "注册成功！";
 		}else{
 			return "注册失败！";
@@ -127,7 +131,8 @@ public class ImplBo_zjc implements IBo_zjc{
 
 	@Override
 	public String addAppoints(ClinicAppoints appoints, String user_id) {
-		 if(dao.addAppoints(appoints,user_id)){
+//		&& dao.updateOutDoctor(appoints)
+		 if(dao.addAppoints(appoints,user_id) && dao.updateOutDoctor(appoints) ){
 			 return "预约成功！";
 		 }else{
 			 return "预约失败！";

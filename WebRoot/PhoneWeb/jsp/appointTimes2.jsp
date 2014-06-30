@@ -46,7 +46,7 @@
 		<s:iterator value="#session.preTimes" var="app" >
 			<li><img
 					class="hotelimg fl"
-					src="<%=basePath %>PhoneWeb/upload/img/xctxwlb/20131029/doctor.jpg" />
+					src="<%=basePath %>PhoneWeb/upload/img/xctxwlb/20131029/aixin.jpg" />
 					<div class="inlinea">
 							<h3><s:property value="#session.doctName" /></h3>
 							<h3><s:property value="#app.clinicLabel" /></h3>
@@ -56,7 +56,7 @@
 					</div>
 					<ul class="unstyled"> 
 					<li></li>
-					<li><a href="appointment_addAppoint?mess=<s:property />&mess4=<s:property value="%{mess3}" />" class="order">预约挂号</a>
+					<li><a href="appointment_addAppoint?mess=<s:property value="#app.regTimePoint"/>?doctorNo=<s:property value="#app.preRegistDoctor"/>" class="order">预约挂号2</a>
 					</li><li>
 						
 

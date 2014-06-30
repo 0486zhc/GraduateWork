@@ -1,7 +1,9 @@
 package dao.impl;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import model.Ozq.ClinicAppoints;
@@ -27,6 +29,7 @@ public class ImplDao_zjc implements IDao_zjc {
 
 	private static final String strByUserId = "from PatMasterIndex where id_no = ?";
 	private static final String strForSeq = "select max(serial_no) from clinic_appoints where to_date(visit_date_appted) = to_date(?,'yyyy-mm-dd') and clinic_label = ? and visit_time_appted = ? and pre_regist_doctor = ?  and regist_status = '0' and regist_flag = '0'";
+	//private static final String strForSeq = "select max(serial_no) from clinic_appoints where  clinic_label = ? and visit_time_appted = ? and pre_regist_doctor = ?  and regist_status = '0' and regist_flag = '0'";
 
 	public HibernateTemplate getTemplate() {
 		return template;
@@ -128,10 +131,6 @@ public class ImplDao_zjc implements IDao_zjc {
 
 	@Override
 	public DeptDict getDept(Integer deptCode) {
-		// String dept_code = String.valueOf(deptCode);
-		// System.out.println(dept_code);
-		// DeptDict d = template.get(DeptDict.class, dept_code);
-		// System.out.println("单个部门："+d);
 		String hql = "from DeptDict where dept_code = " + deptCode;
 		return (DeptDict) excuteHibernate(hql).get(0);
 	}
@@ -157,39 +156,6 @@ public class ImplDao_zjc implements IDao_zjc {
 				+ " ; doctor_no = " + doctor_no);
 
 		Session session = HibernateUtil.getSession();
-		// List<OutpDoctorRegist> odr = null;
-
-		// Query query =
-		// session.createSQLQuery("SELECT A.COUNSEL_NO,A.CLINIC_DEPT,A.DOCTOR_NO,A.DOCTOR, A.COUNSEL_DATE, A.CLINIC_DURATION, A.QUEUE_NAME, A.AUTO_ASSIGN_PATIENT, A.SIGN_INDICATOR,A.SIGN_TIME, "
-		// +
-		// "A.COUNSELED_NUM, A.ADDRESS,A.COLUMN_NUM,A.LIMIT_NUM,A.LIMIT_NUM_APP, A.REGIST_NOWED, A.REGIST_APPED,A.TIME_POINT,A.STOP_TIME,A.STOP_INDICATOR,A.REGISTER_APPOINT, "
-		// +
-		// "A.TIME_POINT_FLAG,A.REG_BEGIN_TIME,A.REG_END_TIME,A.MODIFIER,A.LAST_MODIFY_TIME, "
-		// +
-		// "(CASE WHEN TO_DATE(TO_CHAR((CASE WHEN (A.REG_BEGIN_TIME > A.REG_END_TIME) "
-		// +
-		// "THEN A.COUNSEL_DATE + 1 ELSE A.COUNSEL_DATE END),'YYYY-MM-DD')||' '|| "
-		// +
-		// "A.REG_END_TIME||':00','YYYY-MM-DD HH24:MI:SS') < SYSDATE " +
-		// "THEN 1 ELSE 0 END) bb, " +
-		// "nvl((SELECT SUM(1)  as "+
-		// "FROM CLINIC_APPOINTS B "+
-		// "where B.VISIT_DATE_APPTED = A.COUNSEL_DATE "+
-		// "and B.CLINIC_LABEL = A.QUEUE_NAME "+
-		// "and B.VISIT_TIME_APPTED = A.CLINIC_DURATION "+
-		// "and B.PRE_REGIST_DOCTOR =  A.DOCTOR_NO "+
-		// "and B.REGIST_STATUS IN('0') ) ,0)app_unregisted_num "+
-		// "FROM outp_doctor_regist A " +
-		// "WHERE to_date(A.COUNSEL_DATE) >= to_date( ?,'yyyy-mm-dd') and to_date(A.COUNSEL_DATE) <= to_date( ?,'yyyy-mm-dd') "
-		// +
-		// "and (A.CLINIC_DEPT = ? or nvl(?,'null')='null') " +
-		// "and (A.DOCTOR_NO = ? or nvl(?,'null')='null')")
-		// .setParameter(0, start_time)
-		// .setParameter(1, end_time)
-		// .setParameter(2, clinic_dept)
-		// .setParameter(3, clinic_dept)
-		// .setParameter(4, doctor_no)
-		// .setParameter(5, doctor_no);
 		String sql = "SELECT A.COUNSEL_NO,A.CLINIC_DEPT,A.DOCTOR_NO,A.DOCTOR, A.COUNSEL_DATE, A.CLINIC_DURATION, A.QUEUE_NAME, A.AUTO_ASSIGN_PATIENT, A.SIGN_INDICATOR,A.SIGN_TIME, "
 				+ "A.COUNSELED_NUM, A.ADDRESS,A.COLUMN_NUM,A.LIMIT_NUM,A.LIMIT_NUM_APP, A.REGIST_NOWED, A.REGIST_APPED,A.TIME_POINT,A.STOP_TIME,A.STOP_INDICATOR,A.REGISTER_APPOINT, "
 				+ "A.TIME_POINT_FLAG,A.REG_BEGIN_TIME,A.REG_END_TIME,A.MODIFIER,A.LAST_MODIFY_TIME, "
@@ -245,9 +211,12 @@ public class ImplDao_zjc implements IDao_zjc {
 	@Override
 	public List<ClinicAppoints> getAppoints(PatMasterIndex pat) {
 		System.out.println("pat" + pat);
+//		String hql = "from ClinicAppoints where patient_id = '"
+//				+ pat.getPatientId()
+//				+ "' and regist_status =0 and to_date(sysdate) <= VISIT_DATE_APPTED";
 		String hql = "from ClinicAppoints where patient_id = '"
 				+ pat.getPatientId()
-				+ "' and regist_status =0 and to_date(sysdate) <= VISIT_DATE_APPTED";
+				+ "' and regist_status =0 ";
 		System.out.println("hql" + hql);
 		List<ClinicAppoints> appoints = excuteHibernate(hql);
 		System.out.println("appoints" + appoints);
@@ -394,11 +363,8 @@ public class ImplDao_zjc implements IDao_zjc {
 		} catch (Exception e) {
 			System.out.println("dao 预约失败");
 			e.printStackTrace();
-			
 			return false; 
-
 		}
-		
 	}
 
 	public void addOne(String user_id) {
@@ -427,18 +393,52 @@ public class ImplDao_zjc implements IDao_zjc {
 
 	private short getMaxSeq(ClinicAppoints appoints) {
 		Session session = HibernateUtil.getSession();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
 		Query query = session.createSQLQuery(strForSeq);
-		query.setDate(0, appoints.getVisitDateAppted());
+//		query.setDate(0, Date.valueOf("2014-07-01"));
+//		query.setString(0, "2014-07-01");
+		System.out.println(appoints.getVisitDateAppted());
+		System.out.println(sdf.format(appoints.getVisitDateAppted()));
+		query.setString(0, sdf.format(appoints.getVisitDateAppted()));  // 2014-07-01
 		query.setString(1, appoints.getClinicLabel());
 		query.setString(2, appoints.getVisitTimeAppted());
 		query.setString(3, appoints.getPreRegistDoctor());
-		List<String> list = query.list();
+		List<BigDecimal> list = query.list();
 
 		if(list.size() == 0 || list.get(0) == null)
 		{
 			return 1;
 		}
-		short i = (short) (Integer.valueOf(list.get(0)) + 1);
+		BigDecimal a = list.get(0);
+		short i = (short)a.intValue();
+		//int i =  (Integer.valueOf(list.get(0)) + 1);
 		return i;
 	}
+
+	@Override
+	public boolean updateOutDoctor(ClinicAppoints appoints) {
+		try {
+			System.out.println("updateOutDoctor");
+			System.out.println(appoints.getPreRegistDoctor()+"="+appoints.getVisitDateAppted()+"="+appoints.getVisitTimeAppted());
+			String updateSql = "update OUTP_DOCTOR_REGIST set REGIST_APPED = REGIST_APPED+1 where doctor_no =? and counsel_date =? and CLINIC_DURATION = ?";
+			Session session = HibernateUtil.getSession();
+			Transaction ts = session.beginTransaction();
+			Query query = session.createSQLQuery(updateSql);
+			query.setString(0, appoints.getPreRegistDoctor());
+			query.setDate(1, appoints.getVisitDateAppted());
+			query.setString(2, appoints.getVisitTimeAppted());
+			query.executeUpdate();
+			ts.commit();
+			session.flush();
+			session.close();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	
 }

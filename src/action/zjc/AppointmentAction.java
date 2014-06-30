@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import java.util.GregorianCalendar;
@@ -71,8 +72,6 @@ public class AppointmentAction extends ActionSupport{
 	// 预约 具体时间
 	public String appointTimes(){
 		System.out.println("appointTime");
-//		String a= MyUtil.formatContent(mess);
-//		mess2 =  (String) ActionContext.getContext().getSession().get("doctName"); //医生姓名
 		mess2= MyUtil.formatContent(mess2);  // 医生编号
 		System.out.println(mess2);
 		date = MyUtil.formatContent(date);  // 日期
@@ -111,7 +110,7 @@ public class AppointmentAction extends ActionSupport{
 		return "appointTimes";
 	}
 	
-	
+	// 下预约
 	public String addAppoint(){
 		System.out.println("addAppoint");
 		pat = (PatMasterIndex) ActionContext.getContext().getSession().get("pat");  // 放session 
@@ -131,11 +130,11 @@ public class AppointmentAction extends ActionSupport{
 		mess4 = MyUtil.formatContent(mess4);// queuename 号别
 					
 		System.out.println("医生编号："+mess2 +",日期:"+date+",间断:"+mess3+",时间点："+mess+",号别："+mess4);		
-		
+		System.out.println(Date.valueOf(date));
 		
 //		appoint.setPatientId(pat.getPatientId());id
 		ClinicAppoints appoints = new ClinicAppoints();
-		appoints.setPatientId("0000000123");
+		appoints.setPatientId(pat.getPatientId());
 		appoints.setName(pat.getName());
 	    appoints.setAge(MyUtil.getAge(pat.getDateOfBirth())); // 缺
 	    appoints.setRegistFlag("0");
@@ -159,6 +158,7 @@ public class AppointmentAction extends ActionSupport{
 	public String checkAppoints(){
 		System.out.println("checkAppointment");
 		 pat = (PatMasterIndex) ActionContext.getContext().getSession().get("pat");
+		 System.out.println("查预约pat="+pat);
 		if(pat != null){
 			appointsList = bo.getAppoints(pat);
 			ActionContext.getContext().getSession().put("appointsList",appointsList);  // 放session
@@ -170,13 +170,6 @@ public class AppointmentAction extends ActionSupport{
 		} 
 	}
 	
-//	// 排班
-//	public String findDoctorTime(){
-//		System.out.println("doctorNo:"+doctorNo);
-////		outDoctors = bo.getOutpDoctor(doctorNo);
-////		System.out.println("length = " + outDoctors.size());
-//		return "doctorTime";
-//	}
 	
 	// 取消预约
 	public String cancle(){
