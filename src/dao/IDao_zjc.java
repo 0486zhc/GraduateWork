@@ -2,6 +2,11 @@ package dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import util.HibernateUtil;
+
 import model.Ozq.ClinicAppoints;
 import model.Ozq.DeptDict;
 import model.Ozq.OutpDoctorRegist;
@@ -47,5 +52,8 @@ public interface IDao_zjc
 
 	List<Object[]> CheckRegistTime(String doctor_no, String counsel_date,
 			String clinic_duration, String queue_name);
+	
+	public boolean addAppoints(ClinicAppoints appoints,String user_id);
+	  
 	
 }

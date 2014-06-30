@@ -124,4 +124,13 @@ public class ImplBo_zjc implements IBo_zjc{
 		System.out.println("bo CheckRegistTime begin...");
 		return dao.CheckRegistTime(doctor_no, counsel_date, clinic_duration, queue_name);
 	}
+
+	@Override
+	public String addAppoints(ClinicAppoints appoints, String user_id) {
+		 if(dao.addAppoints(appoints,user_id)){
+			 return "预约成功！";
+		 }else{
+			 return "预约失败！";
+		 }
+	}
 }

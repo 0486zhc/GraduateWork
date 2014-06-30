@@ -56,7 +56,7 @@
 					</div>
 					<ul class="unstyled"> 
 					<li></li>
-					<li><a href="appointment_addAppoint?mess=<s:property value="#app.regTimePoint"/>?doctorNo=<s:property value="#app.preRegistDoctor"/>" class="order">预约挂号2</a>
+					<li><a href="appointment_addAppoint?mess=<s:property />&mess4=<s:property value="%{mess3}" />" class="order">预约挂号</a>
 					</li><li>
 						
 

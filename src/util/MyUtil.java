@@ -2,6 +2,7 @@ package util;
 
 import java.io.UnsupportedEncodingException;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -59,6 +60,16 @@ public class MyUtil {
 			return "乱码转换失败";
 		}
 	}
+	
+	public static Long getAge(Timestamp dateOfBirth)
+	   {
+	      
+	      Calendar cal = Calendar.getInstance();
+	      int year = cal.get(Calendar.YEAR);
+	      Long age = (long) (year- (dateOfBirth.getYear()+1900));
+	       
+	      return age;
+	   }
 	
 	
 //	public static void main(String[] args) {
