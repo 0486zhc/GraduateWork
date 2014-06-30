@@ -15,6 +15,11 @@
 			<result>/jsp/page/doctor.jsp</result>
 		</action>
 		
+		<!-- 查时间点 -->
+		<action name="OzqActionRegistTime" class="action.OzqAction" method="CheckRegistTime">
+			<result>/jsp/page/timePoint.jsp</result>
+		</action>
+		
 		<!-- 查医生 -->
 		<action name="OzqActionDoctorName" class="action.OzqAction" method="CheckDoctorName">
 			<result>/jsp/page/doctorview.jsp</result>

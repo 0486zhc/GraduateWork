@@ -82,8 +82,9 @@
 .dc_tab li a{color: #333;padding:0 7px;display: block;font-size:14px;}
 .dc_tab li a:hover{background-color: #0895d3;color: #fff;}
 .dc_tab li.dc_act a{background-color: #0895d3;color: #fff;}
-.dv_tabbox{padding-top: 10px;}
+.dv_tabbox{padding-top: 10px;overflow:hidden;}
 .dc_tabcnt{display:none;}
+.dc_tabcnt ul{width:1000px;}
 .dc_tabcnt li{border: 1px solid #ebebeb;float: left;width: 220px;height: 240px;overflow: hidden;margin-right:24px;}
 li.no_mr{margin-right:0;}
 .dc_info{padding:15px 20px 13px;height: 173px;overflow: hidden;}

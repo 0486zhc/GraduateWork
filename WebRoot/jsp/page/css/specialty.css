@@ -38,7 +38,7 @@ a{color:#0093d0;}
 .dc_od_tt_btn{height: 24px;margin: 16px 0;text-align: center;width: 40px;}
 .od_prev{background-position: 4px -1871px;}
 .od_next{background-position: 3px -1943px;}
-.timetable li{color: #FFF;cursor: default;display: block;font-size: 12px;line-height: 21px;height: 42px;margin: 7px 5px;text-align: center;width: 45px;}
+.timetable li{color: #FFF;cursor: default;display: block;font-size: 12px;line-height: 21px;height: 42px;margin: 7px 5px;text-align: center;width: 83px;}
 .timetable li.holiday{border-radius: 3px;background-color: #28C1D1;}
 .od_cnt{border-right: 1px solid #E6E6E6;min-height: 115px;}
 .beforenoon{border-bottom: 1px solid #eefad7;}
@@ -46,7 +46,7 @@ a{color:#0093d0;}
 .od_cnt_time{padding: 1px 1px 1px 0;}
 .od_cnt_time div{background-color: #dff2f5;color: #00aec1;height: 55px;line-height: 27px;text-align: center;width: 29px;}
 .dc_od_cnt_li div{width: 38px;}
-.od_btn{margin-right: 1px;outline: 0;width: 52px;height: 53px;}
+.od_btn{margin-right: 1px;outline: 0;width: 90.5px;height: 53px;}
 .order_null{border: 1px solid #fff;cursor: default;}
 .order_off, .order_out, .order_man_out{background: #f7f7f7;border-color: #f7f7f7;color: #6a6a76;cursor: default;border: 1px solid #eefad7;line-height:52px}
 .order_access{background-color: #eefad7;border: 1px solid #eefad7;color: #59aa21;line-height: 26px;}
