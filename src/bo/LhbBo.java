@@ -42,9 +42,13 @@ public class LhbBo
       return ERROR;
    }
 
-   public String makeAppoints(ClinicAppoints appoints,String user_id)
+   public String makeAppoints(ClinicAppoints appoints,String user_id,String date)
    {
-      pmiDao.makeAppoints(appoints,user_id);
+      pmiDao.makeAppoints(appoints,user_id,date);
+      if(pmiDao.updateOutDoctor(appoints) == false)
+      {
+    	  return ERROR;
+      }
       return SUCCESS;
    }
 

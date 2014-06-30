@@ -111,9 +111,9 @@ $(function(){
       $(this).click(function(){
          $(".dc_tab li").removeClass("dc_act");
          $(this).parent("li").addClass("dc_act");
-         var activetab ="#" + $(this).parent("li").attr("tab");
-         $(".dc_tabcnt").hide();
-         $(activetab).show();
+//         var activetab ="#" + $(this).parent("li").attr("tab");
+//         $(".dc_tabcnt").hide();
+//         $(activetab).show();
       });
    });
 });

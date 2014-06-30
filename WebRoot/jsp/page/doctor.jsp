@@ -95,6 +95,7 @@ $(document).ready(function () {
             <ul>
                 <li class="login"><a href="javascript:void(0);">登录</a><span class="fr">|</span></li>
                 <li><a href="regist.jsp">注册</a></li>
+                <li><a href="exit.action">注销</a></li>
             </ul>
         </div>
     </div>

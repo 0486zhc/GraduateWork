@@ -85,7 +85,7 @@
 .dv_tabbox{padding-top: 10px;overflow:hidden;}
 .dc_tabcnt{display:none;}
 .dc_tabcnt ul{width:1000px;}
-.dc_tabcnt li{border: 1px solid #ebebeb;float: left;width: 220px;height: 240px;overflow: hidden;margin-right:24px;}
+.dc_tabcnt li{border: 1px solid #ebebeb;float: left;width: 220px;height: 240px;overflow: hidden;margin-right:18px;margin-bottom:10px}
 li.no_mr{margin-right:0;}
 .dc_info{padding:15px 20px 13px;height: 173px;overflow: hidden;}
 .dc_info dt{height: 90px;overflow: hidden;padding-bottom: 5px;}

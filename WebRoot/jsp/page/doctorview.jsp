@@ -31,28 +31,28 @@ $(document).ready(function () {
 </head>
   
   <body>
-            <div class="dc_tabcnt" id="tab1" style="display:block;">
+            <div class="dc_tabcnt" style="display:block;">
                 <ul>
-                  <s:iterator value="#request.DoctorNametab1">
+                  <s:iterator value="#request.DoctorName">
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                   	<div class="dc_info_name fl fs18"><s:property /></div>
+                                    <a href='OzqActionOnDuty.action?doctor_name=<s:property />&dept_name=<s:property value="#session.thedeptName"/>' class="dc_info_pic fl block o-hidden" target="brank"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href='OzqActionOnDuty.action?doctor_name=<s:property />&dept_name=<s:property value="#session.thedeptName"/>' class="dc_info_name fl fs18" target="brank"><s:property /></a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
                                     <div class="dc_info_hs">
                                         <a href="">东莞市人民医院</a><br>
-                                        <a href="specialty.jsp" class="fs12">内科</a>
+                                        <a href="specialty.jsp" class="fs12">门诊内科</a>
                                     </div>
                                     <p class="dc_info_pd fs12">从事内科临床工作十多年，积累丰富的内科疾病诊治经验，从事内分泌专科临床工作多年，对糖尿病、甲亢、痛风、继发性高血压、垂体及肾上腺等内分泌疾病有丰富的诊治经验。</p>
                                 </dd>
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="doctor.jsp"><i></i>预约挂号</a>
+                            <a href='OzqActionOnDuty.action?doctor_name=<s:property />&dept_name=<s:property value="#session.thedeptName"/>' target="brank"><i></i>预约挂号</a>
                         </div>
                     </li>
                   </s:iterator>

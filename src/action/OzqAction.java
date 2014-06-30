@@ -475,6 +475,7 @@ public class OzqAction{
 
 	//查排班
 	public String CheckOnDuty() throws UnsupportedEncodingException{
+		try{
 		System.out.println("action1...");
 
 		String doctorname = req.getParameter("doctor_name");
@@ -523,6 +524,10 @@ public class OzqAction{
 		}
 		
 		return "success";
+		}catch (Exception ex){
+	         ex.printStackTrace();
+	         return "fail";
+	      }
 	}
 
 	//查Twoday排班
@@ -1438,6 +1443,7 @@ public class OzqAction{
 
 	//查每个时间点
 	public String CheckRegistTime() throws UnsupportedEncodingException{
+			try{
 			System.out.println("action1...");
 
 			String doctorno = req.getParameter("doctor_no");
@@ -1446,11 +1452,11 @@ public class OzqAction{
 
 			String counseldate = req.getParameter("counsel_date");
 			counseldate=new String(counseldate.getBytes("ISO-8859-1"), "UTF-8");
-			request.put("counseldate", counseldate);
+			session.put("counseldate", counseldate);
 
 			String clinicduration = req.getParameter("clinic_duration");
 			clinicduration=new String(clinicduration.getBytes("ISO-8859-1"), "UTF-8");
-			request.put("clinicduration", clinicduration);
+			session.put("clinicduration", clinicduration);
 
 			String queuename = req.getParameter("queue_name");
 			queuename=new String(queuename.getBytes("ISO-8859-1"), "UTF-8");
@@ -1481,105 +1487,38 @@ public class OzqAction{
 					System.out.println(registtime[i]);
 					System.out.println(registtime.length);
 				}
-				request.put("registtime", registtime);
+				session.put("registtime", registtime);
 				System.out.println("1");
 			}else{
-			request.put("registtime", "");
+				session.put("registtime", "");
 			System.out.println("2");
 			}
 			return "success";
+			}catch (Exception ex){
+		         ex.printStackTrace();
+		         return "fail";
+		      }
 		}
 
 		//查医生
 		public String CheckDoctorName() throws IOException{
+			try{
 			System.out.println("action1...");
 
 			String deptname = req.getParameter("dept_name");
 			System.out.println(deptname);
 			deptname=new String(deptname.getBytes("ISO-8859-1"), "UTF-8");
 			System.out.println(deptname);
+			session.put("thedeptName", deptname);
 		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName(deptname);
 		    request.put("DoctorName", OutpDoctorRegistDoctorName);
 		    System.out.println(OutpDoctorRegistDoctorName.get(1));
 		    System.out.println("click doctor.............");
 		    return "success";
-		}
-
-		//查tab1的医生
-		public String CheckDoctorNametab1() throws IOException{
-			System.out.println("action1...");
-
-		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊内科");
-		    request.put("DoctorNametab1", OutpDoctorRegistDoctorName);
-		    System.out.println(OutpDoctorRegistDoctorName.get(1));
-		    System.out.println("login doctor.............");
-		    return "success";
-		}
-
-		//查tab2的医生
-		public String CheckDoctorNametab2() throws IOException{
-			System.out.println("action1...");
-
-		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊妇科");
-		    request.put("DoctorNametab2", OutpDoctorRegistDoctorName);
-		    System.out.println(OutpDoctorRegistDoctorName.get(1));
-		    System.out.println("login doctor.............");
-		    return "success";
-		}
-
-		//查tab3的医生
-		public String CheckDoctorNametab3() throws IOException{
-			System.out.println("action1...");
-
-		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊急诊科");
-		    request.put("DoctorNametab3", OutpDoctorRegistDoctorName);
-		    System.out.println(OutpDoctorRegistDoctorName.get(1));
-		    System.out.println("login doctor.............");
-		    return "success";
-		}
-
-		//查tab4的医生
-		public String CheckDoctorNametab4() throws IOException{
-			System.out.println("action1...");
-
-		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊口腔科");
-		    request.put("DoctorNametab4", OutpDoctorRegistDoctorName);
-		    System.out.println(OutpDoctorRegistDoctorName.get(1));
-		    System.out.println("login doctor.............");
-		    return "success";
-		}
-
-		//查tab5的医生
-		public String CheckDoctorNametab5() throws IOException{
-			System.out.println("action1...");
-
-		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊中医科");
-		    request.put("DoctorNametab5", OutpDoctorRegistDoctorName);
-		    System.out.println(OutpDoctorRegistDoctorName.get(1));
-		    System.out.println("login doctor.............");
-		    return "success";
-		}
-
-		//查tab6的医生
-		public String CheckDoctorNametab6() throws IOException{
-			System.out.println("action1...");
-
-		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("门诊外科");
-		    request.put("DoctorNametab6", OutpDoctorRegistDoctorName);
-		    System.out.println(OutpDoctorRegistDoctorName.get(1));
-		    System.out.println("login doctor.............");
-		    return "success";
-		}
-
-		//查tab7的医生
-		public String CheckDoctorNametab7() throws IOException{
-			System.out.println("action1...");
-
-		    OutpDoctorRegistDoctorName = ozqBo.CheckDoctorName("体检科");
-		    request.put("DoctorNametab7", OutpDoctorRegistDoctorName);
-		    System.out.println(OutpDoctorRegistDoctorName.get(1));
-		    System.out.println("login doctor.............");
-		    return "success";
+			}catch (Exception ex){
+		         ex.printStackTrace();
+		         return "fail";
+		      }
 		}
 
 }

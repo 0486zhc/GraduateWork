@@ -1,5 +1,6 @@
 package dao;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class PatMasterIndexDAO
    private static final String strForMaxId  = "select max(patient_id) from pat_master_index";
    private static final String strByUserId  = "from PatMasterIndex where id_no = ?";
    private static final String strForSeq = 
-         "select max(serial_no) from clinic_appoints where visit_date_appted = ? and clinic_label = ? and visit_time_appted = ? and pre_regist_doctor = ? and regist_status = '0' and regist_flag = '0';";
+         "select max(serial_no) from clinic_appoints where to_date(visit_date_appted) = to_date(?,'yyyy-mm-dd') and clinic_label = ? and visit_time_appted = ? and pre_regist_doctor = ?  and regist_status = '0' and regist_flag = '0'";
    public HibernateTemplate getTemplate()
    {
       return template;
@@ -124,12 +125,12 @@ public class PatMasterIndexDAO
       return pmi.get(0);
    }
 
-   public void makeAppoints(ClinicAppoints appoints,String user_id)
+   public void makeAppoints(ClinicAppoints appoints,String user_id,String date)
    {
       Session session = HibernateUtil.getSession();
       Transaction ts = session.beginTransaction();
       ts.begin();
-      appoints.setSerialNo(getMaxSeq(appoints));
+      appoints.setSerialNo(getMaxSeq(appoints,date));
       session.saveOrUpdate(appoints);
       addOne(user_id);
       ts.commit();
@@ -162,18 +163,45 @@ public class PatMasterIndexDAO
       return pmi.get(0);  
     }
    
-    private short getMaxSeq(ClinicAppoints appoints)
+    private short getMaxSeq(ClinicAppoints appoints,String date)
     {
        session = HibernateUtil.getSession();
-       query = session.createQuery(strForSeq);
-       query.setDate(0, appoints.getVisitDateAppted());
+       query = session.createSQLQuery(strForSeq);
+       query.setString(0, date);
        query.setString(1, appoints.getClinicLabel());
-       query.setString(3, appoints.getVisitTimeAppted());
-       query.setString(4, appoints.getPreRegistDoctor());
-       query.setString(5, appoints.getRegistStatus());
-       List<String> list = query.list();
+       query.setString(2, appoints.getVisitTimeAppted());
+       query.setString(3, appoints.getPreRegistDoctor());
+       List list = query.list();
+       if(list.size() == 0 || list.get(0) == null)
+       {
+    	   return 1;
+       }
        
-       short i = (short) (Integer.valueOf(list.get(0)) + 1);
+       BigDecimal b = (BigDecimal) list.get(0);
+       
+       short i = (short) (b.intValue() + 1);
+       
        return i;
+    }
+    public boolean updateOutDoctor(ClinicAppoints appoints) {
+		try {
+			System.out.println("updateOutDoctor");
+			System.out.println(appoints.getPreRegistDoctor()+"="+appoints.getVisitDateAppted()+"="+appoints.getVisitTimeAppted());
+			String updateSql = "update OUTP_DOCTOR_REGIST set REGIST_APPED = REGIST_APPED+1 where doctor_no =? and counsel_date =? and CLINIC_DURATION = ?";
+			Session session = HibernateUtil.getSession();
+			Transaction ts = session.beginTransaction();
+			Query query = session.createSQLQuery(updateSql);
+			query.setString(0, appoints.getPreRegistDoctor());
+			query.setDate(1, appoints.getVisitDateAppted());
+			query.setString(2, appoints.getVisitTimeAppted());
+			query.executeUpdate();
+			ts.commit();
+			session.flush();
+			session.close();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
     }
 }
