@@ -1,5 +1,6 @@
 package util;
 
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -13,6 +14,15 @@ public class MyUtil {
 		Date today = new Date();
 		String todayFormat = df.format(today);
 		return todayFormat ;
+	}
+	
+	// 今天 ，格式:2014-06-20 12:23:32
+	public static String getNowTime(){
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置日期格式
+		// 开始日期
+		Date today = new Date();
+		String nowTime = df.format(today);
+		 return nowTime;
 	}
 	
 	// 7天后，格式：2014-06-26
@@ -38,12 +48,14 @@ public class MyUtil {
 		return strb.append(i.toString()).toString();
 	}
 	
-	public static String getNowTime(){
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置日期格式
-		// 开始日期
-		Date today = new Date();
-		String nowTime = df.format(today);
-		 return nowTime;
+	public static String formatContent (String text){
+		try {
+			String formatText;
+			formatText = new String(text.getBytes("ISO-8859-1"), "UTF-8");
+			return formatText ;
+		} catch (UnsupportedEncodingException e) {
+			return "乱码转换失败";
+		}
 	}
 	
 	

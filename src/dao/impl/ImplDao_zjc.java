@@ -77,18 +77,20 @@ public class ImplDao_zjc implements IDao_zjc {
 	@Override
 	public List<DeptDict> getDepts() {
 		System.out.println("dao getDepts");
-		String hql = "from DeptDict as d where dept_code in (select clinicDept from OutpDoctorRegist) ";
+		// 显示有预约科室的时间
+		String hql = "from DeptDict where dept_code in (select clinicDept from OutpDoctorRegist where to_date(sysdate) <= COUNSEL_DATE) ";
+		// 显示全部科室（暂用）
+//		String hql = "from DeptDict where dept_code in (select clinicDept from OutpDoctorRegist ) ";
 		List<DeptDict> deptDicts = excuteHibernate(hql);
 		return deptDicts;
 	}
 
 	@Override
 	public List<StaffDict> getDoctorsInfo(Integer deptCode) {
-		String hql = "from StaffDict where emp_no in (select distinct doctorNo from OutpDoctorRegist ) and dept_code = "
+		String hql = "from StaffDict where emp_no in (select distinct doctorNo from OutpDoctorRegist where to_date(sysdate) <= COUNSEL_DATE ) and dept_code = "
 				+ deptCode;
 		System.out.println(hql);
 		List<StaffDict> doctorsInfo = excuteHibernate(hql);
-
 		return doctorsInfo;
 	}
 
@@ -235,7 +237,7 @@ public class ImplDao_zjc implements IDao_zjc {
 	@Override
 	public List<ClinicAppoints> getAppoints(PatMasterIndex pat) {
 		System.out.println("pat"+pat);
-		String hql = "from ClinicAppoints where patient_id = '" + pat.getPatientId() + "' and regist_status =0 and to_date(sysdate) >= VISIT_DATE_APPTED";
+		String hql = "from ClinicAppoints where patient_id = '" + pat.getPatientId() + "' and regist_status =0 and to_date(sysdate) <= VISIT_DATE_APPTED";
 		System.out.println("hql"+hql);
 		List<ClinicAppoints> appoints = excuteHibernate(hql);
 		System.out.println("appoints" +appoints);
