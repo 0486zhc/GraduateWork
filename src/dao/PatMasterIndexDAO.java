@@ -93,11 +93,11 @@ public class PatMasterIndexDAO
    {
       query = session.createSQLQuery(strForMaxId);
       List max = query.list();
-      Integer maxNum = Integer.valueOf(max.get(0).toString()) + 1;
+      Long maxNum = Long.valueOf(max.get(0).toString()) + 1;
       return getLeft(maxNum);
    }
 
-   private String getLeft(Integer i)
+   private String getLeft(Long i)
    {
       StringBuilder strb = new StringBuilder();
       int zeros = i.toString().length();
