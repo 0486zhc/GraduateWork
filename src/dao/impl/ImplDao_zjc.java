@@ -1,5 +1,6 @@
 package dao.impl;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -290,5 +291,12 @@ public class ImplDao_zjc implements IDao_zjc {
 		String s2 = s.substring(26);
 		System.out.println(s1);
 		System.out.println(s2);
+	}
+
+	@Override
+	public OutpDoctorRegist getOutpDoctorOne(String doctorName, String date,
+			String duration) {
+		String hql ="from OutpDoctorRegist where doctor='" + doctorName +"' and CLINIC_DURATION ='"+duration+"' and to_date(COUNSEL_DATE) = to_date('"+ date +"','yyyy-MM-dd')";
+		return (OutpDoctorRegist) excuteHibernate(hql).get(0);
 	}
 }

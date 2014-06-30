@@ -1,9 +1,11 @@
 package util;
 
 import java.io.UnsupportedEncodingException;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
 import java.util.GregorianCalendar;
 
 public class MyUtil {
@@ -59,9 +61,11 @@ public class MyUtil {
 	}
 	
 	
-	public static void main(String[] args) {
-		
-		System.out.println( MyUtil.getNowTime() );
-	}
+//	public static void main(String[] args) {
+//		String date="1987-10-10"; 
+//		Date t = Date.valueOf(date); 
+//		System.out.println(t);
+//		
+//	}
 	
 }

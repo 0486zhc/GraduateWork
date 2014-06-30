@@ -29,9 +29,6 @@ import bo.IBo_zjc;
 public class AppointmentAction extends ActionSupport{
 	private IBo_zjc bo ;
 	
-	HttpServletRequest req;
-	HttpServletResponse resp;
-	
 	private List<DeptDict> depts ; 
 	private DeptDict dept;
 	private List<StaffDict> doctorsInfo ;
@@ -39,6 +36,7 @@ public class AppointmentAction extends ActionSupport{
 	private List<ClinicAppoints> appointsList;
 	private ClinicAppoints appoint;
 	private PatMasterIndex pat ;
+	private List<String> times;
 	
 	private String mess ;
 	private Integer deptCode ;
@@ -69,12 +67,15 @@ public class AppointmentAction extends ActionSupport{
 	public String appointTimes(){
 		System.out.println("appointTime");
 //		String a= MyUtil.formatContent(mess);
-		mess2 = MyUtil.formatContent(mess2);
+		mess2 =  (String) ActionContext.getContext().getSession().get("doctName");;
 		System.out.println(mess2);
 		date = MyUtil.formatContent(date);
 		System.out.println(date);
 		mess = MyUtil.formatContent(mess);
-		System.out.println(mess);
+		
+		times = bo.getAppointTimes(mess2, date, mess);
+		
+		System.out.println(times);
 		
 		return "appointTimes";
 	}
@@ -299,6 +300,14 @@ public class AppointmentAction extends ActionSupport{
 	
 	public List<OutpDoctorRegist> getOutDoctors() {
 		return outDoctors;
+	}
+
+	public List<String> getTimes() {
+		return times;
+	}
+
+	public void setTimes(List<String> times) {
+		this.times = times;
 	}
 
 	public String getMess2() {
