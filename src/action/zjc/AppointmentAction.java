@@ -43,6 +43,7 @@ public class AppointmentAction extends ActionSupport{
 	private Integer doctorNo;
 	private String date;
 	private String mess2;
+	private String mess3;
 	
 	// 找科室
 	public String findDepts(){
@@ -72,7 +73,8 @@ public class AppointmentAction extends ActionSupport{
 		date = MyUtil.formatContent(date);
 		System.out.println(date);
 		mess = MyUtil.formatContent(mess);
-		
+		mess3 = MyUtil.formatContent(mess3);
+		System.out.println(mess3);
 		times = bo.getAppointTimes(mess2, date, mess);
 		
 		System.out.println(times);
@@ -304,6 +306,14 @@ public class AppointmentAction extends ActionSupport{
 
 	public List<String> getTimes() {
 		return times;
+	}
+
+	public String getMess3() {
+		return mess3;
+	}
+
+	public void setMess3(String mess3) {
+		this.mess3 = mess3;
 	}
 
 	public void setTimes(List<String> times) {

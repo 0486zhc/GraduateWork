@@ -397,8 +397,8 @@ obj.src="rand.action?d="+timenow;
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href='OzqActionOnDuty.action?doctor_name=钟灵&dept_name=门诊内科' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href='OzqActionOnDuty.action?doctor_name=钟灵&dept_name=门诊内科' class="dc_info_name fl fs18">钟灵</a>
+                                    <a href='OzqActionMany.action' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href='OzqActionMany.action' class="dc_info_name fl fs18">钟灵</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
@@ -411,15 +411,15 @@ obj.src="rand.action?d="+timenow;
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href='OzqActionOnDuty.action?doctor_name=钟灵&dept_name=门诊内科'><i></i>预约挂号</a>
+                            <a href='OzqActionMany.action'><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>
                         <div class="dc_info">
                             <dl>
                                 <dt>
-                                    <a href="OzqActionOnDuty.action?doctor_name=廖志坚&dept_name=门诊内科" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
-                                    <a href="OzqActionOnDuty.action?doctor_name=廖志坚&dept_name=门诊内科" class="dc_info_name fl fs18">廖志坚</a>
+                                    <a href="doctor.jsp" class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
+                                    <a href="doctor.jsp" class="dc_info_name fl fs18">廖志坚</a>
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
@@ -432,7 +432,7 @@ obj.src="rand.action?d="+timenow;
                             </dl>
                         </div>
                         <div class="dc_icon">
-                            <a href="OzqActionOnDuty.action?doctor_name=廖志坚&dept_name=门诊内科"><i></i>预约挂号</a>
+                            <a href="doctor.jsp"><i></i>预约挂号</a>
                         </div>
                     </li>
                     <li>

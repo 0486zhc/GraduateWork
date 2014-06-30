@@ -104,6 +104,7 @@ obj.src="rand.action?d="+timenow;
                <li><a href="baidu.jsp" target="_black">百度地图</a>
                <li class="login"><a href="">你好,<s:property value="#session.user.name" default="游客"/></a><span class="fr">|</span></li>
                 <li><a href="regist.jsp">注册</a></li>
+                <li><a href="exit.action">注销</a></li>
             </ul>
         </div>
     </div>

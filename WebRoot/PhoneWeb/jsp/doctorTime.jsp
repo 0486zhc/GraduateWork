@@ -90,7 +90,7 @@
                             	<s:if test="#request.twodaymoring.limitNumApp != 0">
                             		<s:if test="#request.twodaymoring.registApped != #request.twodaymoring.limitNumApp">
                             			<s:iterator value="#request.twodaymoring">
-                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
+                            				<a href='appointment_appointTimes?mess2=<s:property value="#request.twoday.doctorNo"/>&date=<s:property value="#request.date2"/>&mess=<s:property value="#request.twodaymoring.clinicDuration"/>&mess3=<s:property value="#request.twodaymoring.queueName"/>' class="fl t_c block fs12 od_btn order_access">预约<br>(<s:property value="registApped"/>/<s:property value="limitNumApp"/>)</a>
                             			</s:iterator>
                             		</s:if>
                             		<s:else>

@@ -420,8 +420,6 @@ obj.src="rand.action?d="+timenow;
                                 <dt>
                                     <a href='OzqActionOnDuty.action?doctor_name=钟灵&dept_name=门诊内科' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a>
                                     <a href='OzqActionOnDuty.action?doctor_name=钟灵&dept_name=门诊内科' class="dc_info_name fl fs18">钟灵</a>
-<!-- 									<a href='OzqActionOnDuty.action?doctor_name=侯永秀&dept_name=体检科' class="dc_info_pic fl block o-hidden"><img src="images/doctor.jpg" width="72" height="auto"  alt=""></a> -->
-<!--                                     <a href='OzqActionOnDuty.action?doctor_name=侯永秀&dept_name=体检科' class="dc_info_name fl fs18">钟灵</a> -->
                                     <span class="dc_info_pst fl fs12">副主任医师</span>
                                 </dt>
                                 <dd>
