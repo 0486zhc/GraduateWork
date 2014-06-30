@@ -105,14 +105,14 @@ public class ImplBo_zjc implements IBo_zjc{
 	public List<String> getAppointTimes(String doctorName, String date,
 			String duration) {
 		OutpDoctorRegist out = dao.getOutpDoctorOne(doctorName,date,duration);
-		String start_time = out.getRegBeginTime();
-		String end_time = out.getRegEndTime();
-		System.out.println(start_time - end_time);
-		Integer num = out.getLimitNumApp();
+//		String start_time = out.getRegBeginTime();
+//		String end_time = out.getRegEndTime();
+//		System.out.println(start_time - end_time);
+//		Integer num = out.getLimitNumApp();
 		
-		List<String> times = new ArrayList<String>();
-		times.add(start_time);
-		times.add(end_time);
+//		List<String> times = new ArrayList<String>();
+//		times.add(start_time);
+//		times.add(end_time);
 		
 		System.out.println("out="+out);
 		return null;
