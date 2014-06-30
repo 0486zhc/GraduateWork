@@ -99,12 +99,17 @@ public class AppointmentAction extends ActionSupport{
 			ActionContext.getContext().getSession().put("preTimes",null);  // 放session
 			System.out.println("2");
 		}
-//		return "success";
-		
-		
 		System.out.println(times);
-		
 		return "appointTimes";
+	}
+	
+	
+	public String addAppoint(){
+		System.out.println("addAppoint");
+		
+		
+		
+		return "appointsInfo";
 	}
 	
 	// 查询预约

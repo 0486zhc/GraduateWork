@@ -80,7 +80,7 @@ public class ImplDao_zjc implements IDao_zjc {
 		System.out.println("dao getDepts");
 		// 显示有预约科室的时间
 //		String hql = "from DeptDict where dept_code in (select clinicDept from OutpDoctorRegist where to_date(sysdate) <= COUNSEL_DATE) ";
-		String hql = "from DeptDict where dept_code in (select clinicDept from OutpDoctorRegist where to_date(sysdate) <= COUNSEL_DATE) and COUNSEL_DATE <= to_date(sysdate)+7 )";
+		String hql = "from DeptDict where dept_code in (select clinicDept from OutpDoctorRegist where to_date(sysdate) <= COUNSEL_DATE)";
 		
 		// 显示全部科室（暂用）
 //		String hql = "from DeptDict where dept_code in (select clinicDept from OutpDoctorRegist ) ";
@@ -90,7 +90,7 @@ public class ImplDao_zjc implements IDao_zjc {
 
 	@Override
 	public List<StaffDict> getDoctorsInfo(Integer deptCode) {
-		String hql = "from StaffDict where emp_no in (select distinct doctorNo from OutpDoctorRegist where to_date(sysdate) <= COUNSEL_DATE and COUNSEL_DATE <= to_date(sysdate)+7 ) and dept_code = "
+		String hql = "from StaffDict where emp_no in (select distinct doctorNo from OutpDoctorRegist where to_date(sysdate) <= COUNSEL_DATE  ) and dept_code = "
 				+ deptCode;
 		System.out.println(hql);
 		List<StaffDict> doctorsInfo = excuteHibernate(hql);
