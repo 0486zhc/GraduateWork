@@ -494,7 +494,8 @@ public class OzqAction{
 		Object[] doctor = ozqBo.CheckClinicDeptDoctorNo(doctorname).get(0);
 		String clinic_dept = (String) doctor[0];
 		String doctor_no = (String) doctor[1];
-		
+//// leovany
+//		doctor_no = "3506";
 		//查7天的排班
 		CheckOnDutyToday(clinic_dept,doctor_no);
 		CheckOnDutyTwoday(clinic_dept,doctor_no);
