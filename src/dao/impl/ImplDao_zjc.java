@@ -1,9 +1,10 @@
 package dao.impl;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import model.Ozq.ClinicAppoints;
@@ -29,7 +30,6 @@ public class ImplDao_zjc implements IDao_zjc {
 
 	private static final String strByUserId = "from PatMasterIndex where id_no = ?";
 	private static final String strForSeq = "select max(serial_no) from clinic_appoints where to_date(visit_date_appted) = to_date(?,'yyyy-mm-dd') and clinic_label = ? and visit_time_appted = ? and pre_regist_doctor = ?  and regist_status = '0' and regist_flag = '0'";
-	//private static final String strForSeq = "select max(serial_no) from clinic_appoints where  clinic_label = ? and visit_time_appted = ? and pre_regist_doctor = ?  and regist_status = '0' and regist_flag = '0'";
 
 	public HibernateTemplate getTemplate() {
 		return template;
@@ -211,12 +211,11 @@ public class ImplDao_zjc implements IDao_zjc {
 	@Override
 	public List<ClinicAppoints> getAppoints(PatMasterIndex pat) {
 		System.out.println("pat" + pat);
-//		String hql = "from ClinicAppoints where patient_id = '"
-//				+ pat.getPatientId()
-//				+ "' and regist_status =0 and to_date(sysdate) <= VISIT_DATE_APPTED";
+		// String hql = "from ClinicAppoints where patient_id = '"
+		// + pat.getPatientId()
+		// + "' and regist_status =0 and to_date(sysdate) <= VISIT_DATE_APPTED";
 		String hql = "from ClinicAppoints where patient_id = '"
-				+ pat.getPatientId()
-				+ "' and regist_status =0 ";
+				+ pat.getPatientId() + "' and regist_status =0 ";
 		System.out.println("hql" + hql);
 		List<ClinicAppoints> appoints = excuteHibernate(hql);
 		System.out.println("appoints" + appoints);
@@ -363,8 +362,16 @@ public class ImplDao_zjc implements IDao_zjc {
 		} catch (Exception e) {
 			System.out.println("dao 预约失败");
 			e.printStackTrace();
-			return false; 
+			return false;
 		}
+	}
+
+	private Long getAge(Timestamp dateOfBirth) {
+		Calendar cal = Calendar.getInstance();
+		int year = cal.get(Calendar.YEAR);
+		Long age = (long) (year - (dateOfBirth.getYear() + 1900));
+
+		return age;
 	}
 
 	public void addOne(String user_id) {
@@ -376,15 +383,12 @@ public class ImplDao_zjc implements IDao_zjc {
 		query.setString(0, user_id);
 		pmis = query.list();
 		pmi = pmis.get(0);
-		if(pmi.getFlag() == null)
-		{
+		if (pmi.getFlag() == null) {
 			pmi.setFlag(1);
+		} else {
+			pmi.setFlag(pmi.getFlag() + 1);
 		}
-		else
-		{
-			pmi.setFlag(pmi.getFlag() + 1 );
-		}
-		
+
 		Transaction ta = session.beginTransaction();
 		session.update(pmi);
 		ta.commit();
@@ -393,27 +397,26 @@ public class ImplDao_zjc implements IDao_zjc {
 
 	private short getMaxSeq(ClinicAppoints appoints) {
 		Session session = HibernateUtil.getSession();
-		
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		
+
 		Query query = session.createSQLQuery(strForSeq);
-//		query.setDate(0, Date.valueOf("2014-07-01"));
-//		query.setString(0, "2014-07-01");
+		// query.setDate(0, Date.valueOf("2014-07-01"));
+		// query.setString(0, "2014-07-01");
 		System.out.println(appoints.getVisitDateAppted());
 		System.out.println(sdf.format(appoints.getVisitDateAppted()));
-		query.setString(0, sdf.format(appoints.getVisitDateAppted()));  // 2014-07-01
+		query.setString(0, sdf.format(appoints.getVisitDateAppted())); // 2014-07-01
 		query.setString(1, appoints.getClinicLabel());
 		query.setString(2, appoints.getVisitTimeAppted());
 		query.setString(3, appoints.getPreRegistDoctor());
 		List<BigDecimal> list = query.list();
 
-		if(list.size() == 0 || list.get(0) == null)
-		{
+		if (list.size() == 0 || list.get(0) == null) {
 			return 1;
 		}
 		BigDecimal a = list.get(0);
-		short i = (short)a.intValue();
-		//int i =  (Integer.valueOf(list.get(0)) + 1);
+		short i = (short) a.intValue();
+		// int i = (Integer.valueOf(list.get(0)) + 1);
 		return i;
 	}
 
@@ -421,7 +424,9 @@ public class ImplDao_zjc implements IDao_zjc {
 	public boolean updateOutDoctor(ClinicAppoints appoints) {
 		try {
 			System.out.println("updateOutDoctor");
-			System.out.println(appoints.getPreRegistDoctor()+"="+appoints.getVisitDateAppted()+"="+appoints.getVisitTimeAppted());
+			System.out.println(appoints.getPreRegistDoctor() + "="
+					+ appoints.getVisitDateAppted() + "="
+					+ appoints.getVisitTimeAppted());
 			String updateSql = "update OUTP_DOCTOR_REGIST set REGIST_APPED = REGIST_APPED+1 where doctor_no =? and counsel_date =? and CLINIC_DURATION = ?";
 			Session session = HibernateUtil.getSession();
 			Transaction ts = session.beginTransaction();
@@ -440,5 +445,4 @@ public class ImplDao_zjc implements IDao_zjc {
 		}
 	}
 
-	
 }

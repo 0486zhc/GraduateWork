@@ -531,7 +531,7 @@ public class OzqAction{
 	}
 
 	//查Twoday排班
-	public void CheckOnDutyTwoday(String doctorname,String clinic_dept,String doctor_no){
+	public void CheckOnDutyTwoday(String doctorname,String clinic_dept,String doctor_no) throws ParseException{
 		System.out.println("action1...");
 
 		twoday = ozqBo.CheckOnDutyTwoday(clinic_dept, doctor_no);
@@ -627,22 +627,43 @@ public class OzqAction{
 			calendar.add(calendar.DATE,1);//把日期往后增加.整数往后推,负数往前移动
 			Twoday=calendar.getTime(); //这个时间就是日期往后推的结果 
 			String d = df.format(Twoday);
-			thedate = ozqBo.CheckDate(d);
-			Timestamp t = thedate.get(0);
-			ob.setCounselDate(t);
-			date2 = df.format(t);
+//			thedate = ozqBo.CheckDate(d);
+//			Timestamp t = thedate.get(0);
+//			ob.setCounselDate(t);
+//			date2 = df.format(t);
+//			try {
+//				if(df.parse(df.format(t)).getDay() == 0){
+//					day2 = "星期天";
+//				}else if(df.parse(df.format(t)).getDay() == 1){
+//					day2 = "星期一";
+//				}else if(df.parse(df.format(t)).getDay() == 2){
+//					day2 = "星期二";
+//				}else if(df.parse(df.format(t)).getDay() == 3){
+//					day2 = "星期三";
+//				}else if(df.parse(df.format(t)).getDay() == 4){
+//					day2 = "星期四";
+//				}else if(df.parse(df.format(t)).getDay() == 5){
+//					day2 = "星期五";
+//				}else{
+//					day2 = "星期六";
+//				}
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			date2 = d;
 			try {
-				if(df.parse(df.format(t)).getDay() == 0){
+				if(df.parse(d).getDay() == 0){
 					day2 = "星期天";
-				}else if(df.parse(df.format(t)).getDay() == 1){
+				}else if(df.parse(d).getDay() == 1){
 					day2 = "星期一";
-				}else if(df.parse(df.format(t)).getDay() == 2){
+				}else if(df.parse(d).getDay() == 2){
 					day2 = "星期二";
-				}else if(df.parse(df.format(t)).getDay() == 3){
+				}else if(df.parse(d).getDay() == 3){
 					day2 = "星期三";
-				}else if(df.parse(df.format(t)).getDay() == 4){
+				}else if(df.parse(d).getDay() == 4){
 					day2 = "星期四";
-				}else if(df.parse(df.format(t)).getDay() == 5){
+				}else if(df.parse(d).getDay() == 5){
 					day2 = "星期五";
 				}else{
 					day2 = "星期六";
@@ -651,6 +672,7 @@ public class OzqAction{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 
 			request.put("twoday", ob);
 			System.out.println("2");
@@ -662,7 +684,7 @@ public class OzqAction{
 	}
 
 	//查Threeday排班
-	public void CheckOnDutyThreeday(String doctorname,String clinic_dept,String doctor_no){
+	public void CheckOnDutyThreeday(String doctorname,String clinic_dept,String doctor_no) throws ParseException{
 		System.out.println("action1...");
 
 		threeday = ozqBo.CheckOnDutyThreeday(clinic_dept, doctor_no);
@@ -757,22 +779,43 @@ public class OzqAction{
 			calendar.add(calendar.DATE,2);//把日期往后增加.整数往后推,负数往前移动
 			Threeday=calendar.getTime(); //这个时间就是日期往后推的结果 
 			String d = df.format(Threeday);
-			thedate = ozqBo.CheckDate(d);
-			Timestamp t = thedate.get(0);
-			ob.setCounselDate(t);
-			date3 = df.format(t);
+//			thedate = ozqBo.CheckDate(d);
+//			Timestamp t = thedate.get(0);
+//			ob.setCounselDate(t);
+//			date3 = df.format(t);
+//			try {
+//				if(df.parse(df.format(t)).getDay() == 0){
+//					day3 = "星期天";
+//				}else if(df.parse(df.format(t)).getDay() == 1){
+//					day3 = "星期一";
+//				}else if(df.parse(df.format(t)).getDay() == 2){
+//					day3 = "星期二";
+//				}else if(df.parse(df.format(t)).getDay() == 3){
+//					day3 = "星期三";
+//				}else if(df.parse(df.format(t)).getDay() == 4){
+//					day3 = "星期四";
+//				}else if(df.parse(df.format(t)).getDay() == 5){
+//					day3 = "星期五";
+//				}else{
+//					day3 = "星期六";
+//				}
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			date3 = d;
 			try {
-				if(df.parse(df.format(t)).getDay() == 0){
+				if(df.parse(d).getDay() == 0){
 					day3 = "星期天";
-				}else if(df.parse(df.format(t)).getDay() == 1){
+				}else if(df.parse(d).getDay() == 1){
 					day3 = "星期一";
-				}else if(df.parse(df.format(t)).getDay() == 2){
+				}else if(df.parse(d).getDay() == 2){
 					day3 = "星期二";
-				}else if(df.parse(df.format(t)).getDay() == 3){
+				}else if(df.parse(d).getDay() == 3){
 					day3 = "星期三";
-				}else if(df.parse(df.format(t)).getDay() == 4){
+				}else if(df.parse(d).getDay() == 4){
 					day3 = "星期四";
-				}else if(df.parse(df.format(t)).getDay() == 5){
+				}else if(df.parse(d).getDay() == 5){
 					day3 = "星期五";
 				}else{
 					day3 = "星期六";
@@ -792,7 +835,7 @@ public class OzqAction{
 	}
 
 	//查Fourday排班
-	public void CheckOnDutyFourday(String doctorname,String clinic_dept,String doctor_no){
+	public void CheckOnDutyFourday(String doctorname,String clinic_dept,String doctor_no) throws ParseException{
 		System.out.println("action1...");
 
 		fourday = ozqBo.CheckOnDutyFourday(clinic_dept, doctor_no);
@@ -887,22 +930,43 @@ public class OzqAction{
 			calendar.add(calendar.DATE,3);//把日期往后增加.整数往后推,负数往前移动
 			Fourday=calendar.getTime(); //这个时间就是日期往后推的结果 
 			String d = df.format(Fourday);
-			thedate = ozqBo.CheckDate(d);
-			Timestamp t = thedate.get(0);
-			ob.setCounselDate(t);
-			date4 = df.format(t);
+//			thedate = ozqBo.CheckDate(d);
+//			Timestamp t = thedate.get(0);
+//			ob.setCounselDate(t);
+//			date4 = df.format(t);
+//			try {
+//				if(df.parse(df.format(t)).getDay() == 0){
+//					day4 = "星期天";
+//				}else if(df.parse(df.format(t)).getDay() == 1){
+//					day4 = "星期一";
+//				}else if(df.parse(df.format(t)).getDay() == 2){
+//					day4 = "星期二";
+//				}else if(df.parse(df.format(t)).getDay() == 3){
+//					day4 = "星期三";
+//				}else if(df.parse(df.format(t)).getDay() == 4){
+//					day4 = "星期四";
+//				}else if(df.parse(df.format(t)).getDay() == 5){
+//					day4 = "星期五";
+//				}else{
+//					day4 = "星期六";
+//				}
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			date4 = d;
 			try {
-				if(df.parse(df.format(t)).getDay() == 0){
+				if(df.parse(d).getDay() == 0){
 					day4 = "星期天";
-				}else if(df.parse(df.format(t)).getDay() == 1){
+				}else if(df.parse(d).getDay() == 1){
 					day4 = "星期一";
-				}else if(df.parse(df.format(t)).getDay() == 2){
+				}else if(df.parse(d).getDay() == 2){
 					day4 = "星期二";
-				}else if(df.parse(df.format(t)).getDay() == 3){
+				}else if(df.parse(d).getDay() == 3){
 					day4 = "星期三";
-				}else if(df.parse(df.format(t)).getDay() == 4){
+				}else if(df.parse(d).getDay() == 4){
 					day4 = "星期四";
-				}else if(df.parse(df.format(t)).getDay() == 5){
+				}else if(df.parse(d).getDay() == 5){
 					day4 = "星期五";
 				}else{
 					day4 = "星期六";
@@ -922,7 +986,7 @@ public class OzqAction{
 	}
 
 	//查Fiveday排班
-	public void CheckOnDutyFiveday(String doctorname,String clinic_dept,String doctor_no){
+	public void CheckOnDutyFiveday(String doctorname,String clinic_dept,String doctor_no) throws ParseException{
 		System.out.println("action1...");
 
 		fiveday = ozqBo.CheckOnDutyFiveday(clinic_dept, doctor_no);
@@ -1017,22 +1081,43 @@ public class OzqAction{
 			calendar.add(calendar.DATE,4);//把日期往后增加.整数往后推,负数往前移动
 			Fiveday=calendar.getTime(); //这个时间就是日期往后推的结果 
 			String d = df.format(Fiveday);
-			thedate = ozqBo.CheckDate(d);
-			Timestamp t = thedate.get(0);
-			ob.setCounselDate(t);
-			date5 = df.format(t);
+//			thedate = ozqBo.CheckDate(d);
+//			Timestamp t = thedate.get(0);
+//			ob.setCounselDate(t);
+//			date5 = df.format(t);
+//			try {
+//				if(df.parse(df.format(t)).getDay() == 0){
+//					day5 = "星期天";
+//				}else if(df.parse(df.format(t)).getDay() == 1){
+//					day5 = "星期一";
+//				}else if(df.parse(df.format(t)).getDay() == 2){
+//					day5 = "星期二";
+//				}else if(df.parse(df.format(t)).getDay() == 3){
+//					day5 = "星期三";
+//				}else if(df.parse(df.format(t)).getDay() == 4){
+//					day5 = "星期四";
+//				}else if(df.parse(df.format(t)).getDay() == 5){
+//					day5 = "星期五";
+//				}else{
+//					day5 = "星期六";
+//				}
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			date5 = d;
 			try {
-				if(df.parse(df.format(t)).getDay() == 0){
+				if(df.parse(d).getDay() == 0){
 					day5 = "星期天";
-				}else if(df.parse(df.format(t)).getDay() == 1){
+				}else if(df.parse(d).getDay() == 1){
 					day5 = "星期一";
-				}else if(df.parse(df.format(t)).getDay() == 2){
+				}else if(df.parse(d).getDay() == 2){
 					day5 = "星期二";
-				}else if(df.parse(df.format(t)).getDay() == 3){
+				}else if(df.parse(d).getDay() == 3){
 					day5 = "星期三";
-				}else if(df.parse(df.format(t)).getDay() == 4){
+				}else if(df.parse(d).getDay() == 4){
 					day5 = "星期四";
-				}else if(df.parse(df.format(t)).getDay() == 5){
+				}else if(df.parse(d).getDay() == 5){
 					day5 = "星期五";
 				}else{
 					day5 = "星期六";
@@ -1052,7 +1137,7 @@ public class OzqAction{
 	}
 
 	//查Sixday排班
-	public void CheckOnDutySixday(String doctorname,String clinic_dept,String doctor_no){
+	public void CheckOnDutySixday(String doctorname,String clinic_dept,String doctor_no) throws ParseException{
 		System.out.println("action1...");
 
 		sixday = ozqBo.CheckOnDutySixday(clinic_dept, doctor_no);
@@ -1147,22 +1232,43 @@ public class OzqAction{
 			calendar.add(calendar.DATE,5);//把日期往后增加.整数往后推,负数往前移动
 			Sixday=calendar.getTime(); //这个时间就是日期往后推的结果 
 			String d = df.format(Sixday);
-			thedate = ozqBo.CheckDate(d);
-			Timestamp t = thedate.get(0);
-			ob.setCounselDate(t);
-			date6 = df.format(t);
+//			thedate = ozqBo.CheckDate(d);
+//			Timestamp t = thedate.get(0);
+//			ob.setCounselDate(t);
+//			date6 = df.format(t);
+//			try {
+//				if(df.parse(df.format(t)).getDay() == 0){
+//					day6 = "星期天";
+//				}else if(df.parse(df.format(t)).getDay() == 1){
+//					day6 = "星期一";
+//				}else if(df.parse(df.format(t)).getDay() == 2){
+//					day6 = "星期二";
+//				}else if(df.parse(df.format(t)).getDay() == 3){
+//					day6 = "星期三";
+//				}else if(df.parse(df.format(t)).getDay() == 4){
+//					day6 = "星期四";
+//				}else if(df.parse(df.format(t)).getDay() == 5){
+//					day6 = "星期五";
+//				}else{
+//					day6 = "星期六";
+//				}
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			date6 = d;
 			try {
-				if(df.parse(df.format(t)).getDay() == 0){
+				if(df.parse(d).getDay() == 0){
 					day6 = "星期天";
-				}else if(df.parse(df.format(t)).getDay() == 1){
+				}else if(df.parse(d).getDay() == 1){
 					day6 = "星期一";
-				}else if(df.parse(df.format(t)).getDay() == 2){
+				}else if(df.parse(d).getDay() == 2){
 					day6 = "星期二";
-				}else if(df.parse(df.format(t)).getDay() == 3){
+				}else if(df.parse(d).getDay() == 3){
 					day6 = "星期三";
-				}else if(df.parse(df.format(t)).getDay() == 4){
+				}else if(df.parse(d).getDay() == 4){
 					day6 = "星期四";
-				}else if(df.parse(df.format(t)).getDay() == 5){
+				}else if(df.parse(d).getDay() == 5){
 					day6 = "星期五";
 				}else{
 					day6 = "星期六";
@@ -1182,7 +1288,7 @@ public class OzqAction{
 	}
 
 	//查Sevenday排班
-	public void CheckOnDutySevenday(String doctorname,String clinic_dept,String doctor_no){
+	public void CheckOnDutySevenday(String doctorname,String clinic_dept,String doctor_no) throws ParseException{
 		System.out.println("action1...");
 
 		sevenday = ozqBo.CheckOnDutySevenday(clinic_dept, doctor_no);
@@ -1277,22 +1383,43 @@ public class OzqAction{
 			calendar.add(calendar.DATE,6);//把日期往后增加.整数往后推,负数往前移动
 			Sevenday=calendar.getTime(); //这个时间就是日期往后推的结果 
 			String d = df.format(Sevenday);
-			thedate = ozqBo.CheckDate(d);
-			Timestamp t = thedate.get(0);
-			ob.setCounselDate(t);
-			date7 = df.format(t);
+//			thedate = ozqBo.CheckDate(d);
+//			Timestamp t = thedate.get(0);
+//			ob.setCounselDate(t);
+//			date7 = df.format(t);
+//			try {
+//				if(df.parse(df.format(t)).getDay() == 0){
+//					day7 = "星期天";
+//				}else if(df.parse(df.format(t)).getDay() == 1){
+//					day7 = "星期一";
+//				}else if(df.parse(df.format(t)).getDay() == 2){
+//					day7 = "星期二";
+//				}else if(df.parse(df.format(t)).getDay() == 3){
+//					day7 = "星期三";
+//				}else if(df.parse(df.format(t)).getDay() == 4){
+//					day7 = "星期四";
+//				}else if(df.parse(df.format(t)).getDay() == 5){
+//					day7 = "星期五";
+//				}else{
+//					day7 = "星期六";
+//				}
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			date7 = d;
 			try {
-				if(df.parse(df.format(t)).getDay() == 0){
+				if(df.parse(d).getDay() == 0){
 					day7 = "星期天";
-				}else if(df.parse(df.format(t)).getDay() == 1){
+				}else if(df.parse(d).getDay() == 1){
 					day7 = "星期一";
-				}else if(df.parse(df.format(t)).getDay() == 2){
+				}else if(df.parse(d).getDay() == 2){
 					day7 = "星期二";
-				}else if(df.parse(df.format(t)).getDay() == 3){
+				}else if(df.parse(d).getDay() == 3){
 					day7 = "星期三";
-				}else if(df.parse(df.format(t)).getDay() == 4){
+				}else if(df.parse(d).getDay() == 4){
 					day7 = "星期四";
-				}else if(df.parse(df.format(t)).getDay() == 5){
+				}else if(df.parse(d).getDay() == 5){
 					day7 = "星期五";
 				}else{
 					day7 = "星期六";
@@ -1312,7 +1439,7 @@ public class OzqAction{
 	}
 
 	//查Eightday排班
-		public void CheckOnDutyEightday(String doctorname,String clinic_dept,String doctor_no){
+		public void CheckOnDutyEightday(String doctorname,String clinic_dept,String doctor_no) throws ParseException{
 			System.out.println("action1...");
 
 			eightday = ozqBo.CheckOnDutyEightday(clinic_dept, doctor_no);
@@ -1407,22 +1534,43 @@ public class OzqAction{
 				calendar.add(calendar.DATE,7);//把日期往后增加.整数往后推,负数往前移动
 				eightday=calendar.getTime(); //这个时间就是日期往后推的结果
 				String d = df.format(eightday);
-				thedate = ozqBo.CheckDate(d);
-				Timestamp t = thedate.get(0);
-				ob.setCounselDate(t);
-				date8 = df.format(t);
+//				thedate = ozqBo.CheckDate(d);
+//				Timestamp t = thedate.get(0);
+//				ob.setCounselDate(t);
+//				date8 = df.format(t);
+//				try {
+//					if(df.parse(df.format(t)).getDay() == 0){
+//						day8 = "星期天";
+//					}else if(df.parse(df.format(t)).getDay() == 1){
+//						day8 = "星期一";
+//					}else if(df.parse(df.format(t)).getDay() == 2){
+//						day8 = "星期二";
+//					}else if(df.parse(df.format(t)).getDay() == 3){
+//						day8 = "星期三";
+//					}else if(df.parse(df.format(t)).getDay() == 4){
+//						day8 = "星期四";
+//					}else if(df.parse(df.format(t)).getDay() == 5){
+//						day8 = "星期五";
+//					}else{
+//						day8 = "星期六";
+//					}
+//				} catch (ParseException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+				date8 = d;
 				try {
-					if(df.parse(df.format(t)).getDay() == 0){
+					if(df.parse(d).getDay() == 0){
 						day8 = "星期天";
-					}else if(df.parse(df.format(t)).getDay() == 1){
+					}else if(df.parse(d).getDay() == 1){
 						day8 = "星期一";
-					}else if(df.parse(df.format(t)).getDay() == 2){
+					}else if(df.parse(d).getDay() == 2){
 						day8 = "星期二";
-					}else if(df.parse(df.format(t)).getDay() == 3){
+					}else if(df.parse(d).getDay() == 3){
 						day8 = "星期三";
-					}else if(df.parse(df.format(t)).getDay() == 4){
+					}else if(df.parse(d).getDay() == 4){
 						day8 = "星期四";
-					}else if(df.parse(df.format(t)).getDay() == 5){
+					}else if(df.parse(d).getDay() == 5){
 						day8 = "星期五";
 					}else{
 						day8 = "星期六";
@@ -1431,6 +1579,7 @@ public class OzqAction{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				
 
 				request.put("eightday", ob);
 				System.out.println("2");

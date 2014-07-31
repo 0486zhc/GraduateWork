@@ -1,6 +1,7 @@
 package bo;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.util.List;
 
 import dao.OzqDao;
@@ -102,12 +103,12 @@ private OzqDao OzqDao;
 			    return OzqDao.CheckClinicDeptDoctorNo(doctor_name);
 			}
 		
-	//查时间
-		public List<Timestamp> CheckDate(String date){
-			System.out.println("bo...");
-			List<Timestamp> da = OzqDao.CheckDate(date);
-			System.out.println("bo CheckDate end2...");
-			return da;
-		}
+//	//查时间
+//		public List<Timestamp> CheckDate(String date) throws ParseException{
+//			System.out.println("bo...");
+//			List<Timestamp> da = OzqDao.CheckDate(date);
+//			System.out.println("bo CheckDate end2...");
+//			return da;
+//		}
 
 }

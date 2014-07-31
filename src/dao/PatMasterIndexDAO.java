@@ -54,6 +54,10 @@ public class PatMasterIndexDAO
       query.setString(0, user_id);
       query.setString(1, pwd);
       pmi = query.list();
+      if(pmi.size() == 0 || pmi.get(0) == null)
+      {
+         return null;
+      }
       return pmi.get(0);
    }
 
@@ -95,7 +99,12 @@ public class PatMasterIndexDAO
    private String getMaxId(Session session)
    {
       query = session.createSQLQuery(strForMaxId);
+      String str = "";
       List max = query.list();
+      if(max.size() == 0 || max.get(0) == null)
+      {
+         return getLeft((long)1);
+      }
       Long maxNum = Long.valueOf(max.get(0).toString()) + 1;
       return getLeft(maxNum);
    }
@@ -118,7 +127,7 @@ public class PatMasterIndexDAO
       query = session.createQuery(strByUserId);
       query.setString(0, user);
       pmi = query.list();
-      if(pmi.isEmpty())
+      if(pmi.isEmpty() || pmi.get(0) == null)
       {
          return null;
       }
@@ -145,8 +154,14 @@ public class PatMasterIndexDAO
       query = session.createQuery(strByUserId);
       query.setString(0, user_id);
       pmi = (PatMasterIndex) query.list().get(0);
-      pmi.setFlag(pmi.getFlag()+1);
-      
+      if(pmi.getFlag() == null)
+      {
+         pmi.setFlag(1);
+      }
+      else
+      {
+         pmi.setFlag(pmi.getFlag()+1);
+      }
        Transaction ta = session.beginTransaction();
        session.update(pmi); 
        ta.commit();

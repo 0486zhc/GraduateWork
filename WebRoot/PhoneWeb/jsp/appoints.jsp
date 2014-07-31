@@ -64,7 +64,7 @@
 					</ul>
 		</s:iterator>
 		
-		<s:debug/>
+		
 		</ul>
 	</div>
 

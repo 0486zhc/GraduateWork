@@ -39,12 +39,17 @@
 	</div>
 
 	<div class="container hotellistbg">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		
+<!-- 		<li></li> -->
+<!-- 		<li></li> -->
+<!-- 		<li></li> -->
+<!-- 		<li></li> -->
+<!-- 		<li></li> -->
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+	<div class="container width80 pt20">	
 	<div class="control-group">
 		<button onclick="location='<%=basePath%>PhoneWeb/index.jsp' "
 			id="ctl00_ContentPlaceHolder1_btnOK"
@@ -52,7 +57,7 @@
 			<s:property value="mess" />
 		</button>
 	</div>
-	
+	</div>
 	</div>
 
 	<div class="footer">
@@ -68,6 +73,6 @@
 			<p style="color:#bbb;">&copy; 版权所有 2012-2014</p>
 		</div>
 	</div>
-<s:debug></s:debug>
+
 </body>
 </html>

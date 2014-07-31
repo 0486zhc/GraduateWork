@@ -1,11 +1,6 @@
 package bo.impl;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import com.opensymphony.xwork2.ActionContext;
-
-import oracle.jdbc.Const;
 
 import model.Ozq.ClinicAppoints;
 import model.Ozq.DeptDict;
@@ -14,6 +9,9 @@ import model.Ozq.StaffDict;
 import model.lhb.PatMasterIndex;
 import model.zjc.MessageBox;
 import bo.IBo_zjc;
+
+import com.opensymphony.xwork2.ActionContext;
+
 import dao.IDao_zjc;
 
 public class ImplBo_zjc implements IBo_zjc{
@@ -131,7 +129,6 @@ public class ImplBo_zjc implements IBo_zjc{
 
 	@Override
 	public String addAppoints(ClinicAppoints appoints, String user_id) {
-//		&& dao.updateOutDoctor(appoints)
 		 if(dao.addAppoints(appoints,user_id) && dao.updateOutDoctor(appoints) ){
 			 return "预约成功！";
 		 }else{

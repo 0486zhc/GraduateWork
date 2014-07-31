@@ -78,6 +78,6 @@
 			<p style="color:#bbb;"> &copy; 版权所有 2012-2014</p>
 		</div>
 	</div>
-<s:debug></s:debug>
+
 </body>
 </html>

@@ -1,32 +1,20 @@
 package action.zjc;
 
-import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.struts2.ServletActionContext;
-
-import util.MyUtil;
-
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
 
 import model.Ozq.ClinicAppoints;
 import model.Ozq.DeptDict;
 import model.Ozq.OutpDoctorRegist;
 import model.Ozq.StaffDict;
 import model.lhb.PatMasterIndex;
+import util.MyUtil;
 import bo.IBo_zjc;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 
 public class AppointmentAction extends ActionSupport{
 	private IBo_zjc bo ;
@@ -64,8 +52,6 @@ public class AppointmentAction extends ActionSupport{
 		System.out.println("findDoctors");
 		doctorsInfo = bo.getDoctorsInfo(deptCode);
 		dept = bo.getDept(deptCode);
-////		ActionContext.getContext().getSession().put("dept",dept);  // 放session
-//		dept = bo.getDept(deptCode);
 		return "doctors";
 	}
 	
@@ -80,7 +66,6 @@ public class AppointmentAction extends ActionSupport{
 		System.out.println(mess);
 		mess3 = MyUtil.formatContent(mess3);  // 号别
 		System.out.println(mess3);
-//		times = bo.getAppointTimes(mess2, date, mess);
 		
 		// 将医生编号，日期,上午 放入 session
 		ActionContext.getContext().getSession().put("dNo", mess2);
@@ -88,7 +73,6 @@ public class AppointmentAction extends ActionSupport{
 		ActionContext.getContext().getSession().put("dDuring", mess);
 		
 		
-//		OutpDoctorRegistTime = bo.CheckRegistTime(doctorno, counseldate, clinicduration, queuename);
 		OutpDoctorRegistTime = bo.CheckRegistTime(mess2, date, mess, mess3);
 		if(OutpDoctorRegistTime.size() != 0){
 			String[] registtime = new String[OutpDoctorRegistTime.size()];
@@ -96,13 +80,10 @@ public class AppointmentAction extends ActionSupport{
 				Object[] obj = OutpDoctorRegistTime.get(i);
 				registtime[i] = (String) obj[1];
 				System.out.println(registtime[i]);
-//				System.out.println(registtime.length);
 			}
-//			request.put("registtime", registtime);
 			ActionContext.getContext().getSession().put("preTimes",registtime);  // 放session
 			System.out.println("1");
 		}else{
-//		request.put("registtime", null);
 			ActionContext.getContext().getSession().put("preTimes",null);  // 放session
 			System.out.println("2");
 		}
@@ -129,14 +110,18 @@ public class AppointmentAction extends ActionSupport{
 		mess = MyUtil.formatContent(mess);		// 时间点	
 		mess4 = MyUtil.formatContent(mess4);// queuename 号别
 					
-		System.out.println("医生编号："+mess2 +",日期:"+date+",间断:"+mess3+",时间点："+mess+",号别："+mess4);		
-		System.out.println(Date.valueOf(date));
+//		System.out.println("医生编号："+mess2 +",日期:"+date+",间断:"+mess3+",时间点："+mess+",号别："+mess4);		
+//		System.out.println(Date.valueOf(date));
 		
-//		appoint.setPatientId(pat.getPatientId());id
 		ClinicAppoints appoints = new ClinicAppoints();
+		System.out.println(pat.getDateOfBirth());
+		System.out.println("age="+getAge(pat.getDateOfBirth()));
+		appoints.setAge(getAge(pat.getDateOfBirth()));
+		
+		appoints.setSex(pat.getSex());
 		appoints.setPatientId(pat.getPatientId());
 		appoints.setName(pat.getName());
-	    appoints.setAge(MyUtil.getAge(pat.getDateOfBirth())); // 缺
+	    appoints.setAge(MyUtil.getAge(pat.getDateOfBirth())); 
 	    appoints.setRegistFlag("0");
 	    appoints.setRegistStatus("0");
 	    appoints.setModeCode("8");
@@ -147,7 +132,7 @@ public class AppointmentAction extends ActionSupport{
 	    appoints.setVisitTimeAppted(mess3);
 	    appoints.setRegTimePoint(date + " " + mess);
 	    appoints.setPreRegistDoctor(mess2);
-	    System.out.println(appoints);
+//	    System.out.println(appoints);
 	    
 	    mess = bo.addAppoints(appoints,pat.getIdNo());
 	    
@@ -188,181 +173,15 @@ public class AppointmentAction extends ActionSupport{
 		return "appointsInfo";
 	}
 	
-	
-/*    =====================小乔===========================   */
-//	private Map<String, Object> request;
-//	HttpServletRequest req;
-//	
-//	//查排班
-//		public String CheckOnDuty() throws UnsupportedEncodingException{
-//			System.out.println("action1...");
-//			
-//			String doctorname = req.getParameter("doctor_name");
-//			System.out.println(doctorname);
-//			doctorname=new String(doctorname.getBytes("ISO-8859-1"), "UTF-8");
-//			System.out.println(doctorname);
-//			request.put("doctorname", doctorname);
-//			String deptname = req.getParameter("dept_name");
-//			System.out.println(deptname);
-//			deptname=new String(deptname.getBytes("ISO-8859-1"), "UTF-8");
-//			System.out.println(deptname);
-//			request.put("deptname", deptname);
-//			
-//			//根据医生名字名字找到科室编号和医生编号
-//			Object[] doctor = ozqBo.CheckClinicDeptDoctorNo(doctorname).get(0);
-//			String clinic_dept = (String) doctor[0];
-//			String doctor_no = (String) doctor[1];
-//	//// leovany
-////			doctor_no = "3506";
-//			//查7天的排班
-//			CheckOnDutyToday(clinic_dept,doctor_no);
-//			CheckOnDutyTwoday(clinic_dept,doctor_no);
-//			CheckOnDutyThreeday(clinic_dept,doctor_no);
-//			CheckOnDutyFourday(clinic_dept,doctor_no);
-//			CheckOnDutyFiveday(clinic_dept,doctor_no);
-//			CheckOnDutySixday(clinic_dept,doctor_no);
-//			CheckOnDutySevenday(clinic_dept,doctor_no);
-//			
-//			return "success";
-//		}
-//	
-//	
-//		//查Twoday排班
-//		public void CheckOnDutyTwoday(String clinic_dept,String doctor_no){
-//			System.out.println("action1...");
-//// 增加个传参日期
-//			twoday = ozqBo.CheckOnDutyTwoday(clinic_dept, doctor_no);  
-//			OutpDoctorRegist ob = new OutpDoctorRegist();
-//			//判断当天是否有排班
-//			if(twoday.size() != 0){
-//				//得到当天时间和星期几
-//				Object[] obj1 = twoday.get(0);
-//				ob.setDoctor(obj1[3]);
-//				ob.setCounselDate(obj1[4]);
-//				date2 = df.format(obj1[4]);
-//				try {
-//					if(df.parse(df.format(obj1[4])).getDay() == 0){
-//						day2 = "星期天";
-//					}else if(df.parse(df.format(obj1[4])).getDay() == 1){
-//						day2 = "星期一";
-//					}else if(df.parse(df.format(obj1[4])).getDay() == 2){
-//						day2 = "星期二";
-//					}else if(df.parse(df.format(obj1[4])).getDay() == 3){
-//						day2 = "星期三";
-//					}else if(df.parse(df.format(obj1[4])).getDay() == 4){
-//						day2 = "星期四";
-//					}else if(df.parse(df.format(obj1[4])).getDay() == 5){
-//						day2 = "星期五";
-//					}else{
-//						day2 = "星期六";
-//					}
-//				} catch (ParseException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				request.put("twoday", ob);
-//				
-//				//当天排了多少班
-//				for(int i = 0; i<twoday.size(); i++){
-//					Object[] obj = twoday.get(i);
-//					//排了什么时候的班
-//					if("上午".equals(obj[5])){
-//						OutpDoctorRegist ob1 = new OutpDoctorRegist();
-//						System.out.println(ob1.toString());
-//						ob1.setCounselDate(obj[4]);
-//						ob1.setClinicDuration(obj[5]);
-//						ob1.setQueueName(obj[6]);
-//						ob1.setLimitNumApp(obj[14]);
-//						ob1.setRegistApped(obj[16]);
-//					
-//						request.put("twodaymoring", ob1);
-//					}else if("急诊中午".equals(obj[5])){
-//						OutpDoctorRegist ob1 = new OutpDoctorRegist();
-//						System.out.println(ob1.toString());
-//						ob1.setCounselDate(obj[4]);
-//						ob1.setClinicDuration(obj[5]);
-//						ob1.setQueueName(obj[6]);
-//						ob1.setLimitNumApp(obj[14]);
-//						ob1.setRegistApped(obj[16]);
-//					
-//						request.put("twodaynoon", ob1);
-//					}else if("下午".equals(obj[5])){
-//						OutpDoctorRegist ob1 = new OutpDoctorRegist();
-//						System.out.println(ob1.toString());
-//						ob1.setCounselDate(obj[4]);
-//						ob1.setClinicDuration(obj[5]);
-//						ob1.setQueueName(obj[6]);
-//						ob1.setLimitNumApp(obj[14]);
-//						ob1.setRegistApped(obj[16]);
-//					
-//						request.put("twodayafternoon", ob1);
-//					}else{
-//						OutpDoctorRegist ob1 = new OutpDoctorRegist();
-//						System.out.println(ob1.toString());
-//						ob1.setCounselDate(obj[4]);
-//						ob1.setClinicDuration(obj[5]);
-//						ob1.setQueueName(obj[6]);
-//						ob1.setLimitNumApp(obj[14]);
-//						ob1.setRegistApped(obj[16]);
-//					
-//						request.put("twodaynight", ob1);
-//					}
-//				}
-//			
-//				System.out.println("1");
-//			}else{
-//				
-//				ob.setDoctor("钟灵");
-//				
-//				//日期
-//				Date Twoday = new Date();
-//				Calendar calendar = new GregorianCalendar();
-//				calendar.setTime(Twoday);
-//				calendar.add(calendar.DATE,1);//把日期往后增加.整数往后推,负数往前移动
-//				Twoday=calendar.getTime(); //这个时间就是日期往后推的结果 
-//				String d = df.format(Twoday);
-//				thedate = ozqBo.CheckDate(d);
-//				Timestamp t = thedate.get(0);
-//				ob.setCounselDate(t);
-//				date2 = df.format(t);
-//				try {
-//					if(df.parse(df.format(t)).getDay() == 0){
-//						day2 = "星期天";
-//					}else if(df.parse(df.format(t)).getDay() == 1){
-//						day2 = "星期一";
-//					}else if(df.parse(df.format(t)).getDay() == 2){
-//						day2 = "星期二";
-//					}else if(df.parse(df.format(t)).getDay() == 3){
-//						day2 = "星期三";
-//					}else if(df.parse(df.format(t)).getDay() == 4){
-//						day2 = "星期四";
-//					}else if(df.parse(df.format(t)).getDay() == 5){
-//						day2 = "星期五";
-//					}else{
-//						day2 = "星期六";
-//					}
-//				} catch (ParseException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				
-//				request.put("twoday", ob);
-//				System.out.println("2");
-//			}
-//			System.out.println(ob);
-//			
-//			System.out.println("twoday action end...");
-//			
-//		}
-//	
-//	
-	
-	
-	
-	
-	
-	
-	
+	 private Long getAge(Timestamp dateOfBirth)
+	   {
+	      Calendar cal = Calendar.getInstance();
+	      int year = cal.get(Calendar.YEAR);
+	      Long age = (long) (year- (dateOfBirth.getYear()+1900));
+	       
+	      return age;
+	   }
+	 
 /*  ==================== get/set 方法=======================================	*/
 	
 	

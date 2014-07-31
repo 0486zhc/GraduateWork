@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -491,18 +492,23 @@ public class OzqDao{
 				    return odr;
 				}
 		
-		//查时间
-		public List<Timestamp> CheckDate(String date){
-			System.out.println("dao...");
-			
-			Session session = HibernateUtil.getSession();
-			Query query = session.createSQLQuery(
-						"select COUNSEL_DATE from outp_doctor_regist where to_date(COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd')"
-						).setParameter(0, date);
-			System.out.println("dao end1...");
-			List<Timestamp> da = query.list();
-			System.out.println(da.get(0));
-			System.out.println("dao CheckDate end2...");
-			return da;
-		}
+//		//查时间
+//		public List<Timestamp> CheckDate(String date) throws ParseException{
+//			System.out.println("dao...");
+//			
+//			Session session = HibernateUtil.getSession();
+//			Query query = session.createSQLQuery(
+//						"select COUNSEL_DATE from outp_doctor_regist where to_date(COUNSEL_DATE) = to_date( ?,'yyyy-mm-dd')"
+//						).setParameter(0, date);
+//			System.out.println("dao end1...");
+//			List<Timestamp> da = query.list();
+//			if(da != null){
+//			System.out.println("dao CheckDate end2...");
+//			return da;
+//			}else{
+//				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//				da.add(0, (Timestamp) sdf.parse(date));
+//				return (List<Timestamp>) da.get(0);
+//			}
+//		}
 }

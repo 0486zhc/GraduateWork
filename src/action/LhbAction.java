@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Map;
 
@@ -51,7 +50,7 @@ public class LhbAction extends ActionSupport
    private String doc_no;
    
    
-   
+ //================================================================getter setter begin  
    public String getVisit_date()
    {
       return visit_date;
@@ -202,6 +201,8 @@ public class LhbAction extends ActionSupport
       this.pwd = pwd;
    }
 
+   //========================================getter setter end
+ 
    @SuppressWarnings("unchecked")
    public LhbAction()
    {
@@ -215,6 +216,10 @@ public class LhbAction extends ActionSupport
    public String loginQuery()
    {
       pwd = MD5.afterMd5(pwd);
+      if(session.get("random") == null)
+      {
+         return ERROR;
+      }
       String arandom = (String) session.get("random");
       try
       {
@@ -245,7 +250,8 @@ public class LhbAction extends ActionSupport
          pmi.setName(user_name);
          pmi.setPhoneNumberBusiness(phoneNum);
          pmi.setSex(sex);
-         String state = lhbBo.regist(pmi,(year + "-" + month + "-" + day));
+         String dateOfBirth = year + "-" + month + "-" + day;
+         String state = lhbBo.regist(pmi,dateOfBirth);
          if(SUCCESS.equals(state))
          {
             session.put("user", pmi);
@@ -275,8 +281,13 @@ public class LhbAction extends ActionSupport
       try{
     	  String timepoint =  ServletActionContext.getRequest().getParameter("timepoint");
           PatMasterIndex pi = (PatMasterIndex) session.get("user");
-          System.out.println(session.get("doctorno"));
+          
           // appoints
+          System.out.println(pi.getFlag() <= 3 || pi.getFlag() == null);
+          if(!(pi.getFlag() <= 3 || pi.getFlag() == null))
+          {
+             return ERROR;
+          }
           appoints = new ClinicAppoints();
           appoints.setPatientId(pi.getPatientId());
           appoints.setName(pi.getName());
@@ -286,14 +297,11 @@ public class LhbAction extends ActionSupport
           appoints.setRegistStatus("0");
           appoints.setModeCode("7");
           appoints.setPreRegistDoctor((String)session.get("doctorno"));
-          SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
           Date today = new Date(System.currentTimeMillis());
           appoints.setApptMadeDate(today);
           
           appoints.setVisitDateAppted(Date.valueOf((String)session.get("counseldate")));
-          //appoints.setClinicLabel(clinic_Label);
           appoints.setClinicLabel((String)session.get("queuename"));
-         // System.out.println(Arrays.toString((String[]) session.get("registtime")));
           appoints.setVisitTimeAppted((String)session.get("clinicduration"));
           
           appoints.setRegTimePoint(session.get("counseldate") +" " + timepoint);
@@ -314,10 +322,14 @@ public class LhbAction extends ActionSupport
       return age;
    }
 
-   public void checkFlag() throws IOException
+   public boolean checkFlag(String userId) throws IOException
    {
-      String state = lhbBo.checkForFlag(user_id);
-      response.getWriter().write(state);
+      String state = lhbBo.checkForFlag(userId);
+      if(state == SUCCESS)
+      {
+         return true;
+      }
+      return false;
    }
    
    public String exit()
